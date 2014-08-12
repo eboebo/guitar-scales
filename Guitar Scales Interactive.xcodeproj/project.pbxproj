@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B108CABF199AD1E70047A473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CABE199AD1E70047A473 /* Foundation.framework */; };
+		B108CAC1199AD1E70047A473 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC0199AD1E70047A473 /* CoreGraphics.framework */; };
+		B108CAC3199AD1E70047A473 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC2199AD1E70047A473 /* UIKit.framework */; };
+		B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B108CAC7199AD1E70047A473 /* InfoPlist.strings */; };
+		B108CACB199AD1E70047A473 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CACA199AD1E70047A473 /* main.m */; };
+		B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CACE199AD1E70047A473 /* AppDelegate.m */; };
+		B108CAD2199AD1E70047A473 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B108CAD0199AD1E70047A473 /* Main_iPhone.storyboard */; };
+		B108CAD5199AD1E70047A473 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B108CAD3199AD1E70047A473 /* Main_iPad.storyboard */; };
+		B108CAD8199AD1E70047A473 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CAD7199AD1E70047A473 /* ViewController.m */; };
+		B108CADA199AD1E70047A473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B108CAD9199AD1E70047A473 /* Images.xcassets */; };
+		B108CAE1199AD1E80047A473 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAE0199AD1E80047A473 /* XCTest.framework */; };
+		B108CAE2199AD1E80047A473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CABE199AD1E70047A473 /* Foundation.framework */; };
+		B108CAE3199AD1E80047A473 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC2199AD1E70047A473 /* UIKit.framework */; };
+		B108CAEB199AD1E80047A473 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B108CAE9199AD1E80047A473 /* InfoPlist.strings */; };
+		B108CAED199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CAEC199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B108CAE4199AD1E80047A473 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B108CAB3199AD1E70047A473 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B108CABA199AD1E70047A473;
+			remoteInfo = "Guitar Scales Interactive";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guitar Scales Interactive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B108CABE199AD1E70047A473 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B108CAC0199AD1E70047A473 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B108CAC2199AD1E70047A473 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B108CAC6199AD1E70047A473 /* Guitar Scales Interactive-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Guitar Scales Interactive-Info.plist"; sourceTree = "<group>"; };
+		B108CAC8199AD1E70047A473 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B108CACA199AD1E70047A473 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B108CACC199AD1E70047A473 /* Guitar Scales Interactive-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Guitar Scales Interactive-Prefix.pch"; sourceTree = "<group>"; };
+		B108CACD199AD1E70047A473 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B108CACE199AD1E70047A473 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B108CAD1199AD1E70047A473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B108CAD4199AD1E70047A473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		B108CAD6199AD1E70047A473 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B108CAD7199AD1E70047A473 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B108CAD9199AD1E70047A473 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B108CADF199AD1E80047A473 /* Guitar Scales InteractiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Guitar Scales InteractiveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B108CAE0199AD1E80047A473 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B108CAE8199AD1E80047A473 /* Guitar Scales InteractiveTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Guitar Scales InteractiveTests-Info.plist"; sourceTree = "<group>"; };
+		B108CAEA199AD1E80047A473 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B108CAEC199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Guitar_Scales_InteractiveTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B108CAB8199AD1E70047A473 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAC1199AD1E70047A473 /* CoreGraphics.framework in Frameworks */,
+				B108CAC3199AD1E70047A473 /* UIKit.framework in Frameworks */,
+				B108CABF199AD1E70047A473 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B108CADC199AD1E80047A473 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAE1199AD1E80047A473 /* XCTest.framework in Frameworks */,
+				B108CAE3199AD1E80047A473 /* UIKit.framework in Frameworks */,
+				B108CAE2199AD1E80047A473 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B108CAB2199AD1E70047A473 = {
+			isa = PBXGroup;
+			children = (
+				B108CAC4199AD1E70047A473 /* Guitar Scales Interactive */,
+				B108CAE6199AD1E80047A473 /* Guitar Scales InteractiveTests */,
+				B108CABD199AD1E70047A473 /* Frameworks */,
+				B108CABC199AD1E70047A473 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B108CABC199AD1E70047A473 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */,
+				B108CADF199AD1E80047A473 /* Guitar Scales InteractiveTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B108CABD199AD1E70047A473 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B108CABE199AD1E70047A473 /* Foundation.framework */,
+				B108CAC0199AD1E70047A473 /* CoreGraphics.framework */,
+				B108CAC2199AD1E70047A473 /* UIKit.framework */,
+				B108CAE0199AD1E80047A473 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B108CAC4199AD1E70047A473 /* Guitar Scales Interactive */ = {
+			isa = PBXGroup;
+			children = (
+				B108CACD199AD1E70047A473 /* AppDelegate.h */,
+				B108CACE199AD1E70047A473 /* AppDelegate.m */,
+				B108CAD0199AD1E70047A473 /* Main_iPhone.storyboard */,
+				B108CAD3199AD1E70047A473 /* Main_iPad.storyboard */,
+				B108CAD6199AD1E70047A473 /* ViewController.h */,
+				B108CAD7199AD1E70047A473 /* ViewController.m */,
+				B108CAD9199AD1E70047A473 /* Images.xcassets */,
+				B108CAC5199AD1E70047A473 /* Supporting Files */,
+			);
+			path = "Guitar Scales Interactive";
+			sourceTree = "<group>";
+		};
+		B108CAC5199AD1E70047A473 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B108CAC6199AD1E70047A473 /* Guitar Scales Interactive-Info.plist */,
+				B108CAC7199AD1E70047A473 /* InfoPlist.strings */,
+				B108CACA199AD1E70047A473 /* main.m */,
+				B108CACC199AD1E70047A473 /* Guitar Scales Interactive-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B108CAE6199AD1E80047A473 /* Guitar Scales InteractiveTests */ = {
+			isa = PBXGroup;
+			children = (
+				B108CAEC199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m */,
+				B108CAE7199AD1E80047A473 /* Supporting Files */,
+			);
+			path = "Guitar Scales InteractiveTests";
+			sourceTree = "<group>";
+		};
+		B108CAE7199AD1E80047A473 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B108CAE8199AD1E80047A473 /* Guitar Scales InteractiveTests-Info.plist */,
+				B108CAE9199AD1E80047A473 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B108CABA199AD1E70047A473 /* Guitar Scales Interactive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B108CAF0199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales Interactive" */;
+			buildPhases = (
+				B108CAB7199AD1E70047A473 /* Sources */,
+				B108CAB8199AD1E70047A473 /* Frameworks */,
+				B108CAB9199AD1E70047A473 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Guitar Scales Interactive";
+			productName = "Guitar Scales Interactive";
+			productReference = B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B108CADE199AD1E80047A473 /* Guitar Scales InteractiveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B108CAF3199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales InteractiveTests" */;
+			buildPhases = (
+				B108CADB199AD1E80047A473 /* Sources */,
+				B108CADC199AD1E80047A473 /* Frameworks */,
+				B108CADD199AD1E80047A473 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B108CAE5199AD1E80047A473 /* PBXTargetDependency */,
+			);
+			name = "Guitar Scales InteractiveTests";
+			productName = "Guitar Scales InteractiveTests";
+			productReference = B108CADF199AD1E80047A473 /* Guitar Scales InteractiveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B108CAB3199AD1E70047A473 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					B108CADE199AD1E80047A473 = {
+						TestTargetID = B108CABA199AD1E70047A473;
+					};
+				};
+			};
+			buildConfigurationList = B108CAB6199AD1E70047A473 /* Build configuration list for PBXProject "Guitar Scales Interactive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B108CAB2199AD1E70047A473;
+			productRefGroup = B108CABC199AD1E70047A473 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B108CABA199AD1E70047A473 /* Guitar Scales Interactive */,
+				B108CADE199AD1E80047A473 /* Guitar Scales InteractiveTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B108CAB9199AD1E70047A473 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAD5199AD1E70047A473 /* Main_iPad.storyboard in Resources */,
+				B108CADA199AD1E70047A473 /* Images.xcassets in Resources */,
+				B108CAD2199AD1E70047A473 /* Main_iPhone.storyboard in Resources */,
+				B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B108CADD199AD1E80047A473 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAEB199AD1E80047A473 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B108CAB7199AD1E70047A473 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAD8199AD1E70047A473 /* ViewController.m in Sources */,
+				B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */,
+				B108CACB199AD1E70047A473 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B108CADB199AD1E80047A473 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAED199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B108CAE5199AD1E80047A473 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B108CABA199AD1E70047A473 /* Guitar Scales Interactive */;
+			targetProxy = B108CAE4199AD1E80047A473 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B108CAC7199AD1E70047A473 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B108CAC8199AD1E70047A473 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B108CAD0199AD1E70047A473 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B108CAD1199AD1E70047A473 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		B108CAD3199AD1E70047A473 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B108CAD4199AD1E70047A473 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		B108CAE9199AD1E80047A473 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B108CAEA199AD1E80047A473 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B108CAEE199AD1E80047A473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B108CAEF199AD1E80047A473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B108CAF1199AD1E80047A473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
+				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B108CAF2199AD1E80047A473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
+				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B108CAF4199AD1E80047A473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B108CAF5199AD1E80047A473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
+				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B108CAB6199AD1E70047A473 /* Build configuration list for PBXProject "Guitar Scales Interactive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B108CAEE199AD1E80047A473 /* Debug */,
+				B108CAEF199AD1E80047A473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B108CAF0199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales Interactive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B108CAF1199AD1E80047A473 /* Debug */,
+				B108CAF2199AD1E80047A473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B108CAF3199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales InteractiveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B108CAF4199AD1E80047A473 /* Debug */,
+				B108CAF5199AD1E80047A473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B108CAB3199AD1E70047A473 /* Project object */;
+}
