@@ -7,12 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "ScalesViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Intialize favorDrawerRootViewController
+    ScalesViewController *scalesViewController = [[ScalesViewController alloc] initWithNibName:@"ScalesViewController" bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scalesViewController];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Set favorDrawerRootViewController as root view controller
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							
