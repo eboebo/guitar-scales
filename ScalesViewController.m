@@ -13,6 +13,7 @@
 @interface ScalesViewController ()
 
 @property (weak, nonatomic) IBOutlet StringView *mainStringView;
+@property (weak, nonatomic) IBOutlet UILabel *groupLabel;
 
 @end
 
@@ -75,6 +76,9 @@
     Scale *scale = scalesArray[0];
     Group *group = scale.groups[0];
     self.mainStringView.notes = group.notes;
+    
+    NSString *groupString = [NSString stringWithFormat:@"%@th String // %@", group.string, group.finger];
+    self.groupLabel.text = groupString;
     [self.mainStringView setNeedsDisplay];
     
 }

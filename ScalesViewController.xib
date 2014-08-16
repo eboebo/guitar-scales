@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScalesViewController">
             <connections>
+                <outlet property="groupLabel" destination="ze6-ya-hnZ" id="BAZ-6s-ZCN"/>
                 <outlet property="mainStringView" destination="Fcv-kj-s50" id="d6H-Qt-yaJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

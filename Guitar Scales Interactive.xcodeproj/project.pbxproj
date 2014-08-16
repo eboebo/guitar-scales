@@ -1,1352 +1,577 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>494BA7F9D1874C41B2F0B0BE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Guitar Scales Interactive.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods-Guitar Scales Interactive.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6A2C7D1ADC36448B92530BA5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9E5A017661574384B0EC06AC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8483123BBB3C480D8F58F894</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-Guitar Scales Interactive-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>9E5A017661574384B0EC06AC</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-Guitar Scales Interactive.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B108CAB2199AD1E70047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CAC4199AD1E70047A473</string>
-				<string>B108CAE6199AD1E80047A473</string>
-				<string>B108CABD199AD1E70047A473</string>
-				<string>B108CABC199AD1E70047A473</string>
-				<string>494BA7F9D1874C41B2F0B0BE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAB3199AD1E70047A473</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>B108CADE199AD1E80047A473</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>B108CABA199AD1E70047A473</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>B108CAB6199AD1E70047A473</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>B108CAB2199AD1E70047A473</string>
-			<key>productRefGroup</key>
-			<string>B108CABC199AD1E70047A473</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>B108CABA199AD1E70047A473</string>
-				<string>B108CADE199AD1E80047A473</string>
-			</array>
-		</dict>
-		<key>B108CAB6199AD1E70047A473</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B108CAEE199AD1E80047A473</string>
-				<string>B108CAEF199AD1E80047A473</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B108CAB7199AD1E70047A473</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B108CB0E199B01F30047A473</string>
-				<string>B108CB00199AD77A0047A473</string>
-				<string>B108CB11199B028E0047A473</string>
-				<string>B108CB18199B04710047A473</string>
-				<string>B108CAD8199AD1E70047A473</string>
-				<string>B108CACF199AD1E70047A473</string>
-				<string>B108CB08199ADB570047A473</string>
-				<string>B108CACB199AD1E70047A473</string>
-				<string>B108CB14199B02990047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B108CAB8199AD1E70047A473</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B108CAC1199AD1E70047A473</string>
-				<string>B108CAC3199AD1E70047A473</string>
-				<string>B108CABF199AD1E70047A473</string>
-				<string>6A2C7D1ADC36448B92530BA5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B108CAB9199AD1E70047A473</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B108CADA199AD1E70047A473</string>
-				<string>B108CAC9199AD1E70047A473</string>
-				<string>B108CB0A199B01BE0047A473</string>
-				<string>B108CB01199AD77A0047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B108CABA199AD1E70047A473</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>B108CAF0199AD1E80047A473</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D52D892F2FA242958F045F1B</string>
-				<string>B108CAB7199AD1E70047A473</string>
-				<string>B108CAB8199AD1E70047A473</string>
-				<string>B108CAB9199AD1E70047A473</string>
-				<string>8483123BBB3C480D8F58F894</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Guitar Scales Interactive</string>
-			<key>productName</key>
-			<string>Guitar Scales Interactive</string>
-			<key>productReference</key>
-			<string>B108CABB199AD1E70047A473</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>B108CABB199AD1E70047A473</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Guitar Scales Interactive.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B108CABC199AD1E70047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CABB199AD1E70047A473</string>
-				<string>B108CADF199AD1E80047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CABD199AD1E70047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CABE199AD1E70047A473</string>
-				<string>B108CAC0199AD1E70047A473</string>
-				<string>B108CAC2199AD1E70047A473</string>
-				<string>B108CAE0199AD1E80047A473</string>
-				<string>9E5A017661574384B0EC06AC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CABE199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>B108CABF199AD1E70047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CABE199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAC0199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>B108CAC1199AD1E70047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAC0199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAC2199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>B108CAC3199AD1E70047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAC2199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAC4199AD1E70047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CB0B199B01D20047A473</string>
-				<string>B108CB05199ADAF00047A473</string>
-				<string>B108CB04199ADAE90047A473</string>
-				<string>B108CACD199AD1E70047A473</string>
-				<string>B108CACE199AD1E70047A473</string>
-				<string>B108CAD6199AD1E70047A473</string>
-				<string>B108CAD7199AD1E70047A473</string>
-				<string>B108CAD9199AD1E70047A473</string>
-				<string>B108CAC5199AD1E70047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Guitar Scales Interactive</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAC5199AD1E70047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CB09199B01BE0047A473</string>
-				<string>B108CAC6199AD1E70047A473</string>
-				<string>B108CAC7199AD1E70047A473</string>
-				<string>B108CACA199AD1E70047A473</string>
-				<string>B108CACC199AD1E70047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAC6199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Guitar Scales Interactive-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAC7199AD1E70047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CAC8199AD1E70047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAC8199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAC9199AD1E70047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAC7199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CACA199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CACB199AD1E70047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CACA199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CACC199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Guitar Scales Interactive-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CACD199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CACE199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CACF199AD1E70047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CACE199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAD6199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAD7199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAD8199AD1E70047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAD7199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAD9199AD1E70047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CADA199AD1E70047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAD9199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CADB199AD1E80047A473</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B108CAED199AD1E80047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B108CADC199AD1E80047A473</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B108CAE1199AD1E80047A473</string>
-				<string>B108CAE3199AD1E80047A473</string>
-				<string>B108CAE2199AD1E80047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B108CADD199AD1E80047A473</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B108CAEB199AD1E80047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B108CADE199AD1E80047A473</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>B108CAF3199AD1E80047A473</string>
-			<key>buildPhases</key>
-			<array>
-				<string>B108CADB199AD1E80047A473</string>
-				<string>B108CADC199AD1E80047A473</string>
-				<string>B108CADD199AD1E80047A473</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>B108CAE5199AD1E80047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Guitar Scales InteractiveTests</string>
-			<key>productName</key>
-			<string>Guitar Scales InteractiveTests</string>
-			<key>productReference</key>
-			<string>B108CADF199AD1E80047A473</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>B108CADF199AD1E80047A473</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Guitar Scales InteractiveTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B108CAE0199AD1E80047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>B108CAE1199AD1E80047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAE0199AD1E80047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAE2199AD1E80047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CABE199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAE3199AD1E80047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAC2199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAE4199AD1E80047A473</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>B108CAB3199AD1E70047A473</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>B108CABA199AD1E70047A473</string>
-			<key>remoteInfo</key>
-			<string>Guitar Scales Interactive</string>
-		</dict>
-		<key>B108CAE5199AD1E80047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>B108CABA199AD1E70047A473</string>
-			<key>targetProxy</key>
-			<string>B108CAE4199AD1E80047A473</string>
-		</dict>
-		<key>B108CAE6199AD1E80047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CAEC199AD1E80047A473</string>
-				<string>B108CAE7199AD1E80047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Guitar Scales InteractiveTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAE7199AD1E80047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CAE8199AD1E80047A473</string>
-				<string>B108CAE9199AD1E80047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAE8199AD1E80047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Guitar Scales InteractiveTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAE9199AD1E80047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CAEA199AD1E80047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAEA199AD1E80047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAEB199AD1E80047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAE9199AD1E80047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAEC199AD1E80047A473</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Guitar_Scales_InteractiveTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAED199AD1E80047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAEC199AD1E80047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CAEE199AD1E80047A473</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B108CAEF199AD1E80047A473</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>B108CAF0199AD1E80047A473</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B108CAF1199AD1E80047A473</string>
-				<string>B108CAF2199AD1E80047A473</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B108CAF1199AD1E80047A473</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>494BA7F9D1874C41B2F0B0BE</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Guitar Scales Interactive/Guitar Scales Interactive-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B108CAF2199AD1E80047A473</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>494BA7F9D1874C41B2F0B0BE</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Guitar Scales Interactive/Guitar Scales Interactive-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>B108CAF3199AD1E80047A473</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B108CAF4199AD1E80047A473</string>
-				<string>B108CAF5199AD1E80047A473</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B108CAF4199AD1E80047A473</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B108CAF5199AD1E80047A473</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>B108CAFD199AD77A0047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>ScalesViewController.h</string>
-			<key>path</key>
-			<string>../ScalesViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAFE199AD77A0047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>ScalesViewController.m</string>
-			<key>path</key>
-			<string>../ScalesViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CAFF199AD77A0047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>name</key>
-			<string>ScalesViewController.xib</string>
-			<key>path</key>
-			<string>../ScalesViewController.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB00199AD77A0047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAFE199AD77A0047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CB01199AD77A0047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CAFF199AD77A0047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CB04199ADAE90047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CAFD199AD77A0047A473</string>
-				<string>B108CAFE199AD77A0047A473</string>
-				<string>B108CAFF199AD77A0047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Controllers</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB05199ADAF00047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CB06199ADB570047A473</string>
-				<string>B108CB07199ADB570047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Views</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB06199ADB570047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>StringView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB07199ADB570047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>StringView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB08199ADB570047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CB07199ADB570047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CB09199B01BE0047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.json</string>
-			<key>name</key>
-			<string>scales.json</string>
-			<key>path</key>
-			<string>../../scales.json</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB0A199B01BE0047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CB09199B01BE0047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CB0B199B01D20047A473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B108CB16199B04710047A473</string>
-				<string>B108CB17199B04710047A473</string>
-				<string>B108CB0C199B01F30047A473</string>
-				<string>B108CB0D199B01F30047A473</string>
-				<string>B108CB0F199B028E0047A473</string>
-				<string>B108CB10199B028E0047A473</string>
-				<string>B108CB12199B02990047A473</string>
-				<string>B108CB13199B02990047A473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Models</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB0C199B01F30047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Scale.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB0D199B01F30047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Scale.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB0E199B01F30047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CB0D199B01F30047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CB0F199B028E0047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Group.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB10199B028E0047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Group.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB11199B028E0047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CB10199B028E0047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CB12199B02990047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Note.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB13199B02990047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Note.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB14199B02990047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CB13199B02990047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B108CB16199B04710047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Model.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB17199B04710047A473</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Model.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B108CB18199B04710047A473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B108CB17199B04710047A473</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D52D892F2FA242958F045F1B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>B108CAB3199AD1E70047A473</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */; };
+		B108CABF199AD1E70047A473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CABE199AD1E70047A473 /* Foundation.framework */; };
+		B108CAC1199AD1E70047A473 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC0199AD1E70047A473 /* CoreGraphics.framework */; };
+		B108CAC3199AD1E70047A473 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC2199AD1E70047A473 /* UIKit.framework */; };
+		B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B108CAC7199AD1E70047A473 /* InfoPlist.strings */; };
+		B108CACB199AD1E70047A473 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CACA199AD1E70047A473 /* main.m */; };
+		B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CACE199AD1E70047A473 /* AppDelegate.m */; };
+		B108CAD8199AD1E70047A473 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CAD7199AD1E70047A473 /* ViewController.m */; };
+		B108CADA199AD1E70047A473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B108CAD9199AD1E70047A473 /* Images.xcassets */; };
+		B108CAE1199AD1E80047A473 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAE0199AD1E80047A473 /* XCTest.framework */; };
+		B108CAE2199AD1E80047A473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CABE199AD1E70047A473 /* Foundation.framework */; };
+		B108CAE3199AD1E80047A473 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC2199AD1E70047A473 /* UIKit.framework */; };
+		B108CAEB199AD1E80047A473 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B108CAE9199AD1E80047A473 /* InfoPlist.strings */; };
+		B108CAED199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CAEC199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m */; };
+		B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CAFE199AD77A0047A473 /* ScalesViewController.m */; };
+		B108CB01199AD77A0047A473 /* ScalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B108CAFF199AD77A0047A473 /* ScalesViewController.xib */; };
+		B108CB08199ADB570047A473 /* StringView.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB07199ADB570047A473 /* StringView.m */; };
+		B108CB0A199B01BE0047A473 /* scales.json in Resources */ = {isa = PBXBuildFile; fileRef = B108CB09199B01BE0047A473 /* scales.json */; };
+		B108CB0E199B01F30047A473 /* Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB0D199B01F30047A473 /* Scale.m */; };
+		B108CB11199B028E0047A473 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB10199B028E0047A473 /* Group.m */; };
+		B108CB14199B02990047A473 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB13199B02990047A473 /* Note.m */; };
+		B108CB18199B04710047A473 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB17199B04710047A473 /* Model.m */; };
+		B16E944E199FDB5A001F769A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E944D199FDB5A001F769A /* CoreText.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B108CAE4199AD1E80047A473 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B108CAB3199AD1E70047A473 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B108CABA199AD1E70047A473;
+			remoteInfo = "Guitar Scales Interactive";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Scales Interactive.xcconfig"; path = "Pods/Pods-Guitar Scales Interactive.xcconfig"; sourceTree = "<group>"; };
+		9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitar Scales Interactive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guitar Scales Interactive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B108CABE199AD1E70047A473 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B108CAC0199AD1E70047A473 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B108CAC2199AD1E70047A473 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B108CAC6199AD1E70047A473 /* Guitar Scales Interactive-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Guitar Scales Interactive-Info.plist"; sourceTree = "<group>"; };
+		B108CAC8199AD1E70047A473 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B108CACA199AD1E70047A473 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B108CACC199AD1E70047A473 /* Guitar Scales Interactive-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Guitar Scales Interactive-Prefix.pch"; sourceTree = "<group>"; };
+		B108CACD199AD1E70047A473 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B108CACE199AD1E70047A473 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B108CAD6199AD1E70047A473 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B108CAD7199AD1E70047A473 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B108CAD9199AD1E70047A473 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B108CADF199AD1E80047A473 /* Guitar Scales InteractiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Guitar Scales InteractiveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B108CAE0199AD1E80047A473 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B108CAE8199AD1E80047A473 /* Guitar Scales InteractiveTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Guitar Scales InteractiveTests-Info.plist"; sourceTree = "<group>"; };
+		B108CAEA199AD1E80047A473 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B108CAEC199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Guitar_Scales_InteractiveTests.m; sourceTree = "<group>"; };
+		B108CAFD199AD77A0047A473 /* ScalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScalesViewController.h; path = ../ScalesViewController.h; sourceTree = "<group>"; };
+		B108CAFE199AD77A0047A473 /* ScalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScalesViewController.m; path = ../ScalesViewController.m; sourceTree = "<group>"; };
+		B108CAFF199AD77A0047A473 /* ScalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScalesViewController.xib; path = ../ScalesViewController.xib; sourceTree = "<group>"; };
+		B108CB06199ADB570047A473 /* StringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringView.h; sourceTree = "<group>"; };
+		B108CB07199ADB570047A473 /* StringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringView.m; sourceTree = "<group>"; };
+		B108CB09199B01BE0047A473 /* scales.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = scales.json; path = ../../scales.json; sourceTree = "<group>"; };
+		B108CB0C199B01F30047A473 /* Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scale.h; sourceTree = "<group>"; };
+		B108CB0D199B01F30047A473 /* Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scale.m; sourceTree = "<group>"; };
+		B108CB0F199B028E0047A473 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		B108CB10199B028E0047A473 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		B108CB12199B02990047A473 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		B108CB13199B02990047A473 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		B108CB16199B04710047A473 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		B108CB17199B04710047A473 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		B16E944D199FDB5A001F769A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B108CAB8199AD1E70047A473 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16E944E199FDB5A001F769A /* CoreText.framework in Frameworks */,
+				B108CAC1199AD1E70047A473 /* CoreGraphics.framework in Frameworks */,
+				B108CAC3199AD1E70047A473 /* UIKit.framework in Frameworks */,
+				B108CABF199AD1E70047A473 /* Foundation.framework in Frameworks */,
+				6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B108CADC199AD1E80047A473 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAE1199AD1E80047A473 /* XCTest.framework in Frameworks */,
+				B108CAE3199AD1E80047A473 /* UIKit.framework in Frameworks */,
+				B108CAE2199AD1E80047A473 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B108CAB2199AD1E70047A473 = {
+			isa = PBXGroup;
+			children = (
+				B108CAC4199AD1E70047A473 /* Guitar Scales Interactive */,
+				B108CAE6199AD1E80047A473 /* Guitar Scales InteractiveTests */,
+				B108CABD199AD1E70047A473 /* Frameworks */,
+				B108CABC199AD1E70047A473 /* Products */,
+				494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		B108CABC199AD1E70047A473 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */,
+				B108CADF199AD1E80047A473 /* Guitar Scales InteractiveTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B108CABD199AD1E70047A473 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B16E944D199FDB5A001F769A /* CoreText.framework */,
+				B108CABE199AD1E70047A473 /* Foundation.framework */,
+				B108CAC0199AD1E70047A473 /* CoreGraphics.framework */,
+				B108CAC2199AD1E70047A473 /* UIKit.framework */,
+				B108CAE0199AD1E80047A473 /* XCTest.framework */,
+				9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B108CAC4199AD1E70047A473 /* Guitar Scales Interactive */ = {
+			isa = PBXGroup;
+			children = (
+				B108CB0B199B01D20047A473 /* Models */,
+				B108CB05199ADAF00047A473 /* Views */,
+				B108CB04199ADAE90047A473 /* Controllers */,
+				B108CACD199AD1E70047A473 /* AppDelegate.h */,
+				B108CACE199AD1E70047A473 /* AppDelegate.m */,
+				B108CAD6199AD1E70047A473 /* ViewController.h */,
+				B108CAD7199AD1E70047A473 /* ViewController.m */,
+				B108CAD9199AD1E70047A473 /* Images.xcassets */,
+				B108CAC5199AD1E70047A473 /* Supporting Files */,
+			);
+			path = "Guitar Scales Interactive";
+			sourceTree = "<group>";
+		};
+		B108CAC5199AD1E70047A473 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B108CB09199B01BE0047A473 /* scales.json */,
+				B108CAC6199AD1E70047A473 /* Guitar Scales Interactive-Info.plist */,
+				B108CAC7199AD1E70047A473 /* InfoPlist.strings */,
+				B108CACA199AD1E70047A473 /* main.m */,
+				B108CACC199AD1E70047A473 /* Guitar Scales Interactive-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B108CAE6199AD1E80047A473 /* Guitar Scales InteractiveTests */ = {
+			isa = PBXGroup;
+			children = (
+				B108CAEC199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m */,
+				B108CAE7199AD1E80047A473 /* Supporting Files */,
+			);
+			path = "Guitar Scales InteractiveTests";
+			sourceTree = "<group>";
+		};
+		B108CAE7199AD1E80047A473 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B108CAE8199AD1E80047A473 /* Guitar Scales InteractiveTests-Info.plist */,
+				B108CAE9199AD1E80047A473 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B108CB04199ADAE90047A473 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B108CAFD199AD77A0047A473 /* ScalesViewController.h */,
+				B108CAFE199AD77A0047A473 /* ScalesViewController.m */,
+				B108CAFF199AD77A0047A473 /* ScalesViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B108CB05199ADAF00047A473 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B108CB06199ADB570047A473 /* StringView.h */,
+				B108CB07199ADB570047A473 /* StringView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B108CB0B199B01D20047A473 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B108CB16199B04710047A473 /* Model.h */,
+				B108CB17199B04710047A473 /* Model.m */,
+				B108CB0C199B01F30047A473 /* Scale.h */,
+				B108CB0D199B01F30047A473 /* Scale.m */,
+				B108CB0F199B028E0047A473 /* Group.h */,
+				B108CB10199B028E0047A473 /* Group.m */,
+				B108CB12199B02990047A473 /* Note.h */,
+				B108CB13199B02990047A473 /* Note.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B108CABA199AD1E70047A473 /* Guitar Scales Interactive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B108CAF0199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales Interactive" */;
+			buildPhases = (
+				D52D892F2FA242958F045F1B /* Check Pods Manifest.lock */,
+				B108CAB7199AD1E70047A473 /* Sources */,
+				B108CAB8199AD1E70047A473 /* Frameworks */,
+				B108CAB9199AD1E70047A473 /* Resources */,
+				8483123BBB3C480D8F58F894 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Guitar Scales Interactive";
+			productName = "Guitar Scales Interactive";
+			productReference = B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B108CADE199AD1E80047A473 /* Guitar Scales InteractiveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B108CAF3199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales InteractiveTests" */;
+			buildPhases = (
+				B108CADB199AD1E80047A473 /* Sources */,
+				B108CADC199AD1E80047A473 /* Frameworks */,
+				B108CADD199AD1E80047A473 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B108CAE5199AD1E80047A473 /* PBXTargetDependency */,
+			);
+			name = "Guitar Scales InteractiveTests";
+			productName = "Guitar Scales InteractiveTests";
+			productReference = B108CADF199AD1E80047A473 /* Guitar Scales InteractiveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B108CAB3199AD1E70047A473 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					B108CADE199AD1E80047A473 = {
+						TestTargetID = B108CABA199AD1E70047A473;
+					};
+				};
+			};
+			buildConfigurationList = B108CAB6199AD1E70047A473 /* Build configuration list for PBXProject "Guitar Scales Interactive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B108CAB2199AD1E70047A473;
+			productRefGroup = B108CABC199AD1E70047A473 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B108CABA199AD1E70047A473 /* Guitar Scales Interactive */,
+				B108CADE199AD1E80047A473 /* Guitar Scales InteractiveTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B108CAB9199AD1E70047A473 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CADA199AD1E70047A473 /* Images.xcassets in Resources */,
+				B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */,
+				B108CB0A199B01BE0047A473 /* scales.json in Resources */,
+				B108CB01199AD77A0047A473 /* ScalesViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B108CADD199AD1E80047A473 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAEB199AD1E80047A473 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8483123BBB3C480D8F58F894 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Guitar Scales Interactive-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D52D892F2FA242958F045F1B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B108CAB7199AD1E70047A473 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CB0E199B01F30047A473 /* Scale.m in Sources */,
+				B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */,
+				B108CB11199B028E0047A473 /* Group.m in Sources */,
+				B108CB18199B04710047A473 /* Model.m in Sources */,
+				B108CAD8199AD1E70047A473 /* ViewController.m in Sources */,
+				B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */,
+				B108CB08199ADB570047A473 /* StringView.m in Sources */,
+				B108CACB199AD1E70047A473 /* main.m in Sources */,
+				B108CB14199B02990047A473 /* Note.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B108CADB199AD1E80047A473 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B108CAED199AD1E80047A473 /* Guitar_Scales_InteractiveTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B108CAE5199AD1E80047A473 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B108CABA199AD1E70047A473 /* Guitar Scales Interactive */;
+			targetProxy = B108CAE4199AD1E80047A473 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B108CAC7199AD1E70047A473 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B108CAC8199AD1E70047A473 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B108CAE9199AD1E80047A473 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B108CAEA199AD1E80047A473 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B108CAEE199AD1E80047A473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B108CAEF199AD1E80047A473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B108CAF1199AD1E80047A473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
+				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B108CAF2199AD1E80047A473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
+				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B108CAF4199AD1E80047A473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B108CAF5199AD1E80047A473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
+				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B108CAB6199AD1E70047A473 /* Build configuration list for PBXProject "Guitar Scales Interactive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B108CAEE199AD1E80047A473 /* Debug */,
+				B108CAEF199AD1E80047A473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B108CAF0199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales Interactive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B108CAF1199AD1E80047A473 /* Debug */,
+				B108CAF2199AD1E80047A473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B108CAF3199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales InteractiveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B108CAF4199AD1E80047A473 /* Debug */,
+				B108CAF5199AD1E80047A473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B108CAB3199AD1E70047A473 /* Project object */;
+}
