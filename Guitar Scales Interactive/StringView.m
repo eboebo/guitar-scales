@@ -21,6 +21,11 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    self.backgroundColor = [UIColor clearColor];
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -29,35 +34,43 @@
     // Drawing code
     
     CGRect bounds = self.bounds;
-    CGFloat verticalOffset = 10;
-    CGFloat width = self.bounds.size.width - 20;
-    CGFloat height = self.bounds.size.height - 20;
+    CGFloat verticalOffset = self.isMainView ? 10 : 3;
+    CGFloat width = self.bounds.size.width - (verticalOffset * 2.0);
+    CGFloat height = self.bounds.size.height - (verticalOffset * 2.0);
     CGFloat horizontalSpacing = floorf(width / 6.0);
     CGFloat verticalSpacing = floorf(height / 5.0);
     
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
+
+    
+    if (self.fret || self.fret == 0) {
+        CGFloat x = 10.0 + (self.fret * horizontalSpacing);
+        CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, height);
+        CGContextSetFillColorWithColor(context, [UIColor lightGrayColor].CGColor);
+        CGContextFillRect(context, fretFrame);
+    }
+    
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
-    CGContextSetLineWidth(context, 3.0);
+    CGFloat lineWidth = self.isMainView ? 2.0 : 0.5;
+    CGContextSetLineWidth(context, lineWidth);
     
     for (int i = 0; i < 7; i++) {
-        
         CGFloat x = 10.0 + (i * horizontalSpacing);
         CGContextMoveToPoint(context, x, verticalOffset);
-        CGContextAddLineToPoint(context, x, height + verticalOffset);
+        CGContextAddLineToPoint(context, x, height + verticalOffset );
         CGContextDrawPath(context, kCGPathStroke);
     }
     
     for (int i = 0; i < 6; i++) {
-        CGFloat y = i * verticalSpacing + 1.5 + verticalOffset;
+        CGFloat y = i * verticalSpacing  + verticalOffset;
         CGContextMoveToPoint(context, 0.0, y);
         CGContextAddLineToPoint(context, bounds.size.width, y);
         CGContextDrawPath(context, kCGPathStroke);
     }
     
     for (Note *note in self.notes) {
-        CGFloat x = (note.x + 1) * horizontalSpacing;
-        CGFloat y = note.y * verticalSpacing;
+        CGFloat x = note.x * horizontalSpacing + (horizontalSpacing / 2.0) + 10.0;
+        CGFloat y = note.y * verticalSpacing + verticalOffset;
         CGContextAddArc(context, x, y, verticalOffset, 0.0, M_PI*2, YES );
 
         UIColor *textColor;
@@ -74,7 +87,7 @@
             strokeColor = [UIColor blackColor];
            
         } else if ([note.type isEqualToString:@"gray"]) {
-            textColor = [UIColor grayColor];
+            textColor = [UIColor whiteColor];
             fillColor = [UIColor lightGrayColor];
             strokeColor = [UIColor lightGrayColor];
         }
@@ -82,48 +95,17 @@
         CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
         CGContextDrawPath(context, kCGPathFillStroke);
         
-        CGPoint degreePoint = CGPointMake(x - horizontalSpacing / 8 , y - horizontalSpacing / 8);
-        NSString *degreeString = [NSString stringWithFormat:@"%ld", (long)note.degree ];
-        [degreeString drawAtPoint:degreePoint withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0],
-                                                               NSForegroundColorAttributeName:textColor
-                                                               }];
-    
-        
+        if (self.isMainView) {
+            x = note.x * horizontalSpacing + (horizontalSpacing / 2.0) + 10.0 - verticalOffset / 2;
+            y = note.y * verticalSpacing ;
+            CGPoint degreePoint = CGPointMake(x, y);
+            NSString *degreeString = [NSString stringWithFormat:@"%ld", (long)note.degree ];
+            [degreeString drawAtPoint:degreePoint withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0],
+                                                                   NSForegroundColorAttributeName:textColor
+                                                                   }];
+        }
     }
 }
 
-- (void)drawSubtractedText:(NSString *)text
-                   atPoint:(CGPoint)point
-                  withSize:(CGFloat)size
-                 inContext:(CGContextRef)context
-{
-    
-    
-
-    
-//    CGContextSaveGState(context);
-//    
-//    // Magic blend mode
-//    CGContextSetBlendMode(context, kCGBlendModeDestinationOut);
-//    
-//    
-//    UIFont *font = [UIFont boldSystemFontOfSize:10.0f];
-//    
-//    // Move drawing start point for centering label.
-//    CGContextTranslateCTM(context, 0,
-//                          (size / 2 - (font.lineHeight/2)));
-//    
-//    CGRect frame = CGRectMake(point.x, point.y, size, font.lineHeight);
-//    UILabel *label = [[UILabel alloc] initWithFrame:frame];
-//    label.font = font;
-//    label.textColor = [UIColor whiteColor];
-//    label.text = text;
-//    label.textAlignment = NSTextAlignmentCenter;
-//    label.backgroundColor = [UIColor clearColor];
-//    [label.layer drawInContext:context];
-//    
-//    // Restore the state of other drawing operations
-//    CGContextRestoreGState(context);
-}
 
 @end

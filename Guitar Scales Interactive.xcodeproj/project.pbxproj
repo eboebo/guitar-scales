@@ -30,6 +30,8 @@
 		B108CB14199B02990047A473 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB13199B02990047A473 /* Note.m */; };
 		B108CB18199B04710047A473 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB17199B04710047A473 /* Model.m */; };
 		B16E944E199FDB5A001F769A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E944D199FDB5A001F769A /* CoreText.framework */; };
+		B16E945119A05169001F769A /* GuitarStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945019A05169001F769A /* GuitarStore.m */; };
+		B16E945419A05A8E001F769A /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945319A05A8E001F769A /* ButtonView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,10 @@
 		B108CB16199B04710047A473 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		B108CB17199B04710047A473 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		B16E944D199FDB5A001F769A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		B16E944F19A05169001F769A /* GuitarStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuitarStore.h; sourceTree = "<group>"; };
+		B16E945019A05169001F769A /* GuitarStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuitarStore.m; sourceTree = "<group>"; };
+		B16E945219A05A8E001F769A /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
+		B16E945319A05A8E001F769A /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,8 @@
 				B108CAD7199AD1E70047A473 /* ViewController.m */,
 				B108CAD9199AD1E70047A473 /* Images.xcassets */,
 				B108CAC5199AD1E70047A473 /* Supporting Files */,
+				B16E944F19A05169001F769A /* GuitarStore.h */,
+				B16E945019A05169001F769A /* GuitarStore.m */,
 			);
 			path = "Guitar Scales Interactive";
 			sourceTree = "<group>";
@@ -200,6 +208,8 @@
 			children = (
 				B108CB06199ADB570047A473 /* StringView.h */,
 				B108CB07199ADB570047A473 /* StringView.m */,
+				B16E945219A05A8E001F769A /* ButtonView.h */,
+				B16E945319A05A8E001F769A /* ButtonView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -360,6 +370,8 @@
 				B108CB08199ADB570047A473 /* StringView.m in Sources */,
 				B108CACB199AD1E70047A473 /* main.m in Sources */,
 				B108CB14199B02990047A473 /* Note.m in Sources */,
+				B16E945419A05A8E001F769A /* ButtonView.m in Sources */,
+				B16E945119A05169001F769A /* GuitarStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
