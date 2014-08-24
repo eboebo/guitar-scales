@@ -6,8 +6,18 @@
 //
 //
 
-#import "Note.h"
+#import "Degree.h"
 
-@implementation Note
+@implementation Degree
+
++ (JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"degree_id" : @"identifier",
+                                                       @"degree_number"   : @"number",
+                                                       @"flat"   : @"flat",
+                                                       @"sharp": @"sharp",
+                                                       @"degree_positions"    : @"degreePositions"}];
+}
 
 @end

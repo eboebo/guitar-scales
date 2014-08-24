@@ -10,4 +10,6 @@
 
 @interface ScalesViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *selectedDegrees;
+
 @end

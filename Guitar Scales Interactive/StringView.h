@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Position.h"
 
 @interface StringView : UIView
 
-@property (nonatomic, strong) NSString *string;
-@property (nonatomic, strong) NSString *finger;
-@property (nonatomic, strong) NSArray *notes;
-@property (nonatomic, assign) NSInteger fret;
 @property (nonatomic, assign) BOOL isMainView;
+
+@property (nonatomic, strong) Position *position;
+@property (nonatomic, strong) NSArray *selectedDegrees;
 
 @end

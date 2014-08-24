@@ -6,18 +6,19 @@
 //
 //
 
-#import "ButtonView.h"
+#import "GuitarStore.h"
+#import "DegreeView.h"
+#import "Degree.h"
 
-@interface ButtonView ()
+@interface DegreeView ()
 
 
-@property (nonatomic, strong) NSArray *buttons;
 @property (nonatomic, strong) UIButton *clearAllButton;
 @property (nonatomic, strong) UIButton *showAllButton;
 
 @end
 
-@implementation ButtonView
+@implementation DegreeView
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -41,7 +42,6 @@
 - (void)initSubviews
 {
     self.backgroundColor = [UIColor whiteColor];
-    self.buttons = @[@"1", @"b2", @"2", @"#2", @"3", @"4", @"#4", @"5",@"#5", @"6",@"b7",@"7"];
     self.clearAllButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.clearAllButton setTitle:@"CLEAR ALL" forState:UIControlStateNormal];
     [self.clearAllButton setTintColor:[UIColor blueColor]];
@@ -71,38 +71,49 @@
     self.showAllButton.frame = showFrame;
     
     
-    CGFloat buttonBoardWidth = bounds.size.width - textButtonWidth * 2.0;
-    CGFloat smallButtonWidth = buttonBoardWidth / self.buttons.count;
     
-    for (int i = 0; i < self.buttons.count; i++) {
-        NSString *buttonString = self.buttons[i];
+    
+    NSArray *degrees = [[GuitarStore sharedStore] degrees];
+    
+    CGFloat buttonBoardWidth = bounds.size.width - textButtonWidth * 2.0;
+    CGFloat smallButtonWidth = buttonBoardWidth / degrees.count;
+    
+    for (Degree *degree in degrees) {
         
         
-        UIView *buttonView = [[UIView alloc] initWithFrame:CGRectZero];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-        label.text = buttonString;
-        label.textAlignment = NSTextAlignmentCenter;
+        UIButton *degreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        CGFloat x = textButtonWidth + (i * smallButtonWidth);
+        CGFloat x = textButtonWidth + (degree.identifier * smallButtonWidth);
         CGRect buttonFrame = CGRectMake(x, 0, smallButtonWidth, bounds.size.height);
-        buttonView.frame = buttonFrame;
+        degreeButton.frame = buttonFrame;
         
-        CGRect labelFrame = CGRectMake(0, 0, smallButtonWidth, bounds.size.height);
-        label.frame = labelFrame;
-        
-        [buttonView addSubview:label];
-        [self addSubview:buttonView];
-        
-
-        if (self.selectedButtons) {
-            for (NSNumber *string in self.selectedButtons) {
-                if ([buttonString isEqualToString:[string stringValue]]) {
-                    buttonView.backgroundColor = [UIColor blueColor];
-                    label.textColor = [UIColor whiteColor];
-                    break;
-                }
-            }
+        NSString *degreeString;
+        if (degree.flat) {
+            degreeString = [NSString stringWithFormat:@"b%d", degree.number];
+        } else if (degree.sharp) {
+            degreeString = [NSString stringWithFormat:@"#%d", degree.number];
+        } else {
+            degreeString = [NSString stringWithFormat:@"%d", degree.number];
         }
+        
+        
+        [degreeButton setTitle:degreeString forState:UIControlStateNormal];
+
+        degreeButton.tag = degree.identifier;
+        
+        if ([self containsId:degree.identifier]) {
+            [degreeButton setSelected:YES];
+        }
+        
+        [degreeButton addTarget:self action:@selector(degreeTapped:) forControlEvents:UIControlEventTouchDown];
+
+        [self addSubview:degreeButton];
+
+        [degreeButton setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
+        [degreeButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+
+        
+        
     }
 }
 
@@ -115,12 +126,75 @@
 
 - (void)clearAllTap:(id)sender
 {
-    NSLog(@"Clear All Tapped");
+    if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
+        [self.delegate selectedDegreesModified:[NSMutableArray new]];
+    }
+    self.selectedDegrees = [NSMutableArray new];
+    [self setNeedsDisplay];
 }
 
 - (void)showAllTap:(id)sender
 {
-    NSLog(@"Show All Tapped");
+    NSArray *degrees = [[GuitarStore sharedStore] degrees];
+    NSMutableArray *degreeArray = [NSMutableArray new];
+    for (Degree *degree in degrees) {
+        NSString *identifier = [NSString stringWithFormat:@"%d", degree.identifier];
+        [degreeArray addObject:identifier];
+    }
+    if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
+        [self.delegate selectedDegreesModified:degreeArray];
+    }
+    
+    self.selectedDegrees = degreeArray;
+    [self setNeedsDisplay];
 }
+
+- (BOOL)containsId:(NSInteger)identifier
+{
+    for (int i = 0; i < self.selectedDegrees.count; i++) {
+        NSInteger buttonID = [self.selectedDegrees[i] integerValue];
+        if (buttonID == identifier) {
+            return YES;
+            break;
+        }
+    }
+    return NO;
+}
+
+- (void)degreeTapped:(id)sender
+{
+    
+    UIButton *degreeButton = (UIButton *)sender;
+    degreeButton.selected = !degreeButton.selected;
+    if (degreeButton.selected) {
+        NSNumber *number = [NSNumber numberWithInt:degreeButton.tag];
+        [self.selectedDegrees insertObject:number atIndex:0];
+    } else {
+        for (NSNumber *degree in self.selectedDegrees) {
+            if ([degree integerValue]  == degreeButton.tag) {
+                [self.selectedDegrees removeObject:degree];
+                break;
+            }
+        }
+    }
+
+    if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
+        [self.delegate selectedDegreesModified:self.selectedDegrees];
+    }
+    
+    [self setNeedsDisplay];
+}
+
+//- (UIImage *)imageWithColor:(UIColor *)color {
+//    CGRect rect = CGRectMake(0, 0, 1, 1);
+//    // Create a 1 by 1 pixel context
+//    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+//    [color setFill];
+//    UIRectFill(rect);   // Fill it with your color
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    return image;
+//}
 
 @end

@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "JSONModel.h"
-#import "Group.h"
+#import "Position.h"
 
 @interface Scale : JSONModel
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *modeTitle;
-@property (nonatomic, strong) NSArray *selectedButtons;
-@property (nonatomic, strong) NSArray<Group> *groups;
+@property (nonatomic, strong) NSArray *selectedDegrees;
 
 @end

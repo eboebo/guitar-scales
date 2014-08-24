@@ -7,7 +7,16 @@
 //
 
 #import "JSONModel.h"
+#import "Coordinate.h"
 
-@interface noteGroup : JSONModel
+@protocol DegreePosition <NSObject>
+
+
+@end
+
+@interface DegreePosition : JSONModel
+
+@property (nonatomic, assign) NSInteger positionID;
+@property (nonatomic, strong) NSArray<Coordinate> *coordinates;
 
 @end

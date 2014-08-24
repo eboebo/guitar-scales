@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Guitar Scales Interactive/StringView.m"
-            timestampString = "429981391.698826"
+            timestampString = "430587369.638842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "-drawRect:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Guitar Scales Interactive/StringView.m"
-            timestampString = "429981391.698826"
+            timestampString = "430587369.638842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "-drawRect:"
             landmarkType = "5">
          </BreakpointContent>
@@ -41,28 +41,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Guitar Scales Interactive/StringView.m"
-            timestampString = "429981601.095046"
+            filePath = "Guitar Scales Interactive/DegreeView.m"
+            timestampString = "430595092.853096"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-drawRect:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Guitar Scales Interactive/ButtonView.m"
-            timestampString = "429984742.836135"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-setNeedsDisplay"
             landmarkType = "5">
          </BreakpointContent>
@@ -73,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Guitar Scales Interactive/ButtonView.m"
-            timestampString = "429984502.124891"
+            filePath = "Guitar Scales Interactive/StringView.m"
+            timestampString = "430587438.888221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-layoutSubviews"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-drawRect:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +73,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScalesViewController.m"
-            timestampString = "429984816.097371"
+            filePath = "Guitar Scales Interactive/StringView.m"
+            timestampString = "430587486.264403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-fetchedData:"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-drawRect:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Guitar Scales Interactive/DegreeView.m"
+            timestampString = "430595092.853096"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-layoutSubviews"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

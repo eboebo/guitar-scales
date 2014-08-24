@@ -6,8 +6,16 @@
 //
 //
 
-#import "noteGroup.h"
+#import "DegreePosition.h"
 
-@implementation noteGroup
+@implementation DegreePosition
+
++ (JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"position_id" : @"positionID",
+                                                       @"coordinates": @"coordinates"}
+            ];
+}
 
 @end

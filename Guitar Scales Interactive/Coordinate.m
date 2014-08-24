@@ -10,4 +10,14 @@
 
 @implementation Coordinate
 
++ (JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                            
+                                                       @"x"   : @"x",
+                                                       @"y"   : @"y",
+                                                       @"color": @"color"}
+                                                    ];
+}
+
 @end

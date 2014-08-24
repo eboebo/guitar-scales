@@ -8,6 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^UpdateCallback)(BOOL success);
+
 @interface GuitarStore : NSObject
+
+@property (nonatomic, strong) NSMutableArray *scales;
+@property (nonatomic, strong) NSMutableArray *positions;
+@property (nonatomic, strong) NSMutableArray *degrees;
+@property (nonatomic, copy) UpdateCallback callback;
+
+
++ (GuitarStore *)sharedStore;
+- (void)parseData;
+
+
+
 
 @end

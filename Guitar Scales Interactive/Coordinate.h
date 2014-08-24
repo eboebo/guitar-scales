@@ -7,7 +7,16 @@
 //
 
 #import "JSONModel.h"
+@protocol Coordinate
+@end
 
 @interface Coordinate : JSONModel
+
+
+@property (nonatomic, assign) NSInteger x;
+@property (nonatomic, assign) NSInteger y;
+@property (nonatomic, strong) NSString *color;
+
+
 
 @end

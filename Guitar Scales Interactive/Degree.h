@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "JSONModel.h"
+#import "DegreePosition.h"
 
-@protocol Note
+@protocol Degree
 @end
 
-@interface Note : JSONModel
+@interface Degree : JSONModel
 
-@property (nonatomic, assign) NSInteger degree;
-@property (nonatomic, strong) NSString *type;
-@property (nonatomic, assign) NSInteger x;
-@property (nonatomic, assign) NSInteger y;
+
+// other
+@property (nonatomic, assign) NSInteger identifier;
+@property (nonatomic, assign) NSInteger number;
+@property (nonatomic, assign) BOOL flat;
+@property (nonatomic, assign) BOOL sharp;
+@property (nonatomic, strong) NSArray<DegreePosition> *degreePositions;
 
 @end

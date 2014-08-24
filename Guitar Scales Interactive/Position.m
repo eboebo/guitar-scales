@@ -6,18 +6,18 @@
 //
 //
 
-#import "Group.h"
+#import "Position.h"
 
-@implementation Group
+@implementation Position
 
-+(JSONKeyMapper*)keyMapper
++ (JSONKeyMapper*)keyMapper
 {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
-                                                       @"string": @"string",
-                                                       @"finger": @"finger",
+                                                       @"position_id" : @"identifier",
+                                                       @"string"   : @"string",
+                                                       @"finger"   : @"finger",
                                                        @"base_fret": @"baseFret",
-                                                       @"notes":@"notes"
-                                                       }];
+                                                       @"title"    : @"title"}];
 }
 
 @end

@@ -26,12 +26,15 @@
 		B108CB08199ADB570047A473 /* StringView.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB07199ADB570047A473 /* StringView.m */; };
 		B108CB0A199B01BE0047A473 /* scales.json in Resources */ = {isa = PBXBuildFile; fileRef = B108CB09199B01BE0047A473 /* scales.json */; };
 		B108CB0E199B01F30047A473 /* Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB0D199B01F30047A473 /* Scale.m */; };
-		B108CB11199B028E0047A473 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB10199B028E0047A473 /* Group.m */; };
-		B108CB14199B02990047A473 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB13199B02990047A473 /* Note.m */; };
+		B108CB11199B028E0047A473 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB10199B028E0047A473 /* Position.m */; };
+		B108CB14199B02990047A473 /* Degree.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB13199B02990047A473 /* Degree.m */; };
 		B108CB18199B04710047A473 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB17199B04710047A473 /* Model.m */; };
 		B16E944E199FDB5A001F769A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E944D199FDB5A001F769A /* CoreText.framework */; };
 		B16E945119A05169001F769A /* GuitarStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945019A05169001F769A /* GuitarStore.m */; };
-		B16E945419A05A8E001F769A /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945319A05A8E001F769A /* ButtonView.m */; };
+		B16E945419A05A8E001F769A /* DegreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945319A05A8E001F769A /* DegreeView.m */; };
+		B16E945619A16F8D001F769A /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = B16E945519A16F8D001F769A /* notes.json */; };
+		B16E945A19A173D8001F769A /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945919A173D8001F769A /* Coordinate.m */; };
+		B16E945D19A176FA001F769A /* DegreePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945C19A176FA001F769A /* DegreePosition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,17 +76,22 @@
 		B108CB09199B01BE0047A473 /* scales.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = scales.json; path = ../../scales.json; sourceTree = "<group>"; };
 		B108CB0C199B01F30047A473 /* Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scale.h; sourceTree = "<group>"; };
 		B108CB0D199B01F30047A473 /* Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scale.m; sourceTree = "<group>"; };
-		B108CB0F199B028E0047A473 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
-		B108CB10199B028E0047A473 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		B108CB12199B02990047A473 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		B108CB13199B02990047A473 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		B108CB0F199B028E0047A473 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
+		B108CB10199B028E0047A473 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
+		B108CB12199B02990047A473 /* Degree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Degree.h; sourceTree = "<group>"; };
+		B108CB13199B02990047A473 /* Degree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Degree.m; sourceTree = "<group>"; };
 		B108CB16199B04710047A473 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		B108CB17199B04710047A473 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		B16E944D199FDB5A001F769A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B16E944F19A05169001F769A /* GuitarStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuitarStore.h; sourceTree = "<group>"; };
 		B16E945019A05169001F769A /* GuitarStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuitarStore.m; sourceTree = "<group>"; };
-		B16E945219A05A8E001F769A /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
-		B16E945319A05A8E001F769A /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
+		B16E945219A05A8E001F769A /* DegreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeView.h; sourceTree = "<group>"; };
+		B16E945319A05A8E001F769A /* DegreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeView.m; sourceTree = "<group>"; };
+		B16E945519A16F8D001F769A /* notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
+		B16E945819A173D8001F769A /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
+		B16E945919A173D8001F769A /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
+		B16E945B19A176FA001F769A /* DegreePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreePosition.h; sourceTree = "<group>"; };
+		B16E945C19A176FA001F769A /* DegreePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreePosition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,7 @@
 				B108CAC7199AD1E70047A473 /* InfoPlist.strings */,
 				B108CACA199AD1E70047A473 /* main.m */,
 				B108CACC199AD1E70047A473 /* Guitar Scales Interactive-Prefix.pch */,
+				B16E945519A16F8D001F769A /* notes.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -208,8 +217,8 @@
 			children = (
 				B108CB06199ADB570047A473 /* StringView.h */,
 				B108CB07199ADB570047A473 /* StringView.m */,
-				B16E945219A05A8E001F769A /* ButtonView.h */,
-				B16E945319A05A8E001F769A /* ButtonView.m */,
+				B16E945219A05A8E001F769A /* DegreeView.h */,
+				B16E945319A05A8E001F769A /* DegreeView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -217,16 +226,28 @@
 		B108CB0B199B01D20047A473 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B16E945719A173C3001F769A /* New Group */,
 				B108CB16199B04710047A473 /* Model.h */,
 				B108CB17199B04710047A473 /* Model.m */,
 				B108CB0C199B01F30047A473 /* Scale.h */,
 				B108CB0D199B01F30047A473 /* Scale.m */,
-				B108CB0F199B028E0047A473 /* Group.h */,
-				B108CB10199B028E0047A473 /* Group.m */,
-				B108CB12199B02990047A473 /* Note.h */,
-				B108CB13199B02990047A473 /* Note.m */,
+				B108CB0F199B028E0047A473 /* Position.h */,
+				B108CB10199B028E0047A473 /* Position.m */,
+				B108CB12199B02990047A473 /* Degree.h */,
+				B108CB13199B02990047A473 /* Degree.m */,
+				B16E945819A173D8001F769A /* Coordinate.h */,
+				B16E945919A173D8001F769A /* Coordinate.m */,
+				B16E945B19A176FA001F769A /* DegreePosition.h */,
+				B16E945C19A176FA001F769A /* DegreePosition.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		B16E945719A173C3001F769A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B108CADA199AD1E70047A473 /* Images.xcassets in Resources */,
+				B16E945619A16F8D001F769A /* notes.json in Resources */,
 				B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */,
 				B108CB0A199B01BE0047A473 /* scales.json in Resources */,
 				B108CB01199AD77A0047A473 /* ScalesViewController.xib in Resources */,
@@ -363,14 +385,16 @@
 			files = (
 				B108CB0E199B01F30047A473 /* Scale.m in Sources */,
 				B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */,
-				B108CB11199B028E0047A473 /* Group.m in Sources */,
+				B108CB11199B028E0047A473 /* Position.m in Sources */,
 				B108CB18199B04710047A473 /* Model.m in Sources */,
 				B108CAD8199AD1E70047A473 /* ViewController.m in Sources */,
+				B16E945D19A176FA001F769A /* DegreePosition.m in Sources */,
 				B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */,
 				B108CB08199ADB570047A473 /* StringView.m in Sources */,
+				B16E945A19A173D8001F769A /* Coordinate.m in Sources */,
 				B108CACB199AD1E70047A473 /* main.m in Sources */,
-				B108CB14199B02990047A473 /* Note.m in Sources */,
-				B16E945419A05A8E001F769A /* ButtonView.m in Sources */,
+				B108CB14199B02990047A473 /* Degree.m in Sources */,
+				B16E945419A05A8E001F769A /* DegreeView.m in Sources */,
 				B16E945119A05169001F769A /* GuitarStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

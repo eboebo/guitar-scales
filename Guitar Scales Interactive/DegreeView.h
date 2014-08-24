@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ButtonView : UIView
+@protocol DegreeViewDelegate <NSObject>
 
-@property (nonatomic, strong) NSArray *selectedButtons;
+- (void)selectedDegreesModified:(NSMutableArray *)degrees;
+
+@end
+
+@interface DegreeView : UIView
+
+@property (nonatomic, weak) id<DegreeViewDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *selectedDegrees;
 
 @end
