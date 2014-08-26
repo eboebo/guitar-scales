@@ -122,7 +122,7 @@
                                 degreeString = [NSString stringWithFormat:@"%d", degree.number];
                             }
                             
-                            [degreeString drawAtPoint:degreePoint withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0],
+                            [degreeString drawAtPoint:degreePoint withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"BradleyHandITCTT-Bold" size:15.0],
                                                                                    NSForegroundColorAttributeName:textColor
                                                                                    }];
                         }

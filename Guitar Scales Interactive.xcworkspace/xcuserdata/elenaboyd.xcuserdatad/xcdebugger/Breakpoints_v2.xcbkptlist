@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Guitar Scales Interactive/DegreeView.m"
-            timestampString = "430595092.853096"
+            timestampString = "430701696.458919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-setNeedsDisplay"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Guitar Scales Interactive/DegreeView.m"
-            timestampString = "430595092.853096"
+            timestampString = "430701626.173868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-layoutSubviews"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "-showAllTap:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

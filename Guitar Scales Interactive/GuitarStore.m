@@ -76,6 +76,10 @@
         [self.scales addObject:scale];
     }];
     
+    if (self.scales.count > 0) {
+        self.selectedScale = self.scales[0];
+    }
+    
     if (self.callback) {
         self.callback(YES);
     }

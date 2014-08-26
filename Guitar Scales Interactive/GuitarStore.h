@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Scale.h"
 
 typedef void (^UpdateCallback)(BOOL success);
 
@@ -16,6 +17,7 @@ typedef void (^UpdateCallback)(BOOL success);
 @property (nonatomic, strong) NSMutableArray *positions;
 @property (nonatomic, strong) NSMutableArray *degrees;
 @property (nonatomic, copy) UpdateCallback callback;
+@property (nonatomic, strong) Scale *selectedScale;
 
 
 + (GuitarStore *)sharedStore;

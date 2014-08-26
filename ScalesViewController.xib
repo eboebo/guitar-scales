@@ -8,11 +8,19 @@
             <connections>
                 <outlet property="bottomLeftStringView" destination="Zvi-de-0A0" id="cpb-d2-3Ci"/>
                 <outlet property="bottomRightStringView" destination="BjA-XD-6Hh" id="vj2-UD-yVa"/>
-                <outlet property="buttonView" destination="7Pk-O7-iY5" id="Qap-uP-qnF"/>
+                <outlet property="degreeView" destination="7Pk-O7-iY5" id="me5-ij-lne"/>
+                <outlet property="leftBottomLabel" destination="RlV-pO-Mzh" id="FuK-Ig-Upt"/>
+                <outlet property="leftIndexLabel" destination="bHo-ZT-Iqh" id="JUC-g5-Wef"/>
+                <outlet property="leftMiddleLabel" destination="7dF-zz-y89" id="XJe-CC-f6B"/>
+                <outlet property="leftStringLabel" destination="k5h-uq-gGk" id="hkz-mh-NmK"/>
                 <outlet property="mainStringView" destination="Fcv-kj-s50" id="d6H-Qt-yaJ"/>
                 <outlet property="middleLeftStringView" destination="qgO-zF-Dr6" id="8hK-Kk-uSk"/>
                 <outlet property="middleRightStringView" destination="y9p-CP-KRc" id="PGx-8y-rw5"/>
                 <outlet property="positionLabel" destination="ze6-ya-hnZ" id="cOY-tC-vj1"/>
+                <outlet property="rightBottonLabel" destination="EvB-5X-s4F" id="3rE-4g-NVK"/>
+                <outlet property="rightIndexLabel" destination="ij2-VZ-1J8" id="sFf-dJ-jwR"/>
+                <outlet property="rightMiddleLabel" destination="83f-bh-Wkm" id="enH-Ci-h3O"/>
+                <outlet property="rightStringLabel" destination="wVr-wY-HH4" id="TtY-EX-LN6"/>
                 <outlet property="topLeftStringView" destination="N0F-N0-GeO" id="OKC-wm-CCV"/>
                 <outlet property="topRightStringView" destination="jVT-Jc-kZP" id="N0s-f0-ho7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,7 +39,7 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6th String // MIDDLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze6-ya-hnZ">
                     <rect key="frame" x="183" y="60" width="203" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -75,7 +83,7 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MIDDLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dF-zz-y89">
                     <rect key="frame" x="49" y="135" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>

@@ -9,6 +9,7 @@
 #import "GuitarStore.h"
 #import "DegreeView.h"
 #import "Degree.h"
+#import "DegreeButton.h"
 
 @interface DegreeView ()
 
@@ -44,13 +45,16 @@
     self.backgroundColor = [UIColor whiteColor];
     self.clearAllButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.clearAllButton setTitle:@"CLEAR ALL" forState:UIControlStateNormal];
-    [self.clearAllButton setTintColor:[UIColor blueColor]];
+    [self.clearAllButton setTintColor:[UIColor GuitarBlue]];
+    self.clearAllButton.titleLabel.font = [UIFont proletarskFontWithSize:17.0f];
     [self.clearAllButton addTarget:self action:@selector(clearAllTap:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.clearAllButton];
     
     self.showAllButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.showAllButton setTitle:@"SHOW ALL" forState:UIControlStateNormal];
-    [self.showAllButton setTintColor:[UIColor blueColor]];
+    [self.showAllButton setTintColor:[UIColor GuitarBlue]];
+    self.showAllButton.titleLabel.font = [UIFont proletarskFontWithSize:17.0f];
+
     [self.showAllButton addTarget:self action:@selector(showAllTap:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.showAllButton];
 
@@ -70,8 +74,7 @@
     CGRect showFrame = CGRectMake(bounds.size.width - textButtonWidth, 0, textButtonWidth, bounds.size.height);
     self.showAllButton.frame = showFrame;
     
-    
-    
+
     
     NSArray *degrees = [[GuitarStore sharedStore] degrees];
     
@@ -81,7 +84,7 @@
     for (Degree *degree in degrees) {
         
         
-        UIButton *degreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        DegreeButton *degreeButton = [[DegreeButton alloc] initWithFrame:CGRectZero];
         
         CGFloat x = textButtonWidth + (degree.identifier * smallButtonWidth);
         CGRect buttonFrame = CGRectMake(x, 0, smallButtonWidth, bounds.size.height);
@@ -98,20 +101,19 @@
         
         
         [degreeButton setTitle:degreeString forState:UIControlStateNormal];
+        [degreeButton setTitle:degreeString forState:UIControlStateSelected];
 
         degreeButton.tag = degree.identifier;
         
         if ([self containsId:degree.identifier]) {
             [degreeButton setSelected:YES];
+        } else {
+            [degreeButton setSelected:NO];
         }
         
-        [degreeButton addTarget:self action:@selector(degreeTapped:) forControlEvents:UIControlEventTouchDown];
-
+        [degreeButton addTarget:self action:@selector(degreeTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [degreeButton setNeedsDisplay];
         [self addSubview:degreeButton];
-
-        [degreeButton setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
-        [degreeButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-
         
         
     }
@@ -146,6 +148,7 @@
     }
     
     self.selectedDegrees = degreeArray;
+    
     [self setNeedsDisplay];
 }
 
@@ -165,7 +168,7 @@
 {
     
     UIButton *degreeButton = (UIButton *)sender;
-    degreeButton.selected = !degreeButton.selected;
+    [degreeButton setSelected:!degreeButton.selected];
     if (degreeButton.selected) {
         NSNumber *number = [NSNumber numberWithInt:degreeButton.tag];
         [self.selectedDegrees insertObject:number atIndex:0];
