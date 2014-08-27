@@ -11,5 +11,9 @@
 @interface UIColor (Guitar)
 
 + (UIColor *)GuitarBlue;
++ (UIColor *)GuitarLightBlue;
++ (UIColor *)GuitarCream;
++ (UIColor *)GuitarGray;
++ (UIColor *)GuitarLightGray;
 
 @end

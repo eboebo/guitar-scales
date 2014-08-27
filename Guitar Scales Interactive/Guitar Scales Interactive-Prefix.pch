@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import "UIFont+Guitar.h"
     #import "UIColor+Guitar.h"
+    #import "NSMutableArray+Guitar.h"
 #endif

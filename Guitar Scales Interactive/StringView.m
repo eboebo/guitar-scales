@@ -35,13 +35,14 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    
 
-    
     CGRect bounds = self.bounds;
-    CGFloat verticalOffset = self.isMainView ? 10 : 3;
+    CGFloat verticalOffset = self.isMainView ? 12 : 3;
+    CGFloat lineWidth = self.isMainView ? 2.0 : 0.5;
+
     CGFloat width = self.bounds.size.width - (verticalOffset * 2.0);
     CGFloat height = self.bounds.size.height - (verticalOffset * 2.0);
+    
     CGFloat horizontalSpacing = floorf(width / 6.0);
     CGFloat verticalSpacing = floorf(height / 5.0);
     
@@ -51,12 +52,11 @@
     if (self.position.baseFret || self.position.baseFret == 0) {
         CGFloat x = 10.0 + (self.position.baseFret * horizontalSpacing);
         CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, height);
-        CGContextSetFillColorWithColor(context, [UIColor lightGrayColor].CGColor);
+        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
         CGContextFillRect(context, fretFrame);
     }
     
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
-    CGFloat lineWidth = self.isMainView ? 2.0 : 0.5;
     CGContextSetLineWidth(context, lineWidth);
     
     for (int i = 0; i < 7; i++) {
@@ -84,7 +84,7 @@
                     for (Coordinate *coord in coordinates) {
                         CGFloat x = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + 10.0;
                         CGFloat y = coord.y * verticalSpacing + verticalOffset;
-                        CGContextAddArc(context, x, y, verticalOffset, 0.0, M_PI*2, YES );
+                        CGContextAddArc(context, x, y, verticalOffset - lineWidth, 0.0, M_PI*2, YES );
                         
                         UIColor *textColor;
                         UIColor *fillColor;
@@ -100,8 +100,8 @@
                             strokeColor = [UIColor blackColor];
                             
                         } else if ([coord.color isEqualToString:@"gray"]) {
-                            textColor = [UIColor whiteColor];
-                            fillColor = [UIColor lightGrayColor];
+                            textColor = [UIColor grayColor];
+                            fillColor = [UIColor GuitarLightGray];
                             strokeColor = [UIColor lightGrayColor];
                         }
                         CGContextSetFillColorWithColor(context, [fillColor CGColor]);
@@ -109,22 +109,27 @@
                         CGContextDrawPath(context, kCGPathFillStroke);
                         
                         if (self.isMainView) {
-                            x = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + 10.0 - verticalOffset / 2;
-                            y = coord.y * verticalSpacing ;
-                            CGPoint degreePoint = CGPointMake(x, y);
                             
                             NSString *degreeString;
                             if (degree.flat) {
-                                degreeString = [NSString stringWithFormat:@"b%d", degree.number];
+                                degreeString = [NSString stringWithFormat:@"b%ld", degree.number];
                             } else if (degree.sharp) {
-                                degreeString = [NSString stringWithFormat:@"#%d", degree.number];
+                                degreeString = [NSString stringWithFormat:@"#%ld", degree.number];
                             } else {
-                                degreeString = [NSString stringWithFormat:@"%d", degree.number];
+                                degreeString = [NSString stringWithFormat:@"%ld", degree.number];
                             }
                             
-                            [degreeString drawAtPoint:degreePoint withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"BradleyHandITCTT-Bold" size:15.0],
-                                                                                   NSForegroundColorAttributeName:textColor
-                                                                                   }];
+                            CGFloat width =(verticalOffset - lineWidth) * 2;
+                            CGRect rect = CGRectMake(x - width / 2, y - width / 2, width, width);
+
+                            NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+                            paragrapStyle.alignment                = NSTextAlignmentCenter;
+                            [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
+                            [degreeString drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"MarkerFelt-Thin" size:14.0],
+                                                                          NSForegroundColorAttributeName:textColor,
+                                                                           NSParagraphStyleAttributeName:paragrapStyle
+                                                                           }];
+                            
                         }
                     }
                 }

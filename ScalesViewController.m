@@ -13,7 +13,10 @@
 #import "GuitarStore.h"
 #import "MenuTableViewController.h"
 
-@interface ScalesViewController () <DegreeViewDelegate>
+@interface ScalesViewController ()
+<DegreeViewDelegate,
+ MenuDelegate
+>
 
 @property (weak, nonatomic) IBOutlet StringView *mainStringView;
 @property (weak, nonatomic) IBOutlet StringView *topLeftStringView;
@@ -23,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet StringView *middleRightStringView;
 @property (weak, nonatomic) IBOutlet StringView *bottomRightStringView;
 @property (weak, nonatomic) IBOutlet DegreeView *degreeView;
+
+@property (nonatomic, strong) StringView *selectedStringView;
 
 
 @property (nonatomic, assign) Position *currentPosition;
@@ -56,9 +61,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont proletarskFontWithSize:18.0f], NSFontAttributeName, nil]];
+
 
     self.currentPosition = 0;
     
@@ -76,6 +83,10 @@
 
     
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(handleLeftBarButtonTap:)];
+    [barButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                           [UIFont proletarskFontWithSize:14.0], NSFontAttributeName,
+                                           nil]
+                                 forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = barButtonItem;
     
     UITapGestureRecognizer *topRightviewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
@@ -99,6 +110,7 @@
     [[GuitarStore sharedStore] setCallback:^(BOOL success) {
         if (success) {
             [self refreshData];
+            [self resetButtonView];
         }
     }];
     
@@ -114,6 +126,7 @@
 {
     if (!self.menuController) {
         self.menuController = [[MenuTableViewController alloc] init];
+        self.menuController.delegate = self;
         // Initialize the view controller and set any properties
         
         // Set the frame of playslistViewController view
@@ -121,6 +134,8 @@
         playslistViewControllerViewFrame.origin.y = -playslistViewControllerViewFrame.size.height;
         
         self.menuController.view.frame = playslistViewControllerViewFrame;
+        self.menuController.view.backgroundColor = [UIColor GuitarCream];
+        self.menuController.view.alpha = 0.95;
         
         // Add as a child view controller
         [self addChildViewController:self.menuController];
@@ -193,34 +208,45 @@
         self.selectedDegrees = [scale.selectedDegrees mutableCopy];
     }
 
-    self.degreeView.selectedDegrees = self.selectedDegrees;
-    self.degreeView.delegate = self;
-    [self.degreeView setNeedsDisplay];
-
     NSMutableArray *positions = [[GuitarStore sharedStore] positions];
     for (Position *pos in positions) {
-        if (!self.mainStringView.position) {
-            self.mainStringView.position = pos;
-        }
+        
         NSInteger positionID = pos.identifier;
         StringView *stringView = [self stringViewForPositionID:positionID];
         stringView.position = pos;
         stringView.selectedDegrees = self.selectedDegrees;
+        if (!self.selectedStringView) {
+            self.selectedStringView = stringView;
+            stringView.backgroundColor = [UIColor GuitarLightBlue];
+        }
         [stringView setNeedsDisplay];
     }
     
-    self.positionLabel.text = self.mainStringView.position.title;
+    self.positionLabel.text = self.selectedStringView.position.title;
     self.mainStringView.isMainView = YES;
+    self.mainStringView.position = self.selectedStringView.position;
     self.mainStringView.selectedDegrees = self.selectedDegrees;
     [self.mainStringView setNeedsDisplay];
 
 
 }
 
+- (void)resetButtonView
+{
+    self.degreeView.selectedDegrees = self.selectedDegrees;
+    self.degreeView.delegate = self;
+    [self.degreeView setNeedsDisplay];
+}
+
 - (void)viewTapped:(id)sender
 {
     UITapGestureRecognizer *tapRec = (UITapGestureRecognizer *) sender;
+    self.selectedStringView.backgroundColor = [UIColor clearColor];
+    
     StringView *stringView = (StringView *) tapRec.view;
+    self.selectedStringView = stringView;
+
+    stringView.backgroundColor = [UIColor GuitarLightBlue];
     self.mainStringView.position = stringView.position;
     self.mainStringView.selectedDegrees = stringView.selectedDegrees;
     [self.mainStringView setNeedsDisplay];
@@ -260,6 +286,34 @@
 {
     self.selectedDegrees = degrees;
     [self refreshData];
+    
+    
+    // test if new selection matches other scale
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableArray *scales = [[GuitarStore sharedStore] scales];
+        for (Scale *scale in scales) {
+            self.title = @"";
+            [[GuitarStore sharedStore] setSelectedScale:nil];
+
+            if ([self.selectedDegrees equalDegrees:scale.selectedDegrees]) {
+                self.title = scale.title;
+                [[GuitarStore sharedStore] setSelectedScale:scale];
+                break;
+            }
+        }
+        
+    });
 }
+
+- (void)didSelectScale:(Scale *)scale
+{
+    NSLog(@"selected scale");
+    [self handleLeftBarButtonTap:nil];
+    self.selectedDegrees = [scale.selectedDegrees mutableCopy];
+    [self refreshData];
+    [self resetButtonView];
+}
+
+
 
 @end
