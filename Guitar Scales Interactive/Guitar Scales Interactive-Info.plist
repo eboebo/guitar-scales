@@ -10,6 +10,8 @@
 	<string>en</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>JasonSharpie.ttf</string>
+		<string>OpusTextStd.otf</string>
 		<string>OratorStd.otf</string>
 		<string>Proletarsk.ttf</string>
 	</array>

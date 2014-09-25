@@ -20,4 +20,9 @@
     return [UIFont fontWithName:@"Proletarsk" size:size];
 }
 
++ (UIFont *)markerFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:@"MarkerFelt-Thin" size:size];
+}
+
 @end

@@ -10,8 +10,9 @@
 
 @interface UIFont (Guitar)
 
-+(UIFont *)oratorFontWithSize:(CGFloat)size;
-+(UIFont *)proletarskFontWithSize:(CGFloat)size;
++ (UIFont *)oratorFontWithSize:(CGFloat)size;
++ (UIFont *)proletarskFontWithSize:(CGFloat)size;
++ (UIFont *)markerFontWithSize:(CGFloat)size;
 
 
 @end

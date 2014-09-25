@@ -89,24 +89,12 @@
     CGFloat smallButtonWidth = buttonBoardWidth / degrees.count;
     
     for (Degree *degree in degrees) {
-        
-        
         DegreeButtonView *degreeButton = [[DegreeButtonView alloc] initWithFrame:CGRectZero];
-        
         CGFloat x = textButtonWidth + (degree.identifier * smallButtonWidth);
         CGRect buttonFrame = CGRectMake(x, 0, smallButtonWidth, bounds.size.height);
         degreeButton.frame = buttonFrame;
-        
-        NSString *degreeString;
-        if (degree.flat) {
-            degreeString = [NSString stringWithFormat:@"b%ld", degree.number];
-        } else if (degree.sharp) {
-            degreeString = [NSString stringWithFormat:@"#%ld", degree.number];
-        } else {
-            degreeString = [NSString stringWithFormat:@"%ld", degree.number];
-        }
-        
-        degreeButton.titleLabel.text = degreeString;
+
+        [degreeButton.titleLabel setAttributedText:[degree toAttributedString]];
         degreeButton.delegate = self;
         degreeButton.tag = degree.identifier;
         
@@ -117,9 +105,19 @@
         }
         [self addSubview:degreeButton];
     }
-    
+}
+
+- (void)layoutSingleButton
+{
     
 }
+
+
+- (void)layoutDoubleButton
+{
+    
+}
+
 
 - (void)setNeedsDisplay
 {
@@ -142,7 +140,7 @@
     NSArray *degrees = [[GuitarStore sharedStore] degrees];
     NSMutableArray *degreeArray = [NSMutableArray new];
     for (Degree *degree in degrees) {
-        NSString *identifier = [NSString stringWithFormat:@"%d", degree.identifier];
+        NSString *identifier = [NSString stringWithFormat:@"%ld", (long) degree.identifier];
         [degreeArray addObject:identifier];
     }
     if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {

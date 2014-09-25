@@ -61,10 +61,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont proletarskFontWithSize:18.0f], NSFontAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont proletarskFontWithSize:24.0f], NSFontAttributeName, nil]];
 
 
     self.currentPosition = 0;
@@ -91,21 +92,32 @@
     
     UITapGestureRecognizer *topRightviewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.topRightStringView addGestureRecognizer:topRightviewTapped];
+    self.topRightStringView.stringViewType = StringViewTypeIndex;
     
     UITapGestureRecognizer *topLeftviewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.topLeftStringView addGestureRecognizer:topLeftviewTapped];
+    self.topLeftStringView.stringViewType = StringViewTypeIndex;
+
     
     UITapGestureRecognizer *middleRightViewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.middleRightStringView addGestureRecognizer:middleRightViewTapped];
+    self.middleRightStringView.stringViewType = StringViewTypeMiddle;
+
     
     UITapGestureRecognizer *middleLeftViewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.middleLeftStringView addGestureRecognizer:middleLeftViewTapped];
+    self.middleLeftStringView.stringViewType = StringViewTypeMiddle;
+
     
     UITapGestureRecognizer *bottomLeftViewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.bottomLeftStringView addGestureRecognizer:bottomLeftViewTapped];
+    self.bottomLeftStringView.stringViewType = StringViewTypePinky;
+
     
      UITapGestureRecognizer *bottomRightViewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.bottomRightStringView addGestureRecognizer:bottomRightViewTapped];
+    self.bottomRightStringView.stringViewType = StringViewTypePinky;
+
     
     [[GuitarStore sharedStore] setCallback:^(BOOL success) {
         if (success) {
@@ -117,11 +129,6 @@
     [[GuitarStore sharedStore] parseData];
 }
 
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-}
-
 - (void)handleLeftBarButtonTap:(id)sender
 {
     if (!self.menuController) {
@@ -131,7 +138,8 @@
         
         // Set the frame of playslistViewController view
         CGRect playslistViewControllerViewFrame   = self.view.bounds;
-        playslistViewControllerViewFrame.origin.y = -playslistViewControllerViewFrame.size.height;
+        playslistViewControllerViewFrame.origin.y -= playslistViewControllerViewFrame.size.height;
+        playslistViewControllerViewFrame.size.height -= self.degreeView.frame.size.height;
         
         self.menuController.view.frame = playslistViewControllerViewFrame;
         self.menuController.view.backgroundColor = [UIColor GuitarCream];
@@ -193,7 +201,7 @@
     // playslistViewController view layout
     CGRect menuViewControllerViewFrame;
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
-    menuViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight));
+    menuViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight - self.degreeView.frame.size.height));
     menuViewControllerViewFrame.origin = CGPointMake(0.0, navBarHeight);
     
     // Set playslistViewControllerView frame
@@ -217,7 +225,9 @@
         stringView.selectedDegrees = self.selectedDegrees;
         if (!self.selectedStringView) {
             self.selectedStringView = stringView;
-            stringView.backgroundColor = [UIColor GuitarLightBlue];
+            stringView.alpha = 1;
+        } else {
+            stringView.alpha = 0.3;
         }
         [stringView setNeedsDisplay];
     }
@@ -225,6 +235,7 @@
     self.positionLabel.text = self.selectedStringView.position.title;
     self.mainStringView.isMainView = YES;
     self.mainStringView.position = self.selectedStringView.position;
+    self.mainStringView.stringViewType = self.selectedStringView.stringViewType;
     self.mainStringView.selectedDegrees = self.selectedDegrees;
     [self.mainStringView setNeedsDisplay];
 
@@ -241,12 +252,15 @@
 - (void)viewTapped:(id)sender
 {
     UITapGestureRecognizer *tapRec = (UITapGestureRecognizer *) sender;
+    
     self.selectedStringView.backgroundColor = [UIColor clearColor];
+    self.selectedStringView.alpha = 0.3;
     
     StringView *stringView = (StringView *) tapRec.view;
     self.selectedStringView = stringView;
-
-    stringView.backgroundColor = [UIColor GuitarLightBlue];
+    stringView.alpha = 1;
+    
+    self.mainStringView.stringViewType = stringView.stringViewType;
     self.mainStringView.position = stringView.position;
     self.mainStringView.selectedDegrees = stringView.selectedDegrees;
     [self.mainStringView setNeedsDisplay];

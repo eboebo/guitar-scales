@@ -9,6 +9,7 @@
 #import "MenuTableViewController.h"
 #import "GuitarStore.h"
 #import "Scale.h"
+#import "MenuTableViewCell.h"
 
 @interface MenuTableViewController ()
 
@@ -41,7 +42,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.scales ? self.scales.count : 0;
+    return self.scales.count ;
 }
 
 
@@ -57,13 +58,14 @@
     Scale *scale = self.scales[indexPath.row];
     cell.textLabel.text = scale.title;
     cell.textLabel.font = [UIFont proletarskFontWithSize:17.0f];
-    cell.textLabel.textColor = [UIColor GuitarBlue];
+
+    
     cell.backgroundColor = [UIColor clearColor];
     
     if (scale == [[GuitarStore sharedStore] selectedScale]) {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        cell.textLabel.textColor = [UIColor GuitarBlue];
     } else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        cell.textLabel.textColor = [UIColor blackColor];
     }
     
     return cell;

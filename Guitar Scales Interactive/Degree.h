@@ -21,6 +21,14 @@
 @property (nonatomic, assign) NSInteger number;
 @property (nonatomic, assign) BOOL flat;
 @property (nonatomic, assign) BOOL sharp;
+
+@property (nonatomic, assign) NSInteger altNumber;
+@property (nonatomic, assign) BOOL altFlat;
+@property (nonatomic, assign) BOOL altSharp;
+
 @property (nonatomic, strong) NSArray<DegreePosition> *degreePositions;
+
+- (NSAttributedString *)toAttributedString;
+- (NSAttributedString *)toAttributedStringCircle;
 
 @end

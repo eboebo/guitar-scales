@@ -30,6 +30,9 @@
 		B108CB14199B02990047A473 /* Degree.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB13199B02990047A473 /* Degree.m */; };
 		B108CB18199B04710047A473 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB17199B04710047A473 /* Model.m */; };
 		B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B13799FA19AD1BE0002314D7 /* DegreeButtonView.m */; };
+		B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */; };
+		B148F34D19D4C188007BF91F /* OpusTextStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = B148F34C19D4C188007BF91F /* OpusTextStd.otf */; };
+		B148F34F19D4C54E007BF91F /* JasonSharpie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B148F34E19D4C54E007BF91F /* JasonSharpie.ttf */; };
 		B15F7B7019AAA35900028D8D /* OratorStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = B15F7B6F19AAA35900028D8D /* OratorStd.otf */; };
 		B15F7B7219AAA38900028D8D /* Proletarsk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B15F7B7119AAA38900028D8D /* Proletarsk.ttf */; };
 		B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B15F7B7519AAA83900028D8D /* UIFont+Guitar.m */; };
@@ -42,6 +45,7 @@
 		B16E945A19A173D8001F769A /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945919A173D8001F769A /* Coordinate.m */; };
 		B16E945D19A176FA001F769A /* DegreePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945C19A176FA001F769A /* DegreePosition.m */; };
 		B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */; };
+		B1AFCD9619B3EB8200714B2D /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD9419B3EB8200714B2D /* MenuTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,10 @@
 		B108CB17199B04710047A473 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		B13799F919AD1BE0002314D7 /* DegreeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeButtonView.h; sourceTree = "<group>"; };
 		B13799FA19AD1BE0002314D7 /* DegreeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeButtonView.m; sourceTree = "<group>"; };
+		B148F34919D4B2B0007BF91F /* DoubleDegreeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleDegreeButtonView.h; sourceTree = "<group>"; };
+		B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleDegreeButtonView.m; sourceTree = "<group>"; };
+		B148F34C19D4C188007BF91F /* OpusTextStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OpusTextStd.otf; sourceTree = "<group>"; };
+		B148F34E19D4C54E007BF91F /* JasonSharpie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JasonSharpie.ttf; sourceTree = "<group>"; };
 		B15F7B6F19AAA35900028D8D /* OratorStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OratorStd.otf; sourceTree = "<group>"; };
 		B15F7B7119AAA38900028D8D /* Proletarsk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Proletarsk.ttf; sourceTree = "<group>"; };
 		B15F7B7419AAA83900028D8D /* UIFont+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Guitar.h"; sourceTree = "<group>"; };
@@ -111,6 +119,8 @@
 		B16E945C19A176FA001F769A /* DegreePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreePosition.m; sourceTree = "<group>"; };
 		B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Guitar.h"; sourceTree = "<group>"; };
 		B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Guitar.m"; sourceTree = "<group>"; };
+		B1AFCD9319B3EB8200714B2D /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
+		B1AFCD9419B3EB8200714B2D /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +254,10 @@
 				B16E945319A05A8E001F769A /* DegreeView.m */,
 				B13799F919AD1BE0002314D7 /* DegreeButtonView.h */,
 				B13799FA19AD1BE0002314D7 /* DegreeButtonView.m */,
+				B1AFCD9319B3EB8200714B2D /* MenuTableViewCell.h */,
+				B1AFCD9419B3EB8200714B2D /* MenuTableViewCell.m */,
+				B148F34919D4B2B0007BF91F /* DoubleDegreeButtonView.h */,
+				B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -291,7 +305,9 @@
 		B1B0A6D919AA655100F32D77 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B148F34C19D4C188007BF91F /* OpusTextStd.otf */,
 				B15F7B7119AAA38900028D8D /* Proletarsk.ttf */,
+				B148F34E19D4C54E007BF91F /* JasonSharpie.ttf */,
 				B15F7B6F19AAA35900028D8D /* OratorStd.otf */,
 			);
 			name = Fonts;
@@ -377,8 +393,10 @@
 				B108CADA199AD1E70047A473 /* Images.xcassets in Resources */,
 				B16E945619A16F8D001F769A /* notes.json in Resources */,
 				B15F7B7219AAA38900028D8D /* Proletarsk.ttf in Resources */,
+				B148F34F19D4C54E007BF91F /* JasonSharpie.ttf in Resources */,
 				B15F7B7019AAA35900028D8D /* OratorStd.otf in Resources */,
 				B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */,
+				B148F34D19D4C188007BF91F /* OpusTextStd.otf in Resources */,
 				B108CB0A199B01BE0047A473 /* scales.json in Resources */,
 				B108CB01199AD77A0047A473 /* ScalesViewController.xib in Resources */,
 			);
@@ -435,7 +453,9 @@
 				B108CB0E199B01F30047A473 /* Scale.m in Sources */,
 				B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */,
 				B108CB11199B028E0047A473 /* Position.m in Sources */,
+				B1AFCD9619B3EB8200714B2D /* MenuTableViewCell.m in Sources */,
 				B108CB18199B04710047A473 /* Model.m in Sources */,
+				B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */,
 				B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */,
 				B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */,
 				B108CAD8199AD1E70047A473 /* ViewController.m in Sources */,

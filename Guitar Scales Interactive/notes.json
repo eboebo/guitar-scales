@@ -331,9 +331,12 @@
                 },
                 {
                 "degree_id": 3,
-                "degree_number": 3,
-                "flat": true,
-                "sharp": false,
+                "degree_number": 2,
+                "flat": false,
+                "sharp": true,
+                "alt_degree_number": 3,
+                "alt_flat": true,
+                "alt_sharp":false,
                 "degree_positions": [
                                      {
                                      "position_id": 0,

@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "Position.h"
 
+typedef enum {
+    StringViewTypeIndex = 0,
+    StringViewTypeMiddle = 1,
+    StringViewTypePinky = 2
+} StringViewType;
+
 @interface StringView : UIView
 
 @property (nonatomic, assign) BOOL isMainView;
 
 @property (nonatomic, strong) Position *position;
 @property (nonatomic, strong) NSArray *selectedDegrees;
+
+@property (nonatomic, assign) StringViewType stringViewType;
 
 @end
