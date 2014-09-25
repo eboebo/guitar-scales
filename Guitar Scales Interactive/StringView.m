@@ -144,84 +144,55 @@ const CGFloat maxHeight = 175.0;
                 if (degreePosition.positionID == self.position.identifier) {
                     NSArray *coordinates = degreePosition.coordinates;
                     for (Coordinate *coord in coordinates) {
+                        CGFloat x = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
+                        CGFloat y = coord.y * verticalSpacing + verticalOffset;
+                        CGContextAddArc(context, x, y, verticalOffset - lineWidth, 0.0, M_PI*2, YES );
                         
-                        
-                        
-                        
-                        //CGContextAddArc(context, x, y, verticalOffset - lineWidth, 0.0, M_PI*2, YES );
                         UIColor *textColor;
-                        UIImage *circleImage;
+                        UIColor *fillColor;
+                        UIColor *strokeColor;
                         if ([coord.color isEqual:@"black"]) {
                             textColor = [UIColor whiteColor];
-                            circleImage = [UIImage imageNamed:@"blob_black"];
-
+                            fillColor = [UIColor blackColor];
+                            strokeColor = [UIColor blackColor];
+                            
                         } else if ([coord.color isEqualToString:@"white"]) {
                             textColor = [UIColor blackColor];
-                            circleImage = [UIImage imageNamed:@"blob_white"];
+                            fillColor = [UIColor whiteColor];
+                            strokeColor = [UIColor blackColor];
                             
                         } else if ([coord.color isEqualToString:@"gray"]) {
-                            textColor = [UIColor GuitarGray];
-                            circleImage = [UIImage imageNamed:@"blob_gray"];
+                            textColor = [UIColor grayColor];
+                            fillColor = [UIColor GuitarLightGray];
+                            strokeColor = [UIColor lightGrayColor];
                         }
-                        
-                        CGFloat x = coord.x * horizontalSpacing + (horizontalSpacing / 4.0) + horizontalOffset;
-                        CGFloat y = coord.y * verticalSpacing - (verticalSpacing / 2.0) + verticalOffset;
-                        CGFloat blah = (verticalOffset -lineWidth) *2;
-                        CGRect frame = CGRectMake(x, y, blah, blah);
-                        UIImageView *circleImageView = [[UIImageView alloc] initWithFrame:frame];
-                        [circleImageView setImage:circleImage];
+                        CGContextSetFillColorWithColor(context, [fillColor CGColor]);
+                        CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
+                        CGContextDrawPath(context, kCGPathFillStroke);
 
                         if (self.isMainView) {
+                            NSMutableAttributedString *degreeString = [[degree toAttributedStringCircle] mutableCopy];
+                            CGFloat width =(verticalOffset - lineWidth) * 2;
+                            CGRect rect = CGRectMake(x - width / 2, y - width / 2, width, width);
+                            CGSize size = [degreeString size];
+                            CGFloat offset = (width - size.height) / 2;
                             
+                                                        rect.size.height -= offset * 2.0;
+                                                        rect.origin.y += offset;
                             
-                            UILabel *textLabel = [[UILabel alloc] initWithFrame:frame];
-                            NSMutableAttributedString *string = [[degree toAttributedStringCircle] mutableCopy];
-                            [string addAttribute:NSForegroundColorAttributeName value:textColor range:NSMakeRange(0, string.length)];
-                            [textLabel setAttributedText:string];
-                            [circleImageView addSubview:textLabel];
+                                                        NSNumber *offNum = [NSNumber numberWithFloat:offset];
                             
-//                            NSMutableAttributedString *degreeString = [[degree toAttributedStringCircle] mutableCopy];
-//
-//                            
-//                            CGSize size = [degreeString size];
-//                            
-//                            CGFloat width = (verticalOffset - lineWidth) * 2;
-//                            CGRect rect = CGRectMake(x - width / 2, y - width / 2, width, width);
-//                            
-//                            CGFloat offset = (width - size.height) / 2;
-//                            
-//                            rect.size.height -= offset * 2.0;
-//                            rect.origin.y += offset;
-//                            
-//                            NSNumber *offNum = [NSNumber numberWithFloat:offset];
-//
-//                            NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-//                            paragrapStyle.alignment                = NSTextAlignmentCenter;
-//                            
-//                            [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
-//                            [degreeString addAttributes:@{NSForegroundColorAttributeName:textColor,
-//                                                          NSParagraphStyleAttributeName:paragrapStyle,
-//                                                        NSBaselineOffsetAttributeName:offNum
-//                                                          } range:NSMakeRange(0, degreeString.length)];
-//                            //[degreeString drawInRect:frame];
-//                            
-// 
-//                            
-//                            
-//                            UIGraphicsBeginImageContext(circleImage.size);
-//                            [circleImage drawInRect:CGRectMake(0,0,circleImage.size.width,circleImage.size.height)];
-//                            rect = CGRectMake(x, y, circleImage.size.width, circleImage.size.height);
-//                            
-//                            [degreeString drawInRect:CGRectIntegral(rect)];
-//                            UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-//                            UIGraphicsEndImageContext();
-//                            [circleImageView setImage:newImage];
-//
-//                            [self addSubview:circleImageView];
-
+                            NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+                                                        paragrapStyle.alignment                = NSTextAlignmentCenter;
+                            
+                           [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
+                           [degreeString addAttributes:@{NSForegroundColorAttributeName:textColor,
+                                                                                      NSParagraphStyleAttributeName:paragrapStyle,
+                                                                                    NSBaselineOffsetAttributeName:offNum
+                                                                                      } range:NSMakeRange(0, degreeString.length)];
+                            [degreeString drawInRect:rect];
                             
                         }
-                         [self addSubview:circleImageView];
                     }
                 }
             }
