@@ -10,8 +10,11 @@
 #import "DegreeView.h"
 #import "Degree.h"
 #import "DegreeButtonView.h"
+#import "DoubleDegreeButtonView.h"
 
-@interface DegreeView () < DegreeButtonViewDelegate>
+@interface DegreeView ()
+<DegreeButtonViewDelegate,
+ DoubleDegreeButtonDelegate>
 
 
 @property (nonatomic, strong) UIButton *clearAllButton;
@@ -63,7 +66,7 @@
 - (void)drawRect:(CGRect)rect
 {
     //draw the bottom border
-    float borderSize = 8.0f;
+    float borderSize = 3.0f;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
     CGContextFillRect(context, CGRectMake(0.0f, self.frame.size.height - borderSize, self.frame.size.width, borderSize));
@@ -83,41 +86,66 @@
     CGRect showFrame = CGRectMake(bounds.size.width - textButtonWidth, 0, textButtonWidth, bounds.size.height);
     self.showAllButton.frame = showFrame;
     
+
+    
+    NSArray *degreeButtonArray = [[GuitarStore sharedStore] degreeButtonArray];
     NSArray *degrees = [[GuitarStore sharedStore] degrees];
     
     CGFloat buttonBoardWidth = bounds.size.width - textButtonWidth * 2.0;
-    CGFloat smallButtonWidth = buttonBoardWidth / degrees.count;
-    
-    for (Degree *degree in degrees) {
-        DegreeButtonView *degreeButton = [[DegreeButtonView alloc] initWithFrame:CGRectZero];
-        CGFloat x = textButtonWidth + (degree.identifier * smallButtonWidth);
-        CGRect buttonFrame = CGRectMake(x, 0, smallButtonWidth, bounds.size.height);
-        degreeButton.frame = buttonFrame;
+    CGFloat smallButtonWidth = buttonBoardWidth / degreeButtonArray.count;
 
-        [degreeButton.titleLabel setAttributedText:[degree toAttributedString]];
-        degreeButton.delegate = self;
-        degreeButton.tag = degree.identifier;
+    for (int i = 0; i < degreeButtonArray.count; i++) {
         
-        if ([self containsId:degree.identifier]) {
-            [degreeButton setSelected:YES];
-        } else {
-            [degreeButton setSelected:NO];
+        CGFloat x = textButtonWidth + (i * smallButtonWidth);
+        CGRect buttonFrame = CGRectMake(x, 0, smallButtonWidth, bounds.size.height);
+        
+        NSArray *degreeArray = degreeButtonArray[i];
+        
+        if (degreeArray.count == 1) {
+            DegreeButtonView *degreeButton = [[DegreeButtonView alloc] initWithFrame:CGRectZero];
+            degreeButton.frame = buttonFrame;
+            degreeButton.delegate = self;
+            
+            NSString *identifier = degreeArray[0];
+            Degree *degree = degrees[[identifier integerValue]];
+            [degreeButton.titleLabel setAttributedText:[degree toAttributedString]];
+            degreeButton.tag = degree.identifier;
+            
+            if ([self containsId:degree.identifier]) {
+                [degreeButton setSelected:YES];
+            } else {
+                [degreeButton setSelected:NO];
+            }
+            [self addSubview:degreeButton];
+
+        } else if (degreeArray.count == 2) {
+            DoubleDegreeButtonView *doubleButtonView = [[DoubleDegreeButtonView alloc] initWithFrame:CGRectZero];
+            doubleButtonView.frame = buttonFrame;
+            doubleButtonView.delegate = self;
+            
+            NSString *identifier = degreeArray[0];
+            Degree *degree = degrees[[identifier integerValue]];
+            [doubleButtonView.titleLabel setAttributedText:[degree toAttributedString]];
+            doubleButtonView.buttonTags = degreeArray;
+            
+            if ([self containsId:degree.identifier]) {
+                doubleButtonView.currentState = DoubleDegreeButtonStateTop;
+            }
+            
+            identifier = degreeArray[1];
+            degree = degrees[[identifier integerValue]];
+            [doubleButtonView.secondTitleLabel setAttributedText:[degree toAttributedString]];
+            
+            if ([self containsId:degree.identifier]) {
+                doubleButtonView.currentState = DoubleDegreeButtonStateBottom;
+
+            }
+            
+            [self addSubview:doubleButtonView];
+
         }
-        [self addSubview:degreeButton];
     }
 }
-
-- (void)layoutSingleButton
-{
-    
-}
-
-
-- (void)layoutDoubleButton
-{
-    
-}
-
 
 - (void)setNeedsDisplay
 {
@@ -137,10 +165,11 @@
 
 - (void)showAllTap:(id)sender
 {
-    NSArray *degrees = [[GuitarStore sharedStore] degrees];
+    NSArray *degrees = [[GuitarStore sharedStore] degreeButtonArray];
     NSMutableArray *degreeArray = [NSMutableArray new];
-    for (Degree *degree in degrees) {
-        NSString *identifier = [NSString stringWithFormat:@"%ld", (long) degree.identifier];
+    for (NSArray *degreeButtonArray in degrees) {
+
+        NSString *identifier =  degreeButtonArray[0];
         [degreeArray addObject:identifier];
     }
     if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
@@ -166,10 +195,9 @@
 
 - (void)degreeTapped:(id)sender
 {
-    
     DegreeButtonView *degreeButton = (DegreeButtonView *)sender;
     if (degreeButton.selected) {
-        NSNumber *number = [NSNumber numberWithInt:degreeButton.tag];
+        NSNumber *number = [NSNumber numberWithInteger:degreeButton.tag];
         [self.selectedDegrees insertObject:number atIndex:0];
     } else {
         for (NSNumber *degree in self.selectedDegrees) {
@@ -185,16 +213,40 @@
     }
 }
 
-//- (UIImage *)imageWithColor:(UIColor *)color {
-//    CGRect rect = CGRectMake(0, 0, 1, 1);
-//    // Create a 1 by 1 pixel context
-//    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-//    [color setFill];
-//    UIRectFill(rect);   // Fill it with your color
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    return image;
-//}
+- (void)doubleDegreeButtonTapped:(id)sender
+{
+    DoubleDegreeButtonView *degreeButton = (DoubleDegreeButtonView *)sender;
+
+
+    NSInteger insertIdentifier;
+    NSInteger removeIdentifier;
+    
+    if (degreeButton.currentState == DoubleDegreeButtonStateBottom) {
+        insertIdentifier = [degreeButton.buttonTags[1] integerValue];
+        removeIdentifier = [degreeButton.buttonTags[0] integerValue];
+    } else if (degreeButton.currentState == DoubleDegreeButtonStateTop) {
+        insertIdentifier = [degreeButton.buttonTags[0] integerValue];
+    } else {
+        removeIdentifier = [degreeButton.buttonTags[1] integerValue];
+    }
+    
+    if (insertIdentifier) {
+        NSNumber *number = [NSNumber numberWithInteger:insertIdentifier];
+        [self.selectedDegrees insertObject:number atIndex:0];
+    }
+    
+    if (removeIdentifier) {
+        for (NSNumber *degree in self.selectedDegrees) {
+            if ([degree integerValue]  == removeIdentifier) {
+                [self.selectedDegrees removeObject:degree];
+                break;
+            }
+        }
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
+        [self.delegate selectedDegreesModified:self.selectedDegrees];
+    }
+}
 
 @end

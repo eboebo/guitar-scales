@@ -1,4 +1,42 @@
 {
+    "degreeArray": [
+                      [
+                       "0"
+                       ],
+                      [
+                       "1"
+                       ],
+                      [
+                       "2"
+                       ],
+                      [
+                       "3",
+                       "12"
+                       ],
+                      [
+                       "4"
+                       ],
+                      [
+                       "5"
+                       ],
+                      [
+                       "6",
+                       "13"
+                       ],
+                      [
+                       "7"
+                       ],
+                      [
+                       "8",
+                       "14"
+                       ],
+                      [
+                       "9"
+                       ],
+                      [
+                       "11"
+                       ]
+                      ],
     "degrees": [
                 {
                 "degree_id": 0,
@@ -336,7 +374,7 @@
                 "sharp": true,
                 "alt_degree_number": 3,
                 "alt_flat": true,
-                "alt_sharp":false,
+                "alt_sharp": false,
                 "degree_positions": [
                                      {
                                      "position_id": 0,
@@ -1327,6 +1365,340 @@
                                                      },
                                                      {
                                                      "x": 4,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     }
+                                     ]
+                },
+                {
+                "degree_id": 12,
+                "degree_number": 3,
+                "flat": true,
+                "sharp": false,
+                "degree_positions": [
+                                     {
+                                     "position_id": 0,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 4,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 1,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 0,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 2,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 4,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 3,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 4,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 5,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 5,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     }
+                                     ]
+                },
+                {
+                "degree_id": 13,
+                "degree_number": 5,
+                "flat": true,
+                "sharp": false,
+                "degree_positions": [
+                                     {
+                                     "position_id": 0,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 3,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 1,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 5,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 2,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 3,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 1,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 4,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 4,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 5,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     }
+                                     ]
+                },
+                {
+                "degree_id": 14,
+                "degree_number": 6,
+                "flat": true,
+                "sharp": false,
+                "degree_positions": [
+                                     {
+                                     "position_id": 0,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 5,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 0,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 1,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 5,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 5,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 2,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 3,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 5,
+                                                     "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 3,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 3,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 5,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 4,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 5,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 1,
                                                      "y": 5,
                                                      "color": "gray"
                                                      }

@@ -48,6 +48,9 @@
                           options:kNilOptions
                           error:&error];
     
+    self.degreeButtonArray = [json objectForKey:@"degreeArray"];
+
+    
     NSArray* degrees = [json objectForKey:@"degrees"];
     
     // Block values to return

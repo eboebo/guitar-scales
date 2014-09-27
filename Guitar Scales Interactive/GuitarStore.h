@@ -13,6 +13,7 @@ typedef void (^UpdateCallback)(BOOL success);
 
 @interface GuitarStore : NSObject
 
+@property (nonatomic, strong) NSArray *degreeButtonArray;
 @property (nonatomic, strong) NSMutableArray *scales;
 @property (nonatomic, strong) NSMutableArray *positions;
 @property (nonatomic, strong) NSMutableArray *degrees;
