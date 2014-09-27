@@ -14,7 +14,7 @@
 {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
                                                        @"title": @"title",
-                                                       @"mode_title": @"modeTitle",
+                                                       @"alt_title": @"modeTitle",
                                                        @"degrees": @"selectedDegrees",
                                                        
                                                        }];

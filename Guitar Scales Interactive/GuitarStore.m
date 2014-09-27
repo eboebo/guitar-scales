@@ -69,18 +69,26 @@
         [self.positions addObject:pos];
     }];
     
-    NSArray* scales = [json objectForKey:@"scales"];
+    NSArray* scalesArrays = [json objectForKey:@"scales"];
     
-    // Block values to return
-    self.scales = [NSMutableArray array];
+    self.scales2DArray = [NSMutableArray array];
     
-    [(NSArray *)scales enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Scale *scale = [[Scale alloc] initWithDictionary:obj error:nil];
-        [self.scales addObject:scale];
-    }];
+    for (NSArray *scaleArray in scalesArrays) {
+        // Block values to return
+        NSMutableArray *scales = [NSMutableArray array];
+        
+        [(NSArray *)scaleArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            Scale *scale = [[Scale alloc] initWithDictionary:obj error:nil];
+            [scales addObject:scale];
+        }];
+        
+        [self.scales2DArray addObject:scales];
+    }
     
-    if (self.scales.count > 0) {
-        self.selectedScale = self.scales[0];
+
+    
+    if ([self.scales2DArray[0] count] > 0) {
+        self.selectedScale = self.scales2DArray[0][0];
     }
     
     if (self.callback) {

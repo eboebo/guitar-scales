@@ -304,18 +304,20 @@
     
     // test if new selection matches other scale
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSMutableArray *scales = [[GuitarStore sharedStore] scales];
-        for (Scale *scale in scales) {
-            self.title = @"";
-            [[GuitarStore sharedStore] setSelectedScale:nil];
-
-            if ([self.selectedDegrees equalDegrees:scale.selectedDegrees]) {
-                self.title = scale.title;
-                [[GuitarStore sharedStore] setSelectedScale:scale];
-                break;
+        
+        NSArray *scaleArray = [[GuitarStore sharedStore] scales2DArray];
+        for (NSArray *scales in scaleArray) {
+            for (Scale *scale in scales) {
+                self.title = @"";
+                [[GuitarStore sharedStore] setSelectedScale:nil];
+                
+                if ([self.selectedDegrees equalDegrees:scale.selectedDegrees]) {
+                    self.title = scale.title;
+                    [[GuitarStore sharedStore] setSelectedScale:scale];
+                    break;
+                }
             }
         }
-        
     });
 }
 

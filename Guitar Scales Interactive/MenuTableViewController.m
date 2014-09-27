@@ -22,7 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.scales = [[GuitarStore sharedStore] scales];
+    self.scales = [[GuitarStore sharedStore] scales2DArray];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -36,26 +36,26 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return self.scales.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.scales.count ;
+    return [self.scales[section] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Cell
-    NSString *MenuCellIdentifier = @"asd";
+    NSString *MenuCellIdentifier = @"MenuCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MenuCellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MenuCellIdentifier];
     }
     
-    Scale *scale = self.scales[indexPath.row];
+    Scale *scale = self.scales[indexPath.section][indexPath.row];
     cell.textLabel.text = scale.title;
     cell.textLabel.font = [UIFont proletarskFontWithSize:17.0f];
 
@@ -73,7 +73,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Scale *scale = self.scales[indexPath.row];
+    Scale *scale = self.scales[indexPath.section][indexPath.row];
     [[GuitarStore sharedStore] setSelectedScale:scale];
     if ([self.delegate respondsToSelector:@selector(didSelectScale:)]) {
         [self.delegate didSelectScale:scale];
