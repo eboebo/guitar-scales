@@ -132,7 +132,7 @@
 - (void)handleLeftBarButtonTap:(id)sender
 {
     if (!self.menuController) {
-        self.menuController = [[MenuTableViewController alloc] init];
+        self.menuController = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
         self.menuController.delegate = self;
         // Initialize the view controller and set any properties
         
@@ -143,7 +143,6 @@
         
         self.menuController.view.frame = playslistViewControllerViewFrame;
         self.menuController.view.backgroundColor = [UIColor GuitarCream];
-        self.menuController.view.alpha = 0.95;
         
         // Add as a child view controller
         [self addChildViewController:self.menuController];
@@ -211,7 +210,9 @@
 - (void)refreshData
 {
     Scale *scale = [[GuitarStore sharedStore] selectedScale];
-    self.title = scale.title;
+    
+    [self refreshTitle];
+    
     if (!self.selectedDegrees) {
         self.selectedDegrees = [scale.selectedDegrees mutableCopy];
     }
@@ -226,7 +227,9 @@
         if (!self.selectedStringView) {
             self.selectedStringView = stringView;
             stringView.alpha = 1;
-        } else {
+        } else if (stringView == self.selectedStringView) {
+            stringView.alpha = 1;
+        }else {
             stringView.alpha = 0.3;
         }
         [stringView setNeedsDisplay];
@@ -240,6 +243,12 @@
     [self.mainStringView setNeedsDisplay];
 
 
+}
+
+- (void)refreshTitle
+{
+    Scale *scale = [[GuitarStore sharedStore] selectedScale];
+    self.title = scale.title;
 }
 
 - (void)resetButtonView
@@ -299,8 +308,8 @@
 - (void)selectedDegreesModified:(NSMutableArray *)degrees
 {
     self.selectedDegrees = degrees;
+    [[GuitarStore sharedStore] setSelectedScale:nil];
     [self refreshData];
-    
     
     // test if new selection matches other scale
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -308,12 +317,9 @@
         NSArray *scaleArray = [[GuitarStore sharedStore] scales2DArray];
         for (NSArray *scales in scaleArray) {
             for (Scale *scale in scales) {
-                self.title = @"";
-                [[GuitarStore sharedStore] setSelectedScale:nil];
-                
                 if ([self.selectedDegrees equalDegrees:scale.selectedDegrees]) {
-                    self.title = scale.title;
                     [[GuitarStore sharedStore] setSelectedScale:scale];
+                    [self refreshTitle];
                     break;
                 }
             }
@@ -323,7 +329,6 @@
 
 - (void)didSelectScale:(Scale *)scale
 {
-    NSLog(@"selected scale");
     [self handleLeftBarButtonTap:nil];
     self.selectedDegrees = [scale.selectedDegrees mutableCopy];
     [self refreshData];

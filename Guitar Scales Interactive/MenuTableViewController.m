@@ -85,4 +85,49 @@
     return 30.0f;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0)
+        return @"SCALES";
+    
+    if (section == 1)
+        return @"ARPEGGIOS";
+    
+    if (section == 2)
+        return @"INTERVALS";
+    
+    return @"BLAH";
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [UIView new];
+    headerView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 25.0f);
+    headerView.backgroundColor = [UIColor GuitarLightBlue];
+    
+    UILabel *titleLabel = [UILabel new];
+    [titleLabel setText:@"SCALES"];
+    [titleLabel setFont:[UIFont proletarskFontWithSize:14.0f]];
+    [titleLabel setTextAlignment:NSTextAlignmentLeft];
+    titleLabel.backgroundColor = [UIColor GuitarLightBlue];
+    
+    CGFloat inset = 10.0;
+    
+    CGRect labelFrame = CGRectMake(inset, 0, self.view.bounds.size.width - inset * 2.0, headerView.frame.size.height);
+    titleLabel.frame = labelFrame;
+    [headerView addSubview:titleLabel];
+    
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 25.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
+}
+
 @end

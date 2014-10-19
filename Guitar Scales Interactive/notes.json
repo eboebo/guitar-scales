@@ -1754,7 +1754,7 @@
     "scales": [
                [
                 {
-                "title": "major scale",
+                "title": "Major Scale",
                 "alt_title": "ionian",
                 "degrees": [
                             0,
@@ -1767,7 +1767,7 @@
                             ]
                 },
                 {
-                "title": "natural minor",
+                "title": "Natural Minor",
                 "alt_title": "aeolian",
                 "degrees": [
                             0,
@@ -1780,7 +1780,7 @@
                             ]
                 },
                 {
-                "title": "melodic minor",
+                "title": "Melodic Minor",
                 "alt_title": "melodic minor",
                 "degrees": [
                             0,
@@ -1793,8 +1793,8 @@
                             ]
                 },
                 {
-                "title": "harmonic minor",
-                "alt_title": "harmonic minor",
+                "title": "Harmonic Minor",
+                "alt_title": "",
                 "degrees": [
                             0,
                             2,
@@ -1806,11 +1806,132 @@
                             ]
                 },
                 {
-                "title": "harmonic major",
-                "alt_title": "harmonic major",
+                "title": "Harmonic Major",
+                "alt_title": "",
                 "degrees": [
                             0,
                             2,
+                            4,
+                            5,
+                            7,
+                            14,
+                            11
+                            ]
+                },
+                {
+                "title": "Chromatic Scale",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            12,
+                            4,
+                            5,
+                            6,
+                            13,
+                            7,
+                            8,
+                            14,
+                            9,
+                            10,
+                            11
+                            ]
+                },
+                {
+                "title": "Major Pentatonic",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            7,
+                            9
+                            ]
+                },
+                {
+                "title": "Minor Pentatonic",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            12,
+                            5,
+                            7,
+                            10
+                            ]
+                },
+                {
+                "title": "Whole-Tone Scale",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            6,
+                            8,
+                            10
+                            ]
+                },
+                {
+                "title": "Whole-Half Diminished",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            5,
+                            13,
+                            8,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "Half-Whole Diminished",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            3,
+                            4,
+                            6,
+                            7,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "Augmented Scale",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            3,
+                            4,
+                            7,
+                            8,
+                            11
+                            ]
+                },
+                {
+                "title": "Double Harmonic Minor",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            6,
+                            7,
+                            14,
+                            11
+                            ]
+                },
+                {
+                "title": "Double Harmonic Major",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
                             4,
                             5,
                             7,
