@@ -12,10 +12,12 @@
 #import "DegreeView.h"
 #import "GuitarStore.h"
 #import "MenuTableViewController.h"
+#import "TutorialViewController.h"
 
 @interface ScalesViewController ()
 <DegreeViewDelegate,
- MenuDelegate
+ MenuDelegate,
+ TutorialViewControllerDelegate
 >
 
 @property (weak, nonatomic) IBOutlet StringView *mainStringView;
@@ -28,10 +30,8 @@
 @property (weak, nonatomic) IBOutlet DegreeView *degreeView;
 
 @property (nonatomic, strong) StringView *selectedStringView;
-
-
-@property (nonatomic, assign) Position *currentPosition;
-@property (weak, nonatomic) IBOutlet UILabel *positionLabel;
+@property (nonatomic, assign) Position   *currentPosition;
+@property (weak, nonatomic  ) IBOutlet UILabel    *positionLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *leftStringLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leftIndexLabel;
@@ -43,28 +43,25 @@
 @property (weak, nonatomic) IBOutlet UILabel *rightBottonLabel;
 
 @property (nonatomic, strong) MenuTableViewController *menuController;
+@property (nonatomic, strong) TutorialViewController  *tutorialController;
 
 
 @end
 
 @implementation ScalesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor GuitarCream];
+    if (![[GuitarStore sharedStore] displayedTutorial]) {
+        [self handleRightBarButtonTap:nil];
+        [[GuitarStore sharedStore] setDisplayedTutorial];
+    }
+    
+    self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont proletarskFontWithSize:24.0f], NSFontAttributeName, nil]];
 
 
@@ -72,49 +69,70 @@
     
     self.title = @"Scales";
     
-    self.positionLabel.font = [UIFont proletarskFontWithSize:16.0f];
-    self.leftStringLabel.font = [UIFont proletarskFontWithSize:14.0f];
-    self.leftIndexLabel.font = [UIFont proletarskFontWithSize:10.0f];
-    self.leftMiddleLabel.font = [UIFont proletarskFontWithSize:10.0f];
-    self.leftBottomLabel.font = [UIFont proletarskFontWithSize:10.0f];
+    self.positionLabel.font    = [UIFont proletarskFontWithSize:16.0f];
+    self.leftStringLabel.font  = [UIFont proletarskFontWithSize:14.0f];
+    self.leftIndexLabel.font   = [UIFont proletarskFontWithSize:10.0f];
+    self.leftMiddleLabel.font  = [UIFont proletarskFontWithSize:10.0f];
+    self.leftBottomLabel.font  = [UIFont proletarskFontWithSize:10.0f];
     self.rightStringLabel.font = [UIFont proletarskFontWithSize:14.0f];
-    self.rightIndexLabel.font = [UIFont proletarskFontWithSize:10.0f];
+    self.rightIndexLabel.font  = [UIFont proletarskFontWithSize:10.0f];
     self.rightMiddleLabel.font = [UIFont proletarskFontWithSize:10.0f];
     self.rightBottonLabel.font = [UIFont proletarskFontWithSize:10.0f];
 
     
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(handleLeftBarButtonTap:)];
-    [barButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont proletarskFontWithSize:14.0], NSFontAttributeName,
+    UIBarButtonItem *leftBarButtonItem
+    = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                       style:UIBarButtonItemStylePlain
+                                      target:self
+                                      action:@selector(handleLeftBarButtonTap:)];
+    [leftBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                           [UIFont proletarskFontWithSize:16.0], NSFontAttributeName,
                                            nil]
                                  forState:UIControlStateNormal];
-    self.navigationItem.leftBarButtonItem = barButtonItem;
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
-    UITapGestureRecognizer *topRightviewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    UIBarButtonItem *rightBarButtonItem
+    = [[UIBarButtonItem alloc] initWithTitle:@"How To Read"
+                                       style:UIBarButtonItemStylePlain
+                                      target:self
+                                      action:@selector(handleRightBarButtonTap:)];
+    [rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                           [UIFont proletarskFontWithSize:16.0], NSFontAttributeName,
+                                           nil]
+                                 forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    UITapGestureRecognizer *topRightviewTapped
+    = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.topRightStringView addGestureRecognizer:topRightviewTapped];
     self.topRightStringView.stringViewType = StringViewTypeIndex;
     
-    UITapGestureRecognizer *topLeftviewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    UITapGestureRecognizer *topLeftviewTapped
+    = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.topLeftStringView addGestureRecognizer:topLeftviewTapped];
     self.topLeftStringView.stringViewType = StringViewTypeIndex;
 
     
-    UITapGestureRecognizer *middleRightViewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    UITapGestureRecognizer *middleRightViewTapped
+    = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.middleRightStringView addGestureRecognizer:middleRightViewTapped];
     self.middleRightStringView.stringViewType = StringViewTypeMiddle;
 
     
-    UITapGestureRecognizer *middleLeftViewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    UITapGestureRecognizer *middleLeftViewTapped
+    = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.middleLeftStringView addGestureRecognizer:middleLeftViewTapped];
     self.middleLeftStringView.stringViewType = StringViewTypeMiddle;
 
     
-    UITapGestureRecognizer *bottomLeftViewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    UITapGestureRecognizer *bottomLeftViewTapped
+    = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.bottomLeftStringView addGestureRecognizer:bottomLeftViewTapped];
     self.bottomLeftStringView.stringViewType = StringViewTypePinky;
 
     
-     UITapGestureRecognizer *bottomRightViewTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+     UITapGestureRecognizer *bottomRightViewTapped
+    = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.bottomRightStringView addGestureRecognizer:bottomRightViewTapped];
     self.bottomRightStringView.stringViewType = StringViewTypePinky;
 
@@ -132,16 +150,18 @@
 - (void)handleLeftBarButtonTap:(id)sender
 {
     if (!self.menuController) {
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+        
         self.menuController = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
         self.menuController.delegate = self;
         // Initialize the view controller and set any properties
         
         // Set the frame of playslistViewController view
-        CGRect playslistViewControllerViewFrame   = self.view.bounds;
-        playslistViewControllerViewFrame.origin.y -= playslistViewControllerViewFrame.size.height;
-        playslistViewControllerViewFrame.size.height -= self.degreeView.frame.size.height;
+        CGRect scalesViewControllerViewFrame      = self.view.bounds;
+        scalesViewControllerViewFrame.origin.y    -= scalesViewControllerViewFrame.size.height;
+        scalesViewControllerViewFrame.size.height -= self.degreeView.frame.size.height;
         
-        self.menuController.view.frame = playslistViewControllerViewFrame;
+        self.menuController.view.frame           = scalesViewControllerViewFrame;
         self.menuController.view.backgroundColor = [UIColor GuitarCream];
         
         // Add as a child view controller
@@ -165,9 +185,11 @@
              
          }];
     } else {
+        [self.navigationItem.rightBarButtonItem setEnabled:YES];
+
         // Create the frame for playslistViewController view
-        CGRect playslistViewControllerViewFrame   = self.view.bounds;
-        playslistViewControllerViewFrame.origin.y = -playslistViewControllerViewFrame.size.height;
+        CGRect scalesViewControllerViewFrame   = self.view.bounds;
+        scalesViewControllerViewFrame.origin.y = -scalesViewControllerViewFrame.size.height;
         
         // Animate playslistViewController view changes
         [UIView animateWithDuration:.20
@@ -175,7 +197,7 @@
          {
              
              // Set the frame
-             self.menuController.view.frame = playslistViewControllerViewFrame;
+             self.menuController.view.frame = scalesViewControllerViewFrame;
              
          } completion:^(BOOL finished) {
              
@@ -205,6 +227,87 @@
     
     // Set playslistViewControllerView frame
     self.menuController.view.frame = menuViewControllerViewFrame;
+}
+
+- (void)handleRightBarButtonTap:(id)sender
+{
+    if (!self.tutorialController) {
+        [self.navigationItem.leftBarButtonItem setEnabled:NO];
+
+        self.tutorialController = [[TutorialViewController alloc] init];
+        // Initialize the view controller and set any properties
+        self.tutorialController.delegate = self;
+        // Set the frame of playslistViewController view
+        CGRect scalesViewControllerViewFrame   = self.view.bounds;
+        scalesViewControllerViewFrame.origin.y -= scalesViewControllerViewFrame.size.height;
+        scalesViewControllerViewFrame.size.height -= self.degreeView.frame.size.height;
+        
+        self.tutorialController.view.frame = scalesViewControllerViewFrame;
+        self.tutorialController.view.backgroundColor = [UIColor GuitarCream];
+        
+        // Add as a child view controller
+        [self addChildViewController:self.tutorialController];
+        
+        // Add as a subview
+        [self.view addSubview:self.tutorialController.view];
+        
+        [UIView animateWithDuration:.20
+                         animations:^
+         {
+             [self layoutTutorialViewController];
+         } completion:^(BOOL finished) {
+             
+             // Call didMoveToParentViewController to complete the
+             // child view controller steps
+             [self.tutorialController didMoveToParentViewController:self];
+             
+             // Reset user interaction
+             self.view.window.userInteractionEnabled = YES;
+             
+         }];
+    } else {
+        
+        [self.navigationItem.leftBarButtonItem setEnabled:YES];
+
+        // Create the frame for playslistViewController view
+        CGRect scalesViewControllerViewFrame   = self.view.bounds;
+        scalesViewControllerViewFrame.origin.y = -scalesViewControllerViewFrame.size.height;
+        
+        // Animate playslistViewController view changes
+        [UIView animateWithDuration:.20
+                         animations:^
+         {
+             
+             // Set the frame
+             self.tutorialController.view.frame = scalesViewControllerViewFrame;
+             
+         } completion:^(BOOL finished) {
+             
+             // Remove the subview
+             [self.tutorialController.view removeFromSuperview];
+             
+             self.tutorialController = nil;
+             
+             // Reset user interaction
+             self.view.window.userInteractionEnabled = YES;
+             
+         }];
+    }
+}
+
+- (void)layoutTutorialViewController
+{
+    // View layout setup
+    CGRect viewBounds = self.view.bounds;
+    
+    // playslistViewController view layout
+    CGRect tutorialViewControllerViewFrame;
+    CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
+    tutorialViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight));
+    tutorialViewControllerViewFrame.origin = CGPointMake(0.0, navBarHeight);
+    
+    // Set playslistViewControllerView frame
+    self.tutorialController.view.frame = tutorialViewControllerViewFrame;
 }
 
 - (void)refreshData
@@ -335,6 +438,11 @@
     [self resetButtonView];
 }
 
+- (void)didCompleteTutorial
+{
+    [self handleRightBarButtonTap:nil];
+
+}
 
 
 @end

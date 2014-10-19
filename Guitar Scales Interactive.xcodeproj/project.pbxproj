@@ -46,6 +46,7 @@
 		B16E945D19A176FA001F769A /* DegreePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945C19A176FA001F769A /* DegreePosition.m */; };
 		B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */; };
 		B1AFCD9619B3EB8200714B2D /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD9419B3EB8200714B2D /* MenuTableViewCell.m */; };
+		B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Guitar.m"; sourceTree = "<group>"; };
 		B1AFCD9319B3EB8200714B2D /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
 		B1AFCD9419B3EB8200714B2D /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
+		B1EC83ED19F40A7800A3D30F /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +244,8 @@
 				B108CAFF199AD77A0047A473 /* ScalesViewController.xib */,
 				B15F7B7D19ABFED400028D8D /* MenuTableViewController.h */,
 				B15F7B7E19ABFED400028D8D /* MenuTableViewController.m */,
+				B1EC83ED19F40A7800A3D30F /* TutorialViewController.h */,
+				B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				B108CB08199ADB570047A473 /* StringView.m in Sources */,
 				B16E945A19A173D8001F769A /* Coordinate.m in Sources */,
 				B15F7B7919AAB13800028D8D /* UIColor+Guitar.m in Sources */,
+				B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */,
 				B108CACB199AD1E70047A473 /* main.m in Sources */,
 				B108CB14199B02990047A473 /* Degree.m in Sources */,
 				B16E945419A05A8E001F769A /* DegreeView.m in Sources */,

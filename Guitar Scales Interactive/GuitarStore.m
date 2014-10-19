@@ -96,5 +96,16 @@
     }
 }
 
+- (BOOL)displayedTutorial
+{
+    BOOL displayedTutorial = [[NSUserDefaults standardUserDefaults] boolForKey:@"displayedTutorial"];
+    return displayedTutorial;
+}
+
+- (void)setDisplayedTutorial
+{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"displayedTutorial"];
+}
+
 
 @end

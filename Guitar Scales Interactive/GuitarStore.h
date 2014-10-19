@@ -23,6 +23,8 @@ typedef void (^UpdateCallback)(BOOL success);
 
 + (GuitarStore *)sharedStore;
 - (void)parseData;
+- (void)setDisplayedTutorial;
+- (BOOL)displayedTutorial;
 
 
 
