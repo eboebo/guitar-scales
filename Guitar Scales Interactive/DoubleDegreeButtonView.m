@@ -35,7 +35,6 @@
         self.titleLabel.hidden = NO;
         self.titleLabel.frame = self.bounds;
         self.titleLabel.textColor = [UIColor GuitarCream];
-
         self.backgroundColor = [UIColor GuitarBlue];
 
     } else if (self.currentState == DoubleDegreeButtonStateBottom) {

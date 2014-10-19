@@ -54,15 +54,10 @@
 {
     [super viewDidLoad];
     
-    if (![[GuitarStore sharedStore] displayedTutorial]) {
-        [self handleRightBarButtonTap:nil];
-        [[GuitarStore sharedStore] setDisplayedTutorial];
-    }
-    
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
     self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont proletarskFontWithSize:24.0f], NSFontAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont proletarskFontWithSize:20.0f], NSFontAttributeName, nil]];
 
 
     self.currentPosition = 0;
@@ -135,7 +130,11 @@
     = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.bottomRightStringView addGestureRecognizer:bottomRightViewTapped];
     self.bottomRightStringView.stringViewType = StringViewTypePinky;
-
+    
+    if (![[GuitarStore sharedStore] displayedTutorial]) {
+        [self handleRightBarButtonTap:nil];
+        [[GuitarStore sharedStore] setDisplayedTutorial];
+    }
     
     [[GuitarStore sharedStore] setCallback:^(BOOL success) {
         if (success) {
@@ -205,9 +204,7 @@
              [self.menuController.view removeFromSuperview];
              
              self.menuController = nil;
-             
-             // Reset user interaction
-             self.view.window.userInteractionEnabled = YES;
+            self.view.window.userInteractionEnabled = YES;
              
          }];
     }
@@ -222,7 +219,8 @@
     // playslistViewController view layout
     CGRect menuViewControllerViewFrame;
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
-    menuViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight - self.degreeView.frame.size.height));
+    //menuViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight - self.degreeView.frame.size.height));
+    menuViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight));
     menuViewControllerViewFrame.origin = CGPointMake(0.0, navBarHeight);
     
     // Set playslistViewControllerView frame

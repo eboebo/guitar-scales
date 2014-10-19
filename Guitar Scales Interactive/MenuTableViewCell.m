@@ -2,7 +2,7 @@
 //  MenuTableViewCell.m
 //  Guitar Scales Interactive
 //
-//  Created by Elena Boyd on 8/31/14.
+//  Created by Elena Boyd on 10/19/14.
 //
 //
 
@@ -10,33 +10,89 @@
 
 @implementation MenuTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.backgroundColor = [UIColor GuitarCream];
+        
+        self.leftTitle = [UILabel new];
+        self.leftTitle.font = [UIFont proletarskFontWithSize:15.0f];
+        self.leftTitle.textColor = [UIColor blackColor];
+        self.leftTitle.backgroundColor = [UIColor GuitarCream];
+        [self.leftTitle setTextAlignment:NSTextAlignmentCenter];
+        [self.leftTitle setUserInteractionEnabled:YES];
+        
+        UITapGestureRecognizer *leftTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftTitleTap:)];
+        [self.leftTitle addGestureRecognizer:leftTap];
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+        self.middleTitle = [UILabel new];
+        self.middleTitle.textColor = [UIColor blackColor];
+        self.middleTitle.font = [UIFont proletarskFontWithSize:15.0f];
+        self.middleTitle.backgroundColor = [UIColor GuitarCream];
+        [self.middleTitle setUserInteractionEnabled:YES];
 
-    // Configure the view for the selected state
+        [self.middleTitle setTextAlignment:NSTextAlignmentCenter];
+        
+        UITapGestureRecognizer *middleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMiddleTitleTap:)];
+        [self.middleTitle addGestureRecognizer:middleTap];
+        
+        self.rightTitle = [UILabel new];
+        self.rightTitle.textColor = [UIColor blackColor];
+        self.rightTitle.backgroundColor = [UIColor GuitarCream];
+        [self.rightTitle setUserInteractionEnabled:YES];
+        self.rightTitle.font = [UIFont proletarskFontWithSize:15.0f];
+        [self.rightTitle setTextAlignment:NSTextAlignmentCenter];
+        
+        UITapGestureRecognizer *rightTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightTitleTap:)];
+        [self.rightTitle addGestureRecognizer:rightTap];
+        
+        [self.contentView addSubview:self.leftTitle];
+        [self.contentView addSubview:self.middleTitle];
+        [self.contentView addSubview:self.rightTitle];
+    }
+    return self;
 }
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
     
-    CGRect bounds = self.bounds;
-    CGRect frame = CGRectMake(0, 0, bounds.size.width / 2.0, bounds.size.height);
-    UIView *leftView = [[UIView alloc] initWithFrame:frame];
+    CGRect bounds = self.contentView.bounds;
     
-    self.leftLabel = [[UILabel alloc] initWithFrame:frame];
-    [leftView addSubview:self.leftLabel];
-    [self addSubview:leftView];
+    CGFloat width = bounds.size.width / 3.0;
+    CGRect labelFrame = CGRectZero;
+    labelFrame.size = CGSizeMake(width, bounds.size.height);
     
-    frame.origin.x += frame.size.width;
+    self.leftTitle.frame = CGRectIntegral(labelFrame);
+    labelFrame.origin.x += width;
+    self.middleTitle.frame = CGRectIntegral(labelFrame);
+    labelFrame.origin.x += width;
+    self.rightTitle.frame = CGRectIntegral(labelFrame);
     
-    UIView *rightView = [[UIView alloc] initWithFrame:frame];
-    self.rightLabel = [[UILabel alloc] initWithFrame:frame];
-    [rightView addSubview:self.rightLabel];
-    [self addSubview:rightView];
+}
+
+- (void)handleLeftTitleTap:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(scaleTapped:)] && self.leftTitle.tag) {
+        [self.delegate scaleTapped:self.leftTitle.tag];
+    }
+}
+
+- (void)handleMiddleTitleTap:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(scaleTapped:)] && self.middleTitle.tag) {
+        [self.delegate scaleTapped:self.middleTitle.tag];
+    }
+}
+
+- (void)handleRightTitleTap:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(scaleTapped:)] && self.rightTitle.tag) {
+        [self.delegate scaleTapped:self.rightTitle.tag];
+    }
 }
 
 @end

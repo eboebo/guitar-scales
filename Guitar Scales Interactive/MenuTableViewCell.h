@@ -2,15 +2,23 @@
 //  MenuTableViewCell.h
 //  Guitar Scales Interactive
 //
-//  Created by Elena Boyd on 8/31/14.
+//  Created by Elena Boyd on 10/19/14.
 //
 //
 
 #import <UIKit/UIKit.h>
 
+@protocol MenuTableViewCellDelegate <NSObject>
+
+- (void)scaleTapped:(NSInteger)tag;
+
+@end
+
 @interface MenuTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *leftLabel;
-@property (nonatomic, strong) UILabel *rightLabel;
+@property (weak, nonatomic) id<MenuTableViewCellDelegate> delegate;
+@property (strong, nonatomic) UILabel *leftTitle;
+@property (strong, nonatomic) UILabel *middleTitle;
+@property (strong, nonatomic) UILabel *rightTitle;
 
 @end

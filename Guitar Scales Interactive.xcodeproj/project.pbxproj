@@ -14,7 +14,6 @@
 		B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B108CAC7199AD1E70047A473 /* InfoPlist.strings */; };
 		B108CACB199AD1E70047A473 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CACA199AD1E70047A473 /* main.m */; };
 		B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CACE199AD1E70047A473 /* AppDelegate.m */; };
-		B108CAD8199AD1E70047A473 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CAD7199AD1E70047A473 /* ViewController.m */; };
 		B108CADA199AD1E70047A473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B108CAD9199AD1E70047A473 /* Images.xcassets */; };
 		B108CAE1199AD1E80047A473 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAE0199AD1E80047A473 /* XCTest.framework */; };
 		B108CAE2199AD1E80047A473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CABE199AD1E70047A473 /* Foundation.framework */; };
@@ -45,8 +44,8 @@
 		B16E945A19A173D8001F769A /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945919A173D8001F769A /* Coordinate.m */; };
 		B16E945D19A176FA001F769A /* DegreePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945C19A176FA001F769A /* DegreePosition.m */; };
 		B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */; };
-		B1AFCD9619B3EB8200714B2D /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD9419B3EB8200714B2D /* MenuTableViewCell.m */; };
 		B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */; };
+		B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +71,6 @@
 		B108CACC199AD1E70047A473 /* Guitar Scales Interactive-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Guitar Scales Interactive-Prefix.pch"; sourceTree = "<group>"; };
 		B108CACD199AD1E70047A473 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B108CACE199AD1E70047A473 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B108CAD6199AD1E70047A473 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B108CAD7199AD1E70047A473 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B108CAD9199AD1E70047A473 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B108CADF199AD1E80047A473 /* Guitar Scales InteractiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Guitar Scales InteractiveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B108CAE0199AD1E80047A473 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -120,10 +117,10 @@
 		B16E945C19A176FA001F769A /* DegreePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreePosition.m; sourceTree = "<group>"; };
 		B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Guitar.h"; sourceTree = "<group>"; };
 		B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Guitar.m"; sourceTree = "<group>"; };
-		B1AFCD9319B3EB8200714B2D /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
-		B1AFCD9419B3EB8200714B2D /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		B1EC83ED19F40A7800A3D30F /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		B1EC83F019F4141700A3D30F /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
+		B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +191,6 @@
 				B108CB04199ADAE90047A473 /* Controllers */,
 				B108CACD199AD1E70047A473 /* AppDelegate.h */,
 				B108CACE199AD1E70047A473 /* AppDelegate.m */,
-				B108CAD6199AD1E70047A473 /* ViewController.h */,
-				B108CAD7199AD1E70047A473 /* ViewController.m */,
 				B108CAD9199AD1E70047A473 /* Images.xcassets */,
 				B108CAC5199AD1E70047A473 /* Supporting Files */,
 				B16E944F19A05169001F769A /* GuitarStore.h */,
@@ -259,10 +254,10 @@
 				B16E945319A05A8E001F769A /* DegreeView.m */,
 				B13799F919AD1BE0002314D7 /* DegreeButtonView.h */,
 				B13799FA19AD1BE0002314D7 /* DegreeButtonView.m */,
-				B1AFCD9319B3EB8200714B2D /* MenuTableViewCell.h */,
-				B1AFCD9419B3EB8200714B2D /* MenuTableViewCell.m */,
 				B148F34919D4B2B0007BF91F /* DoubleDegreeButtonView.h */,
 				B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */,
+				B1EC83F019F4141700A3D30F /* MenuTableViewCell.h */,
+				B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -458,14 +453,13 @@
 				B108CB0E199B01F30047A473 /* Scale.m in Sources */,
 				B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */,
 				B108CB11199B028E0047A473 /* Position.m in Sources */,
-				B1AFCD9619B3EB8200714B2D /* MenuTableViewCell.m in Sources */,
 				B108CB18199B04710047A473 /* Model.m in Sources */,
 				B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */,
 				B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */,
 				B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */,
-				B108CAD8199AD1E70047A473 /* ViewController.m in Sources */,
 				B16E945D19A176FA001F769A /* DegreePosition.m in Sources */,
 				B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */,
+				B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */,
 				B108CB08199ADB570047A473 /* StringView.m in Sources */,
 				B16E945A19A173D8001F769A /* Coordinate.m in Sources */,
 				B15F7B7919AAB13800028D8D /* UIColor+Guitar.m in Sources */,

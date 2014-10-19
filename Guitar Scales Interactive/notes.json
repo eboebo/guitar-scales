@@ -1942,17 +1942,63 @@
                 ],
                [
                 {
-                "title": "major arpeggio",
+                "title": "Major Arpeggio",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            4,
+                            7
+                            ]
+                },
+                {
+                "title": "Minor Arpeggio",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            12,
+                            7
+                            ]
+                },
+                {
+                "title": "Diminished Arpeggio",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            12,
+                            13
+                            ]
+                },
+                {
+                "title": "Augmented Arpeggio",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            4,
+                            8
+                            ]
+                },
+                {
+                "title": "Major 7 Arpeggio",
                 "alt_title": "",
                 "degrees": [
                             0,
                             4,
                             7,
-                            1
+                            11
                             ]
                 },
                 {
-                "title": "minor arpeggio",
+                "title": "Dominant 7 Arpeggio",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            4,
+                            7,
+                            10
+                            ]
+                },
+                {
+                "title": "Minor 7 Arpeggio",
                 "alt_title": "",
                 "degrees": [
                             0,
@@ -1962,12 +2008,494 @@
                             ]
                 },
                 {
-                "title": "diminished arpeggio",
+                "title": "Minor-Major 7 Arpeggio",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            12,
+                            7,
+                            11
+                            ]
+                },
+                {
+                "title": "Half-Diminished 7 Arpeggio",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            12,
+                            3,
+                            10
+                            ]
+                },
+                {
+                "title": "Diminished 7 Arpeggio",
                 "alt_title": "",
                 "degrees": [
                             0,
                             12,
                             13,
+                            9
+                            ]
+                }
+                ],
+               [
+                {
+                "title": "Minor 2nd",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1
+                            ]
+                },
+                {
+                "title": "Major 2nd",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2
+                            ]
+                },
+                {
+                "title": "Minor 3rd",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            12
+                            ]
+                },
+                {
+                "title": "Major 3rd",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            4
+                            ]
+                },
+                {
+                "title": "Perfect 4th",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            5
+                            ]
+                },
+                {
+                "title": "Tritone",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            13
+                            ]
+                },
+                {
+                "title": "Perfect 5th",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            7
+                            ]
+                },
+                {
+                "title": "Minor 6th",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            14
+                            ]
+                },
+                {
+                "title": "Major 6th",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            9
+                            ]
+                },
+                {
+                "title": "Minor 7th",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            10
+                            ]
+                },
+                {
+                "title": "Major 7th",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            11
+                            ]
+                }
+                ],
+               [
+                {
+                "title": "I. Ionian",
+                "alt_title": "Major Scale",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            5,
+                            7,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "ii. Dorian",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            5,
+                            7,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "iii. Phrygian",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            12,
+                            5,
+                            7,
+                            14,
+                            10
+                            ]
+                },
+                {
+                "title": "IV. Lydian",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            6,
+                            7,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "V. Mixolydian",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            5,
+                            7,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "vi. Aeolian",
+                "alt_title": "Natural Minor",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            5,
+                            7,
+                            14,
+                            10
+                            ]
+                },
+                {
+                "title": "vii°. Locrian",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            12,
+                            5,
+                            13,
+                            14,
+                            10
+                            ]
+                }
+                ],
+               [
+                {
+                "title": "i. Melodic Minor",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            5,
+                            7,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "ii. Dorian b2",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            12,
+                            5,
+                            7,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "bIII+. Lydian Augmented",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            6,
+                            8,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "IV. Lydian Dominant",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            6,
+                            7,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "V. Mixolydian b6",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            5,
+                            7,
+                            14,
+                            10
+                            ]
+                },
+                {
+                "title": "vi°. Locrian #2",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            5,
+                            13,
+                            14,
+                            10
+                            ]
+                },
+                {
+                "title": "vii°. Super Locrian",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            3,
+                            4,
+                            13,
+                            14,
+                            10
+                            ]
+                }
+                ],
+               [
+                {
+                "title": "i. Harmonic Minor",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            5,
+                            7,
+                            14,
+                            11
+                            ]
+                },
+                {
+                "title": "ii. Locrian #6",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            12,
+                            5,
+                            13,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "biii+. Ionian #5",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            5,
+                            8,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "iv. Dorian #4",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            6,
+                            7,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "V. Mixolydian b2, b6",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            4,
+                            5,
+                            7,
+                            14,
+                            10
+                            ]
+                },
+                {
+                "title": "bV1. Lydian #2",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            3,
+                            4,
+                            6,
+                            7,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "vii°. Super Locrian °7",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            3,
+                            4,
+                            6,
+                            8,
+                            9
+                            ]
+                }
+                ],
+               [
+                {
+                "title": "I. Harmonic Major",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            4,
+                            5,
+                            7,
+                            14,
+                            11
+                            ]
+                },
+                {
+                "title": "ii°. Locrian #2, #6",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            5,
+                            13,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "iii. Phrygian b4",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            3,
+                            4,
+                            7,
+                            14,
+                            10
+                            ]
+                },
+                {
+                "title": "iv. Melodic Minor #4",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            2,
+                            12,
+                            6,
+                            7,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "V. Mixolydian b2",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            4,
+                            5,
+                            7,
+                            9,
+                            10
+                            ]
+                },
+                {
+                "title": "bV1. Lydian #2, #5",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            3,
+                            4,
+                            6,
+                            8,
+                            9,
+                            11
+                            ]
+                },
+                {
+                "title": "vii°. Locrian °7",
+                "alt_title": "",
+                "degrees": [
+                            0,
+                            1,
+                            12,
+                            5,
+                            13,
+                            14,
                             9
                             ]
                 }

@@ -15,13 +15,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.titleLabel = [[UILabel alloc] init];
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.titleLabel                 = [[UILabel alloc] init];
+        self.titleLabel.textAlignment   = NSTextAlignmentCenter;
         self.titleLabel.backgroundColor = [UIColor clearColor];
-        self.selected = NO;
+        self.selected                   = NO;
         [self addSubview:self.titleLabel];
         
-        UITapGestureRecognizer *buttonTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonTapped:)];
+        UITapGestureRecognizer *buttonTap
+        = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonTapped:)];
         [self addGestureRecognizer:buttonTap];
     }
     return self;
@@ -29,11 +30,7 @@
 
 - (void)layoutSubviews
 {
-
     self.titleLabel.frame = self.bounds;
-
-
-    
 }
 
 - (void)drawRect:(CGRect)rect
