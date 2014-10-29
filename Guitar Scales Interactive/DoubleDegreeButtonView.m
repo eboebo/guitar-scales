@@ -63,7 +63,7 @@
 
 - (void)buttonTapped:(id)sender
 {
-    if (self.currentState == DoubleDegreeButtonStateBottom) {
+    if (self.currentState == DoubleDegreeButtonStateTop) {
         self.currentState = DoubleDegreeButtonStateNone;
     } else {
         self.currentState++;

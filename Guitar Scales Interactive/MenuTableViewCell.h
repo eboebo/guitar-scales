@@ -10,7 +10,7 @@
 
 @protocol MenuTableViewCellDelegate <NSObject>
 
-- (void)scaleTapped:(NSInteger)tag;
+- (void)scaleTapped:(UILabel *)scaleLabel;
 
 @end
 

@@ -22,7 +22,7 @@
 
 + (UIFont *)markerFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MarkerFelt-Thin" size:size];
+    return [UIFont fontWithName:@"JasonSharpie" size:size];
 }
 
 @end

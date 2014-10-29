@@ -103,20 +103,6 @@ const CGFloat maxHeight = 175.0;
             [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont markerFontWithSize:14.0f], NSParagraphStyleAttributeName:paragrapStyle}];
 
         }
-        
-        if (self.stringViewType == StringViewTypeIndex) {
-            stringArray = @[@"(1)", @"1", @"2", @"3", @"4"];
-            for (int i = 0; i < stringArray.count; i++) {
-                CGFloat x      = horizontalOffset + (i * horizontalSpacing);
-                CGFloat y      = 6.5 * verticalSpacing + verticalOffset;
-                NSString *text = stringArray[i];
-                CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
-                NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-                paragrapStyle.alignment                = NSTextAlignmentCenter;
-                [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont markerFontWithSize:14.0f], NSParagraphStyleAttributeName:paragrapStyle}];
-                
-            }
-        }
     }
     
     

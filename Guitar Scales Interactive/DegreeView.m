@@ -49,7 +49,7 @@
     self.clearAllButton  = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.clearAllButton setTitle:@"CLEAR ALL" forState:UIControlStateNormal];
     [self.clearAllButton setTintColor:[UIColor GuitarBlue]];
-    self.clearAllButton.titleLabel.font = [UIFont proletarskFontWithSize:17.0f];
+    self.clearAllButton.titleLabel.font = [UIFont proletarskFontWithSize:13.0f];
     [self.clearAllButton addTarget:self
                             action:@selector(clearAllTap:)
                   forControlEvents:UIControlEventTouchUpInside];
@@ -58,7 +58,7 @@
     self.showAllButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.showAllButton setTitle:@"SHOW ALL" forState:UIControlStateNormal];
     [self.showAllButton setTintColor:[UIColor GuitarBlue]];
-    self.showAllButton.titleLabel.font = [UIFont proletarskFontWithSize:17.0f];
+    self.showAllButton.titleLabel.font = [UIFont proletarskFontWithSize:13.0f];
 
     [self.showAllButton addTarget:self
                            action:@selector(showAllTap:)
@@ -82,7 +82,7 @@
 {
     [super layoutSubviews];
     CGRect bounds           = self.bounds;
-    CGFloat textButtonWidth = 120.0f;
+    CGFloat textButtonWidth = 80.0f;
     
     CGRect clearFrame         = CGRectMake(0, 0, textButtonWidth, bounds.size.height);
     self.clearAllButton.frame = clearFrame;
@@ -227,13 +227,13 @@
     NSInteger insertIdentifier = -1;
     NSInteger removeIdentifier = -1;
     
-    if (degreeButton.currentState == DoubleDegreeButtonStateBottom) {
-        insertIdentifier = [degreeButton.buttonTags[1] integerValue];
-        removeIdentifier = [degreeButton.buttonTags[0] integerValue];
-    } else if (degreeButton.currentState == DoubleDegreeButtonStateTop) {
+    if (degreeButton.currentState == DoubleDegreeButtonStateTop) {
         insertIdentifier = [degreeButton.buttonTags[0] integerValue];
-    } else {
         removeIdentifier = [degreeButton.buttonTags[1] integerValue];
+    } else if (degreeButton.currentState == DoubleDegreeButtonStateBottom) {
+        insertIdentifier = [degreeButton.buttonTags[1] integerValue];
+    } else {
+        removeIdentifier = [degreeButton.buttonTags[0] integerValue];
     }
     
     if (insertIdentifier > -1) {

@@ -219,8 +219,7 @@
     // playslistViewController view layout
     CGRect menuViewControllerViewFrame;
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
-    //menuViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight - self.degreeView.frame.size.height));
-    menuViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight));
+    menuViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight - self.degreeView.frame.size.height));
     menuViewControllerViewFrame.origin = CGPointMake(0.0, navBarHeight);
     
     // Set playslistViewControllerView frame
@@ -430,7 +429,6 @@
 
 - (void)didSelectScale:(Scale *)scale
 {
-    [self handleLeftBarButtonTap:nil];
     self.selectedDegrees = [scale.selectedDegrees mutableCopy];
     [self refreshData];
     [self resetButtonView];

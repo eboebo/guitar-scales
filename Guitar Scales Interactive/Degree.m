@@ -37,18 +37,18 @@
         leftChar = @"#";
     }
     
-    NSString *degreeString = [NSString stringWithFormat:@"%@%ld", leftChar, self.number];
+    NSString *degreeString = [NSString stringWithFormat:@"%@%ld", leftChar, (long)self.number];
     NSMutableAttributedString *degreeAttributedString = [[NSMutableAttributedString alloc] initWithString:degreeString];
     if (self.flat || self.sharp) {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont fontWithName:@"OpusTextStd" size:16.0]
+                                       value:[UIFont fontWithName:@"OpusTextStd" size:19.0]
                                        range:NSMakeRange(0, 1)];
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont oratorFontWithSize:18.0f]
+                                       value:[UIFont oratorFontWithSize:19.0f]
                                        range:NSMakeRange(1, 1)];
     } else {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont oratorFontWithSize:18.0f]
+                                       value:[UIFont oratorFontWithSize:19.0f]
                                        range:NSMakeRange(0, 1)];
     }
     return degreeAttributedString;
@@ -63,7 +63,7 @@
         leftChar = @"#";
     }
     
-    NSString *degreeString = [NSString stringWithFormat:@"%@%ld", leftChar, self.number];
+    NSString *degreeString = [NSString stringWithFormat:@"%@%ld", leftChar, (long) self.number];
     NSMutableAttributedString *degreeAttributedString = [[NSMutableAttributedString alloc] initWithString:degreeString];
     if (self.flat || self.sharp) {
         [degreeAttributedString addAttribute:NSFontAttributeName

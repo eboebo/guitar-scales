@@ -77,21 +77,21 @@
 - (void)handleLeftTitleTap:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(scaleTapped:)] && self.leftTitle.tag) {
-        [self.delegate scaleTapped:self.leftTitle.tag];
+        [self.delegate scaleTapped:self.leftTitle];
     }
 }
 
 - (void)handleMiddleTitleTap:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(scaleTapped:)] && self.middleTitle.tag) {
-        [self.delegate scaleTapped:self.middleTitle.tag];
+        [self.delegate scaleTapped:self.middleTitle];
     }
 }
 
 - (void)handleRightTitleTap:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(scaleTapped:)] && self.rightTitle.tag) {
-        [self.delegate scaleTapped:self.rightTitle.tag];
+        [self.delegate scaleTapped:self.rightTitle];
     }
 }
 

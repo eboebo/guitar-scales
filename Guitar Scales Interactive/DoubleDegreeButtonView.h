@@ -10,8 +10,8 @@
 
 typedef enum {
     DoubleDegreeButtonStateNone = 0,
-    DoubleDegreeButtonStateTop = 1,
-    DoubleDegreeButtonStateBottom = 2
+    DoubleDegreeButtonStateBottom = 1,
+    DoubleDegreeButtonStateTop = 2
 } DoubleDegreeButtonState;
 
 @protocol DoubleDegreeButtonDelegate <NSObject>

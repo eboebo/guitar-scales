@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSArray *scales;
 @property (nonatomic, strong) NSArray *scaleGroups;
+@property (nonatomic, strong) UILabel *selectedLabel;
 
 @end
 
@@ -71,6 +72,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     
     if (leftScale == [[GuitarStore sharedStore] selectedScale]) {
         cell.leftTitle.textColor = [UIColor GuitarBlue];
+        self.selectedLabel = cell.leftTitle;
     } else {
         cell.leftTitle.textColor = [UIColor blackColor];
     }
@@ -83,6 +85,8 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
         if (middleScale == [[GuitarStore sharedStore] selectedScale]) {
             cell.middleTitle.textColor = [UIColor GuitarBlue];
+            self.selectedLabel = cell.middleTitle;
+
         } else {
             cell.middleTitle.textColor = [UIColor blackColor];
         }
@@ -98,6 +102,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
         cell.rightTitle.tag = tag;
         if (rightScale == [[GuitarStore sharedStore] selectedScale]) {
             cell.rightTitle.textColor = [UIColor GuitarBlue];
+            self.selectedLabel = cell.rightTitle;
         } else {
             cell.rightTitle.textColor = [UIColor blackColor];
         }
@@ -149,17 +154,28 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     return CGFLOAT_MIN;
 }
 
-- (void)scaleTapped:(NSInteger)tag
+- (void)scaleTapped:(UILabel *)scaleLabel
 {
-    tag = tag - SCALE_TAG_OFFSET;
-    NSInteger section = tag / 1000;
-    NSInteger row     = tag % 1000;
-
-    Scale *scale = self.scales[section][row];
-    [[GuitarStore sharedStore] setSelectedScale:scale];
-    if ([self.delegate respondsToSelector:@selector(didSelectScale:)]) {
-        [self.delegate didSelectScale:scale];
+    if (self.selectedLabel) {
+        [self.selectedLabel setTextColor:[UIColor blackColor]];
+        self.selectedLabel = scaleLabel;
+        [self.selectedLabel setTextColor:[UIColor GuitarBlue]];
     }
+    
+    if (scaleLabel.tag) {
+        NSInteger tag = scaleLabel.tag - SCALE_TAG_OFFSET;
+        NSInteger section = tag / 1000;
+        NSInteger row     = tag % 1000;
+        
+        Scale *scale = self.scales[section][row];
+        [[GuitarStore sharedStore] setSelectedScale:scale];
+        if ([self.delegate respondsToSelector:@selector(didSelectScale:)]) {
+            [self.delegate didSelectScale:scale];
+        }
+    }
+
+
+
 }
 
 @end
