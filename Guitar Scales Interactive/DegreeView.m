@@ -47,18 +47,18 @@
 {
     self.backgroundColor = [UIColor clearColor];
     self.clearAllButton  = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.clearAllButton setTitle:@"CLEAR ALL" forState:UIControlStateNormal];
-    [self.clearAllButton setTintColor:[UIColor GuitarBlue]];
-    self.clearAllButton.titleLabel.font = [UIFont proletarskFontWithSize:13.0f];
+    [self.clearAllButton setTitle:@"CLEAR" forState:UIControlStateNormal];
+    [self.clearAllButton setTintColor:[UIColor GuitarMediumBlue]];
+    self.clearAllButton.titleLabel.font = [UIFont blackoutFontWithSize:15.0f];
     [self.clearAllButton addTarget:self
                             action:@selector(clearAllTap:)
                   forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.clearAllButton];
     
     self.showAllButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.showAllButton setTitle:@"SHOW ALL" forState:UIControlStateNormal];
-    [self.showAllButton setTintColor:[UIColor GuitarBlue]];
-    self.showAllButton.titleLabel.font = [UIFont proletarskFontWithSize:13.0f];
+    [self.showAllButton setTitle:@"ALL" forState:UIControlStateNormal];
+    [self.showAllButton setTintColor:[UIColor GuitarMediumBlue]];
+    self.showAllButton.titleLabel.font = [UIFont blackoutFontWithSize:15.0f];
 
     [self.showAllButton addTarget:self
                            action:@selector(showAllTap:)
@@ -82,7 +82,7 @@
 {
     [super layoutSubviews];
     CGRect bounds           = self.bounds;
-    CGFloat textButtonWidth = 80.0f;
+    CGFloat textButtonWidth = 70.0f;
     
     CGRect clearFrame         = CGRectMake(0, 0, textButtonWidth, bounds.size.height);
     self.clearAllButton.frame = clearFrame;

@@ -45,6 +45,8 @@
 @property (nonatomic, strong) MenuTableViewController *menuController;
 @property (nonatomic, strong) TutorialViewController  *tutorialController;
 
+@property (nonatomic) BOOL fadeTutorial;
+
 
 @end
 
@@ -57,7 +59,7 @@
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
     self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont proletarskFontWithSize:20.0f], NSFontAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:20.0f], NSFontAttributeName, nil]];
 
 
     self.currentPosition = 0;
@@ -81,7 +83,7 @@
                                       target:self
                                       action:@selector(handleLeftBarButtonTap:)];
     [leftBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont proletarskFontWithSize:16.0], NSFontAttributeName,
+                                           [UIFont blackoutFontWithSize:16.0], NSFontAttributeName,
                                            nil]
                                  forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
@@ -92,7 +94,7 @@
                                       target:self
                                       action:@selector(handleRightBarButtonTap:)];
     [rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont proletarskFontWithSize:16.0], NSFontAttributeName,
+                                           [UIFont blackoutFontWithSize:16.0], NSFontAttributeName,
                                            nil]
                                  forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
@@ -132,6 +134,7 @@
     self.bottomRightStringView.stringViewType = StringViewTypePinky;
     
     if (![[GuitarStore sharedStore] displayedTutorial]) {
+        self.fadeTutorial = YES;
         [self handleRightBarButtonTap:nil];
         [[GuitarStore sharedStore] setDisplayedTutorial];
     }
@@ -144,6 +147,103 @@
     }];
     
     [[GuitarStore sharedStore] parseData];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    CGFloat inset = 15.0;
+    CGRect bounds = self.view.bounds;
+    
+    // LAYOUT STRINGVIEWS
+    
+    CGFloat stringViewWidth = bounds.size.width / 6.2;
+    CGFloat rightX = bounds.size.width - stringViewWidth - inset;
+    
+    CGRect stringViewFrame = self.topLeftStringView.frame;
+    stringViewFrame.origin.x = inset;
+    stringViewFrame.size.width = stringViewWidth;
+    self.topLeftStringView.frame = stringViewFrame;
+    
+    stringViewFrame = self.middleLeftStringView.frame;
+    stringViewFrame.origin.x = inset;
+    stringViewFrame.size.width = stringViewWidth;
+    self.middleLeftStringView.frame = stringViewFrame;
+    
+    stringViewFrame = self.bottomLeftStringView.frame;
+    stringViewFrame.origin.x = inset;
+    stringViewFrame.size.width = stringViewWidth;
+    self.bottomLeftStringView.frame = stringViewFrame;
+    
+    stringViewFrame = self.topRightStringView.frame;
+    stringViewFrame.size.width = stringViewWidth;
+    stringViewFrame.origin.x = rightX;
+    self.topRightStringView.frame = stringViewFrame;
+    
+    stringViewFrame = self.middleRightStringView.frame;
+    stringViewFrame.size.width = stringViewWidth;
+    stringViewFrame.origin.x = rightX;
+    self.middleRightStringView.frame = stringViewFrame;
+    
+    stringViewFrame = self.bottomRightStringView.frame;
+    stringViewFrame.size.width = stringViewWidth;
+    stringViewFrame.origin.x = rightX;
+    self.bottomRightStringView.frame = stringViewFrame;
+    
+    // LAYOUT LABELS
+    
+    CGPoint center = self.positionLabel.center;
+    center.x = bounds.size.width / 2.0;
+    self.positionLabel.center = center;
+    
+    CGFloat leftLabelCenterX = inset + (stringViewWidth / 2.0);
+    
+    center = self.leftStringLabel.center;
+    center.x = leftLabelCenterX;
+    self.leftStringLabel.center = center;
+    
+    center = self.leftIndexLabel.center;
+    center.x = leftLabelCenterX;
+    self.leftIndexLabel.center = center;
+    
+    center = self.leftMiddleLabel.center;
+    center.x = leftLabelCenterX;
+    self.leftMiddleLabel.center = center;
+    
+    center = self.leftBottomLabel.center;
+    center.x = leftLabelCenterX;
+    self.leftBottomLabel.center = center;
+    
+    CGFloat rightLabelCenterX = rightX + (stringViewWidth / 2.0);
+    
+    center = self.rightStringLabel.center;
+    center.x = rightLabelCenterX;
+    self.rightStringLabel.center = center;
+    
+    center = self.rightIndexLabel.center;
+    center.x = rightLabelCenterX;
+    self.rightIndexLabel.center = center;
+    
+    center = self.rightMiddleLabel.center;
+    center.x = rightLabelCenterX;
+    self.rightMiddleLabel.center = center;
+    
+    center = self.rightBottonLabel.center;
+    center.x = rightLabelCenterX;
+    self.rightBottonLabel.center = center;
+    
+    // LAYOUT MAIN VIEW
+    
+    CGFloat mainStringWith
+    = bounds.size.width
+    - (stringViewWidth * 2.0)
+    - (inset * 4.0);
+    
+    stringViewFrame = self.mainStringView.frame;
+    stringViewFrame.size.width = mainStringWith;
+    stringViewFrame.origin.x = stringViewWidth + (inset * 2.0);
+    self.mainStringView.frame = stringViewFrame;
 }
 
 - (void)handleLeftBarButtonTap:(id)sender
@@ -274,12 +374,15 @@
         [UIView animateWithDuration:.20
                          animations:^
          {
-             
+             if (self.fadeTutorial) {
+                 self.tutorialController.view.alpha = 0;
+             } else {
+                 self.tutorialController.view.frame = scalesViewControllerViewFrame;
+             }
              // Set the frame
-             self.tutorialController.view.frame = scalesViewControllerViewFrame;
              
          } completion:^(BOOL finished) {
-             
+             self.fadeTutorial = NO;
              // Remove the subview
              [self.tutorialController.view removeFromSuperview];
              

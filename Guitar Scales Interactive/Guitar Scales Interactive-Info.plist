@@ -14,6 +14,10 @@
 		<string>OpusTextStd.otf</string>
 		<string>OratorStd.otf</string>
 		<string>Proletarsk.ttf</string>
+		<string>SVBasicManual-Bold.ttf</string>
+		<string>BravuraText.otf</string>
+		<string>Blackout-Midnight.ttf</string>
+		<string>jr!hand.ttf</string>
 	</array>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>

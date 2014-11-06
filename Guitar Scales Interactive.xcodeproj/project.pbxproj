@@ -37,6 +37,11 @@
 		B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B15F7B7519AAA83900028D8D /* UIFont+Guitar.m */; };
 		B15F7B7919AAB13800028D8D /* UIColor+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B15F7B7819AAB13800028D8D /* UIColor+Guitar.m */; };
 		B15F7B7F19ABFED400028D8D /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15F7B7E19ABFED400028D8D /* MenuTableViewController.m */; };
+		B167A1611A0BC24400AFFC07 /* SVBasicManual-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B167A1601A0BC24400AFFC07 /* SVBasicManual-Bold.ttf */; };
+		B167A1631A0BC24D00AFFC07 /* Blackout-Midnight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B167A1621A0BC24D00AFFC07 /* Blackout-Midnight.ttf */; };
+		B167A1671A0BC5AF00AFFC07 /* jr!hand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B167A1661A0BC5AF00AFFC07 /* jr!hand.ttf */; };
+		B167A1691A0BC84800AFFC07 /* BravuraText.otf in Resources */ = {isa = PBXBuildFile; fileRef = B167A1681A0BC84800AFFC07 /* BravuraText.otf */; };
+		B167A16B1A0BC8BE00AFFC07 /* Bravura.otf in Resources */ = {isa = PBXBuildFile; fileRef = B167A16A1A0BC8BE00AFFC07 /* Bravura.otf */; };
 		B16E944E199FDB5A001F769A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E944D199FDB5A001F769A /* CoreText.framework */; };
 		B16E945119A05169001F769A /* GuitarStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945019A05169001F769A /* GuitarStore.m */; };
 		B16E945419A05A8E001F769A /* DegreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945319A05A8E001F769A /* DegreeView.m */; };
@@ -105,6 +110,11 @@
 		B15F7B7819AAB13800028D8D /* UIColor+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Guitar.m"; sourceTree = "<group>"; };
 		B15F7B7D19ABFED400028D8D /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		B15F7B7E19ABFED400028D8D /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		B167A1601A0BC24400AFFC07 /* SVBasicManual-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SVBasicManual-Bold.ttf"; sourceTree = "<group>"; };
+		B167A1621A0BC24D00AFFC07 /* Blackout-Midnight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blackout-Midnight.ttf"; sourceTree = "<group>"; };
+		B167A1661A0BC5AF00AFFC07 /* jr!hand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "jr!hand.ttf"; sourceTree = "<group>"; };
+		B167A1681A0BC84800AFFC07 /* BravuraText.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BravuraText.otf; sourceTree = "<group>"; };
+		B167A16A1A0BC8BE00AFFC07 /* Bravura.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bravura.otf; sourceTree = "<group>"; };
 		B16E944D199FDB5A001F769A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B16E944F19A05169001F769A /* GuitarStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuitarStore.h; sourceTree = "<group>"; };
 		B16E945019A05169001F769A /* GuitarStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuitarStore.m; sourceTree = "<group>"; };
@@ -305,6 +315,11 @@
 		B1B0A6D919AA655100F32D77 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B167A1601A0BC24400AFFC07 /* SVBasicManual-Bold.ttf */,
+				B167A16A1A0BC8BE00AFFC07 /* Bravura.otf */,
+				B167A1661A0BC5AF00AFFC07 /* jr!hand.ttf */,
+				B167A1621A0BC24D00AFFC07 /* Blackout-Midnight.ttf */,
+				B167A1681A0BC84800AFFC07 /* BravuraText.otf */,
 				B148F34C19D4C188007BF91F /* OpusTextStd.otf */,
 				B15F7B7119AAA38900028D8D /* Proletarsk.ttf */,
 				B148F34E19D4C54E007BF91F /* JasonSharpie.ttf */,
@@ -396,12 +411,17 @@
 				B108CADA199AD1E70047A473 /* Images.xcassets in Resources */,
 				B16E945619A16F8D001F769A /* notes.json in Resources */,
 				B15F7B7219AAA38900028D8D /* Proletarsk.ttf in Resources */,
+				B167A1691A0BC84800AFFC07 /* BravuraText.otf in Resources */,
 				B148F34F19D4C54E007BF91F /* JasonSharpie.ttf in Resources */,
 				B15F7B7019AAA35900028D8D /* OratorStd.otf in Resources */,
 				B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */,
 				B148F34D19D4C188007BF91F /* OpusTextStd.otf in Resources */,
+				B167A1611A0BC24400AFFC07 /* SVBasicManual-Bold.ttf in Resources */,
 				B108CB0A199B01BE0047A473 /* scales.json in Resources */,
 				B108CB01199AD77A0047A473 /* ScalesViewController.xib in Resources */,
+				B167A1671A0BC5AF00AFFC07 /* jr!hand.ttf in Resources */,
+				B167A1631A0BC24D00AFFC07 /* Blackout-Midnight.ttf in Resources */,
+				B167A16B1A0BC8BE00AFFC07 /* Bravura.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

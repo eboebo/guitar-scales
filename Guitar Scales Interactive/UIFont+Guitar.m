@@ -10,19 +10,31 @@
 
 @implementation UIFont (Guitar)
 
-+ (UIFont *)oratorFontWithSize:(CGFloat)size
-{
-    return [UIFont fontWithName:@"OratorStd" size:size];
-}
-
 + (UIFont *)proletarskFontWithSize:(CGFloat)size
 {
     return [UIFont fontWithName:@"Proletarsk" size:size];
 }
 
-+ (UIFont *)markerFontWithSize:(CGFloat)size
++ (UIFont *)blackoutFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"JasonSharpie" size:size];
+    return [UIFont fontWithName:@"Blackout-Midnight" size:size];
 }
+
++ (UIFont *)svBasicManualFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:@"SVBasicManual-Bold" size:size];
+}
+
++ (UIFont *)bravuraFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:@"OpusTextStd" size:size];
+}
+
++ (UIFont *)jrHandFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:@"Jrhand" size:size];
+}
+
+
 
 @end

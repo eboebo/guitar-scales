@@ -55,8 +55,8 @@
         bottomFrame.origin.y = topFrame.size.height;
         self.secondTitleLabel.frame = bottomFrame;
         
-        self.titleLabel.textColor = [UIColor GuitarBlue];
-        self.secondTitleLabel.textColor = [UIColor GuitarBlue];
+        self.titleLabel.textColor = [UIColor GuitarMediumBlue];
+        self.secondTitleLabel.textColor = [UIColor GuitarMediumBlue];
         self.backgroundColor = [UIColor GuitarCream];
     }
 }

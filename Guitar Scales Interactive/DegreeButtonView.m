@@ -61,7 +61,7 @@
             self.titleLabel.textColor = [UIColor GuitarCream];
             self.backgroundColor = [UIColor GuitarBlue];
         } else {
-            self.titleLabel.textColor = [UIColor GuitarBlue];
+            self.titleLabel.textColor = [UIColor GuitarMediumBlue];
             self.backgroundColor = [UIColor GuitarCream];
             
         }

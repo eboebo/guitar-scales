@@ -12,7 +12,7 @@
 
 + (UIColor *)GuitarBlue
 {
-    return [UIColor colorWithRed:0.145 green:0.306 blue:0.573 alpha:1];
+    return [UIColor colorWithRed:(62.0 / 255.0) green:(105.0 / 255.0) blue:(175.0 / 255.0) alpha:1];
 }
 
 + (UIColor *)GuitarLightBlue
@@ -20,9 +20,15 @@
     return [UIColor colorWithRed:0.796 green:0.839 blue:0.929 alpha:1];
 }
 
++ (UIColor *)GuitarMediumBlue
+{
+    return [UIColor colorWithRed:(113.0 / 255.0) green:(139.0 / 255.0) blue:(188.0 / 255.0) alpha:1];
+}
+
+
 + (UIColor *)GuitarCream
 {
-    return [UIColor colorWithRed:0.973 green:0.965 blue:0.914 alpha:1];
+    return [UIColor colorWithRed:(252.0 / 255.0) green:(251.0 / 255.0) blue:(236.0 / 255.0) alpha:1];
 }
 
 + (UIColor *)GuitarGray

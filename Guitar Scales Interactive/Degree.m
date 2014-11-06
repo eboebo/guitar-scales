@@ -41,14 +41,14 @@
     NSMutableAttributedString *degreeAttributedString = [[NSMutableAttributedString alloc] initWithString:degreeString];
     if (self.flat || self.sharp) {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont fontWithName:@"OpusTextStd" size:19.0]
+                                       value:[UIFont bravuraFontWithSize:19.0]
                                        range:NSMakeRange(0, 1)];
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont oratorFontWithSize:19.0f]
+                                       value:[UIFont svBasicManualFontWithSize:19.0f]
                                        range:NSMakeRange(1, 1)];
     } else {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont oratorFontWithSize:19.0f]
+                                       value:[UIFont svBasicManualFontWithSize:19.0f]
                                        range:NSMakeRange(0, 1)];
     }
     return degreeAttributedString;
@@ -67,14 +67,14 @@
     NSMutableAttributedString *degreeAttributedString = [[NSMutableAttributedString alloc] initWithString:degreeString];
     if (self.flat || self.sharp) {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont fontWithName:@"OpusTextStd" size:14.0]
+                                       value:[UIFont bravuraFontWithSize:14.0]
                                        range:NSMakeRange(0, 1)];
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont fontWithName:@"JasonSharpie" size:14.0]
+                                       value:[UIFont svBasicManualFontWithSize:14.0]
                                        range:NSMakeRange(1, 1)];
     } else {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont fontWithName:@"JasonSharpie" size:14.0]
+                                       value:[UIFont svBasicManualFontWithSize:14.0]
                                        range:NSMakeRange(0, 1)];
     }
 

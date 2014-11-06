@@ -18,24 +18,21 @@ const CGFloat maxHeight = 175.0;
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
     self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    [super drawRect:rect];
 
     CGFloat horizontalOffset = self.isMainView ? 10 : 5;
     CGFloat verticalOffset   = self.isMainView ? 12 : 3;
     CGFloat lineWidth        = self.isMainView ? 2.0 : 0.5;
     CGFloat width            = self.bounds.size.width - (horizontalOffset * 2.0);
     
-    CGFloat height;
-    if (self.bounds.size.height > maxHeight) {
-        height = maxHeight - (verticalOffset * 2.0);
-    } else {
-        height = self.bounds.size.height - (verticalOffset * 2.0);
-    }
+    CGFloat height = self.bounds.size.height - (verticalOffset * 2.0);
     
     CGFloat horizontalSpacing = floorf(width / 6.0);
     CGFloat verticalSpacing   = floorf(height / 5.0);
@@ -68,7 +65,8 @@ const CGFloat maxHeight = 175.0;
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
         CGContextMoveToPoint(context, x, verticalOffset);
-        CGContextAddLineToPoint(context, x, height + verticalOffset );
+        NSLog(@"%f", height + verticalOffset);
+        CGContextAddLineToPoint(context, x, height + verticalOffset);
         CGContextDrawPath(context, kCGPathStroke);
     }
     
@@ -95,12 +93,12 @@ const CGFloat maxHeight = 175.0;
     if (self.isMainView) {
         for (int i = 0; i < stringArray.count; i++) {
             CGFloat x      = horizontalOffset + (i * horizontalSpacing);
-            CGFloat y      = 5.75 * verticalSpacing + verticalOffset;
+            CGFloat y      = 5.5 * verticalSpacing + verticalOffset;
             NSString *text = stringArray[i];
             CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
             NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
             paragrapStyle.alignment                = NSTextAlignmentCenter;
-            [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont markerFontWithSize:14.0f], NSParagraphStyleAttributeName:paragrapStyle}];
+            [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:21.0f], NSParagraphStyleAttributeName:paragrapStyle}];
 
         }
     }
