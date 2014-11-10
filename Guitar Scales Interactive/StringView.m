@@ -50,8 +50,9 @@ const CGFloat maxHeight = 175.0;
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     if (self.position.baseFret || self.position.baseFret == 0) {
-        CGFloat x        = horizontalOffset + (self.position.baseFret * horizontalSpacing);
-        CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, height);
+        CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
+        CGFloat y = 5 * verticalSpacing + verticalOffset;
+        CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, y);
         CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
         CGContextFillRect(context, fretFrame);
     }
@@ -64,9 +65,9 @@ const CGFloat maxHeight = 175.0;
     NSInteger numLines = self.stringViewType == StringViewTypeIndex ? 6 : 7;
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
+        CGFloat y = 5 * verticalSpacing + verticalOffset;
         CGContextMoveToPoint(context, x, verticalOffset);
-        NSLog(@"%f", height + verticalOffset);
-        CGContextAddLineToPoint(context, x, height + verticalOffset);
+        CGContextAddLineToPoint(context, x, y);
         CGContextDrawPath(context, kCGPathStroke);
     }
     
@@ -80,7 +81,7 @@ const CGFloat maxHeight = 175.0;
     }
     
     for (int i = 0; i < 6; i++) {
-        CGFloat y = i * verticalSpacing  + verticalOffset;
+        CGFloat y = i * verticalSpacing + verticalOffset;
         CGContextMoveToPoint(context, horizontalLineX, y);
         CGContextAddLineToPoint(context, horizontalLineWidth, y);
         CGContextDrawPath(context, kCGPathStroke);

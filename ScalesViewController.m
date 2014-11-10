@@ -59,14 +59,14 @@
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
     self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:20.0f], NSFontAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
 
 
     self.currentPosition = 0;
     
     self.title = @"Scales";
     
-    self.positionLabel.font    = [UIFont proletarskFontWithSize:16.0f];
+    self.positionLabel.font    = [UIFont proletarskFontWithSize:20.0f];
     self.leftStringLabel.font  = [UIFont proletarskFontWithSize:14.0f];
     self.leftIndexLabel.font   = [UIFont proletarskFontWithSize:10.0f];
     self.leftMiddleLabel.font  = [UIFont proletarskFontWithSize:10.0f];
