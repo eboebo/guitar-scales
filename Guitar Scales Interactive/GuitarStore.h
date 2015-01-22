@@ -19,6 +19,8 @@ typedef void (^UpdateCallback)(BOOL success);
 @property (nonatomic, strong) NSMutableArray *degrees;
 @property (nonatomic, copy) UpdateCallback callback;
 @property (nonatomic, strong) Scale *selectedScale;
+@property (nonatomic, strong) Scale *chromaticScale;
+
 
 
 + (GuitarStore *)sharedStore;

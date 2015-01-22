@@ -70,7 +70,7 @@
 - (void)drawRect:(CGRect)rect
 {
     //draw the bottom border
-    float borderSize = 3.0f;
+    float borderSize = 7.0f;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
     CGRect rectFrame
@@ -173,12 +173,8 @@
 
 - (void)showAllTap:(id)sender
 {
-    NSArray *degrees = [[GuitarStore sharedStore] degreeButtonArray];
-    NSMutableArray *degreeArray = [NSMutableArray new];
-    for (NSArray *degreeButtonArray in degrees) {
-        NSString *identifier = degreeButtonArray[0];
-        [degreeArray addObject:identifier];
-    }
+    NSArray *degrees = [[[GuitarStore sharedStore] chromaticScale] selectedDegrees];
+    NSMutableArray *degreeArray = [degrees mutableCopy];
     
     if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
         [self.delegate selectedDegreesModified:degreeArray];

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B179EB6D-0E59-4D43-B1B1-76AF0C24048A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Guitar Scales Interactive</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1E80CE9161746E7D8AF8E6C3CDAB0B2F651BEFBB</key>
+		<string>github.com:eboebo/guitar-scales.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Guitar Scales Interactive.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1E80CE9161746E7D8AF8E6C3CDAB0B2F651BEFBB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:eboebo/guitar-scales.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1E80CE9161746E7D8AF8E6C3CDAB0B2F651BEFBB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1E80CE9161746E7D8AF8E6C3CDAB0B2F651BEFBB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Guitar%20Scales%20Interactive</string>
+		</dict>
+	</array>
+</dict>
+</plist>

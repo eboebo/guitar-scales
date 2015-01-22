@@ -23,7 +23,6 @@
 		B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CAFE199AD77A0047A473 /* ScalesViewController.m */; };
 		B108CB01199AD77A0047A473 /* ScalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B108CAFF199AD77A0047A473 /* ScalesViewController.xib */; };
 		B108CB08199ADB570047A473 /* StringView.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB07199ADB570047A473 /* StringView.m */; };
-		B108CB0A199B01BE0047A473 /* scales.json in Resources */ = {isa = PBXBuildFile; fileRef = B108CB09199B01BE0047A473 /* scales.json */; };
 		B108CB0E199B01F30047A473 /* Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB0D199B01F30047A473 /* Scale.m */; };
 		B108CB11199B028E0047A473 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB10199B028E0047A473 /* Position.m */; };
 		B108CB14199B02990047A473 /* Degree.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB13199B02990047A473 /* Degree.m */; };
@@ -52,6 +51,8 @@
 		B1D751341A110EB90024EC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D751331A110EB90024EC0E /* Main.storyboard */; };
 		B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */; };
 		B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */; };
+		B1F9C7361A701A1A00B0D777 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9C7341A701A1A00B0D777 /* Crashlytics.framework */; };
+		B1F9C7371A701A1A00B0D777 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9C7351A701A1A00B0D777 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +89,6 @@
 		B108CAFF199AD77A0047A473 /* ScalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScalesViewController.xib; path = ../ScalesViewController.xib; sourceTree = "<group>"; };
 		B108CB06199ADB570047A473 /* StringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringView.h; sourceTree = "<group>"; };
 		B108CB07199ADB570047A473 /* StringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringView.m; sourceTree = "<group>"; };
-		B108CB09199B01BE0047A473 /* scales.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = scales.json; path = ../../scales.json; sourceTree = "<group>"; };
 		B108CB0C199B01F30047A473 /* Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scale.h; sourceTree = "<group>"; };
 		B108CB0D199B01F30047A473 /* Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scale.m; sourceTree = "<group>"; };
 		B108CB0F199B028E0047A473 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
@@ -133,6 +133,8 @@
 		B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		B1EC83F019F4141700A3D30F /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
 		B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
+		B1F9C7341A701A1A00B0D777 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		B1F9C7351A701A1A00B0D777 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,10 +142,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F9C7371A701A1A00B0D777 /* Fabric.framework in Frameworks */,
 				B16E944E199FDB5A001F769A /* CoreText.framework in Frameworks */,
 				B108CAC1199AD1E70047A473 /* CoreGraphics.framework in Frameworks */,
 				B108CAC3199AD1E70047A473 /* UIKit.framework in Frameworks */,
 				B108CABF199AD1E70047A473 /* Foundation.framework in Frameworks */,
+				B1F9C7361A701A1A00B0D777 /* Crashlytics.framework in Frameworks */,
 				6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +189,8 @@
 		B108CABD199AD1E70047A473 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1F9C7341A701A1A00B0D777 /* Crashlytics.framework */,
+				B1F9C7351A701A1A00B0D777 /* Fabric.framework */,
 				B16E944D199FDB5A001F769A /* CoreText.framework */,
 				B108CABE199AD1E70047A473 /* Foundation.framework */,
 				B108CAC0199AD1E70047A473 /* CoreGraphics.framework */,
@@ -216,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				B1B0A6D919AA655100F32D77 /* Fonts */,
-				B108CB09199B01BE0047A473 /* scales.json */,
 				B108CAC6199AD1E70047A473 /* Guitar Scales Interactive-Info.plist */,
 				B108CAC7199AD1E70047A473 /* InfoPlist.strings */,
 				B108CACA199AD1E70047A473 /* main.m */,
@@ -343,6 +348,7 @@
 				B108CAB8199AD1E70047A473 /* Frameworks */,
 				B108CAB9199AD1E70047A473 /* Resources */,
 				8483123BBB3C480D8F58F894 /* Copy Pods Resources */,
+				B1F9C7331A7019C500B0D777 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -421,7 +427,6 @@
 				B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */,
 				B148F34D19D4C188007BF91F /* OpusTextStd.otf in Resources */,
 				B167A1611A0BC24400AFFC07 /* SVBasicManual-Bold.ttf in Resources */,
-				B108CB0A199B01BE0047A473 /* scales.json in Resources */,
 				B108CB01199AD77A0047A473 /* ScalesViewController.xib in Resources */,
 				B167A1671A0BC5AF00AFFC07 /* jr!hand.ttf in Resources */,
 				B167A1631A0BC24D00AFFC07 /* Blackout-Midnight.ttf in Resources */,
@@ -454,6 +459,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-Guitar Scales Interactive-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B1F9C7331A7019C500B0D777 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run ff9c07b253d0cf7961410e02031de6e292b0a4f6 c530b43fade2d8bfca60975b518d49b4d31a79d054dfd99d09fa5f3368a632a3";
 		};
 		D52D892F2FA242958F045F1B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -554,7 +572,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Boyd (52SJZ94WDL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (52SJZ94WDL)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -573,7 +591,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "c3916f60-04f8-4de9-96ab-7e13aa0356fd";
+				PROVISIONING_PROFILE = "1f0e23c3-b096-4f27-875b-52aae2735deb";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -595,7 +613,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Boyd (52SJZ94WDL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -607,7 +625,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "c3916f60-04f8-4de9-96ab-7e13aa0356fd";
+				PROVISIONING_PROFILE = "1f0e23c3-b096-4f27-875b-52aae2735deb";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -622,6 +640,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
@@ -641,6 +663,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
@@ -702,7 +728,7 @@
 				B108CAEF199AD1E80047A473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		B108CAF0199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales Interactive" */ = {
 			isa = XCConfigurationList;
@@ -711,7 +737,7 @@
 				B108CAF2199AD1E80047A473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		B108CAF3199AD1E80047A473 /* Build configuration list for PBXNativeTarget "Guitar Scales InteractiveTests" */ = {
 			isa = XCConfigurationList;
@@ -720,7 +746,7 @@
 				B108CAF5199AD1E80047A473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

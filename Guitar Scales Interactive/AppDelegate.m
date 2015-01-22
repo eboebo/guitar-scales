@@ -8,11 +8,16 @@
 
 #import "AppDelegate.h"
 #import "ScalesViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Fabric with:@[CrashlyticsKit]];
+
     // Intialize favorDrawerRootViewController
     ScalesViewController *scalesViewController = [[ScalesViewController alloc] initWithNibName:@"ScalesViewController" bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scalesViewController];
@@ -21,21 +26,6 @@
     // Set favorDrawerRootViewController as root view controller
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
-    
-    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
-    NSArray *fontNames;
-    NSInteger indFamily, indFont;
-    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
-    {
-        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
-        fontNames = [[NSArray alloc] initWithArray:
-                     [UIFont fontNamesForFamilyName:
-                      [familyNames objectAtIndex:indFamily]]];
-        for (indFont=0; indFont<[fontNames count]; ++indFont)
-        {
-            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
-        }
-    }
     
     return YES;
 }

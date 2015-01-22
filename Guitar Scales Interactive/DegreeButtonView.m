@@ -36,7 +36,7 @@
 - (void)drawRect:(CGRect)rect
 {
     //draw the bottom border
-    float borderSize = 3.0f;
+    float borderSize = 7.0f;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
     CGContextFillRect(context, CGRectMake(0.0f, self.frame.size.height - borderSize, self.frame.size.width, borderSize));

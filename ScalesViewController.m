@@ -55,18 +55,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
     self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:(5.0) forBarMetrics:UIBarMetricsDefault];
+
 
 
     self.currentPosition = 0;
     
     self.title = @"Scales";
-    
-    self.positionLabel.font    = [UIFont proletarskFontWithSize:20.0f];
+
     self.leftStringLabel.font  = [UIFont proletarskFontWithSize:14.0f];
     self.leftIndexLabel.font   = [UIFont proletarskFontWithSize:10.0f];
     self.leftMiddleLabel.font  = [UIFont proletarskFontWithSize:10.0f];
@@ -89,7 +91,7 @@
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
     UIBarButtonItem *rightBarButtonItem
-    = [[UIBarButtonItem alloc] initWithTitle:@"How To Read"
+    = [[UIBarButtonItem alloc] initWithTitle:@"Help"
                                        style:UIBarButtonItemStylePlain
                                       target:self
                                       action:@selector(handleRightBarButtonTap:)];
@@ -202,48 +204,62 @@
     center = self.leftStringLabel.center;
     center.x = leftLabelCenterX;
     self.leftStringLabel.center = center;
+    self.leftStringLabel.alpha = 0.6;
+
     
     center = self.leftIndexLabel.center;
     center.x = leftLabelCenterX;
     self.leftIndexLabel.center = center;
+    self.leftIndexLabel.alpha = 0.3;
+
     
     center = self.leftMiddleLabel.center;
     center.x = leftLabelCenterX;
     self.leftMiddleLabel.center = center;
+    self.leftMiddleLabel.alpha = 0.3;
+
     
     center = self.leftBottomLabel.center;
     center.x = leftLabelCenterX;
     self.leftBottomLabel.center = center;
+    self.leftBottomLabel.alpha = 0.3;
     
     CGFloat rightLabelCenterX = rightX + (stringViewWidth / 2.0);
     
     center = self.rightStringLabel.center;
     center.x = rightLabelCenterX;
     self.rightStringLabel.center = center;
+    self.rightStringLabel.alpha = 0.6;
     
     center = self.rightIndexLabel.center;
     center.x = rightLabelCenterX;
     self.rightIndexLabel.center = center;
+    self.rightIndexLabel.alpha = 0.3;
+
     
     center = self.rightMiddleLabel.center;
     center.x = rightLabelCenterX;
     self.rightMiddleLabel.center = center;
+    self.rightMiddleLabel.alpha = 0.3;
+
     
     center = self.rightBottonLabel.center;
     center.x = rightLabelCenterX;
     self.rightBottonLabel.center = center;
+    self.rightBottonLabel.alpha = 0.3;
     
     // LAYOUT MAIN VIEW
-    
     CGFloat mainStringWith
     = bounds.size.width
     - (stringViewWidth * 2.0)
-    - (inset * 4.0);
+    - (inset * 7.0);
     
     stringViewFrame = self.mainStringView.frame;
     stringViewFrame.size.width = mainStringWith;
-    stringViewFrame.origin.x = stringViewWidth + (inset * 2.0);
+    stringViewFrame.origin.x = stringViewWidth + (inset * 3.5);
     self.mainStringView.frame = stringViewFrame;
+    
+
 }
 
 - (void)handleLeftBarButtonTap:(id)sender
@@ -261,7 +277,7 @@
         scalesViewControllerViewFrame.size.height -= self.degreeView.frame.size.height;
         
         self.menuController.view.frame           = scalesViewControllerViewFrame;
-        self.menuController.view.backgroundColor = [UIColor GuitarCream];
+        self.menuController.view.backgroundColor = [UIColor GuitarBlue];
         
         // Add as a child view controller
         [self addChildViewController:self.menuController];
@@ -438,7 +454,8 @@
         [stringView setNeedsDisplay];
     }
     
-    self.positionLabel.text = self.selectedStringView.position.title;
+    [self setSubHeaderText:self.selectedStringView.position.title];
+
     self.mainStringView.isMainView = YES;
     self.mainStringView.position = self.selectedStringView.position;
     self.mainStringView.stringViewType = self.selectedStringView.stringViewType;
@@ -451,7 +468,25 @@
 - (void)refreshTitle
 {
     Scale *scale = [[GuitarStore sharedStore] selectedScale];
-    self.title = scale.title;
+    NSString *titleText;
+    if (scale) {
+        titleText = scale.title;
+    } else {
+        titleText = @"";
+    }
+    
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleText];
+    [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:24.0f], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    paragraphStyle.alignment                = NSTextAlignmentCenter;
+    [title addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
+ 
+    UIView * customTitleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
+
+    UILabel *label = [[UILabel alloc] initWithFrame:customTitleView.frame];
+    label.attributedText = title;
+    [customTitleView addSubview:label];
+    [self.navigationItem setTitleView:customTitleView];
 }
 
 - (void)resetButtonView
@@ -476,8 +511,8 @@
     self.mainStringView.position = stringView.position;
     self.mainStringView.selectedDegrees = stringView.selectedDegrees;
     [self.mainStringView setNeedsDisplay];
+    [self setSubHeaderText:stringView.position.title];
     
-    self.positionLabel.text = stringView.position.title;
 
 }
 
@@ -541,6 +576,22 @@
 {
     [self handleRightBarButtonTap:nil];
 
+}
+
+- (void)setSubHeaderText:(NSString *)text
+{
+    NSMutableAttributedString *attributedString;
+    attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    [attributedString addAttribute:NSKernAttributeName
+                             value:@5
+                             range:NSMakeRange(0, text.length)];
+    [attributedString addAttribute:NSFontAttributeName
+                             value:[UIFont proletarskFontWithSize:18.0f]
+                             range:NSMakeRange(0, text.length)];
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    paragraphStyle.alignment                = NSTextAlignmentCenter;
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+    [self.positionLabel setAttributedText:attributedString];
 }
 
 

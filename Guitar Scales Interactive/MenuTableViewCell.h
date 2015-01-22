@@ -18,7 +18,6 @@
 
 @property (weak, nonatomic) id<MenuTableViewCellDelegate> delegate;
 @property (strong, nonatomic) UILabel *leftTitle;
-@property (strong, nonatomic) UILabel *middleTitle;
 @property (strong, nonatomic) UILabel *rightTitle;
 
 @end

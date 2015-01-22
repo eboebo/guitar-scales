@@ -51,8 +51,8 @@ const CGFloat maxHeight = 175.0;
     
     if (self.position.baseFret || self.position.baseFret == 0) {
         CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
-        CGFloat y = 5 * verticalSpacing + verticalOffset;
-        CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, y);
+        CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
+        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
         CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
         CGContextFillRect(context, fretFrame);
     }
@@ -61,7 +61,6 @@ const CGFloat maxHeight = 175.0;
     CGContextSetLineWidth(context, lineWidth);
     
     // draw vertical lines
-    
     NSInteger numLines = self.stringViewType == StringViewTypeIndex ? 6 : 7;
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
@@ -91,10 +90,11 @@ const CGFloat maxHeight = 175.0;
     if (self.stringViewType == StringViewTypeIndex) {
         stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
     }
+    
     if (self.isMainView) {
         for (int i = 0; i < stringArray.count; i++) {
             CGFloat x      = horizontalOffset + (i * horizontalSpacing);
-            CGFloat y      = 5.5 * verticalSpacing + verticalOffset;
+            CGFloat y      = 5.35 * verticalSpacing + verticalOffset;
             NSString *text = stringArray[i];
             CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
             NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
@@ -140,6 +140,7 @@ const CGFloat maxHeight = 175.0;
                         CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
                         CGContextDrawPath(context, kCGPathFillStroke);
 
+                        // If the view is the center view, add degree text on top of notes
                         if (self.isMainView) {
                             NSMutableAttributedString *degreeString
                             = [[degree toAttributedStringCircle] mutableCopy];

@@ -80,6 +80,10 @@
         [(NSArray *)scaleArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Scale *scale = [[Scale alloc] initWithDictionary:obj error:nil];
             [scales addObject:scale];
+            
+            if ([scale.title isEqualToString:@"Chromatic Scale"]) {
+                self.chromaticScale = scale;
+            }
         }];
         
         [self.scales2DArray addObject:scales];
