@@ -1,31 +1,31 @@
 //
-//  Note.m
+//  Degree.m
 //  Guitar Scales Interactive
 //
-//  Created by Elena Boyd on 8/12/14.
+//  Created by Elena Boyd on 1/22/15.
 //
 //
 
 #import "Degree.h"
 
+
 @implementation Degree
 
-+ (BOOL)propertyIsOptional:(NSString *)propertyName
-{
-    return YES;
-}
+@dynamic id;
+@dynamic number;
+@dynamic flat;
+@dynamic sharp;
+@dynamic coordinates;
 
-+ (JSONKeyMapper*)keyMapper
++ (NSDictionary*)mappingDictionary
 {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{
+    return @{
                                                        @"degree_id" : @"identifier",
                                                        @"degree_number"   : @"number",
                                                        @"flat"   : @"flat",
                                                        @"sharp": @"sharp",
-                                                       @"alt_degree_number"   : @"altNumber",
-                                                       @"alt_flat"   : @"altFlat",
-                                                       @"alt_sharp": @"altSharp",
-                                                       @"degree_positions"    : @"degreePositions"}];
+                                
+                                                       @"degree_positions"    : @"degreePositions"};
 }
 
 - (NSAttributedString *)toAttributedString
@@ -77,10 +77,8 @@
                                        value:[UIFont svBasicManualFontWithSize:14.0]
                                        range:NSMakeRange(0, 1)];
     }
-
+    
     return degreeAttributedString;
 }
-
-
 
 @end

@@ -10,6 +10,7 @@
 #import "Degree.h"
 #import "Scale.h"
 #import "Position.h"
+#import "NSManagedObject+Guitar.h"
 
 @implementation GuitarStore
 
@@ -57,7 +58,8 @@
     self.degrees = [NSMutableArray array];
     
     [(NSArray *)degrees enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Degree *degree = [[Degree alloc] initWithDictionary:obj error:nil];
+        Degree *degree = [Degree new];
+        [Degree performDataMappingForObject:degree withMappingDictionary:[Degree mappingDictionary] withDataDictionary:obj];
         [self.degrees addObject:degree];
     }];
     
@@ -65,7 +67,8 @@
     
     NSArray *positions = [json objectForKey:@"positions"];
     [(NSArray *)positions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Position *pos = [[Position alloc] initWithDictionary:obj error:nil];
+        Position *pos =  [Position new];
+        [Position performDataMappingForObject:pos withMappingDictionary:[Position mappingDictionary] withDataDictionary:obj];
         [self.positions addObject:pos];
     }];
     
@@ -78,7 +81,9 @@
         NSMutableArray *scales = [NSMutableArray array];
         
         [(NSArray *)scaleArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            Scale *scale = [[Scale alloc] initWithDictionary:obj error:nil];
+            Scale *scale = [Scale new];
+            [Scale performDataMappingForObject:scale withMappingDictionary:[Scale mappingDictionary] withDataDictionary:obj];
+
             [scales addObject:scale];
             
             if ([scale.title isEqualToString:@"Chromatic Scale"]) {

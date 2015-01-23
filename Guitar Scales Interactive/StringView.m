@@ -50,7 +50,7 @@ const CGFloat maxHeight = 175.0;
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     if (self.position.baseFret || self.position.baseFret == 0) {
-        CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
+        CGFloat x = horizontalOffset + (self.position.baseFret.integerValue * horizontalSpacing);
         CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
         CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
         CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
@@ -107,67 +107,67 @@ const CGFloat maxHeight = 175.0;
     
     NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
     for (Degree *degree in degrees) {
-        if ([self containsId:degree.identifier]) {
-            NSArray *degreePositions = degree.degreePositions;
-            for (DegreePosition *degreePosition in degreePositions) {
-                if (degreePosition.positionID == self.position.identifier) {
-                    NSArray *coordinates = degreePosition.coordinates;
-                    for (Coordinate *coord in coordinates) {
-                        CGFloat x
-                        = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
-                        CGFloat y
-                        = coord.y * verticalSpacing + verticalOffset;
-                        CGContextAddArc(context, x, y, verticalOffset - lineWidth, 0.0, M_PI*2, YES);
-                        
-                        UIColor *textColor;
-                        UIColor *fillColor;
-                        UIColor *strokeColor;
-                        if ([coord.color isEqual:@"black"]) {
-                            textColor   = [UIColor whiteColor];
-                            fillColor   = [UIColor blackColor];
-                            strokeColor = [UIColor blackColor];
-                        } else if ([coord.color isEqualToString:@"white"]) {
-                            textColor   = [UIColor blackColor];
-                            fillColor   = [UIColor whiteColor];
-                            strokeColor = [UIColor blackColor];
-                            
-                        } else if ([coord.color isEqualToString:@"gray"]) {
-                            textColor   = [UIColor grayColor];
-                            fillColor   = [UIColor GuitarLightGray];
-                            strokeColor = [UIColor lightGrayColor];
-                        }
-                        CGContextSetFillColorWithColor(context, [fillColor CGColor]);
-                        CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
-                        CGContextDrawPath(context, kCGPathFillStroke);
-
-                        // If the view is the center view, add degree text on top of notes
-                        if (self.isMainView) {
-                            NSMutableAttributedString *degreeString
-                            = [[degree toAttributedStringCircle] mutableCopy];
-                            CGFloat width    = (verticalOffset - lineWidth) * 2;
-                            CGRect rect      = CGRectMake(x - width / 2, y - width / 2, width, width);
-                            CGSize size      = [degreeString size];
-                            CGFloat offset   = (width - size.height) / 2;
-                            rect.size.height -= offset * 2.0;
-                            rect.origin.y    += offset;
-
-                            NSNumber *offNum = [NSNumber numberWithFloat:offset];
-                            
-                            NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-                            paragrapStyle.alignment                = NSTextAlignmentCenter;
-                            
-                           [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
-                           [degreeString addAttributes:@{NSForegroundColorAttributeName:textColor,
-                                                        NSParagraphStyleAttributeName:paragrapStyle,
-                                                        NSBaselineOffsetAttributeName:offNum}
-                                                 range:NSMakeRange(0, degreeString.length)];
-                            [degreeString drawInRect:rect];
-                            
-                        }
-                    }
-                }
-            }
-        }
+//        if ([self containsId:degree.identifier]) {
+//            NSArray *degreePositions = degree.coordinates;
+//            for (DegreePosition *degreePosition in degreePositions) {
+//                if (degreePosition.positionID == self.position.identifier) {
+//                    NSArray *coordinates = degreePosition.coordinates;
+//                    for (Coordinate *coord in coordinates) {
+//                        CGFloat x
+//                        = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
+//                        CGFloat y
+//                        = coord.y * verticalSpacing + verticalOffset;
+//                        CGContextAddArc(context, x, y, verticalOffset - lineWidth, 0.0, M_PI*2, YES);
+//                        
+//                        UIColor *textColor;
+//                        UIColor *fillColor;
+//                        UIColor *strokeColor;
+//                        if ([coord.color isEqual:@"black"]) {
+//                            textColor   = [UIColor whiteColor];
+//                            fillColor   = [UIColor blackColor];
+//                            strokeColor = [UIColor blackColor];
+//                        } else if ([coord.color isEqualToString:@"white"]) {
+//                            textColor   = [UIColor blackColor];
+//                            fillColor   = [UIColor whiteColor];
+//                            strokeColor = [UIColor blackColor];
+//                            
+//                        } else if ([coord.color isEqualToString:@"gray"]) {
+//                            textColor   = [UIColor grayColor];
+//                            fillColor   = [UIColor GuitarLightGray];
+//                            strokeColor = [UIColor lightGrayColor];
+//                        }
+//                        CGContextSetFillColorWithColor(context, [fillColor CGColor]);
+//                        CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
+//                        CGContextDrawPath(context, kCGPathFillStroke);
+//
+//                        // If the view is the center view, add degree text on top of notes
+//                        if (self.isMainView) {
+//                            NSMutableAttributedString *degreeString
+//                            = [[degree toAttributedStringCircle] mutableCopy];
+//                            CGFloat width    = (verticalOffset - lineWidth) * 2;
+//                            CGRect rect      = CGRectMake(x - width / 2, y - width / 2, width, width);
+//                            CGSize size      = [degreeString size];
+//                            CGFloat offset   = (width - size.height) / 2;
+//                            rect.size.height -= offset * 2.0;
+//                            rect.origin.y    += offset;
+//
+//                            NSNumber *offNum = [NSNumber numberWithFloat:offset];
+//                            
+//                            NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+//                            paragrapStyle.alignment                = NSTextAlignmentCenter;
+//                            
+//                           [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
+//                           [degreeString addAttributes:@{NSForegroundColorAttributeName:textColor,
+//                                                        NSParagraphStyleAttributeName:paragrapStyle,
+//                                                        NSBaselineOffsetAttributeName:offNum}
+//                                                 range:NSMakeRange(0, degreeString.length)];
+//                            [degreeString drawInRect:rect];
+//                            
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 }
 

@@ -113,10 +113,10 @@
             
             NSString *identifier = degreeArray[0];
             Degree *degree       = degrees[[identifier integerValue]];
-            degreeButton.tag     = degree.identifier;
+            degreeButton.tag     = degree.id;
             [degreeButton.titleLabel setAttributedText:[degree toAttributedString]];
             
-            if ([self containsId:degree.identifier]) {
+            if ([self containsId:degree.id]) {
                 [degreeButton setSelected:YES];
             } else {
                 [degreeButton setSelected:NO];
@@ -133,7 +133,7 @@
             Degree *degree              = degrees[[identifier integerValue]];
             [doubleButtonView.titleLabel setAttributedText:[degree toAttributedString]];
             
-            if ([self containsId:degree.identifier]) {
+            if ([self containsId:degree.id]) {
                 doubleButtonView.currentState = DoubleDegreeButtonStateTop;
             }
             
@@ -144,7 +144,7 @@
             
             doubleButtonView.buttonTags = @[degreeArray[0], degreeArray[1]];
 
-            if ([self containsId:degree.identifier]) {
+            if ([self containsId:degree.id]) {
                 doubleButtonView.currentState = DoubleDegreeButtonStateBottom;
 
             }
@@ -173,7 +173,7 @@
 
 - (void)showAllTap:(id)sender
 {
-    NSArray *degrees = [[[GuitarStore sharedStore] chromaticScale] selectedDegrees];
+    NSArray *degrees = [[[GuitarStore sharedStore] chromaticScale] degrees];
     NSMutableArray *degreeArray = [degrees mutableCopy];
     
     if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {

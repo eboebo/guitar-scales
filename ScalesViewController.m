@@ -433,13 +433,13 @@
     [self refreshTitle];
     
     if (!self.selectedDegrees) {
-        self.selectedDegrees = [scale.selectedDegrees mutableCopy];
+        self.selectedDegrees = [scale.degrees mutableCopy];
     }
 
     NSMutableArray *positions = [[GuitarStore sharedStore] positions];
     for (Position *pos in positions) {
         
-        NSInteger positionID = pos.identifier;
+        NSInteger positionID = [pos.id integerValue];
         StringView *stringView = [self stringViewForPositionID:positionID];
         stringView.position = pos;
         stringView.selectedDegrees = self.selectedDegrees;
@@ -555,7 +555,7 @@
         NSArray *scaleArray = [[GuitarStore sharedStore] scales2DArray];
         for (NSArray *scales in scaleArray) {
             for (Scale *scale in scales) {
-                if ([self.selectedDegrees equalDegrees:scale.selectedDegrees]) {
+                if ([self.selectedDegrees equalDegrees:scale.degrees]) {
                     [[GuitarStore sharedStore] setSelectedScale:scale];
                     [self refreshTitle];
                     break;
@@ -567,7 +567,7 @@
 
 - (void)didSelectScale:(Scale *)scale
 {
-    self.selectedDegrees = [scale.selectedDegrees mutableCopy];
+    self.selectedDegrees = [scale.degrees mutableCopy];
     [self refreshData];
     [self resetButtonView];
 }

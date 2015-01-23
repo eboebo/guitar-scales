@@ -1,23 +1,30 @@
 //
-//  Group.m
+//  Position.m
 //  Guitar Scales Interactive
 //
-//  Created by Elena Boyd on 8/12/14.
+//  Created by Elena Boyd on 1/22/15.
 //
 //
 
 #import "Position.h"
 
+
 @implementation Position
 
-+ (JSONKeyMapper*)keyMapper
+@dynamic id;
+@dynamic baseFret;
+@dynamic title;
+@dynamic string;
+@dynamic finger;
+
++ (NSDictionary*)mappingDictionary
 {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{
+    return @{
                                                        @"position_id" : @"identifier",
                                                        @"string"   : @"string",
                                                        @"finger"   : @"finger",
                                                        @"base_fret": @"baseFret",
-                                                       @"title"    : @"title"}];
+                                                       @"title"    : @"title"};
 }
 
 @end

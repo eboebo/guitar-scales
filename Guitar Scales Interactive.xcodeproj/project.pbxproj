@@ -23,10 +23,13 @@
 		B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CAFE199AD77A0047A473 /* ScalesViewController.m */; };
 		B108CB01199AD77A0047A473 /* ScalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B108CAFF199AD77A0047A473 /* ScalesViewController.xib */; };
 		B108CB08199ADB570047A473 /* StringView.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB07199ADB570047A473 /* StringView.m */; };
-		B108CB0E199B01F30047A473 /* Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB0D199B01F30047A473 /* Scale.m */; };
-		B108CB11199B028E0047A473 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB10199B028E0047A473 /* Position.m */; };
-		B108CB14199B02990047A473 /* Degree.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB13199B02990047A473 /* Degree.m */; };
-		B108CB18199B04710047A473 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB17199B04710047A473 /* Model.m */; };
+		B125E2BF1A71C373008AE05E /* ScalesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B125E2BD1A71C373008AE05E /* ScalesModel.xcdatamodeld */; };
+		B125E2C21A71CCDF008AE05E /* Degree.m in Sources */ = {isa = PBXBuildFile; fileRef = B125E2C11A71CCDF008AE05E /* Degree.m */; };
+		B125E2C51A71CCE0008AE05E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = B125E2C41A71CCE0008AE05E /* Coordinate.m */; };
+		B125E2C81A71CCE0008AE05E /* ScaleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = B125E2C71A71CCE0008AE05E /* ScaleGroup.m */; };
+		B125E2CB1A71CCE0008AE05E /* Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = B125E2CA1A71CCE0008AE05E /* Scale.m */; };
+		B125E2CE1A71CCE0008AE05E /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = B125E2CD1A71CCE0008AE05E /* Position.m */; };
+		B125E2D11A71CE6B008AE05E /* NSManagedObject+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B125E2D01A71CE6B008AE05E /* NSManagedObject+Guitar.m */; };
 		B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B13799FA19AD1BE0002314D7 /* DegreeButtonView.m */; };
 		B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */; };
 		B148F34D19D4C188007BF91F /* OpusTextStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = B148F34C19D4C188007BF91F /* OpusTextStd.otf */; };
@@ -45,7 +48,6 @@
 		B16E945119A05169001F769A /* GuitarStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945019A05169001F769A /* GuitarStore.m */; };
 		B16E945419A05A8E001F769A /* DegreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945319A05A8E001F769A /* DegreeView.m */; };
 		B16E945619A16F8D001F769A /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = B16E945519A16F8D001F769A /* notes.json */; };
-		B16E945A19A173D8001F769A /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945919A173D8001F769A /* Coordinate.m */; };
 		B16E945D19A176FA001F769A /* DegreePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945C19A176FA001F769A /* DegreePosition.m */; };
 		B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */; };
 		B1D751341A110EB90024EC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D751331A110EB90024EC0E /* Main.storyboard */; };
@@ -89,14 +91,19 @@
 		B108CAFF199AD77A0047A473 /* ScalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScalesViewController.xib; path = ../ScalesViewController.xib; sourceTree = "<group>"; };
 		B108CB06199ADB570047A473 /* StringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringView.h; sourceTree = "<group>"; };
 		B108CB07199ADB570047A473 /* StringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringView.m; sourceTree = "<group>"; };
-		B108CB0C199B01F30047A473 /* Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scale.h; sourceTree = "<group>"; };
-		B108CB0D199B01F30047A473 /* Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scale.m; sourceTree = "<group>"; };
-		B108CB0F199B028E0047A473 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
-		B108CB10199B028E0047A473 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
-		B108CB12199B02990047A473 /* Degree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Degree.h; sourceTree = "<group>"; };
-		B108CB13199B02990047A473 /* Degree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Degree.m; sourceTree = "<group>"; };
-		B108CB16199B04710047A473 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		B108CB17199B04710047A473 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		B125E2BE1A71C373008AE05E /* ScalesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScalesModel.xcdatamodel; sourceTree = "<group>"; };
+		B125E2C01A71CCDF008AE05E /* Degree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Degree.h; path = Models/Degree.h; sourceTree = "<group>"; };
+		B125E2C11A71CCDF008AE05E /* Degree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Degree.m; path = Models/Degree.m; sourceTree = "<group>"; };
+		B125E2C31A71CCE0008AE05E /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coordinate.h; path = Models/Coordinate.h; sourceTree = "<group>"; };
+		B125E2C41A71CCE0008AE05E /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coordinate.m; path = Models/Coordinate.m; sourceTree = "<group>"; };
+		B125E2C61A71CCE0008AE05E /* ScaleGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScaleGroup.h; path = Models/ScaleGroup.h; sourceTree = "<group>"; };
+		B125E2C71A71CCE0008AE05E /* ScaleGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScaleGroup.m; path = Models/ScaleGroup.m; sourceTree = "<group>"; };
+		B125E2C91A71CCE0008AE05E /* Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Scale.h; path = Models/Scale.h; sourceTree = "<group>"; };
+		B125E2CA1A71CCE0008AE05E /* Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Scale.m; path = Models/Scale.m; sourceTree = "<group>"; };
+		B125E2CC1A71CCE0008AE05E /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Models/Position.h; sourceTree = "<group>"; };
+		B125E2CD1A71CCE0008AE05E /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Models/Position.m; sourceTree = "<group>"; };
+		B125E2CF1A71CE6B008AE05E /* NSManagedObject+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Guitar.h"; sourceTree = "<group>"; };
+		B125E2D01A71CE6B008AE05E /* NSManagedObject+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Guitar.m"; sourceTree = "<group>"; };
 		B13799F919AD1BE0002314D7 /* DegreeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeButtonView.h; sourceTree = "<group>"; };
 		B13799FA19AD1BE0002314D7 /* DegreeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeButtonView.m; sourceTree = "<group>"; };
 		B148F34919D4B2B0007BF91F /* DoubleDegreeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleDegreeButtonView.h; sourceTree = "<group>"; };
@@ -122,8 +129,6 @@
 		B16E945219A05A8E001F769A /* DegreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeView.h; sourceTree = "<group>"; };
 		B16E945319A05A8E001F769A /* DegreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeView.m; sourceTree = "<group>"; };
 		B16E945519A16F8D001F769A /* notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
-		B16E945819A173D8001F769A /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
-		B16E945919A173D8001F769A /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
 		B16E945B19A176FA001F769A /* DegreePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreePosition.h; sourceTree = "<group>"; };
 		B16E945C19A176FA001F769A /* DegreePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreePosition.m; sourceTree = "<group>"; };
 		B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Guitar.h"; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 		B108CAB2199AD1E70047A473 = {
 			isa = PBXGroup;
 			children = (
+				B125E2BD1A71C373008AE05E /* ScalesModel.xcdatamodeld */,
 				B1D751331A110EB90024EC0E /* Main.storyboard */,
 				B108CAC4199AD1E70047A473 /* Guitar Scales Interactive */,
 				B108CAE6199AD1E80047A473 /* Guitar Scales InteractiveTests */,
@@ -283,17 +289,16 @@
 		B108CB0B199B01D20047A473 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B16E945719A173C3001F769A /* New Group */,
-				B108CB16199B04710047A473 /* Model.h */,
-				B108CB17199B04710047A473 /* Model.m */,
-				B108CB0C199B01F30047A473 /* Scale.h */,
-				B108CB0D199B01F30047A473 /* Scale.m */,
-				B108CB0F199B028E0047A473 /* Position.h */,
-				B108CB10199B028E0047A473 /* Position.m */,
-				B108CB12199B02990047A473 /* Degree.h */,
-				B108CB13199B02990047A473 /* Degree.m */,
-				B16E945819A173D8001F769A /* Coordinate.h */,
-				B16E945919A173D8001F769A /* Coordinate.m */,
+				B125E2C61A71CCE0008AE05E /* ScaleGroup.h */,
+				B125E2C71A71CCE0008AE05E /* ScaleGroup.m */,
+				B125E2C91A71CCE0008AE05E /* Scale.h */,
+				B125E2CA1A71CCE0008AE05E /* Scale.m */,
+				B125E2CC1A71CCE0008AE05E /* Position.h */,
+				B125E2CD1A71CCE0008AE05E /* Position.m */,
+				B125E2C31A71CCE0008AE05E /* Coordinate.h */,
+				B125E2C41A71CCE0008AE05E /* Coordinate.m */,
+				B125E2C01A71CCDF008AE05E /* Degree.h */,
+				B125E2C11A71CCDF008AE05E /* Degree.m */,
 				B16E945B19A176FA001F769A /* DegreePosition.h */,
 				B16E945C19A176FA001F769A /* DegreePosition.m */,
 			);
@@ -309,15 +314,10 @@
 				B15F7B7819AAB13800028D8D /* UIColor+Guitar.m */,
 				B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */,
 				B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */,
+				B125E2CF1A71CE6B008AE05E /* NSManagedObject+Guitar.h */,
+				B125E2D01A71CE6B008AE05E /* NSManagedObject+Guitar.m */,
 			);
 			name = Categories;
-			sourceTree = "<group>";
-		};
-		B16E945719A173C3001F769A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		B1B0A6D919AA655100F32D77 /* Fonts */ = {
@@ -495,24 +495,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B108CB0E199B01F30047A473 /* Scale.m in Sources */,
 				B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */,
-				B108CB11199B028E0047A473 /* Position.m in Sources */,
-				B108CB18199B04710047A473 /* Model.m in Sources */,
 				B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */,
 				B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */,
+				B125E2BF1A71C373008AE05E /* ScalesModel.xcdatamodeld in Sources */,
+				B125E2C51A71CCE0008AE05E /* Coordinate.m in Sources */,
 				B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */,
 				B16E945D19A176FA001F769A /* DegreePosition.m in Sources */,
 				B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */,
 				B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */,
 				B108CB08199ADB570047A473 /* StringView.m in Sources */,
-				B16E945A19A173D8001F769A /* Coordinate.m in Sources */,
 				B15F7B7919AAB13800028D8D /* UIColor+Guitar.m in Sources */,
 				B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */,
 				B108CACB199AD1E70047A473 /* main.m in Sources */,
-				B108CB14199B02990047A473 /* Degree.m in Sources */,
 				B16E945419A05A8E001F769A /* DegreeView.m in Sources */,
+				B125E2CB1A71CCE0008AE05E /* Scale.m in Sources */,
+				B125E2CE1A71CCE0008AE05E /* Position.m in Sources */,
 				B16E945119A05169001F769A /* GuitarStore.m in Sources */,
+				B125E2C81A71CCE0008AE05E /* ScaleGroup.m in Sources */,
+				B125E2C21A71CCDF008AE05E /* Degree.m in Sources */,
+				B125E2D11A71CE6B008AE05E /* NSManagedObject+Guitar.m in Sources */,
 				B15F7B7F19ABFED400028D8D /* MenuTableViewController.m in Sources */,
 				B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */,
 			);
@@ -749,6 +751,20 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B125E2BD1A71C373008AE05E /* ScalesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B125E2BE1A71C373008AE05E /* ScalesModel.xcdatamodel */,
+			);
+			currentVersion = B125E2BE1A71C373008AE05E /* ScalesModel.xcdatamodel */;
+			name = ScalesModel.xcdatamodeld;
+			path = "Guitar Scales Interactive/ScalesModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B108CAB3199AD1E70047A473 /* Project object */;
 }
