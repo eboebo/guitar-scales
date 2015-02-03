@@ -49,10 +49,10 @@
 {
     [super layoutSubviews];
     
-    CGFloat offset = 80.0f;
-    CGFloat padding = 30.0f;
-    
     CGRect bounds = self.contentView.bounds;
+    
+    CGFloat offset = bounds.size.width / 7.5;
+    CGFloat padding = bounds.size.width / 17.0;
     
     CGFloat width = bounds.size.width / 2.0 - offset;
     CGRect labelFrame = CGRectZero;
