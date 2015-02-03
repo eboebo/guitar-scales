@@ -16,8 +16,7 @@
 
 @interface ScalesViewController ()
 <DegreeViewDelegate,
- MenuDelegate,
- TutorialViewControllerDelegate
+ MenuDelegate
 >
 
 @property (weak, nonatomic) IBOutlet StringView *mainStringView;
@@ -150,12 +149,12 @@
     }];
     
     [[GuitarStore sharedStore] parseData];
+    
+    [self layoutLabels];
 }
 
-- (void)viewWillLayoutSubviews
+- (void)layoutLabels
 {
-    [super viewWillLayoutSubviews];
-    
     CGFloat inset = 15.0;
     CGRect bounds = self.view.bounds;
     
@@ -210,19 +209,19 @@
     center.x = leftLabelCenterX;
     self.leftStringLabel.center = center;
     self.leftStringLabel.alpha = 0.6;
-
+    
     
     center = self.leftIndexLabel.center;
     center.x = leftLabelCenterX;
     self.leftIndexLabel.center = center;
     self.leftIndexLabel.alpha = 0.3;
-
+    
     
     center = self.leftMiddleLabel.center;
     center.x = leftLabelCenterX;
     self.leftMiddleLabel.center = center;
     self.leftMiddleLabel.alpha = 0.3;
-
+    
     
     center = self.leftBottomLabel.center;
     center.x = leftLabelCenterX;
@@ -240,13 +239,13 @@
     center.x = rightLabelCenterX;
     self.rightIndexLabel.center = center;
     self.rightIndexLabel.alpha = 0.3;
-
+    
     
     center = self.rightMiddleLabel.center;
     center.x = rightLabelCenterX;
     self.rightMiddleLabel.center = center;
     self.rightMiddleLabel.alpha = 0.3;
-
+    
     
     center = self.rightBottonLabel.center;
     center.x = rightLabelCenterX;
@@ -263,8 +262,6 @@
     stringViewFrame.size.width = mainStringWith;
     stringViewFrame.origin.x = stringViewWidth + (inset * 3.5);
     self.mainStringView.frame = stringViewFrame;
-    
-
 }
 
 - (void)handleLeftBarButtonTap:(id)sender
@@ -350,27 +347,16 @@
 - (void)handleRightBarButtonTap:(id)sender
 {
     if (!self.tutorialController) {
-        [self.navigationItem.leftBarButtonItem setEnabled:NO];
 
         self.tutorialController = [[TutorialViewController alloc] init];
         // Initialize the view controller and set any properties
-        self.tutorialController.delegate = self;
 
-        
         //self.tutorialController.view.frame = scalesViewControllerViewFrame;
         self.tutorialController.view.backgroundColor = [UIColor GuitarCream];
-        
-        
-        [self presentViewController:self.tutorialController animated:[[GuitarStore sharedStore] displayedTutorial] completion:nil];
-
-    } else {
-        
-        [self.navigationItem.leftBarButtonItem setEnabled:YES];
-        
-        [self.tutorialController dismissViewControllerAnimated:YES completion:nil];
-        self.tutorialController = nil;
-
     }
+    
+    
+    [self presentViewController:self.tutorialController animated:[[GuitarStore sharedStore] displayedTutorial] completion:nil];
 }
 
 - (void)layoutTutorialViewController
@@ -571,12 +557,6 @@
     
     [self refreshData];
     [self resetButtonView];
-}
-
-- (void)didCompleteTutorial
-{
-    [self handleRightBarButtonTap:nil];
-
 }
 
 - (void)setSubHeaderText:(NSString *)text

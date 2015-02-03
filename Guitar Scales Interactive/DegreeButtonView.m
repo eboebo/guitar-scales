@@ -54,7 +54,6 @@
 - (void)setSelected:(BOOL)selected
 {
     _selected = selected;
-
     
     [UIView animateWithDuration:0.8 animations:^{
         if (_selected) {
