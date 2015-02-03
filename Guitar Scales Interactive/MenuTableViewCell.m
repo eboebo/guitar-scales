@@ -68,6 +68,8 @@
 - (void)handleLeftTitleTap:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(scaleTapped:)] && self.leftTitle.tag) {
+
+
         [self.delegate scaleTapped:self.leftTitle];
     }
 }
@@ -75,6 +77,7 @@
 - (void)handleRightTitleTap:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(scaleTapped:)] && self.rightTitle.tag) {
+
         [self.delegate scaleTapped:self.rightTitle];
     }
 }

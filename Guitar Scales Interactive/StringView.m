@@ -29,7 +29,8 @@ const CGFloat maxHeight = 175.0;
 
     CGFloat horizontalOffset = self.isMainView ? 10 : 5;
     CGFloat verticalOffset   = self.isMainView ? 12 : 3;
-    CGFloat lineWidth        = self.isMainView ? 2.0 : 0.5;
+    CGFloat lineWidth        = self.isMainView ? 2.1 : 0.5;
+    CGFloat strokeWidth      = self.isMainView ? 2.8 : 0.5;
     CGFloat width            = self.bounds.size.width - (horizontalOffset * 2.0);
     
     CGFloat height = self.bounds.size.height - (verticalOffset * 2.0);
@@ -99,7 +100,7 @@ const CGFloat maxHeight = 175.0;
             CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
             NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
             paragrapStyle.alignment                = NSTextAlignmentCenter;
-            [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:21.0f], NSParagraphStyleAttributeName:paragrapStyle}];
+            [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:18.0f], NSParagraphStyleAttributeName:paragrapStyle}];
 
         }
     }
@@ -117,27 +118,32 @@ const CGFloat maxHeight = 175.0;
                         = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
                         CGFloat y
                         = coord.y * verticalSpacing + verticalOffset;
-                        CGContextAddArc(context, x, y, verticalOffset - lineWidth, 0.0, M_PI*2, YES);
-                        
+                        CGContextAddArc(context, x, y, verticalOffset - strokeWidth, 0.0, M_PI*2, YES);
                         UIColor *textColor;
                         UIColor *fillColor;
                         UIColor *strokeColor;
+                        CGFloat newStrokeWidth;
                         if ([coord.color isEqual:@"black"]) {
                             textColor   = [UIColor GuitarCream];
                             fillColor   = [UIColor blackColor];
                             strokeColor = [UIColor blackColor];
+                            newStrokeWidth = strokeWidth;
                         } else if ([coord.color isEqualToString:@"white"]) {
                             textColor   = [UIColor blackColor];
                             fillColor   = [UIColor GuitarCream];
                             strokeColor = [UIColor blackColor];
-                            
+                            newStrokeWidth = strokeWidth;
                         } else if ([coord.color isEqualToString:@"gray"]) {
-                            textColor   = [UIColor grayColor];
+                            textColor   = [UIColor GuitarDarkGray];
                             fillColor   = [UIColor GuitarLightGray];
                             strokeColor = [UIColor lightGrayColor];
+                            newStrokeWidth = strokeWidth - 1;
                         }
+                        CGContextSetLineWidth(context, newStrokeWidth);
+
                         CGContextSetFillColorWithColor(context, [fillColor CGColor]);
                         CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
+  
                         CGContextDrawPath(context, kCGPathFillStroke);
 
                         // If the view is the center view, add degree text on top of notes
@@ -145,7 +151,13 @@ const CGFloat maxHeight = 175.0;
                             NSMutableAttributedString *degreeString
                             = [[degree toAttributedStringCircle] mutableCopy];
                             CGFloat width    = (verticalOffset - lineWidth) * 2;
-                            CGRect rect      = CGRectMake(x - width / 2, y - width / 2, width, width);
+                            CGRect rect;
+                            if (degreeString.length == 1) {
+                                rect = CGRectMake(x - width / 2, y - width / 2, width, width);
+                            } else {
+                                 rect = CGRectMake(x - width / 2, y - (width * 5) / 8, width, width);
+
+                            }
                             CGSize size      = [degreeString size];
                             CGFloat offset   = (width - size.height) / 2;
                             rect.size.height -= offset * 2.0;
@@ -162,13 +174,13 @@ const CGFloat maxHeight = 175.0;
                                                         NSBaselineOffsetAttributeName:offNum}
                                                  range:NSMakeRange(0, degreeString.length)];
                             
-                            
-//                            NSShadow *shadowDic=[[NSShadow alloc] init];
-//                            [shadowDic setShadowColor:textColor];
-//                            [shadowDic setShadowOffset:CGSizeMake(0, 1)];
-//                            [degreeString addAttribute:NSShadowAttributeName
-//                                                 value:shadowDic
-//                                                 range:NSMakeRange(0, degreeString.length)];
+                            NSShadow *shadowDic=[[NSShadow alloc] init];
+                            [shadowDic setShadowColor:textColor];
+                            [shadowDic setShadowOffset:CGSizeMake(0, 1)];
+                            [degreeString addAttribute:NSShadowAttributeName
+                                                 value:shadowDic
+                                                 range:NSMakeRange(0, degreeString.length)];
+
 
                             
                             [degreeString drawInRect:rect];

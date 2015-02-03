@@ -14,6 +14,7 @@
 + (UIColor *)GuitarMediumBlue;
 + (UIColor *)GuitarLightBlue;
 + (UIColor *)GuitarCream;
++ (UIColor *)GuitarDarkGray;
 + (UIColor *)GuitarGray;
 + (UIColor *)GuitarLightGray;
 

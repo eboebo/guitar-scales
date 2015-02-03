@@ -68,6 +68,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     }
     
     Scale *leftScale    = sectionScales[indexPath.row];
+    Scale *selectedScale = [[GuitarStore sharedStore] selectedScale];
   
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:leftScale.menuTitle];
     [attributedString addAttribute:NSKernAttributeName value:@(.3) range:NSMakeRange(0, leftScale.menuTitle.length)];
@@ -78,10 +79,9 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     cell.leftTitle.tag  = tag;
     cell.delegate       = self;
     
-    if (leftScale == [[GuitarStore sharedStore] selectedScale]) {
-  //      cell.leftTitle.textColor = [UIColor GuitarLightBlue];
+
+    if ([leftScale.title isEqualToString:selectedScale.title] ) {
         cell.leftTitle.backgroundColor = [UIColor GuitarMediumBlue]; //
-  //      cell.leftTitle.textColor = [UIColor blackColor]; //
         self.selectedLabel = cell.leftTitle;
     } else {
         cell.leftTitle.textColor = [UIColor GuitarCream];
@@ -103,11 +103,8 @@ NSInteger const SCALE_TAG_OFFSET = 111;
         cell.rightTitle.attributedText = attributedString;
         tag = ([indexPath section] * 1000 + (scaleIndex)) + SCALE_TAG_OFFSET;
         cell.rightTitle.tag = tag;
-
-        if (rightScale == [[GuitarStore sharedStore] selectedScale]) {
- //             cell.rightTitle.textColor = [UIColor GuitarLightBlue];
+        if ([rightScale.title isEqualToString:selectedScale.title]) {
             cell.rightTitle.backgroundColor = [UIColor GuitarMediumBlue]; //
-  //          cell.rightTitle.textColor = [UIColor blackColor]; //
             self.selectedLabel = cell.rightTitle;
         } else {
             cell.rightTitle.textColor = [UIColor GuitarCream];

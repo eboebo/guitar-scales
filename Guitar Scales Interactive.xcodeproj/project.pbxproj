@@ -386,7 +386,7 @@
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					B108CABA199AD1E70047A473 = {
-						DevelopmentTeam = XS87R2WV3V;
+						DevelopmentTeam = CH924BJNEY;
 					};
 					B108CADE199AD1E80047A473 = {
 						DevelopmentTeam = XS87R2WV3V;

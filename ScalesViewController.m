@@ -161,6 +161,10 @@
     CGFloat inset = 15.0;
     CGRect bounds = self.view.bounds;
     
+    CGRect degreeViewFrame = self.degreeView.frame;
+    degreeViewFrame.size.width = self.view.bounds.size.width;
+    self.degreeView.frame = degreeViewFrame;
+    
     // LAYOUT STRINGVIEWS
     
     CGFloat stringViewWidth = bounds.size.width / 6.2;
@@ -353,64 +357,21 @@
         self.tutorialController = [[TutorialViewController alloc] init];
         // Initialize the view controller and set any properties
         self.tutorialController.delegate = self;
-        // Set the frame of playslistViewController view
-        CGRect scalesViewControllerViewFrame   = self.view.bounds;
-        scalesViewControllerViewFrame.origin.y -= scalesViewControllerViewFrame.size.height;
-        scalesViewControllerViewFrame.size.height -= self.degreeView.frame.size.height;
+
         
-        self.tutorialController.view.frame = scalesViewControllerViewFrame;
+        //self.tutorialController.view.frame = scalesViewControllerViewFrame;
         self.tutorialController.view.backgroundColor = [UIColor GuitarCream];
         
-        // Add as a child view controller
-        [self addChildViewController:self.tutorialController];
         
-        // Add as a subview
-        [self.view addSubview:self.tutorialController.view];
-        
-        [UIView animateWithDuration:.20
-                         animations:^
-         {
-             [self layoutTutorialViewController];
-         } completion:^(BOOL finished) {
-             
-             // Call didMoveToParentViewController to complete the
-             // child view controller steps
-             [self.tutorialController didMoveToParentViewController:self];
-             
-             // Reset user interaction
-             self.view.window.userInteractionEnabled = YES;
-             
-         }];
+        [self presentViewController:self.tutorialController animated:[[GuitarStore sharedStore] displayedTutorial] completion:nil];
+
     } else {
         
         [self.navigationItem.leftBarButtonItem setEnabled:YES];
-
-        // Create the frame for playslistViewController view
-        CGRect scalesViewControllerViewFrame   = self.view.bounds;
-        scalesViewControllerViewFrame.origin.y = -scalesViewControllerViewFrame.size.height;
         
-        // Animate playslistViewController view changes
-        [UIView animateWithDuration:.20
-                         animations:^
-         {
-             if (self.fadeTutorial) {
-                 self.tutorialController.view.alpha = 0;
-             } else {
-                 self.tutorialController.view.frame = scalesViewControllerViewFrame;
-             }
-             // Set the frame
-             
-         } completion:^(BOOL finished) {
-             self.fadeTutorial = NO;
-             // Remove the subview
-             [self.tutorialController.view removeFromSuperview];
-             
-             self.tutorialController = nil;
-             
-             // Reset user interaction
-             self.view.window.userInteractionEnabled = YES;
-             
-         }];
+        [self.tutorialController dismissViewControllerAnimated:YES completion:nil];
+        self.tutorialController = nil;
+
     }
 }
 
@@ -444,16 +405,21 @@
         
         NSInteger positionID = pos.identifier;
         StringView *stringView = [self stringViewForPositionID:positionID];
+        UILabel *positionabel = [self positionLabelForPositionID:positionID];
         stringView.position = pos;
         stringView.selectedDegrees = self.selectedDegrees;
-        if (!self.selectedStringView) {
+        if (!self.selectedStringView && stringView.position.identifier == 4) {
             self.selectedStringView = stringView;
             stringView.alpha = 1;
+            positionabel.alpha = 1;
         } else if (stringView == self.selectedStringView) {
             stringView.alpha = 1;
+            positionabel.alpha = 1;
         }else {
             stringView.alpha = 0.3;
+            positionabel.alpha = 0.3;
         }
+        [positionabel setNeedsDisplay];
         [stringView setNeedsDisplay];
     }
     
@@ -464,7 +430,6 @@
     self.mainStringView.stringViewType = self.selectedStringView.stringViewType;
     self.mainStringView.selectedDegrees = self.selectedDegrees;
     [self.mainStringView setNeedsDisplay];
-
 
 }
 
@@ -507,10 +472,15 @@
     
     self.selectedStringView.backgroundColor = [UIColor clearColor];
     self.selectedStringView.alpha = 0.3;
+    UILabel *positionLabel = [self positionLabelForPositionID:self.selectedStringView.position.identifier];
+    positionLabel.alpha = 0.3;
     
     StringView *stringView = (StringView *) tapRec.view;
     self.selectedStringView = stringView;
     stringView.alpha = 1;
+    
+    positionLabel = [self positionLabelForPositionID:stringView.position.identifier];
+    positionLabel.alpha = 1;
     
     self.mainStringView.stringViewType = stringView.stringViewType;
     self.mainStringView.position = stringView.position;
@@ -548,6 +518,33 @@
     }
 }
 
+- (UILabel *)positionLabelForPositionID:(NSInteger)positionID
+{
+    switch (positionID) {
+        case 0:
+            return self.leftBottomLabel;
+            break;
+        case 1:
+            return self.rightBottonLabel;
+            break;
+        case 2:
+            return self.leftMiddleLabel;
+            break;
+        case 3:
+            return self.rightMiddleLabel;
+            break;
+        case 4:
+            return self.leftIndexLabel;
+            break;
+        case 5:
+            return self.rightIndexLabel;
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
 - (void)selectedDegreesModified:(NSMutableArray *)degrees
 {
     self.selectedDegrees = degrees;
@@ -573,6 +570,7 @@
 - (void)didSelectScale:(Scale *)scale
 {
     self.selectedDegrees = [scale.selectedDegrees mutableCopy];
+    
     [self refreshData];
     [self resetButtonView];
 }
@@ -585,13 +583,19 @@
 
 - (void)setSubHeaderText:(NSString *)text
 {
+    
+    CGFloat fontSize = 20.f;
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    if (bounds.size.width < 568.0) {
+        fontSize = 16.0f;
+    }
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:text];
     [attributedString addAttribute:NSKernAttributeName
                              value:@5
                              range:NSMakeRange(0, text.length)];
     [attributedString addAttribute:NSFontAttributeName
-                             value:[UIFont ProletarskFontWithSize:18.0f]
+                             value:[UIFont ProletarskFontWithSize:fontSize]
                              range:NSMakeRange(0, text.length)];
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;
