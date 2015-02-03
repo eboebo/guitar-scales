@@ -131,7 +131,7 @@
 
             NSString *identifier        = degreeArray[0];
             Degree *degree              = degrees[[identifier integerValue]];
-            [doubleButtonView.titleLabel setAttributedText:[degree toAttributedString]];
+            doubleButtonView.firstDegree = degree;
             
             if ([self containsId:degree.identifier]) {
                 doubleButtonView.currentState = DoubleDegreeButtonStateTop;
@@ -141,6 +141,7 @@
 
             degree     = degrees[[identifier integerValue]];
             [doubleButtonView.secondTitleLabel setAttributedText:[degree toAttributedString]];
+            doubleButtonView.secondDegree = degree; 
             
             doubleButtonView.buttonTags = @[degreeArray[0], degreeArray[1]];
 

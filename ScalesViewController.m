@@ -58,7 +58,7 @@
 
     
     self.view.backgroundColor                            = [UIColor GuitarCream];
-    self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];    
+    self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
 
     self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];

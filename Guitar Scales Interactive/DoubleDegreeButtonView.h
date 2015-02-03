@@ -7,6 +7,7 @@
 //
 
 #import "DegreeButtonView.h"
+#import "Degree.h"
 
 typedef enum {
     DoubleDegreeButtonStateNone = 0,
@@ -26,6 +27,10 @@ typedef enum {
 @property (nonatomic, strong) UILabel *secondTitleLabel;
 @property (nonatomic, assign) DoubleDegreeButtonState currentState;
 @property (nonatomic, strong) NSArray *buttonTags;
+
+@property (nonatomic, assign) Degree *firstDegree;
+@property (nonatomic, assign) Degree *secondDegree;
+
 
 
 

@@ -30,5 +30,7 @@
 
 - (NSAttributedString *)toAttributedString;
 - (NSAttributedString *)toAttributedStringCircle;
+- (NSAttributedString *)toAttributedStringEnharmonic;
+
 
 @end

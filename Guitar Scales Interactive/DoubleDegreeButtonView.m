@@ -35,6 +35,7 @@
         self.titleLabel.hidden = NO;
         self.titleLabel.frame = self.bounds;
         self.titleLabel.textColor = [UIColor GuitarCream];
+        self.titleLabel.attributedText = self.firstDegree.toAttributedString;
         self.backgroundColor = [UIColor GuitarBlue];
 
     } else if (self.currentState == DoubleDegreeButtonStateBottom) {
@@ -42,21 +43,30 @@
         self.titleLabel.hidden = YES;
         self.secondTitleLabel.frame = self.bounds;
         self.secondTitleLabel.textColor = [UIColor GuitarCream];
+        self.secondTitleLabel.attributedText = self.secondDegree.toAttributedString;
         self.backgroundColor = [UIColor GuitarBlue];
 
     } else {
         self.secondTitleLabel.hidden = NO;
         self.titleLabel.hidden = NO;
         CGRect topFrame = self.bounds;
-        topFrame.size.height = self.bounds.size.height / 2.0;
+        CGFloat height = self.bounds.size.height / 2.5;
+        topFrame.size.height = height;
         self.titleLabel.frame = topFrame;
         
         CGRect bottomFrame = topFrame;
-        bottomFrame.origin.y = topFrame.size.height;
+        bottomFrame.origin.y = height;
         self.secondTitleLabel.frame = bottomFrame;
         
+        
+        self.titleLabel.attributedText = self.firstDegree.toAttributedStringEnharmonic;
         self.titleLabel.textColor = [UIColor GuitarMediumBlue];
+        
+        
+        self.secondTitleLabel.attributedText = self.secondDegree.toAttributedStringEnharmonic;
+
         self.secondTitleLabel.textColor = [UIColor GuitarMediumBlue];
+        
         self.backgroundColor = [UIColor GuitarCream];
     }
 }
