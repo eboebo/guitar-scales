@@ -41,14 +41,14 @@
     NSMutableAttributedString *degreeAttributedString = [[NSMutableAttributedString alloc] initWithString:degreeString];
     if (self.flat || self.sharp) {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont bravuraFontWithSize:19.0]
+                                       value:[UIFont bravuraFontWithSize:28.0]
                                        range:NSMakeRange(0, 1)];
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont svBasicManualFontWithSize:19.0f]
+                                       value:[UIFont svBasicManualFontWithSize:28.0f]
                                        range:NSMakeRange(1, 1)];
     } else {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont svBasicManualFontWithSize:19.0f]
+                                       value:[UIFont svBasicManualFontWithSize:28.0f]
                                        range:NSMakeRange(0, 1)];
     }
     return degreeAttributedString;
@@ -67,16 +67,18 @@
     NSMutableAttributedString *degreeAttributedString = [[NSMutableAttributedString alloc] initWithString:degreeString];
     if (self.flat || self.sharp) {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont bravuraFontWithSize:14.0]
+                                       value:[UIFont bravuraFontWithSize:18.0]
                                        range:NSMakeRange(0, 1)];
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont svBasicManualFontWithSize:14.0]
+                                       value:[UIFont svBasicManualFontWithSize:19.5]
                                        range:NSMakeRange(1, 1)];
     } else {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont svBasicManualFontWithSize:14.0]
+                                       value:[UIFont svBasicManualFontWithSize:19.5]
                                        range:NSMakeRange(0, 1)];
     }
+    
+
 
     return degreeAttributedString;
 }

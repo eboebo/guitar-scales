@@ -59,6 +59,9 @@
     
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
+    self.navigationController.navigationBar.opaque       = YES;
+//    self.navigationController.navigationBar.translucent       = NO;
+
     self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
     [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:(5.0) forBarMetrics:UIBarMetricsDefault];
@@ -481,11 +484,13 @@
     paragraphStyle.alignment                = NSTextAlignmentCenter;
     [title addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
  
-    UIView * customTitleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
+    UIView * customTitleView = [[UIView alloc] initWithFrame:CGRectZero];
 
     UILabel *label = [[UILabel alloc] initWithFrame:customTitleView.frame];
     label.attributedText = title;
+    [label sizeToFit];
     [customTitleView addSubview:label];
+    customTitleView.frame = label.frame;
     [self.navigationItem setTitleView:customTitleView];
 }
 

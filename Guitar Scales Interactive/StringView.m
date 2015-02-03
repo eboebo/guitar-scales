@@ -161,6 +161,16 @@ const CGFloat maxHeight = 175.0;
                                                         NSParagraphStyleAttributeName:paragrapStyle,
                                                         NSBaselineOffsetAttributeName:offNum}
                                                  range:NSMakeRange(0, degreeString.length)];
+                            
+                            
+//                            NSShadow *shadowDic=[[NSShadow alloc] init];
+//                            [shadowDic setShadowColor:textColor];
+//                            [shadowDic setShadowOffset:CGSizeMake(0, 1)];
+//                            [degreeString addAttribute:NSShadowAttributeName
+//                                                 value:shadowDic
+//                                                 range:NSMakeRange(0, degreeString.length)];
+
+                            
                             [degreeString drawInRect:rect];
                             
                         }

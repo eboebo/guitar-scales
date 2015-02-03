@@ -134,6 +134,7 @@
                         </fragment>
                     </attributedString>
                     <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
                 <view contentMode="scaleToFill" id="Fcv-kj-s50" customClass="StringView">
                     <rect key="frame" x="162" y="80" width="244" height="179"/>

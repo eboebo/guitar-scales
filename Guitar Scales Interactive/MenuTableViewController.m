@@ -106,7 +106,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 36.0f;
+    return 28.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
