@@ -68,16 +68,25 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     }
     
     Scale *leftScale    = sectionScales[indexPath.row];
-    cell.leftTitle.text = leftScale.menuTitle;
+  
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:leftScale.menuTitle];
+    [attributedString addAttribute:NSKernAttributeName value:@(.3) range:NSMakeRange(0, leftScale.menuTitle.length)];
+    
+    
+    cell.leftTitle.attributedText = attributedString;
     NSInteger tag = ([indexPath section] * 1000 + indexPath.row) + SCALE_TAG_OFFSET;
     cell.leftTitle.tag  = tag;
     cell.delegate       = self;
     
     if (leftScale == [[GuitarStore sharedStore] selectedScale]) {
-        cell.leftTitle.textColor = [UIColor GuitarLightBlue];
+  //      cell.leftTitle.textColor = [UIColor GuitarLightBlue];
+        cell.leftTitle.backgroundColor = [UIColor GuitarMediumBlue]; //
+  //      cell.leftTitle.textColor = [UIColor blackColor]; //
         self.selectedLabel = cell.leftTitle;
     } else {
         cell.leftTitle.textColor = [UIColor GuitarCream];
+        cell.leftTitle.backgroundColor = [UIColor GuitarBlue]; //
+        
     }
     
     NSInteger scaleIndex = (sectionScales.count / 2.0) + indexPath.row;
@@ -87,15 +96,22 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     
     if (scaleIndex< sectionScales.count) {
         Scale *rightScale = sectionScales[scaleIndex];
-        cell.rightTitle.text = rightScale.menuTitle;
+        
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:rightScale.menuTitle];
+        [attributedString addAttribute:NSKernAttributeName value:@(.3) range:NSMakeRange(0, rightScale.menuTitle.length)];
+
+        cell.rightTitle.attributedText = attributedString;
         tag = ([indexPath section] * 1000 + (scaleIndex)) + SCALE_TAG_OFFSET;
         cell.rightTitle.tag = tag;
 
         if (rightScale == [[GuitarStore sharedStore] selectedScale]) {
-            cell.rightTitle.textColor = [UIColor GuitarLightBlue];
+ //             cell.rightTitle.textColor = [UIColor GuitarLightBlue];
+            cell.rightTitle.backgroundColor = [UIColor GuitarMediumBlue]; //
+  //          cell.rightTitle.textColor = [UIColor blackColor]; //
             self.selectedLabel = cell.rightTitle;
         } else {
             cell.rightTitle.textColor = [UIColor GuitarCream];
+            cell.rightTitle.backgroundColor = [UIColor GuitarBlue]; //
         }
     } else {
         cell.rightTitle.text = @"";
@@ -112,12 +128,12 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerView         = [UIView new];
-    headerView.frame           = CGRectMake(0, 0, self.view.bounds.size.width, 30.0f);
+    headerView.frame           = CGRectMake(0, 0, self.view.bounds.size.width, 24.0f);
     headerView.backgroundColor = [UIColor GuitarLightBlue];
 
     UILabel *titleLabel        = [UILabel new];
     titleLabel.backgroundColor = [UIColor GuitarLightBlue];
-    [titleLabel setFont:[UIFont proletarskFontWithSize:16.0f]];
+    [titleLabel setFont:[UIFont ProletarskFontWithSize:16.0f]];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     
     NSString *titleText = @"SCALES";
@@ -137,7 +153,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30.0f;
+    return 24.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -149,8 +165,11 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 {
     if (self.selectedLabel) {
         [self.selectedLabel setTextColor:[UIColor GuitarCream]];
+        [self.selectedLabel setBackgroundColor: [UIColor GuitarBlue]];
         self.selectedLabel = scaleLabel;
-        [self.selectedLabel setTextColor:[UIColor GuitarLightBlue]];
+ //       [self.selectedLabel setTextColor:[UIColor GuitarLightBlue]];
+ //       [self.selectedLabel setTextColor:[UIColor blackColor]];
+        [self.selectedLabel setBackgroundColor: [UIColor GuitarMediumBlue]];
     }
     
     if (scaleLabel.tag) {

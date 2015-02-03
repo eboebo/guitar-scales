@@ -10,7 +10,7 @@
 
 @interface UIFont (Guitar)
 
-+ (UIFont *)proletarskFontWithSize:(CGFloat)size;
++ (UIFont *)ProletarskFontWithSize:(CGFloat)size;
 + (UIFont *)blackoutFontWithSize:(CGFloat)size;
 + (UIFont *)svBasicManualFontWithSize:(CGFloat)size;
 + (UIFont *)bravuraFontWithSize:(CGFloat)size;
