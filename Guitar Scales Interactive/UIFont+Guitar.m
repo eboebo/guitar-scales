@@ -10,7 +10,7 @@
 
 @implementation UIFont (Guitar)
 
-+ (UIFont *)proletarskFontWithSize:(CGFloat)size
++ (UIFont *)ProletarskFontWithSize:(CGFloat)size
 {
     return [UIFont fontWithName:@"Proletarsk" size:size];
 }

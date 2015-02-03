@@ -386,9 +386,10 @@
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					B108CABA199AD1E70047A473 = {
-						DevelopmentTeam = CH924BJNEY;
+						DevelopmentTeam = XS87R2WV3V;
 					};
 					B108CADE199AD1E80047A473 = {
+						DevelopmentTeam = XS87R2WV3V;
 						TestTargetID = B108CABA199AD1E70047A473;
 					};
 				};
@@ -682,6 +683,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -695,6 +698,7 @@
 				);
 				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -704,6 +708,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -713,6 +719,7 @@
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

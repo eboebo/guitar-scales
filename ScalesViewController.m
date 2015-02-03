@@ -59,8 +59,8 @@
     
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
-    self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
+    self.navigationController.navigationBar.tintColor    = [UIColor GuitarCream];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
     [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:(5.0) forBarMetrics:UIBarMetricsDefault];
 
 
@@ -69,14 +69,14 @@
     
     self.title = @"Scales";
 
-    self.leftStringLabel.font  = [UIFont proletarskFontWithSize:14.0f];
-    self.leftIndexLabel.font   = [UIFont proletarskFontWithSize:10.0f];
-    self.leftMiddleLabel.font  = [UIFont proletarskFontWithSize:10.0f];
-    self.leftBottomLabel.font  = [UIFont proletarskFontWithSize:10.0f];
-    self.rightStringLabel.font = [UIFont proletarskFontWithSize:14.0f];
-    self.rightIndexLabel.font  = [UIFont proletarskFontWithSize:10.0f];
-    self.rightMiddleLabel.font = [UIFont proletarskFontWithSize:10.0f];
-    self.rightBottonLabel.font = [UIFont proletarskFontWithSize:10.0f];
+    self.leftStringLabel.font  = [UIFont ProletarskFontWithSize:14.0f];
+    self.leftIndexLabel.font   = [UIFont ProletarskFontWithSize:10.0f];
+    self.leftMiddleLabel.font  = [UIFont ProletarskFontWithSize:10.0f];
+    self.leftBottomLabel.font  = [UIFont ProletarskFontWithSize:10.0f];
+    self.rightStringLabel.font = [UIFont ProletarskFontWithSize:14.0f];
+    self.rightIndexLabel.font  = [UIFont ProletarskFontWithSize:10.0f];
+    self.rightMiddleLabel.font = [UIFont ProletarskFontWithSize:10.0f];
+    self.rightBottonLabel.font = [UIFont ProletarskFontWithSize:10.0f];
 
     
     UIBarButtonItem *leftBarButtonItem
@@ -476,7 +476,7 @@
     }
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleText];
-    [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:24.0f], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
+    [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:24.0f], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;
     [title addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
@@ -586,7 +586,7 @@
                              value:@5
                              range:NSMakeRange(0, text.length)];
     [attributedString addAttribute:NSFontAttributeName
-                             value:[UIFont proletarskFontWithSize:18.0f]
+                             value:[UIFont ProletarskFontWithSize:18.0f]
                              range:NSMakeRange(0, text.length)];
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;

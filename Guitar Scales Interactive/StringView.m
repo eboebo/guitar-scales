@@ -123,12 +123,12 @@ const CGFloat maxHeight = 175.0;
                         UIColor *fillColor;
                         UIColor *strokeColor;
                         if ([coord.color isEqual:@"black"]) {
-                            textColor   = [UIColor whiteColor];
+                            textColor   = [UIColor GuitarCream];
                             fillColor   = [UIColor blackColor];
                             strokeColor = [UIColor blackColor];
                         } else if ([coord.color isEqualToString:@"white"]) {
                             textColor   = [UIColor blackColor];
-                            fillColor   = [UIColor whiteColor];
+                            fillColor   = [UIColor GuitarCream];
                             strokeColor = [UIColor blackColor];
                             
                         } else if ([coord.color isEqualToString:@"gray"]) {
