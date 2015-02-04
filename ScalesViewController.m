@@ -60,8 +60,8 @@
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
 
-    self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
+    self.navigationController.navigationBar.tintColor    = [UIColor GuitarCream];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
     [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:(5.0) forBarMetrics:UIBarMetricsDefault];
 
 
@@ -582,15 +582,15 @@
 - (void)setSubHeaderText:(NSString *)text
 {
     
-    CGFloat fontSize = 20.f;
+    CGFloat fontSize = 21.0f;
     CGRect bounds = [[UIScreen mainScreen] bounds];
     if (bounds.size.width < 568.0) {
-        fontSize = 16.0f;
+        fontSize = 17.0f;
     }
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:text];
     [attributedString addAttribute:NSKernAttributeName
-                             value:@5
+                             value:@4.5
                              range:NSMakeRange(0, text.length)];
     [attributedString addAttribute:NSFontAttributeName
                              value:[UIFont ProletarskFontWithSize:fontSize]
@@ -598,6 +598,22 @@
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+    
+    
+    NSShadow *shadowDic=[[NSShadow alloc] init];
+  [shadowDic setShadowColor: [UIColor blackColor]];
+    [shadowDic setShadowOffset:CGSizeMake(.4, .5)];
+    [attributedString addAttribute:NSShadowAttributeName
+                         value:shadowDic
+                         range:NSMakeRange(0, attributedString.length)];
+    
+    NSShadow *shadowDic2=[[NSShadow alloc] init];
+    [shadowDic2 setShadowColor: [UIColor darkGrayColor]];
+    [shadowDic2 setShadowOffset:CGSizeMake(.6, .6)];
+    [attributedString addAttribute:NSShadowAttributeName
+                             value:shadowDic2
+                             range:NSMakeRange(0, attributedString.length)];
+    
     [self.positionLabel setAttributedText:attributedString];
 }
 

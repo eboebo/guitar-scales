@@ -52,7 +52,7 @@
 
 -(void)imageViewTapped:(id)sender
 {
-    if (self.currentImageIndex < 16) {
+    if (self.currentImageIndex < 20) {
         self.currentImageIndex++;
         [self layoutImage];
     } else {

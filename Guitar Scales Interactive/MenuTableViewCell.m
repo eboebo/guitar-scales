@@ -54,6 +54,10 @@
     CGFloat offset = bounds.size.width / 7.5;
     CGFloat padding = bounds.size.width / 17.0;
     
+    if (bounds.size.width < 568.0) {
+        offset = bounds.size.width / 16;
+    }
+    
     CGFloat width = bounds.size.width / 2.0 - offset;
     CGRect labelFrame = CGRectZero;
     labelFrame.origin.x += offset - padding / 2.0;

@@ -27,7 +27,7 @@ const CGFloat maxHeight = 175.0;
     // Drawing code
     [super drawRect:rect];
 
-    CGFloat horizontalOffset = self.isMainView ? 10 : 5;
+    CGFloat horizontalOffset = self.isMainView ? 10 : 3.5;
     CGFloat verticalOffset   = self.isMainView ? 12 : 3;
     CGFloat lineWidth        = self.isMainView ? 2.1 : 0.5;
     CGFloat strokeWidth      = self.isMainView ? 2.8 : 0.5;
@@ -95,7 +95,7 @@ const CGFloat maxHeight = 175.0;
     if (self.isMainView) {
         for (int i = 0; i < stringArray.count; i++) {
             CGFloat x      = horizontalOffset + (i * horizontalSpacing);
-            CGFloat y      = 5.35 * verticalSpacing + verticalOffset;
+            CGFloat y      = 5.4 * verticalSpacing + verticalOffset;
             NSString *text = stringArray[i];
             CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
             NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
@@ -153,9 +153,9 @@ const CGFloat maxHeight = 175.0;
                             CGFloat width    = (verticalOffset - lineWidth) * 2;
                             CGRect rect;
                             if (degreeString.length == 1) {
-                                rect = CGRectMake(x - width / 2, y - width / 2, width, width);
+                                rect = CGRectMake(x - width / 2.2, y - width / 2, width, width);
                             } else {
-                                 rect = CGRectMake(x - width / 2, y - (width * 5) / 8, width, width);
+                                 rect = CGRectMake(x - width / 2.2, y - (width * 5) / 7.8, width, width);
 
                             }
                             CGSize size      = [degreeString size];
@@ -176,7 +176,7 @@ const CGFloat maxHeight = 175.0;
                             
                             NSShadow *shadowDic=[[NSShadow alloc] init];
                             [shadowDic setShadowColor:textColor];
-                            [shadowDic setShadowOffset:CGSizeMake(0, 1)];
+                            [shadowDic setShadowOffset:CGSizeMake(0, 0.7)];
                             [degreeString addAttribute:NSShadowAttributeName
                                                  value:shadowDic
                                                  range:NSMakeRange(0, degreeString.length)];

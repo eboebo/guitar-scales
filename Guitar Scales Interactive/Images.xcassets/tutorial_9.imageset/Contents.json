@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "tutorial_09.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "tutorial_mockup_9.png"
+      "filename" : "9tutorial@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "09.png"
     }
   ],
   "info" : {
