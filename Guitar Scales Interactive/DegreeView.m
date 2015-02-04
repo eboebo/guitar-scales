@@ -141,7 +141,7 @@
 
             degree     = degrees[[identifier integerValue]];
             [doubleButtonView.secondTitleLabel setAttributedText:[degree toAttributedString]];
-            doubleButtonView.secondDegree = degree; 
+            doubleButtonView.secondDegree = degree;
             
             doubleButtonView.buttonTags = @[degreeArray[0], degreeArray[1]];
 
