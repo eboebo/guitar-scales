@@ -381,18 +381,18 @@
     [self refreshTitle];
     
     if (!self.selectedDegrees) {
-        self.selectedDegrees = [scale.degrees mutableCopy];
+        self.selectedDegrees = [scale.selectedDegrees mutableCopy];
     }
 
     NSMutableArray *positions = [[GuitarStore sharedStore] positions];
     for (Position *pos in positions) {
         
-        NSInteger positionID = [pos.id integerValue];
+        NSInteger positionID = pos.identifier;
         StringView *stringView = [self stringViewForPositionID:positionID];
         UILabel *positionabel = [self positionLabelForPositionID:positionID];
         stringView.position = pos;
         stringView.selectedDegrees = self.selectedDegrees;
-        if (!self.selectedStringView && stringView.position.id.integerValue == 4) {
+        if (!self.selectedStringView && stringView.position.identifier == 4) {
             self.selectedStringView = stringView;
             stringView.alpha = 1;
             positionabel.alpha = 1;
@@ -456,14 +456,14 @@
     
     self.selectedStringView.backgroundColor = [UIColor clearColor];
     self.selectedStringView.alpha = 0.3;
-    UILabel *positionLabel = [self positionLabelForPositionID:self.selectedStringView.position.id.integerValue];
+    UILabel *positionLabel = [self positionLabelForPositionID:self.selectedStringView.position.identifier];
     positionLabel.alpha = 0.3;
     
     StringView *stringView = (StringView *) tapRec.view;
     self.selectedStringView = stringView;
     stringView.alpha = 1;
     
-    positionLabel = [self positionLabelForPositionID:stringView.position.id.integerValue];
+    positionLabel = [self positionLabelForPositionID:stringView.position.identifier];
     positionLabel.alpha = 1;
     
     self.mainStringView.stringViewType = stringView.stringViewType;
@@ -541,7 +541,7 @@
         NSArray *scaleArray = [[GuitarStore sharedStore] scales2DArray];
         for (NSArray *scales in scaleArray) {
             for (Scale *scale in scales) {
-                if ([self.selectedDegrees equalDegrees:scale.degrees]) {
+                if ([self.selectedDegrees equalDegrees:scale.selectedDegrees]) {
                     [[GuitarStore sharedStore] setSelectedScale:scale];
                     [self refreshTitle];
                     break;
@@ -553,7 +553,8 @@
 
 - (void)didSelectScale:(Scale *)scale
 {
-    self.selectedDegrees = [scale.degrees mutableCopy];
+    self.selectedDegrees = [scale.selectedDegrees mutableCopy];
+    
     [self refreshData];
     [self resetButtonView];
 }

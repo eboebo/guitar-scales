@@ -49,7 +49,7 @@
     self.clearAllButton  = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.clearAllButton setTitle:@"CLEAR" forState:UIControlStateNormal];
     [self.clearAllButton setTintColor:[UIColor GuitarMediumBlue]];
-    self.clearAllButton.titleLabel.font = [UIFont blackoutFontWithSize:15.0f];
+    self.clearAllButton.titleLabel.font = [UIFont blackoutFontWithSize:18.0f];
     [self.clearAllButton addTarget:self
                             action:@selector(clearAllTap:)
                   forControlEvents:UIControlEventTouchUpInside];
@@ -58,7 +58,7 @@
     self.showAllButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.showAllButton setTitle:@"ALL" forState:UIControlStateNormal];
     [self.showAllButton setTintColor:[UIColor GuitarMediumBlue]];
-    self.showAllButton.titleLabel.font = [UIFont blackoutFontWithSize:15.0f];
+    self.showAllButton.titleLabel.font = [UIFont blackoutFontWithSize:18.0f];
 
     [self.showAllButton addTarget:self
                            action:@selector(showAllTap:)
@@ -131,7 +131,7 @@
 
             NSString *identifier        = degreeArray[0];
             Degree *degree              = degrees[[identifier integerValue]];
-            [doubleButtonView.titleLabel setAttributedText:[degree toAttributedString]];
+            doubleButtonView.firstDegree = degree;
             
             if ([self containsId:degree.id]) {
                 doubleButtonView.currentState = DoubleDegreeButtonStateTop;
@@ -141,6 +141,7 @@
 
             degree     = degrees[[identifier integerValue]];
             [doubleButtonView.secondTitleLabel setAttributedText:[degree toAttributedString]];
+            doubleButtonView.secondDegree = degree;
             
             doubleButtonView.buttonTags = @[degreeArray[0], degreeArray[1]];
 

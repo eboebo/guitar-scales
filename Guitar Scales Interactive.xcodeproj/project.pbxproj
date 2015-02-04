@@ -50,6 +50,8 @@
 		B16E945619A16F8D001F769A /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = B16E945519A16F8D001F769A /* notes.json */; };
 		B16E945D19A176FA001F769A /* DegreePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945C19A176FA001F769A /* DegreePosition.m */; };
 		B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */; };
+		B1CF76A61A8192D300C05AB7 /* GuitarDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF76A51A8192D300C05AB7 /* GuitarDataManager.m */; };
+		B1CF76A91A81971B00C05AB7 /* GuitarManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CF76A81A81971B00C05AB7 /* GuitarManagedObject.m */; };
 		B1D751341A110EB90024EC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D751331A110EB90024EC0E /* Main.storyboard */; };
 		B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */; };
 		B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */; };
@@ -133,6 +135,10 @@
 		B16E945C19A176FA001F769A /* DegreePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreePosition.m; sourceTree = "<group>"; };
 		B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Guitar.h"; sourceTree = "<group>"; };
 		B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Guitar.m"; sourceTree = "<group>"; };
+		B1CF76A41A8192D300C05AB7 /* GuitarDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuitarDataManager.h; sourceTree = "<group>"; };
+		B1CF76A51A8192D300C05AB7 /* GuitarDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuitarDataManager.m; sourceTree = "<group>"; };
+		B1CF76A71A81971B00C05AB7 /* GuitarManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuitarManagedObject.h; path = Models/GuitarManagedObject.h; sourceTree = "<group>"; };
+		B1CF76A81A81971B00C05AB7 /* GuitarManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuitarManagedObject.m; path = Models/GuitarManagedObject.m; sourceTree = "<group>"; };
 		B1D751331A110EB90024EC0E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B1EC83ED19F40A7800A3D30F /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
@@ -220,6 +226,8 @@
 				B108CAC5199AD1E70047A473 /* Supporting Files */,
 				B16E944F19A05169001F769A /* GuitarStore.h */,
 				B16E945019A05169001F769A /* GuitarStore.m */,
+				B1CF76A41A8192D300C05AB7 /* GuitarDataManager.h */,
+				B1CF76A51A8192D300C05AB7 /* GuitarDataManager.m */,
 			);
 			path = "Guitar Scales Interactive";
 			sourceTree = "<group>";
@@ -301,6 +309,8 @@
 				B125E2C11A71CCDF008AE05E /* Degree.m */,
 				B16E945B19A176FA001F769A /* DegreePosition.h */,
 				B16E945C19A176FA001F769A /* DegreePosition.m */,
+				B1CF76A71A81971B00C05AB7 /* GuitarManagedObject.h */,
+				B1CF76A81A81971B00C05AB7 /* GuitarManagedObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -389,6 +399,7 @@
 						DevelopmentTeam = CH924BJNEY;
 					};
 					B108CADE199AD1E80047A473 = {
+						DevelopmentTeam = XS87R2WV3V;
 						TestTargetID = B108CABA199AD1E70047A473;
 					};
 				};
@@ -500,6 +511,7 @@
 				B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */,
 				B125E2BF1A71C373008AE05E /* ScalesModel.xcdatamodeld in Sources */,
 				B125E2C51A71CCE0008AE05E /* Coordinate.m in Sources */,
+				B1CF76A91A81971B00C05AB7 /* GuitarManagedObject.m in Sources */,
 				B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */,
 				B16E945D19A176FA001F769A /* DegreePosition.m in Sources */,
 				B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */,
@@ -508,6 +520,7 @@
 				B15F7B7919AAB13800028D8D /* UIColor+Guitar.m in Sources */,
 				B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */,
 				B108CACB199AD1E70047A473 /* main.m in Sources */,
+				B1CF76A61A8192D300C05AB7 /* GuitarDataManager.m in Sources */,
 				B16E945419A05A8E001F769A /* DegreeView.m in Sources */,
 				B125E2CB1A71CCE0008AE05E /* Scale.m in Sources */,
 				B125E2CE1A71CCE0008AE05E /* Position.m in Sources */,
@@ -684,6 +697,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -697,6 +712,7 @@
 				);
 				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -706,6 +722,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Guitar Scales Interactive.app/Guitar Scales Interactive";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -715,6 +733,7 @@
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

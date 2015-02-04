@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "GuitarManagedObject.h"
 
 
-@interface Position : NSManagedObject
+@interface Position : GuitarManagedObject
 
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSNumber * baseFret;
@@ -19,5 +20,6 @@
 @property (nonatomic, retain) NSString * finger;
 
 + (NSDictionary*)mappingDictionary;
++ (void)importPositionsFromArray:(NSArray *)positions usingContext:(NSManagedObjectContext *)context;
 
 @end

@@ -21,10 +21,23 @@
 {
     return @{
                                                        @"title": @"title",
-                                                       @"menu_title": @"menuTitle",
-                                                       @"degrees": @"selectedDegrees",
-                                                       
+                                                       @"menu_title": @"menuTitle"
                                                        };
+}
+
++ (void)importScalesFromArray:(NSArray *)scales toScaleGroup:(ScaleGroup *)scaleGroup usingContext:(NSManagedObjectContext *)context
+{
+    for (NSDictionary *scaleDictionary in scales)
+    {
+        Scale *scale = [NSEntityDescription insertNewObjectForEntityForName:@"Scale"
+                                                          inManagedObjectContext:context];
+        [Scale performDataMappingForObject:scale
+                          withMappingDictionary:[Scale mappingDictionary]
+                             withDataDictionary:scaleDictionary];
+        NSArray *degreeArray = scaleDictionary[@"degrees"];
+    }
+    NSError *error = nil;
+    [context save:&error];
 }
 
 @end

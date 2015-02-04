@@ -3,9 +3,9 @@
     <entity name="Coordinate" representedClassName="Coordinate" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="positionID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="x" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="y" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="position" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Position" syncable="YES"/>
     </entity>
     <entity name="Degree" representedClassName="Degree" syncable="YES">
         <attribute name="flat" optional="YES" attributeType="Integer 16" syncable="YES"/>
@@ -33,10 +33,10 @@
         <relationship name="scales" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Scale" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Position" positionX="-2745" positionY="-1017" width="128" height="118"/>
-        <element name="ScaleGroup" positionX="-2612" positionY="-547" width="128" height="88"/>
-        <element name="Scale" positionX="-2412" positionY="-720" width="128" height="103"/>
-        <element name="Degree" positionX="-2081" positionY="-801" width="128" height="118"/>
         <element name="Coordinate" positionX="-1953" positionY="-963" width="128" height="118"/>
+        <element name="Degree" positionX="-2081" positionY="-801" width="128" height="118"/>
+        <element name="Position" positionX="-2745" positionY="-1017" width="128" height="118"/>
+        <element name="Scale" positionX="-2412" positionY="-720" width="128" height="103"/>
+        <element name="ScaleGroup" positionX="-2612" positionY="-547" width="128" height="88"/>
     </elements>
 </model>

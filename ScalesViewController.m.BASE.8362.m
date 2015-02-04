@@ -16,7 +16,8 @@
 
 @interface ScalesViewController ()
 <DegreeViewDelegate,
- MenuDelegate
+ MenuDelegate,
+ TutorialViewControllerDelegate
 >
 
 @property (weak, nonatomic) IBOutlet StringView *mainStringView;
@@ -58,7 +59,6 @@
     
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
-
     self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
     [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:(5.0) forBarMetrics:UIBarMetricsDefault];
@@ -69,14 +69,14 @@
     
     self.title = @"Scales";
 
-    self.leftStringLabel.font  = [UIFont ProletarskFontWithSize:14.0f];
-    self.leftIndexLabel.font   = [UIFont ProletarskFontWithSize:10.0f];
-    self.leftMiddleLabel.font  = [UIFont ProletarskFontWithSize:10.0f];
-    self.leftBottomLabel.font  = [UIFont ProletarskFontWithSize:10.0f];
-    self.rightStringLabel.font = [UIFont ProletarskFontWithSize:14.0f];
-    self.rightIndexLabel.font  = [UIFont ProletarskFontWithSize:10.0f];
-    self.rightMiddleLabel.font = [UIFont ProletarskFontWithSize:10.0f];
-    self.rightBottonLabel.font = [UIFont ProletarskFontWithSize:10.0f];
+    self.leftStringLabel.font  = [UIFont proletarskFontWithSize:14.0f];
+    self.leftIndexLabel.font   = [UIFont proletarskFontWithSize:10.0f];
+    self.leftMiddleLabel.font  = [UIFont proletarskFontWithSize:10.0f];
+    self.leftBottomLabel.font  = [UIFont proletarskFontWithSize:10.0f];
+    self.rightStringLabel.font = [UIFont proletarskFontWithSize:14.0f];
+    self.rightIndexLabel.font  = [UIFont proletarskFontWithSize:10.0f];
+    self.rightMiddleLabel.font = [UIFont proletarskFontWithSize:10.0f];
+    self.rightBottonLabel.font = [UIFont proletarskFontWithSize:10.0f];
 
     
     UIBarButtonItem *leftBarButtonItem
@@ -149,18 +149,14 @@
     }];
     
     [[GuitarStore sharedStore] parseData];
-    
-    [self layoutLabels];
 }
 
-- (void)layoutLabels
+- (void)viewWillLayoutSubviews
 {
+    [super viewWillLayoutSubviews];
+    
     CGFloat inset = 15.0;
     CGRect bounds = self.view.bounds;
-    
-    CGRect degreeViewFrame = self.degreeView.frame;
-    degreeViewFrame.size.width = self.view.bounds.size.width;
-    self.degreeView.frame = degreeViewFrame;
     
     // LAYOUT STRINGVIEWS
     
@@ -209,19 +205,19 @@
     center.x = leftLabelCenterX;
     self.leftStringLabel.center = center;
     self.leftStringLabel.alpha = 0.6;
-    
+
     
     center = self.leftIndexLabel.center;
     center.x = leftLabelCenterX;
     self.leftIndexLabel.center = center;
     self.leftIndexLabel.alpha = 0.3;
-    
+
     
     center = self.leftMiddleLabel.center;
     center.x = leftLabelCenterX;
     self.leftMiddleLabel.center = center;
     self.leftMiddleLabel.alpha = 0.3;
-    
+
     
     center = self.leftBottomLabel.center;
     center.x = leftLabelCenterX;
@@ -239,13 +235,13 @@
     center.x = rightLabelCenterX;
     self.rightIndexLabel.center = center;
     self.rightIndexLabel.alpha = 0.3;
-    
+
     
     center = self.rightMiddleLabel.center;
     center.x = rightLabelCenterX;
     self.rightMiddleLabel.center = center;
     self.rightMiddleLabel.alpha = 0.3;
-    
+
     
     center = self.rightBottonLabel.center;
     center.x = rightLabelCenterX;
@@ -262,6 +258,8 @@
     stringViewFrame.size.width = mainStringWith;
     stringViewFrame.origin.x = stringViewWidth + (inset * 3.5);
     self.mainStringView.frame = stringViewFrame;
+    
+
 }
 
 - (void)handleLeftBarButtonTap:(id)sender
@@ -347,16 +345,70 @@
 - (void)handleRightBarButtonTap:(id)sender
 {
     if (!self.tutorialController) {
+        [self.navigationItem.leftBarButtonItem setEnabled:NO];
 
         self.tutorialController = [[TutorialViewController alloc] init];
         // Initialize the view controller and set any properties
-
-        //self.tutorialController.view.frame = scalesViewControllerViewFrame;
+        self.tutorialController.delegate = self;
+        // Set the frame of playslistViewController view
+        CGRect scalesViewControllerViewFrame   = self.view.bounds;
+        scalesViewControllerViewFrame.origin.y -= scalesViewControllerViewFrame.size.height;
+        scalesViewControllerViewFrame.size.height -= self.degreeView.frame.size.height;
+        
+        self.tutorialController.view.frame = scalesViewControllerViewFrame;
         self.tutorialController.view.backgroundColor = [UIColor GuitarCream];
+        
+        // Add as a child view controller
+        [self addChildViewController:self.tutorialController];
+        
+        // Add as a subview
+        [self.view addSubview:self.tutorialController.view];
+        
+        [UIView animateWithDuration:.20
+                         animations:^
+         {
+             [self layoutTutorialViewController];
+         } completion:^(BOOL finished) {
+             
+             // Call didMoveToParentViewController to complete the
+             // child view controller steps
+             [self.tutorialController didMoveToParentViewController:self];
+             
+             // Reset user interaction
+             self.view.window.userInteractionEnabled = YES;
+             
+         }];
+    } else {
+        
+        [self.navigationItem.leftBarButtonItem setEnabled:YES];
+
+        // Create the frame for playslistViewController view
+        CGRect scalesViewControllerViewFrame   = self.view.bounds;
+        scalesViewControllerViewFrame.origin.y = -scalesViewControllerViewFrame.size.height;
+        
+        // Animate playslistViewController view changes
+        [UIView animateWithDuration:.20
+                         animations:^
+         {
+             if (self.fadeTutorial) {
+                 self.tutorialController.view.alpha = 0;
+             } else {
+                 self.tutorialController.view.frame = scalesViewControllerViewFrame;
+             }
+             // Set the frame
+             
+         } completion:^(BOOL finished) {
+             self.fadeTutorial = NO;
+             // Remove the subview
+             [self.tutorialController.view removeFromSuperview];
+             
+             self.tutorialController = nil;
+             
+             // Reset user interaction
+             self.view.window.userInteractionEnabled = YES;
+             
+         }];
     }
-    
-    
-    [self presentViewController:self.tutorialController animated:[[GuitarStore sharedStore] displayedTutorial] completion:nil];
 }
 
 - (void)layoutTutorialViewController
@@ -381,29 +433,24 @@
     [self refreshTitle];
     
     if (!self.selectedDegrees) {
-        self.selectedDegrees = [scale.degrees mutableCopy];
+        self.selectedDegrees = [scale.selectedDegrees mutableCopy];
     }
 
     NSMutableArray *positions = [[GuitarStore sharedStore] positions];
     for (Position *pos in positions) {
         
-        NSInteger positionID = [pos.id integerValue];
+        NSInteger positionID = pos.identifier;
         StringView *stringView = [self stringViewForPositionID:positionID];
-        UILabel *positionabel = [self positionLabelForPositionID:positionID];
         stringView.position = pos;
         stringView.selectedDegrees = self.selectedDegrees;
-        if (!self.selectedStringView && stringView.position.id.integerValue == 4) {
+        if (!self.selectedStringView) {
             self.selectedStringView = stringView;
             stringView.alpha = 1;
-            positionabel.alpha = 1;
         } else if (stringView == self.selectedStringView) {
             stringView.alpha = 1;
-            positionabel.alpha = 1;
         }else {
             stringView.alpha = 0.3;
-            positionabel.alpha = 0.3;
         }
-        [positionabel setNeedsDisplay];
         [stringView setNeedsDisplay];
     }
     
@@ -414,6 +461,7 @@
     self.mainStringView.stringViewType = self.selectedStringView.stringViewType;
     self.mainStringView.selectedDegrees = self.selectedDegrees;
     [self.mainStringView setNeedsDisplay];
+
 
 }
 
@@ -428,18 +476,16 @@
     }
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleText];
-    [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:24.0f], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
+    [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:24.0f], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;
     [title addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
  
-    UIView * customTitleView = [[UIView alloc] initWithFrame:CGRectZero];
+    UIView * customTitleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
 
     UILabel *label = [[UILabel alloc] initWithFrame:customTitleView.frame];
     label.attributedText = title;
-    [label sizeToFit];
     [customTitleView addSubview:label];
-    customTitleView.frame = label.frame;
     [self.navigationItem setTitleView:customTitleView];
 }
 
@@ -456,15 +502,10 @@
     
     self.selectedStringView.backgroundColor = [UIColor clearColor];
     self.selectedStringView.alpha = 0.3;
-    UILabel *positionLabel = [self positionLabelForPositionID:self.selectedStringView.position.id.integerValue];
-    positionLabel.alpha = 0.3;
     
     StringView *stringView = (StringView *) tapRec.view;
     self.selectedStringView = stringView;
     stringView.alpha = 1;
-    
-    positionLabel = [self positionLabelForPositionID:stringView.position.id.integerValue];
-    positionLabel.alpha = 1;
     
     self.mainStringView.stringViewType = stringView.stringViewType;
     self.mainStringView.position = stringView.position;
@@ -502,33 +543,6 @@
     }
 }
 
-- (UILabel *)positionLabelForPositionID:(NSInteger)positionID
-{
-    switch (positionID) {
-        case 0:
-            return self.leftBottomLabel;
-            break;
-        case 1:
-            return self.rightBottonLabel;
-            break;
-        case 2:
-            return self.leftMiddleLabel;
-            break;
-        case 3:
-            return self.rightMiddleLabel;
-            break;
-        case 4:
-            return self.leftIndexLabel;
-            break;
-        case 5:
-            return self.rightIndexLabel;
-            break;
-        default:
-            return nil;
-            break;
-    }
-}
-
 - (void)selectedDegreesModified:(NSMutableArray *)degrees
 {
     self.selectedDegrees = degrees;
@@ -541,7 +555,7 @@
         NSArray *scaleArray = [[GuitarStore sharedStore] scales2DArray];
         for (NSArray *scales in scaleArray) {
             for (Scale *scale in scales) {
-                if ([self.selectedDegrees equalDegrees:scale.degrees]) {
+                if ([self.selectedDegrees equalDegrees:scale.selectedDegrees]) {
                     [[GuitarStore sharedStore] setSelectedScale:scale];
                     [self refreshTitle];
                     break;
@@ -553,26 +567,26 @@
 
 - (void)didSelectScale:(Scale *)scale
 {
-    self.selectedDegrees = [scale.degrees mutableCopy];
+    self.selectedDegrees = [scale.selectedDegrees mutableCopy];
     [self refreshData];
     [self resetButtonView];
 }
 
+- (void)didCompleteTutorial
+{
+    [self handleRightBarButtonTap:nil];
+
+}
+
 - (void)setSubHeaderText:(NSString *)text
 {
-    
-    CGFloat fontSize = 20.f;
-    CGRect bounds = [[UIScreen mainScreen] bounds];
-    if (bounds.size.width < 568.0) {
-        fontSize = 16.0f;
-    }
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:text];
     [attributedString addAttribute:NSKernAttributeName
                              value:@5
                              range:NSMakeRange(0, text.length)];
     [attributedString addAttribute:NSFontAttributeName
-                             value:[UIFont ProletarskFontWithSize:fontSize]
+                             value:[UIFont proletarskFontWithSize:18.0f]
                              range:NSMakeRange(0, text.length)];
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;

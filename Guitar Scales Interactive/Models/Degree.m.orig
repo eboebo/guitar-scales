@@ -7,9 +7,6 @@
 //
 
 #import "Degree.h"
-#import <CoreData/CoreData.h>
-#import "Coordinate.h"
-
 
 
 @implementation Degree
@@ -22,26 +19,13 @@
 
 + (NSDictionary*)mappingDictionary
 {
-    return @{@"degree_id" : @"id",
-             @"degree_number"   : @"number",
-               @"flat"   : @"flat",
-               @"sharp": @"sharp"};
-}
-
-+ (void)importDegreesFromArray:(NSArray *)degrees usingContext:(NSManagedObjectContext *)context;
-{
-
-    for (NSDictionary *degreeDictionary in degrees)
-    {
-        Degree *degree = [NSEntityDescription insertNewObjectForEntityForName:@"Degree"
-                                                       inManagedObjectContext:context];
-        [Degree performDataMappingForObject:degree
-                      withMappingDictionary:[Degree mappingDictionary]
-                         withDataDictionary:degreeDictionary];
-        [Coordinate importCoordinatesFromArray:degreeDictionary[@"degree_positions"] toDegree:degree usingContext:context];
-    }
-    NSError *error = nil;
-    [context save:&error];
+    return @{
+                                                       @"degree_id" : @"identifier",
+                                                       @"degree_number"   : @"number",
+                                                       @"flat"   : @"flat",
+                                                       @"sharp": @"sharp",
+                                
+                                                       @"degree_positions"    : @"degreePositions"};
 }
 
 - (NSAttributedString *)toAttributedString
@@ -120,6 +104,11 @@
                                        range:NSMakeRange(0, 1)];
     }
     
+<<<<<<< HEAD:Guitar Scales Interactive/Models/Degree.m
+=======
+
+
+>>>>>>> master:Guitar Scales Interactive/Degree.m
     return degreeAttributedString;
 }
 

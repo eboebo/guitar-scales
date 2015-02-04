@@ -15,15 +15,25 @@
 @dynamic x;
 @dynamic y;
 @dynamic color;
-@dynamic position;
+@dynamic positionID;
 
 + (NSDictionary*)mappingDictionary
 {
-    return @{
-             
-             @"x"   : @"x",
+    return @{@"x"   : @"x",
              @"y"   : @"y",
-             @"color": @"color"};
+             @"color": @"color",
+             @"position_id" : @"positionID"};
+}
+
++ (void)importCoordinatesFromArray:(NSArray *)coordinates toDegree:(Degree *)degree usingContext:(NSManagedObjectContext *)context
+{
+    for (NSDictionary *coordDictionary in coordinates) {
+        Coordinate *coordinate = [NSEntityDescription insertNewObjectForEntityForName:@"Coordinate" inManagedObjectContext:context];
+        [Coordinate performDataMappingForObject:coordinate withMappingDictionary:[Coordinate mappingDictionary] withDataDictionary:coordDictionary];
+
+        
+        [degree addCoordinatesObject:coordinate];
+    }
 }
 
 @end

@@ -20,11 +20,26 @@
 + (NSDictionary*)mappingDictionary
 {
     return @{
-                                                       @"position_id" : @"identifier",
+                                                       @"position_id" : @"id",
                                                        @"string"   : @"string",
                                                        @"finger"   : @"finger",
                                                        @"base_fret": @"baseFret",
                                                        @"title"    : @"title"};
 }
+
++ (void)importPositionsFromArray:(NSArray *)positions usingContext:(NSManagedObjectContext *)context
+{
+
+    for (NSDictionary *positionDictionary in positions)
+    {
+        Position *position = [NSEntityDescription insertNewObjectForEntityForName:@"Position"
+                                                           inManagedObjectContext:context];
+        [Position performDataMappingForObject:position
+                      withMappingDictionary:[Position mappingDictionary]
+                         withDataDictionary:positionDictionary];
+    }
+    NSError *error = nil;
+    [context save:&error];
+};
 
 @end

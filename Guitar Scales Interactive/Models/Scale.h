@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "GuitarManagedObject.h"
+#import "ScaleGroup.h"
 
 @class Degree;
 
-@interface Scale : NSManagedObject
+@interface Scale : GuitarManagedObject
 
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * title;
@@ -27,5 +29,6 @@
 - (void)removeDegrees:(NSSet *)values;
 
 + (NSDictionary*)mappingDictionary;
++ (void)importScalesFromArray:(NSArray *)scales toScaleGroup:(ScaleGroup *)scaleGroup usingContext:(NSManagedObjectContext *)context;
 
 @end

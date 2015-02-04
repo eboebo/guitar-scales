@@ -392,7 +392,7 @@
         UILabel *positionabel = [self positionLabelForPositionID:positionID];
         stringView.position = pos;
         stringView.selectedDegrees = self.selectedDegrees;
-        if (!self.selectedStringView && stringView.position.id.integerValue == 4) {
+        if (!self.selectedStringView && stringView.position.identifier == 4) {
             self.selectedStringView = stringView;
             stringView.alpha = 1;
             positionabel.alpha = 1;
@@ -456,14 +456,14 @@
     
     self.selectedStringView.backgroundColor = [UIColor clearColor];
     self.selectedStringView.alpha = 0.3;
-    UILabel *positionLabel = [self positionLabelForPositionID:self.selectedStringView.position.id.integerValue];
+    UILabel *positionLabel = [self positionLabelForPositionID:self.selectedStringView.position.identifier];
     positionLabel.alpha = 0.3;
     
     StringView *stringView = (StringView *) tapRec.view;
     self.selectedStringView = stringView;
     stringView.alpha = 1;
     
-    positionLabel = [self positionLabelForPositionID:stringView.position.id.integerValue];
+    positionLabel = [self positionLabelForPositionID:stringView.position.identifier];
     positionLabel.alpha = 1;
     
     self.mainStringView.stringViewType = stringView.stringViewType;
@@ -553,7 +553,12 @@
 
 - (void)didSelectScale:(Scale *)scale
 {
+<<<<<<< HEAD
     self.selectedDegrees = [scale.degrees mutableCopy];
+=======
+    self.selectedDegrees = [scale.selectedDegrees mutableCopy];
+    
+>>>>>>> master
     [self refreshData];
     [self resetButtonView];
 }

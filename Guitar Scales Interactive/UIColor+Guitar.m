@@ -31,6 +31,11 @@
     return [UIColor colorWithRed:(252.0 / 255.0) green:(251.0 / 255.0) blue:(236.0 / 255.0) alpha:1];
 }
 
++ (UIColor *)GuitarDarkGray
+{
+    return [UIColor colorWithRed:(152.0 / 255.0) green:(152.0 / 255.0) blue:(152.0 / 255.0) alpha:1];
+}
+
 + (UIColor *)GuitarGray
 {
     return [UIColor colorWithRed:0.804 green:0.804 blue:0.804 alpha:1];

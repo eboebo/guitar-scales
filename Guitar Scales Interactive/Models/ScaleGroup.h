@@ -8,15 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "GuitarManagedObject.h"
 
 
-@interface ScaleGroup : NSManagedObject
+@interface ScaleGroup : GuitarManagedObject
 
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSOrderedSet *scales;
 
 + (NSDictionary*)mappingDictionary;
++ (void)importScaleGroupsFromArray:(NSArray *)scaleGroups usingContext:(NSManagedObjectContext *)context;
 
 @end
 
