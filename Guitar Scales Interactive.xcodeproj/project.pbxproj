@@ -68,7 +68,7 @@
 /* Begin PBXFileReference section */
 		494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Scales Interactive.xcconfig"; path = "Pods/Pods-Guitar Scales Interactive.xcconfig"; sourceTree = "<group>"; };
 		9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitar Scales Interactive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guitar Scales Interactive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B108CABB199AD1E70047A473 /* Guitar Scales Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guitar Scales Atlas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B108CABE199AD1E70047A473 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B108CAC0199AD1E70047A473 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B108CAC2199AD1E70047A473 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -180,7 +180,7 @@
 		B108CABC199AD1E70047A473 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */,
+				B108CABB199AD1E70047A473 /* Guitar Scales Atlas.app */,
 				B108CADF199AD1E80047A473 /* Guitar Scales InteractiveTests.xctest */,
 			);
 			name = Products;
@@ -356,7 +356,7 @@
 			);
 			name = "Guitar Scales Interactive";
 			productName = "Guitar Scales Interactive";
-			productReference = B108CABB199AD1E70047A473 /* Guitar Scales Interactive.app */;
+			productReference = B108CABB199AD1E70047A473 /* Guitar Scales Atlas.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B108CADE199AD1E80047A473 /* Guitar Scales InteractiveTests */ = {
@@ -649,7 +649,7 @@
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Guitar Scales Atlas";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -672,7 +672,7 @@
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Guitar Scales Atlas";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

@@ -471,8 +471,6 @@
     self.mainStringView.selectedDegrees = stringView.selectedDegrees;
     [self.mainStringView setNeedsDisplay];
     [self setSubHeaderText:stringView.position.title];
-    
-
 }
 
 - (StringView *)stringViewForPositionID:(NSInteger)positionID
@@ -596,6 +594,7 @@
     
     [self.positionLabel setAttributedText:attributedString];
 }
+
 
 
 @end

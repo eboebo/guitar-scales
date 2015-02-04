@@ -164,10 +164,15 @@ NSInteger const SCALE_TAG_OFFSET = 111;
         [self.selectedLabel setTextColor:[UIColor GuitarCream]];
         [self.selectedLabel setBackgroundColor: [UIColor GuitarBlue]];
         self.selectedLabel = scaleLabel;
- //       [self.selectedLabel setTextColor:[UIColor GuitarLightBlue]];
- //       [self.selectedLabel setTextColor:[UIColor blackColor]];
+        self.selectedLabel.textColor = [UIColor GuitarCream];
+        self.selectedLabel.backgroundColor = [UIColor GuitarBlue];
         [self.selectedLabel setBackgroundColor: [UIColor GuitarMediumBlue]];
     }
+    
+    self.selectedLabel = scaleLabel;
+    [self.selectedLabel setBackgroundColor: [UIColor GuitarMediumBlue]];
+
+    
     
     if (scaleLabel.tag) {
         NSInteger tag = scaleLabel.tag - SCALE_TAG_OFFSET;

@@ -21,7 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentImageIndex = 1;
     
     self.backgroundImageView = [[UIImageView alloc] init];
     [self.backgroundImageView setContentMode:UIViewContentModeScaleToFill];
@@ -40,7 +39,13 @@
     [self.skipButton addTarget:self action:@selector(skip:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.skipButton];
     
-    [self layoutImage];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.currentImageIndex = 1;
+    [self layoutImageWithAnimation:NO];
 }
 
 - (void)viewWillLayoutSubviews
@@ -48,31 +53,42 @@
     self.backgroundImageView.frame = self.view.bounds;
 }
 
-- (void)layoutImage
+- (void)layoutImageWithAnimation:(BOOL)animation
 {
     NSString *imageString = [NSString stringWithFormat:@"tutorial_%ld", self.currentImageIndex];
     
-    [UIView transitionWithView:self.backgroundImageView
-                      duration:0.3f // animation duration
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{
-                         [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
-                    } completion:nil];
+    if (!animation) {
+        [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
+    } else {
+        [UIView transitionWithView:self.backgroundImageView
+                          duration:0.3f // animation duration
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
+                        } completion:nil];
+    }
+    
+
 }
 
 -(void)imageViewTapped:(id)sender
 {
     if (self.currentImageIndex < 20) {
         self.currentImageIndex++;
-        [self layoutImage];
+        [self layoutImageWithAnimation:YES];
     } else {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self skip:nil];
     }
 }
 
 - (void)skip:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    self.currentImageIndex = 1;
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (self.currentImageIndex > 1) {
+            self.currentImageIndex = 1;
+            [self layoutImageWithAnimation:NO];
+        }
+    }];
+
 }
 @end
