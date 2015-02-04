@@ -58,6 +58,11 @@
                     animations:^{
                          [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
                     } completion:nil];
+    
+    // hide the SKIP button for the last two screens (this could probably be done better)
+    if (self.currentImageIndex > 18) {
+        [self.skipButton setTitleColor:[UIColor GuitarCream] forState:UIControlStateNormal];
+    }
 }
 
 -(void)imageViewTapped:(id)sender
@@ -67,12 +72,18 @@
         [self layoutImage];
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
+        
+        // reset image index and skip button
+        self.currentImageIndex = 1;
+        [self.skipButton setTitleColor:[UIColor GuitarMediumBlue] forState:UIControlStateNormal];
     }
 }
 
 - (void)skip:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    self.currentImageIndex = 1;
+    
+    // reset image index
+    self.currentImageIndex = 0;
 }
 @end
