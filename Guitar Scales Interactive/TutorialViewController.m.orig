@@ -44,7 +44,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.skipButton.hidden = NO;
     self.currentImageIndex = 1;
     [self layoutImageWithAnimation:NO];
 }
@@ -58,6 +57,7 @@
 {
     NSString *imageString = [NSString stringWithFormat:@"tutorial_%ld", self.currentImageIndex];
     
+<<<<<<< HEAD
     if (!animation) {
         [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
     } else {
@@ -70,25 +70,42 @@
     }
     
 
+=======
+    [UIView transitionWithView:self.backgroundImageView
+                      duration:0.3f // animation duration
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                         [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
+                    } completion:nil];
+    
+    // hide the SKIP button for the last two screens (this could probably be done better)
+    if (self.currentImageIndex > 18) {
+        [self.skipButton setTitleColor:[UIColor GuitarCream] forState:UIControlStateNormal];
+    }
+>>>>>>> 0b2c14b3d3037b464e6f0382b8ca98fda87eb000
 }
 
 -(void)imageViewTapped:(id)sender
 {
     if (self.currentImageIndex < 20) {
         self.currentImageIndex++;
-        
-        if (self.currentImageIndex > 18) {
-            self.skipButton.hidden = YES;
-        }
-        
         [self layoutImageWithAnimation:YES];
     } else {
+<<<<<<< HEAD
         [self skip:nil];
+=======
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        // reset image index and skip button
+        self.currentImageIndex = 1;
+        [self.skipButton setTitleColor:[UIColor GuitarMediumBlue] forState:UIControlStateNormal];
+>>>>>>> 0b2c14b3d3037b464e6f0382b8ca98fda87eb000
     }
 }
 
 - (void)skip:(id)sender
 {
+<<<<<<< HEAD
     [self dismissViewControllerAnimated:YES completion:^{
         if (self.currentImageIndex > 1) {
             self.currentImageIndex = 1;
@@ -96,5 +113,11 @@
         }
     }];
 
+=======
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // reset image index
+    self.currentImageIndex = 0;
+>>>>>>> 0b2c14b3d3037b464e6f0382b8ca98fda87eb000
 }
 @end

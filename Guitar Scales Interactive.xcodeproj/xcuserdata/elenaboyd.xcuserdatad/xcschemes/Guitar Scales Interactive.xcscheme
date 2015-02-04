@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B108CABA199AD1E70047A473"
-               BuildableName = "Guitar Scales Interactive.app"
+               BuildableName = "Guitar Scales Atlas.app"
                BlueprintName = "Guitar Scales Interactive"
                ReferencedContainer = "container:Guitar Scales Interactive.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B108CABA199AD1E70047A473"
-            BuildableName = "Guitar Scales Interactive.app"
+            BuildableName = "Guitar Scales Atlas.app"
             BlueprintName = "Guitar Scales Interactive"
             ReferencedContainer = "container:Guitar Scales Interactive.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B108CABA199AD1E70047A473"
-            BuildableName = "Guitar Scales Interactive.app"
+            BuildableName = "Guitar Scales Atlas.app"
             BlueprintName = "Guitar Scales Interactive"
             ReferencedContainer = "container:Guitar Scales Interactive.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B108CABA199AD1E70047A473"
-            BuildableName = "Guitar Scales Interactive.app"
+            BuildableName = "Guitar Scales Atlas.app"
             BlueprintName = "Guitar Scales Interactive"
             ReferencedContainer = "container:Guitar Scales Interactive.xcodeproj">
          </BuildableReference>
