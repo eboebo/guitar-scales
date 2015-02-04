@@ -33,10 +33,10 @@
     [self.view addSubview:self.backgroundImageView];
     
     self.skipButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.skipButton.frame = CGRectMake(self.view.bounds.size.width - 80, 15, 80, 30);
+    self.skipButton.frame = CGRectMake(self.view.bounds.size.width - 75, 1, 80, 30);
     [self.skipButton setTitle:@"SKIP" forState:UIControlStateNormal];
-    [self.skipButton setTitleColor:[UIColor GuitarBlue] forState:UIControlStateNormal];
-    [self.skipButton.titleLabel setFont:[UIFont ProletarskFontWithSize:24.0]];
+    [self.skipButton setTitleColor:[UIColor GuitarMediumBlue] forState:UIControlStateNormal];
+    [self.skipButton.titleLabel setFont:[UIFont blackoutFontWithSize:16.0]];
     [self.skipButton addTarget:self action:@selector(skip:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.skipButton];
     
@@ -73,5 +73,6 @@
 - (void)skip:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    self.currentImageIndex = 1;
 }
 @end
