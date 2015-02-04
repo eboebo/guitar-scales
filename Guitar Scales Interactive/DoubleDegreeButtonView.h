@@ -21,9 +21,9 @@ typedef enum {
 
 @end
 
-@interface DoubleDegreeButtonView : UIButton
+@interface DoubleDegreeButtonView : DegreeButtonView
 
-@property (nonatomic, weak) id<DoubleDegreeButtonDelegate> delegate;
+@property (nonatomic, weak) id<DoubleDegreeButtonDelegate> doubleDegreeDelegate;
 @property (nonatomic, strong) UILabel *secondTitleLabel;
 @property (nonatomic, assign) DoubleDegreeButtonState currentState;
 @property (nonatomic, strong) NSArray *buttonTags;

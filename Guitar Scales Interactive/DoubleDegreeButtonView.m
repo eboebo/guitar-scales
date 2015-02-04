@@ -81,9 +81,9 @@
 
     [self layoutSubviews];
     
-    if ([self.delegate respondsToSelector:@selector(doubleDegreeButtonTapped:)]) {
+    if ([self.doubleDegreeDelegate respondsToSelector:@selector(doubleDegreeButtonTapped:)]) {
         
-        [self.delegate doubleDegreeButtonTapped:self];
+        [self.doubleDegreeDelegate doubleDegreeButtonTapped:self];
     }
 }
 

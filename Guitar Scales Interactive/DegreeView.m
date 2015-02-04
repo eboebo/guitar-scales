@@ -127,7 +127,7 @@
             DoubleDegreeButtonView *doubleButtonView
             = [[DoubleDegreeButtonView alloc] initWithFrame:CGRectZero];
             doubleButtonView.frame      = CGRectIntegral(buttonFrame);
-            doubleButtonView.delegate   = self;
+            doubleButtonView.doubleDegreeDelegate   = self;
 
             NSString *identifier        = degreeArray[0];
             Degree *degree              = degrees[[identifier integerValue]];

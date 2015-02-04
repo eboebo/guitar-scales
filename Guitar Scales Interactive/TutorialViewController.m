@@ -56,7 +56,7 @@
 
 - (void)layoutImageWithAnimation:(BOOL)animation
 {
-    NSString *imageString = [NSString stringWithFormat:@"tutorial_%ld", self.currentImageIndex];
+    NSString *imageString = [NSString stringWithFormat:@"tutorial_%ld", (long)self.currentImageIndex];
     
     if (!animation) {
         [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
