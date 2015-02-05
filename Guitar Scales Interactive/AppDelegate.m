@@ -18,14 +18,17 @@
 {
     [Fabric with:@[CrashlyticsKit]];
 
-    // Intialize favorDrawerRootViewController
-    ScalesViewController *scalesViewController = [[ScalesViewController alloc] initWithNibName:@"ScalesViewController" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scalesViewController];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Set favorDrawerRootViewController as root view controller
-    self.window.rootViewController = navController;
-    [self.window makeKeyAndVisible];
+//    CGRect *asdf = [[UIScreen mainScreen] nativeBounds];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] nativeBounds]];
+//    // Set favorDrawerRootViewController as root view controller
+//
+//    [self.window makeKeyAndVisible];
+//
+//    // Intialize favorDrawerRootViewController
+//    ScalesViewController *scalesViewController = [[ScalesViewController alloc] initWithNibName:@"ScalesViewController" bundle:nil];
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scalesViewController];
+//    self.window.rootViewController = navController;
+
     
     return YES;
 }

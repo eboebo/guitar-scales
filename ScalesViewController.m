@@ -150,8 +150,15 @@
     
     [[GuitarStore sharedStore] parseData];
     
-    [self layoutLabels];
+    //[self layoutLabels];
 }
+
+
+
+
+
+
+
 
 - (void)layoutLabels
 {
@@ -160,6 +167,7 @@
     
     CGRect degreeViewFrame = self.degreeView.frame;
     degreeViewFrame.size.width = self.view.bounds.size.width;
+    
     self.degreeView.frame = degreeViewFrame;
     
     // LAYOUT STRINGVIEWS
@@ -263,6 +271,8 @@
     stringViewFrame.origin.x = stringViewWidth + (inset * 3.5);
     self.mainStringView.frame = stringViewFrame;
 }
+
+
 
 - (void)handleLeftBarButtonTap:(id)sender
 {
@@ -559,6 +569,9 @@
 
 - (void)setSubHeaderText:(NSString *)text
 {
+    if (!text) {
+        return;
+    }
     
     CGFloat fontSize = 21.0f;
     CGRect bounds = [[UIScreen mainScreen] bounds];
