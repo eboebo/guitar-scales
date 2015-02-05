@@ -150,6 +150,12 @@
     
     [[GuitarStore sharedStore] parseData];
     
+
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
     [self layoutLabels];
 }
 

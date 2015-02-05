@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "444764967.840042"
+            timestampString = "444848507.061535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "541"
-            endingLineNumber = "541"
+            startingLineNumber = "547"
+            endingLineNumber = "547"
             landmarkName = "-selectedDegreesModified:"
             landmarkType = "5">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "444764967.840042"
+            timestampString = "444848507.061535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
+            startingLineNumber = "546"
+            endingLineNumber = "546"
             landmarkName = "-selectedDegreesModified:"
             landmarkType = "5">
          </BreakpointContent>
@@ -276,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "444686229.267259"
+            timestampString = "444848507.061535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
             landmarkName = "-handleRightBarButtonTap:"
             landmarkType = "5">
          </BreakpointContent>
@@ -308,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "444686229.267259"
+            timestampString = "444848507.061535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
             landmarkName = "-refreshData"
             landmarkType = "5">
          </BreakpointContent>
