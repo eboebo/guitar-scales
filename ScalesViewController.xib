@@ -36,26 +36,44 @@
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgO-zF-Dr6" customClass="StringView">
                     <rect key="frame" x="15" y="148" width="111" height="50"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="HEn-YF-KT0"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N0F-N0-GeO" customClass="StringView">
                     <rect key="frame" x="15" y="82" width="111" height="50"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="vmS-8D-Hio"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zvi-de-0A0" customClass="StringView">
                     <rect key="frame" x="15" y="214" width="111" height="50"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="G5o-mC-2Ds"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y9p-CP-KRc" customClass="StringView">
                     <rect key="frame" x="443" y="148" width="111" height="50"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="VTc-Jz-n78"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVT-Jc-kZP" customClass="StringView">
                     <rect key="frame" x="443" y="82" width="111" height="50"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="pbM-Fw-bXB"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BjA-XD-6Hh" customClass="StringView">
                     <rect key="frame" x="443" y="214" width="111" height="50"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="9T5-xN-613"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INDEX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHo-ZT-Iqh">
                     <rect key="frame" x="49" y="65" width="42" height="21"/>
@@ -122,7 +140,7 @@
                         <constraint firstAttribute="height" constant="44" id="FT6-ft-npM"/>
                     </constraints>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze6-ya-hnZ">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="ze6-ya-hnZ">
                     <rect key="frame" x="134" y="56" width="301" height="33"/>
                     <attributedString key="attributedText">
                         <fragment content="6th String // MIDDLE">
@@ -139,6 +157,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fcv-kj-s50" customClass="StringView">
                     <rect key="frame" x="162" y="86" width="244" height="179"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="244" id="Qar-PY-vU2"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -195,7 +216,6 @@
                 <constraint firstItem="bHo-ZT-Iqh" firstAttribute="firstBaseline" secondItem="ij2-VZ-1J8" secondAttribute="firstBaseline" id="pCH-c4-Etm"/>
                 <constraint firstItem="EvB-5X-s4F" firstAttribute="trailing" secondItem="83f-bh-Wkm" secondAttribute="trailing" id="q8H-zL-e8v"/>
                 <constraint firstItem="7Pk-O7-iY5" firstAttribute="top" secondItem="RlV-pO-Mzh" secondAttribute="bottom" constant="58" id="ssq-eL-ZnI"/>
-                <constraint firstItem="Fcv-kj-s50" firstAttribute="leading" secondItem="qgO-zF-Dr6" secondAttribute="trailing" constant="36" id="uEY-Kh-URE"/>
                 <constraint firstAttribute="centerY" secondItem="qgO-zF-Dr6" secondAttribute="centerY" constant="-13" id="vsz-A9-VdW"/>
                 <constraint firstItem="RlV-pO-Mzh" firstAttribute="leading" secondItem="7dF-zz-y89" secondAttribute="leading" id="wvg-RL-XcE"/>
                 <constraint firstItem="ze6-ya-hnZ" firstAttribute="leading" secondItem="k5h-uq-gGk" secondAttribute="trailing" constant="18" id="xaX-yT-4oK"/>

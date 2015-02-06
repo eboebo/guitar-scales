@@ -48,7 +48,6 @@
 		B16E945A19A173D8001F769A /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945919A173D8001F769A /* Coordinate.m */; };
 		B16E945D19A176FA001F769A /* DegreePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945C19A176FA001F769A /* DegreePosition.m */; };
 		B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */; };
-		B1D751341A110EB90024EC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D751331A110EB90024EC0E /* Main.storyboard */; };
 		B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */; };
 		B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */; };
 		B1F9C7361A701A1A00B0D777 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9C7341A701A1A00B0D777 /* Crashlytics.framework */; };
@@ -128,7 +127,6 @@
 		B16E945C19A176FA001F769A /* DegreePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreePosition.m; sourceTree = "<group>"; };
 		B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Guitar.h"; sourceTree = "<group>"; };
 		B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Guitar.m"; sourceTree = "<group>"; };
-		B1D751331A110EB90024EC0E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B1EC83ED19F40A7800A3D30F /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		B1EC83F019F4141700A3D30F /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 		B108CAB2199AD1E70047A473 = {
 			isa = PBXGroup;
 			children = (
-				B1D751331A110EB90024EC0E /* Main.storyboard */,
 				B108CAC4199AD1E70047A473 /* Guitar Scales Interactive */,
 				B108CAE6199AD1E80047A473 /* Guitar Scales InteractiveTests */,
 				B108CABD199AD1E70047A473 /* Frameworks */,
@@ -424,7 +421,6 @@
 				B167A1691A0BC84800AFFC07 /* BravuraText.otf in Resources */,
 				B148F34F19D4C54E007BF91F /* JasonSharpie.ttf in Resources */,
 				B15F7B7019AAA35900028D8D /* OratorStd.otf in Resources */,
-				B1D751341A110EB90024EC0E /* Main.storyboard in Resources */,
 				B108CAC9199AD1E70047A473 /* InfoPlist.strings in Resources */,
 				B148F34D19D4C188007BF91F /* OpusTextStd.otf in Resources */,
 				B167A1611A0BC24400AFFC07 /* SVBasicManual-Bold.ttf in Resources */,
