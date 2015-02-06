@@ -18,7 +18,7 @@
 {
     [Fabric with:@[CrashlyticsKit]];
 
-    // Intialize favorDrawerRootViewController
+//    // Intialize favorDrawerRootViewController
     ScalesViewController *scalesViewController = [[ScalesViewController alloc] initWithNibName:@"ScalesViewController" bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scalesViewController];
     

@@ -58,6 +58,7 @@
     
     self.view.backgroundColor                            = [UIColor GuitarCream];
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
+    
 
     self.navigationController.navigationBar.tintColor    = [UIColor GuitarCream];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
@@ -151,123 +152,6 @@
     [[GuitarStore sharedStore] parseData];
     
 
-}
-
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-    [self layoutLabels];
-}
-
-- (void)layoutLabels
-{
-    CGFloat inset = 15.0;
-    CGRect bounds = self.view.bounds;
-    
-    CGRect degreeViewFrame = self.degreeView.frame;
-    degreeViewFrame.size.width = self.view.bounds.size.width;
-    self.degreeView.frame = degreeViewFrame;
-    
-    // LAYOUT STRINGVIEWS
-    
-    CGFloat stringViewWidth = bounds.size.width / 6.2;
-    CGFloat rightX = bounds.size.width - stringViewWidth - inset;
-    
-    CGRect stringViewFrame = self.topLeftStringView.frame;
-    stringViewFrame.origin.x = inset;
-    stringViewFrame.size.width = stringViewWidth;
-    self.topLeftStringView.frame = stringViewFrame;
-    
-    stringViewFrame = self.middleLeftStringView.frame;
-    stringViewFrame.origin.x = inset;
-    stringViewFrame.size.width = stringViewWidth;
-    self.middleLeftStringView.frame = stringViewFrame;
-    
-    stringViewFrame = self.bottomLeftStringView.frame;
-    stringViewFrame.origin.x = inset;
-    stringViewFrame.size.width = stringViewWidth;
-    self.bottomLeftStringView.frame = stringViewFrame;
-    
-    stringViewFrame = self.topRightStringView.frame;
-    stringViewFrame.size.width = stringViewWidth;
-    stringViewFrame.origin.x = rightX;
-    self.topRightStringView.frame = stringViewFrame;
-    
-    stringViewFrame = self.middleRightStringView.frame;
-    stringViewFrame.size.width = stringViewWidth;
-    stringViewFrame.origin.x = rightX;
-    self.middleRightStringView.frame = stringViewFrame;
-    
-    stringViewFrame = self.bottomRightStringView.frame;
-    stringViewFrame.size.width = stringViewWidth;
-    stringViewFrame.origin.x = rightX;
-    self.bottomRightStringView.frame = stringViewFrame;
-    
-    // LAYOUT LABELS
-    
-    CGPoint center = self.positionLabel.center;
-    center.x = bounds.size.width / 2.0;
-    self.positionLabel.center = center;
-    
-    CGFloat leftLabelCenterX = inset + (stringViewWidth / 2.0);
-    
-    center = self.leftStringLabel.center;
-    center.x = leftLabelCenterX;
-    self.leftStringLabel.center = center;
-    self.leftStringLabel.alpha = 0.6;
-    
-    
-    center = self.leftIndexLabel.center;
-    center.x = leftLabelCenterX;
-    self.leftIndexLabel.center = center;
-    self.leftIndexLabel.alpha = 0.3;
-    
-    
-    center = self.leftMiddleLabel.center;
-    center.x = leftLabelCenterX;
-    self.leftMiddleLabel.center = center;
-    self.leftMiddleLabel.alpha = 0.3;
-    
-    
-    center = self.leftBottomLabel.center;
-    center.x = leftLabelCenterX;
-    self.leftBottomLabel.center = center;
-    self.leftBottomLabel.alpha = 0.3;
-    
-    CGFloat rightLabelCenterX = rightX + (stringViewWidth / 2.0);
-    
-    center = self.rightStringLabel.center;
-    center.x = rightLabelCenterX;
-    self.rightStringLabel.center = center;
-    self.rightStringLabel.alpha = 0.6;
-    
-    center = self.rightIndexLabel.center;
-    center.x = rightLabelCenterX;
-    self.rightIndexLabel.center = center;
-    self.rightIndexLabel.alpha = 0.3;
-    
-    
-    center = self.rightMiddleLabel.center;
-    center.x = rightLabelCenterX;
-    self.rightMiddleLabel.center = center;
-    self.rightMiddleLabel.alpha = 0.3;
-    
-    
-    center = self.rightBottonLabel.center;
-    center.x = rightLabelCenterX;
-    self.rightBottonLabel.center = center;
-    self.rightBottonLabel.alpha = 0.3;
-    
-    // LAYOUT MAIN VIEW
-    CGFloat mainStringWith
-    = bounds.size.width
-    - (stringViewWidth * 2.0)
-    - (inset * 7.0);
-    
-    stringViewFrame = self.mainStringView.frame;
-    stringViewFrame.size.width = mainStringWith;
-    stringViewFrame.origin.x = stringViewWidth + (inset * 3.5);
-    self.mainStringView.frame = stringViewFrame;
 }
 
 - (void)handleLeftBarButtonTap:(id)sender
