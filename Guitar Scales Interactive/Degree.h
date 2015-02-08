@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSArray<DegreePosition> *degreePositions;
 
 - (NSAttributedString *)toAttributedString;
-- (NSAttributedString *)toAttributedStringCircle;
+- (NSAttributedString *)toAttributedStringCircleWithFontSize:(CGFloat)fontSize;
 - (NSAttributedString *)toAttributedStringEnharmonic;
 
 

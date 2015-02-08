@@ -80,7 +80,7 @@
     return degreeAttributedString;
 }
 
-- (NSAttributedString *)toAttributedStringCircle
+- (NSAttributedString *)toAttributedStringCircleWithFontSize:(CGFloat)fontSize
 {
     NSString *leftChar = @"";
     if (self.flat) {
@@ -93,14 +93,14 @@
     NSMutableAttributedString *degreeAttributedString = [[NSMutableAttributedString alloc] initWithString:degreeString];
     if (self.flat || self.sharp) {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont bravuraFontWithSize:18.0]
+                                       value:[UIFont bravuraFontWithSize:fontSize]
                                        range:NSMakeRange(0, 1)];
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont svBasicManualFontWithSize:18.0]
+                                       value:[UIFont svBasicManualFontWithSize:fontSize]
                                        range:NSMakeRange(1, 1)];
     } else {
         [degreeAttributedString addAttribute:NSFontAttributeName
-                                       value:[UIFont svBasicManualFontWithSize:18.0]
+                                       value:[UIFont svBasicManualFontWithSize:fontSize]
                                        range:NSMakeRange(0, 1)];
     }
     

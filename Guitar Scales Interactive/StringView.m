@@ -26,25 +26,26 @@ const CGFloat maxHeight = 175.0;
 {
     // Drawing code
     [super drawRect:rect];
+    
+    CGFloat horizontalSpacing = self.bounds.size.width / 7.0;
+    CGFloat verticalSpacing   = self.bounds.size.height / 6.0;
+    CGFloat horizontalOffset = horizontalSpacing / 2.0;
+    CGFloat verticalOffset   = verticalSpacing / 2.0;
+    CGFloat radius = verticalSpacing / 2.4;
+    CGFloat width = self.bounds.size.width;
+    CGFloat height = self.bounds.size.height - verticalSpacing;
 
-    CGFloat horizontalOffset = self.isMainView ? 10 : 3.5;
-    CGFloat verticalOffset   = self.isMainView ? 12 : 3;
-    CGFloat lineWidth        = self.isMainView ? 2.1 : 0.5;
-    CGFloat strokeWidth      = self.isMainView ? 2.8 : 0.5;
-    CGFloat width            = self.bounds.size.width - (horizontalOffset * 2.0);
-    
-    CGFloat height = self.bounds.size.height - (verticalOffset * 2.0);
-    
-    CGFloat horizontalSpacing = floorf(width / 6.0);
-    CGFloat verticalSpacing   = floorf(height / 5.0);
+    CGFloat lineWidth        = radius / 7.0;
+    CGFloat strokeWidth      = radius / 4.0;
+    CGFloat fontSize         = radius * 1.5;
+
     
     if (self.stringViewType == StringViewTypeIndex) {
         horizontalOffset += (horizontalSpacing / 2.0);
     }
-    
 
     if (self.isMainView) {
-        verticalSpacing = floorf(height / 6.0);
+        verticalSpacing = floorf(height / 5.4);
         height -= verticalSpacing;
     }
 
@@ -73,11 +74,11 @@ const CGFloat maxHeight = 175.0;
     
     // draw horizontal lines
     // adjust depending on string view type
-    CGFloat horizontalLineWidth = self.bounds.size.width;
+    CGFloat horizontalLineWidth = width;
     CGFloat horizontalLineX     = 0.0;
     if (self.stringViewType == StringViewTypeIndex) {
-        horizontalLineWidth -= horizontalSpacing / 2;
-        horizontalLineX     += horizontalSpacing / 2;
+        horizontalLineWidth -= horizontalSpacing / 2.0;
+        horizontalLineX     += horizontalSpacing / 2.0;
     }
     
     for (int i = 0; i < 6; i++) {
@@ -100,7 +101,7 @@ const CGFloat maxHeight = 175.0;
             CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
             NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
             paragrapStyle.alignment                = NSTextAlignmentCenter;
-            [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:18.0f], NSParagraphStyleAttributeName:paragrapStyle}];
+            [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:fontSize], NSParagraphStyleAttributeName:paragrapStyle}];
 
         }
     }
@@ -118,7 +119,7 @@ const CGFloat maxHeight = 175.0;
                         = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
                         CGFloat y
                         = coord.y * verticalSpacing + verticalOffset;
-                        CGContextAddArc(context, x, y, verticalOffset - strokeWidth, 0.0, M_PI*2, YES);
+                        CGContextAddArc(context, x, y, radius - strokeWidth, 0.0, M_PI*2, YES);
                         UIColor *textColor;
                         UIColor *fillColor;
                         UIColor *strokeColor;
@@ -149,8 +150,8 @@ const CGFloat maxHeight = 175.0;
                         // If the view is the center view, add degree text on top of notes
                         if (self.isMainView) {
                             NSMutableAttributedString *degreeString
-                            = [[degree toAttributedStringCircle] mutableCopy];
-                            CGFloat width    = (verticalOffset - lineWidth) * 2;
+                            = [[degree toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
+                            CGFloat width    = (radius - lineWidth) * 2;
                             CGRect rect;
                             if (degreeString.length == 1) {
                                 rect = CGRectMake(x - width / 2.2, y - width / 2, width, width);
@@ -204,4 +205,13 @@ const CGFloat maxHeight = 175.0;
     }
     return NO;
 }
+
+-(BOOL)iPhone6PlusDevice{
+    if ([UIScreen mainScreen].scale > 2.9) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 @end

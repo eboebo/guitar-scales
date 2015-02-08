@@ -317,6 +317,8 @@
         titleText = @"";
     }
     
+
+    
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleText];
     [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:24.0f], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
@@ -330,6 +332,7 @@
     [label sizeToFit];
     [customTitleView addSubview:label];
     customTitleView.frame = label.frame;
+    
     [self.navigationItem setTitleView:customTitleView];
 }
 
@@ -453,7 +456,7 @@
     CGFloat fontSize = 21.0f;
     CGRect bounds = [[UIScreen mainScreen] bounds];
     if (bounds.size.width < 568.0) {
-        fontSize = 17.0f;
+        fontSize = 12.0f;
     }
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:text];
