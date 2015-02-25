@@ -7,7 +7,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScalesViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="bottomLeftStringView" destination="Zvi-de-0A0" id="cpb-d2-3Ci"/>
                 <outlet property="bottomRightStringView" destination="BjA-XD-6Hh" id="vj2-UD-yVa"/>

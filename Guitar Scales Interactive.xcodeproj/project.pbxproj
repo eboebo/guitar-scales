@@ -31,6 +31,7 @@
 		B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */; };
 		B148F34D19D4C188007BF91F /* OpusTextStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = B148F34C19D4C188007BF91F /* OpusTextStd.otf */; };
 		B148F34F19D4C54E007BF91F /* JasonSharpie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B148F34E19D4C54E007BF91F /* JasonSharpie.ttf */; };
+		B15B7C391A9E763300D9506C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15B7C381A9E763300D9506C /* Storyboard.storyboard */; };
 		B15F7B7019AAA35900028D8D /* OratorStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = B15F7B6F19AAA35900028D8D /* OratorStd.otf */; };
 		B15F7B7219AAA38900028D8D /* Proletarsk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B15F7B7119AAA38900028D8D /* Proletarsk.ttf */; };
 		B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B15F7B7519AAA83900028D8D /* UIFont+Guitar.m */; };
@@ -102,6 +103,7 @@
 		B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleDegreeButtonView.m; sourceTree = "<group>"; };
 		B148F34C19D4C188007BF91F /* OpusTextStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OpusTextStd.otf; sourceTree = "<group>"; };
 		B148F34E19D4C54E007BF91F /* JasonSharpie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JasonSharpie.ttf; sourceTree = "<group>"; };
+		B15B7C381A9E763300D9506C /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		B15F7B6F19AAA35900028D8D /* OratorStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OratorStd.otf; sourceTree = "<group>"; };
 		B15F7B7119AAA38900028D8D /* Proletarsk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Proletarsk.ttf; sourceTree = "<group>"; };
 		B15F7B7419AAA83900028D8D /* UIFont+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Guitar.h"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				B108CAFD199AD77A0047A473 /* ScalesViewController.h */,
 				B108CAFE199AD77A0047A473 /* ScalesViewController.m */,
 				B108CAFF199AD77A0047A473 /* ScalesViewController.xib */,
+				B15B7C381A9E763300D9506C /* Storyboard.storyboard */,
 				B15F7B7D19ABFED400028D8D /* MenuTableViewController.h */,
 				B15F7B7E19ABFED400028D8D /* MenuTableViewController.m */,
 				B1EC83ED19F40A7800A3D30F /* TutorialViewController.h */,
@@ -428,6 +431,7 @@
 				B167A1671A0BC5AF00AFFC07 /* jr!hand.ttf in Resources */,
 				B167A1631A0BC24D00AFFC07 /* Blackout-Midnight.ttf in Resources */,
 				B167A16B1A0BC8BE00AFFC07 /* Bravura.otf in Resources */,
+				B15B7C391A9E763300D9506C /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

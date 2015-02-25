@@ -49,6 +49,8 @@
 		<string>Blackout-Midnight.ttf</string>
 		<string>jr!hand.ttf</string>
 	</array>
+	<key>UIMainStoryboardFile</key>
+	<string>Storyboard</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
