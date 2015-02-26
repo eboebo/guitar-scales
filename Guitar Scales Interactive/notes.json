@@ -1895,7 +1895,7 @@
                             ]
                 },
                 {
-                "title": "Whole-Half Dim",
+                "title": "Whole-Half Diminished",
                 "menu_title": "Whole-Half Diminished",
                 "degrees": [
                             0,
@@ -1909,7 +1909,7 @@
                             ]
                 },
                 {
-                "title": "Half-Whole Dim",
+                "title": "Half-Whole Diminished",
                 "menu_title": "Half-Whole Diminished",
                 "degrees": [
                             0,
@@ -2496,7 +2496,7 @@
                 },
                 {
                 "title": "Lydian +2, +5",
-                "menu_title": "bV1. Lydian #2, #5",
+                "menu_title": "bVI. Lydian #2, #5",
                 "degrees": [
                             0,
                             3,
