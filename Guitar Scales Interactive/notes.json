@@ -1895,7 +1895,7 @@
                             ]
                 },
                 {
-                "title": "Whole-Half Diminished",
+                "title": "Whole-Half Dim",
                 "menu_title": "Whole-Half Diminished",
                 "degrees": [
                             0,
@@ -1909,7 +1909,7 @@
                             ]
                 },
                 {
-                "title": "Half-Whole Diminished",
+                "title": "Half-Whole Dim",
                 "menu_title": "Half-Whole Diminished",
                 "degrees": [
                             0,
@@ -1935,7 +1935,7 @@
                             ]
                 },
                 {
-                "title": "Double Harmonic Minor",
+                "title": "Double Harm Minor",
                 "menu_title": "Double Harmonic Minor",
                 "degrees": [
                             0,
@@ -1948,7 +1948,7 @@
                             ]
                 },
                 {
-                "title": "Double Harmonic Major",
+                "title": "Double Harm Major",
                 "menu_title": "Double Harmonic Major",
                 "degrees": [
                             0,
@@ -2029,7 +2029,7 @@
                             ]
                 },
                 {
-                "title": "Minor-Major 7 Arpeggio",
+                "title": "Minor-Major 7 Arp",
                 "menu_title": "Minor-Major 7",
                 "degrees": [
                             0,
@@ -2039,7 +2039,7 @@
                             ]
                 },
                 {
-                "title": "Half-Diminished 7 Arpeggio",
+                "title": "Half-Diminished 7 Arp",
                 "menu_title": "Half-Diminished 7",
                 "degrees": [
                             0,
@@ -2049,7 +2049,7 @@
                             ]
                 },
                 {
-                "title": "Fully-Diminished 7 Arpeggio",
+                "title": "Fully-Diminished 7 Arp",
                 "menu_title": "Fully-Diminished 7",
                 "degrees": [
                             0,

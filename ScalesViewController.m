@@ -74,8 +74,8 @@
     
     self.positionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.positionLabel setText:@"POSITION"];
-    [self.positionLabel setAdjustsFontSizeToFitWidth:YES];
-    self.positionLabel.minimumScaleFactor = 0.5f;
+//    [self.positionLabel setAdjustsFontSizeToFitWidth:YES];
+//    self.positionLabel.minimumScaleFactor = 0.5f;
     [self.view addSubview:self.positionLabel];
     
 
@@ -83,63 +83,98 @@
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
     [self.navigationController.navigationBar setTranslucent:NO];
     
+    CGFloat titleAdjust = 5.0f;                                     // iPhone 6, 5, 4
+    CGFloat titleSize = 30.0f;
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    if (bounds.size.width > 667.0) {                                // iPhone 6 Plus
+        titleAdjust = 1.0;
+        titleSize = 40.0f;
+    }
 
     self.navigationController.navigationBar.tintColor    = [UIColor GuitarCream];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:22.0f], NSFontAttributeName, nil]];
-    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:(5.0) forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:titleSize], NSFontAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:(titleAdjust) forBarMetrics:UIBarMetricsDefault];
 
     self.currentPosition = 0;
     
     self.title = @"Scales";
+    
+    CGFloat stringFont = 16.0f;                                                 // iPhone 6
+    CGFloat fingerFont = 12.0f;
+    if (bounds.size.width < 568.0) {                                            // iPhone 4
+        stringFont = 14.0;
+        fingerFont = 11.0;
+    }
+    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
+        stringFont = 18.0;
+        fingerFont = 13.0;
+    }
+    else if (bounds.size.width < 667.0) {                                       // iPhone 5
+        stringFont = 14.0;
+        fingerFont = 11.0;
+    }
 
     self.leftStringLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.leftStringLabel setText:@"6TH STRING"];
-    self.leftStringLabel.font  = [UIFont ProletarskFontWithSize:14.0f];
+    self.leftStringLabel.font  = [UIFont ProletarskFontWithSize:stringFont];
     self.leftStringLabel.textAlignment = NSTextAlignmentCenter;
+    self.leftStringLabel.alpha = .5;
     [self.view addSubview:self.leftStringLabel];
     
     self.leftIndexLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.leftIndexLabel setText:@"INDEX"];
     self.leftIndexLabel.textAlignment = NSTextAlignmentCenter;
-    self.leftIndexLabel.font   = [UIFont ProletarskFontWithSize:10.0f];
+    self.leftIndexLabel.font   = [UIFont ProletarskFontWithSize:fingerFont];
     [self.view addSubview:self.leftIndexLabel];
     
     self.leftMiddleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.leftMiddleLabel setText:@"MIDDLE"];
     self.leftMiddleLabel.textAlignment = NSTextAlignmentCenter;
-    self.leftMiddleLabel.font   = [UIFont ProletarskFontWithSize:10.0f];
+    self.leftMiddleLabel.font   = [UIFont ProletarskFontWithSize:fingerFont];
     [self.view addSubview:self.leftMiddleLabel];
     
     self.leftBottomLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.leftBottomLabel setText:@"PINKY"];
     self.leftBottomLabel.textAlignment = NSTextAlignmentCenter;
-    self.leftBottomLabel.font   = [UIFont ProletarskFontWithSize:10.0f];
+    self.leftBottomLabel.font   = [UIFont ProletarskFontWithSize:fingerFont];
     [self.view addSubview:self.leftBottomLabel];
     
     self.rightStringLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    [self.rightStringLabel setText:@"6TH STRING"];
-    self.rightStringLabel.font  = [UIFont ProletarskFontWithSize:14.0f];
+    [self.rightStringLabel setText:@"5TH STRING"];
+    self.rightStringLabel.font  = [UIFont ProletarskFontWithSize:stringFont];
     self.rightStringLabel.textAlignment = NSTextAlignmentCenter;
+    self.rightStringLabel.alpha = .5;
     [self.view addSubview:self.rightStringLabel];
     
     self.rightIndexLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.rightIndexLabel setText:@"INDEX"];
     self.rightIndexLabel.textAlignment = NSTextAlignmentCenter;
-    self.rightIndexLabel.font   = [UIFont ProletarskFontWithSize:10.0f];
+    self.rightIndexLabel.font   = [UIFont ProletarskFontWithSize:fingerFont];
     [self.view addSubview:self.rightIndexLabel];
     
     self.rightMiddleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.rightMiddleLabel setText:@"MIDDLE"];
     self.rightMiddleLabel.textAlignment = NSTextAlignmentCenter;
-    self.rightMiddleLabel.font   = [UIFont ProletarskFontWithSize:10.0f];
+    self.rightMiddleLabel.font   = [UIFont ProletarskFontWithSize:fingerFont];
     [self.view addSubview:self.rightMiddleLabel];
     
     self.rightBottonLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.rightBottonLabel setText:@"PINKY"];
     self.rightBottonLabel.textAlignment = NSTextAlignmentCenter;
-    self.rightBottonLabel.font   = [UIFont ProletarskFontWithSize:10.0f];
+    self.rightBottonLabel.font   = [UIFont ProletarskFontWithSize:fingerFont];
     [self.view addSubview:self.rightBottonLabel];
-
+    
+    
+    CGFloat fontSize = 18.0f;                                                   // iPhone 6
+    if (bounds.size.width < 568.0) {                                            // iPhone 4
+        fontSize = 16.0;
+    }
+    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
+        fontSize = 19.0;
+    }
+    else if (bounds.size.width < 667.0) {                                       // iPhone 5
+        fontSize = 16.0;
+    }
     
     UIBarButtonItem *leftBarButtonItem
     = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
@@ -147,7 +182,7 @@
                                       target:self
                                       action:@selector(handleLeftBarButtonTap:)];
     [leftBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont blackoutFontWithSize:16.0], NSFontAttributeName,
+                                           [UIFont blackoutFontWithSize:fontSize], NSFontAttributeName,
                                            nil]
                                  forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
@@ -158,7 +193,7 @@
                                       target:self
                                       action:@selector(handleRightBarButtonTap:)];
     [rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont blackoutFontWithSize:16.0], NSFontAttributeName,
+                                           [UIFont blackoutFontWithSize:fontSize], NSFontAttributeName,
                                            nil]
                                  forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
@@ -249,19 +284,38 @@
 
 - (void)layoutMainStringView
 {
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    
     CGFloat width             = self.view.frame.size.width;
     CGFloat height            = self.view.frame.size.height;
 
-    CGFloat stringViewWidth   = width / 2.0;
-    CGFloat stringViewHeight  = height / 2.0;
+    CGFloat stringViewWidth   = width / 1.9;
+    CGFloat stringViewHeight  = height / 1.8;
 
     CGFloat x                 = (width - stringViewWidth ) / 2.0;
-    CGFloat y                 = height * .25;
+    CGFloat y                 = height * .2;
+    
+    if (bounds.size.width > 667.0) {
+        stringViewHeight += 4.0;                           // iPhone 6 Plus
+        
+    }
 
     CGRect frame              = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     self.mainStringView.frame = frame;
     
-    self.positionLabel.frame = CGRectMake(x, y - 30, stringViewWidth, 30);
+    if (bounds.size.width > 667.0) {
+         x -= 7; y -= 40; stringViewWidth += 20;                           // iPhone 6 Plus
+
+    }
+    else if (bounds.size.width < 667.0) {                                    // iPhone 5, 4
+        x -= 7; y -= 35; stringViewWidth += 20;
+    }
+    
+    else {
+         x -= 7; y -= 38; stringViewWidth += 20;                             // iPhone 6
+    }
+    
+    self.positionLabel.frame = CGRectMake(x, y, stringViewWidth, 38);
 
 }
 
@@ -269,57 +323,59 @@
 {
     CGFloat width           = self.view.frame.size.width;
     CGFloat height           = self.view.frame.size.height;
-    CGFloat stringViewWidth   = width * 0.2;
-    CGFloat stringViewHeight  = height * 0.2;
+    CGFloat stringViewWidth   = width * 0.16;
+    CGFloat stringViewHeight  = height * 0.17;
     
     CGFloat labelHeight = height * 0.04;
-    CGFloat gap = height * 0.015;
+    CGFloat gap = height * 0.1;
     
-    self.leftStringLabel.frame = CGRectMake(10.0, gap, stringViewWidth, labelHeight);
+    CGFloat x = 15.0;
     
-    CGFloat y = (gap * 2.0) + labelHeight;
-    self.leftIndexLabel.frame = CGRectMake(10.0, y, stringViewWidth, labelHeight);
+    self.leftStringLabel.frame = CGRectMake(x, gap, stringViewWidth, labelHeight);
+    
+    CGFloat y = (gap * 1.2) + labelHeight;
+    self.leftIndexLabel.frame = CGRectMake(x, y, stringViewWidth, labelHeight);
 
     y += labelHeight;
-    self.topLeftStringView.frame = CGRectMake(10.0, y, stringViewWidth, stringViewHeight);
+    self.topLeftStringView.frame = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     
-    y += gap + stringViewHeight;
-    self.leftMiddleLabel.frame = CGRectMake(10.0, y, stringViewWidth, labelHeight);
+    y += stringViewHeight;
+    self.leftMiddleLabel.frame = CGRectMake(x, y, stringViewWidth, labelHeight);
     y += labelHeight;
-    self.middleLeftStringView.frame = CGRectMake(10.0, y, stringViewWidth, stringViewHeight);
+    self.middleLeftStringView.frame = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     
-    y += gap + stringViewHeight;
-    self.leftBottomLabel.frame = CGRectMake(10.0, y, stringViewWidth, labelHeight);
+    y += stringViewHeight;
+    self.leftBottomLabel.frame = CGRectMake(x, y, stringViewWidth, labelHeight);
     y += labelHeight;
-    self.bottomLeftStringView.frame = CGRectMake(10.0, y, stringViewWidth, stringViewHeight);
+    self.bottomLeftStringView.frame = CGRectMake(x, y, stringViewWidth, stringViewHeight);
 }
 
 - (void)layoutRightStringViews
 {
     CGFloat width           = self.view.frame.size.width;
     CGFloat height           = self.view.frame.size.height;
-    CGFloat stringViewWidth   = width * 0.2;
-    CGFloat stringViewHeight  = height * 0.2;
+    CGFloat stringViewWidth   = width * 0.16;
+    CGFloat stringViewHeight  = height * 0.17;
     
-    CGFloat x = width - 10.0 - stringViewWidth;
+    CGFloat x = width - 15.0 - stringViewWidth;
     
     CGFloat labelHeight = height * 0.04;
-    CGFloat gap = height * 0.015;
+    CGFloat gap = height * 0.1;
     
     self.rightStringLabel.frame = CGRectMake(x, gap, stringViewWidth, labelHeight);
     
-    CGFloat y = (gap * 2.0) + labelHeight;
+    CGFloat y = (gap * 1.2) + labelHeight;
     self.rightIndexLabel.frame = CGRectMake(x, y, stringViewWidth, labelHeight);
     
     y += labelHeight;
     self.topRightStringView.frame = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     
-    y += gap + stringViewHeight;
+    y += stringViewHeight;
     self.rightMiddleLabel.frame = CGRectMake(x, y, stringViewWidth, labelHeight);
     y += labelHeight;
     self.middleRightStringView.frame = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     
-    y += gap + stringViewHeight;
+    y += stringViewHeight;
     self.rightBottonLabel.frame = CGRectMake(x, y, stringViewWidth, labelHeight);
     y += labelHeight;
     self.bottomRightStringView.frame = CGRectMake(x, y, stringViewWidth, stringViewHeight);
@@ -454,11 +510,11 @@
         stringView.selectedDegrees = self.selectedDegrees;
         if (!self.selectedStringView && stringView.position.identifier == 4) {
             self.selectedStringView = stringView;
-            stringView.alpha = 1;
-            positionabel.alpha = 1;
+            stringView.alpha = .8;
+            positionabel.alpha = .8;
         } else if (stringView == self.selectedStringView) {
-            stringView.alpha = 1;
-            positionabel.alpha = 1;
+            stringView.alpha = .8;
+            positionabel.alpha = .8;
         }else {
             stringView.alpha = 0.3;
             positionabel.alpha = 0.3;
@@ -487,10 +543,17 @@
         titleText = @"";
     }
     
+    CGFloat titleSize = 30.0f;
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    if (bounds.size.width > 700.0) {
+        titleSize = 40.0f;
+    }
+
+    
 
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleText];
-    [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:24.0f], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
+    [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:titleSize], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;
     [title addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, title.length)];
@@ -524,10 +587,10 @@
     
     StringView *stringView = (StringView *) tapRec.view;
     self.selectedStringView = stringView;
-    stringView.alpha = 1;
+    stringView.alpha = .8;
     
     positionLabel = [self positionLabelForPositionID:stringView.position.identifier];
-    positionLabel.alpha = 1;
+    positionLabel.alpha = .8;
     
     self.mainStringView.stringViewType = stringView.stringViewType;
     self.mainStringView.position = stringView.position;
@@ -623,16 +686,33 @@
 - (void)setSubHeaderText:(NSString *)text
 {
     
-    CGFloat fontSize = 21.0f;
+    CGFloat fontSize = 26.0f;                                                   // iPhone 6
     CGRect bounds = [[UIScreen mainScreen] bounds];
-    if (bounds.size.width < 568.0) {
-        fontSize = 12.0f;
+    if (bounds.size.width < 568.0) {                                            // iPhone 4
+        fontSize = 20.0f;
+    }
+    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
+        fontSize = 27.0f;
+    }
+    else if (bounds.size.width < 667.0) {                                       // iPhone 5
+        fontSize = 21.0f;
     }
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:text];
-    [attributedString addAttribute:NSKernAttributeName
-                             value:@4.5
+    [attributedString addAttribute:NSKernAttributeName                          // iPhone 6, 5
+                             value:@5.3
                              range:NSMakeRange(0, text.length)];
+        if (bounds.size.width < 568.0) {                                        // iPhone 4
+            [attributedString addAttribute:NSKernAttributeName
+                                     value:@2.7
+                                     range:NSMakeRange(0, text.length)];
+        }
+        if (bounds.size.width > 667.0) {                                        // iPhone 6 Plus
+            [attributedString addAttribute:NSKernAttributeName
+                                     value:@6.7
+                                     range:NSMakeRange(0, text.length)];
+        }
+
     [attributedString addAttribute:NSFontAttributeName
                              value:[UIFont ProletarskFontWithSize:fontSize]
                              range:NSMakeRange(0, text.length)];

@@ -27,15 +27,16 @@ const CGFloat maxHeight = 175.0;
     // Drawing code
     [super drawRect:rect];
     
-    CGFloat horizontalSpacing = self.bounds.size.width / 7.0;
-    CGFloat verticalSpacing   = self.bounds.size.height / 6.0;
-    CGFloat horizontalOffset = horizontalSpacing / 2.0;
+    CGFloat horizontalSpacing = self.bounds.size.width / 6.42;
+    CGFloat verticalSpacing   = self.bounds.size.height / 6.6;
+    CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.0; // to be used to calculate radius
+    CGFloat horizontalOffset = horizontalSpacing / 4.8;
     CGFloat verticalOffset   = verticalSpacing / 2.0;
-    CGFloat radius = verticalSpacing / 2.4;
+    CGFloat radius = radiusVerticalSpacing / 2.4;
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height - verticalSpacing;
 
-    CGFloat lineWidth        = radius / 7.0;
+    CGFloat lineWidth        = radius / 5.1;
     CGFloat strokeWidth      = radius / 4.0;
     CGFloat fontSize         = radius * 1.5;
 
@@ -45,8 +46,9 @@ const CGFloat maxHeight = 175.0;
     }
 
     if (self.isMainView) {
-        verticalSpacing = floorf(height / 5.4);
+        verticalSpacing = floorf(height / 5.44);
         height -= verticalSpacing;
+        radius = radiusVerticalSpacing / 2.3;
     }
 
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -156,7 +158,7 @@ const CGFloat maxHeight = 175.0;
                             if (degreeString.length == 1) {
                                 rect = CGRectMake(x - width / 2.2, y - width / 2, width, width);
                             } else {
-                                 rect = CGRectMake(x - width / 2.2, y - (width * 5) / 7.8, width, width);
+                                 rect = CGRectMake(x - width / 2.2, y - width / 1.7, width, width);
 
                             }
                             CGSize size      = [degreeString size];

@@ -45,11 +45,24 @@
 
 - (void)initSubviews
 {
+    CGFloat fontSize = 22.0f;                                                   // iPhone 6
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    if (bounds.size.width < 568.0) {                                            // iPhone 4
+        fontSize = 18.0f;
+    }
+    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
+        fontSize = 23.0f;
+    }
+    else if (bounds.size.width < 667.0) {                                       // iPhone 5
+        fontSize = 20.0f;
+    }
+
+    
     self.backgroundColor = [UIColor clearColor];
     self.clearAllButton  = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.clearAllButton setTitle:@"CLEAR" forState:UIControlStateNormal];
     [self.clearAllButton setTintColor:[UIColor GuitarMediumBlue]];
-    self.clearAllButton.titleLabel.font = [UIFont blackoutFontWithSize:18.0f];
+    self.clearAllButton.titleLabel.font = [UIFont blackoutFontWithSize:fontSize];
     [self.clearAllButton addTarget:self
                             action:@selector(clearAllTap:)
                   forControlEvents:UIControlEventTouchUpInside];
@@ -58,7 +71,7 @@
     self.showAllButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.showAllButton setTitle:@"ALL" forState:UIControlStateNormal];
     [self.showAllButton setTintColor:[UIColor GuitarMediumBlue]];
-    self.showAllButton.titleLabel.font = [UIFont blackoutFontWithSize:18.0f];
+    self.showAllButton.titleLabel.font = [UIFont blackoutFontWithSize:fontSize];
 
     [self.showAllButton addTarget:self
                            action:@selector(showAllTap:)
@@ -70,7 +83,18 @@
 - (void)drawRect:(CGRect)rect
 {
     //draw the bottom border
-    float borderSize = 7.0f;
+    float borderSize = 6.5f;                                                    // iPhone 6
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    if (bounds.size.width < 568.0) {                                            // iPhone 4
+        borderSize = 6.2;
+    }
+    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
+        borderSize= 6.5;
+    }
+    else if (bounds.size.width < 667.0) {                                       // iPhone 5
+        borderSize = 6.2;
+    }
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
     CGRect rectFrame
@@ -82,7 +106,17 @@
 {
     [super layoutSubviews];
     CGRect bounds           = self.bounds;
-    CGFloat textButtonWidth = 70.0f;
+    
+    CGFloat textButtonWidth = 100.0f;                                            // iPhone 6
+    if (bounds.size.width < 568.0) {                                            // iPhone 4
+        textButtonWidth = 60.0;
+    }
+    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
+        textButtonWidth = 100.0;
+    }
+    else if (bounds.size.width < 667.0) {                                       // iPhone 5
+        textButtonWidth = 80.0;
+    }
     
     CGRect clearFrame         = CGRectMake(0, 0, textButtonWidth, bounds.size.height);
     self.clearAllButton.frame = clearFrame;
