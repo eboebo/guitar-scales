@@ -152,7 +152,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "726"
-            endingLineNumber = "726">
+            endingLineNumber = "726"
+            landmarkName = "-setSubHeaderText:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -166,7 +168,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "725"
-            endingLineNumber = "725">
+            endingLineNumber = "725"
+            landmarkName = "-setSubHeaderText:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -245,7 +249,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "534"
             endingLineNumber = "534"
-            landmarkName = "-viewTapped:"
+            landmarkName = "-refreshData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -277,7 +281,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "564"
             endingLineNumber = "564"
-            landmarkName = "-stringViewForPositionID:"
+            landmarkName = "-refreshTitle"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

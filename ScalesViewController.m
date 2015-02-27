@@ -74,8 +74,6 @@
     
     self.positionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.positionLabel setText:@"POSITION"];
-//    [self.positionLabel setAdjustsFontSizeToFitWidth:YES];
-//    self.positionLabel.minimumScaleFactor = 0.5f;
     [self.view addSubview:self.positionLabel];
     
 
@@ -245,9 +243,23 @@
 
     
     if (![[GuitarStore sharedStore] displayedTutorial]) {
-        self.fadeTutorial = YES;
-        [self handleRightBarButtonTap:nil];
-        [[GuitarStore sharedStore] setDisplayedTutorial];
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Yo!" message:@"There’s a tutorial if you need it." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"NO THANKS" style:UIAlertActionStyleDestructive handler:nil];
+        
+        [alertController addAction:noAction];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"NO THANKS" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            self.fadeTutorial = YES;
+            [self handleRightBarButtonTap:nil];
+            [[GuitarStore sharedStore] setDisplayedTutorial];
+        }];
+        
+        [alertController addAction:action];
+        
+        
+
     }
     
     [[GuitarStore sharedStore] setCallback:^(BOOL success) {
