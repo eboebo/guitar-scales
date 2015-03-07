@@ -32,7 +32,6 @@
     [self.view addSubview:self.backgroundImageView];
     
     self.skipButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.skipButton.frame = CGRectMake(self.view.bounds.size.width - 75, 1, 80, 30);
     [self.skipButton setTitle:@"SKIP" forState:UIControlStateNormal];
     [self.skipButton setTitleColor:[UIColor GuitarMediumBlue] forState:UIControlStateNormal];
     [self.skipButton.titleLabel setFont:[UIFont blackoutFontWithSize:16.0]];
@@ -52,6 +51,8 @@
 - (void)viewWillLayoutSubviews
 {
     self.backgroundImageView.frame = self.view.bounds;
+    self.skipButton.frame = CGRectMake(self.view.bounds.size.width - 75, 1, 80, 30);
+
 }
 
 - (void)layoutImageWithAnimation:(BOOL)animation

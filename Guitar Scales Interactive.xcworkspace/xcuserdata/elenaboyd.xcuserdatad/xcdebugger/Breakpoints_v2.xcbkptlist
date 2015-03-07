@@ -148,11 +148,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "446608728.066086"
+            timestampString = "447438325.628272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "726"
-            endingLineNumber = "726">
+            startingLineNumber = "719"
+            endingLineNumber = "719"
+            landmarkName = "-setSubHeaderText:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -162,11 +164,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "446608728.066086"
+            timestampString = "447438325.628272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "725"
-            endingLineNumber = "725">
+            startingLineNumber = "718"
+            endingLineNumber = "718"
+            landmarkName = "-setSubHeaderText:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Guitar Scales Interactive/TutorialViewController.m"
-            timestampString = "444770589.208569"
+            timestampString = "447438671.633367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-imageViewTapped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -240,12 +244,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "446608728.066086"
+            timestampString = "447438325.628272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "534"
-            endingLineNumber = "534"
-            landmarkName = "-viewTapped:"
+            startingLineNumber = "527"
+            endingLineNumber = "527"
+            landmarkName = "-refreshData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -272,12 +276,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "446608728.066086"
+            timestampString = "447438325.628272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "564"
-            endingLineNumber = "564"
-            landmarkName = "-stringViewForPositionID:"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
+            landmarkName = "-refreshTitle"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

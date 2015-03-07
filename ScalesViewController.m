@@ -16,19 +16,12 @@
 
 @interface ScalesViewController ()
 <DegreeViewDelegate,
- MenuDelegate
+ MenuDelegate,
+ UIAlertViewDelegate
 >
-
-
-
-
 
 @property (nonatomic, strong) StringView *selectedStringView;
 @property (nonatomic, assign) Position   *currentPosition;
-
-
-
-
 
 @property (nonatomic, strong) MenuTableViewController *menuController;
 @property (nonatomic, strong) TutorialViewController  *tutorialController;
@@ -56,8 +49,6 @@
 @property (strong, nonatomic) UILabel *rightMiddleLabel;
 @property (strong, nonatomic) UILabel *rightBottonLabel;
 
-
-
 @end
 
 @implementation ScalesViewController
@@ -65,21 +56,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    // Parse Data
+    [[GuitarStore sharedStore] setCallback:^(BOOL success) {
+        if (success) {
+            [self refreshData];
+            [self resetButtonView];
+        }
+    }];
+    
+    [[GuitarStore sharedStore] parseData];
+    
+    self.view.backgroundColor = [UIColor GuitarCream];
+    
+    self.currentPosition = 0;
+    
+    [self setUpNavigationBar];
+    [self setUpLabels];
+    [self setUpStringViews];
+    [self setUpTutorial];
     
     self.degreeView = [[DegreeView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.degreeView];
-    
-    self.mainStringView = [[StringView alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:self.mainStringView];
-    
-    self.positionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    [self.positionLabel setText:@"POSITION"];
-//    [self.positionLabel setAdjustsFontSizeToFitWidth:YES];
-//    self.positionLabel.minimumScaleFactor = 0.5f;
-    [self.view addSubview:self.positionLabel];
-    
+}
 
-    self.view.backgroundColor                            = [UIColor GuitarCream];
+- (void)setUpNavigationBar
+{
+    
     self.navigationController.navigationBar.barTintColor = [UIColor GuitarBlue];
     [self.navigationController.navigationBar setTranslucent:NO];
     
@@ -90,15 +93,53 @@
         titleAdjust = 1.0;
         titleSize = 40.0f;
     }
-
+    
     self.navigationController.navigationBar.tintColor    = [UIColor GuitarCream];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:titleSize], NSFontAttributeName, nil]];
     [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:(titleAdjust) forBarMetrics:UIBarMetricsDefault];
+    
+    CGFloat fontSize = 18.0f;                                                   // iPhone 6
+    if (bounds.size.width < 568.0) {                                            // iPhone 4
+        fontSize = 16.0;
+    }
+    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
+        fontSize = 19.0;
+    }
+    else if (bounds.size.width < 667.0) {                                       // iPhone 5
+        fontSize = 16.0;
+    }
+    
+    UIBarButtonItem *leftBarButtonItem
+    = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                       style:UIBarButtonItemStylePlain
+                                      target:self
+                                      action:@selector(handleLeftBarButtonTap:)];
+    [leftBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIFont blackoutFontWithSize:fontSize], NSFontAttributeName,
+                                               nil]
+                                     forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    UIBarButtonItem *rightBarButtonItem
+    = [[UIBarButtonItem alloc] initWithTitle:@"Help"
+                                       style:UIBarButtonItemStylePlain
+                                      target:self
+                                      action:@selector(handleRightBarButtonTap:)];
+    [rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                [UIFont blackoutFontWithSize:fontSize], NSFontAttributeName,
+                                                nil]
+                                      forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+}
 
-    self.currentPosition = 0;
+- (void)setUpLabels
+{
     
-    self.title = @"Scales";
+    self.positionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.positionLabel setText:@"POSITION"];
+    [self.view addSubview:self.positionLabel];
     
+    CGRect bounds = self.view.bounds;
     CGFloat stringFont = 16.0f;                                                 // iPhone 6
     CGFloat fingerFont = 12.0f;
     if (bounds.size.width < 568.0) {                                            // iPhone 4
@@ -113,7 +154,7 @@
         stringFont = 14.0;
         fingerFont = 11.0;
     }
-
+    
     self.leftStringLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.leftStringLabel setText:@"6TH STRING"];
     self.leftStringLabel.font  = [UIFont ProletarskFontWithSize:stringFont];
@@ -163,41 +204,13 @@
     self.rightBottonLabel.textAlignment = NSTextAlignmentCenter;
     self.rightBottonLabel.font   = [UIFont ProletarskFontWithSize:fingerFont];
     [self.view addSubview:self.rightBottonLabel];
+}
+
+- (void)setUpStringViews
+{
     
-    
-    CGFloat fontSize = 18.0f;                                                   // iPhone 6
-    if (bounds.size.width < 568.0) {                                            // iPhone 4
-        fontSize = 16.0;
-    }
-    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 19.0;
-    }
-    else if (bounds.size.width < 667.0) {                                       // iPhone 5
-        fontSize = 16.0;
-    }
-    
-    UIBarButtonItem *leftBarButtonItem
-    = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
-                                       style:UIBarButtonItemStylePlain
-                                      target:self
-                                      action:@selector(handleLeftBarButtonTap:)];
-    [leftBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont blackoutFontWithSize:fontSize], NSFontAttributeName,
-                                           nil]
-                                 forState:UIControlStateNormal];
-    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
-    
-    UIBarButtonItem *rightBarButtonItem
-    = [[UIBarButtonItem alloc] initWithTitle:@"Help"
-                                       style:UIBarButtonItemStylePlain
-                                      target:self
-                                      action:@selector(handleRightBarButtonTap:)];
-    [rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont blackoutFontWithSize:fontSize], NSFontAttributeName,
-                                           nil]
-                                 forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
+    self.mainStringView = [[StringView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.mainStringView];
     
     self.topLeftStringView = [[StringView alloc] initWithFrame:CGRectZero];
     UITapGestureRecognizer *topLeftviewTapped
@@ -227,39 +240,31 @@
     [self.topRightStringView addGestureRecognizer:topRightviewTapped];
     self.topRightStringView.stringViewType = StringViewTypeIndex;
     [self.view addSubview:self.topRightStringView];
-
-
+    
+    
     self.middleRightStringView = [[StringView alloc] initWithFrame:CGRectZero];
     UITapGestureRecognizer *middleRightViewTapped
     = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.middleRightStringView addGestureRecognizer:middleRightViewTapped];
     self.middleRightStringView.stringViewType = StringViewTypeMiddle;
     [self.view addSubview:self.middleRightStringView];
-
+    
     self.bottomRightStringView = [[StringView alloc] initWithFrame:CGRectZero];
-     UITapGestureRecognizer *bottomRightViewTapped
+    UITapGestureRecognizer *bottomRightViewTapped
     = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     [self.bottomRightStringView addGestureRecognizer:bottomRightViewTapped];
     self.bottomRightStringView.stringViewType = StringViewTypePinky;
     [self.view addSubview:self.bottomRightStringView];
+}
 
-    
+- (void)setUpTutorial
+{
     if (![[GuitarStore sharedStore] displayedTutorial]) {
-        self.fadeTutorial = YES;
-        [self handleRightBarButtonTap:nil];
-        [[GuitarStore sharedStore] setDisplayedTutorial];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome!" message:@"Would you like to see the tutorial to get started?" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"OK", nil];
+        
+        [alert show];
     }
-    
-    [[GuitarStore sharedStore] setCallback:^(BOOL success) {
-        if (success) {
-            [self refreshData];
-            [self resetButtonView];
-        }
-    }];
-    
-    [[GuitarStore sharedStore] parseData];
-    
-
 }
 
 - (void)viewWillLayoutSubviews
@@ -472,7 +477,7 @@
     }
     
     
-    [self presentViewController:self.tutorialController animated:[[GuitarStore sharedStore] displayedTutorial] completion:nil];
+    [self presentViewController:self.tutorialController animated:YES completion:nil];
 }
 
 - (void)layoutTutorialViewController
@@ -738,6 +743,17 @@
     [self.positionLabel setAttributedText:attributedString];
 }
 
+#pragma mark UIAlertView delegate
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [[GuitarStore sharedStore] setDisplayedTutorial];
+    } else if (buttonIndex == 1) {
+        self.fadeTutorial = YES;
+        [self handleRightBarButtonTap:nil];
+        [[GuitarStore sharedStore] setDisplayedTutorial];
+    }
+}
 
 @end
