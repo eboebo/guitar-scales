@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */; };
+		99C837831AAB67C50005EB22 /* notes_lefty.json in Resources */ = {isa = PBXBuildFile; fileRef = 99C837821AAB67C50005EB22 /* notes_lefty.json */; };
 		B108CABF199AD1E70047A473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CABE199AD1E70047A473 /* Foundation.framework */; };
 		B108CAC1199AD1E70047A473 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC0199AD1E70047A473 /* CoreGraphics.framework */; };
 		B108CAC3199AD1E70047A473 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC2199AD1E70047A473 /* UIKit.framework */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Scales Interactive.xcconfig"; path = "Pods/Pods-Guitar Scales Interactive.xcconfig"; sourceTree = "<group>"; };
+		99C837821AAB67C50005EB22 /* notes_lefty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes_lefty.json; sourceTree = "<group>"; };
 		9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitar Scales Interactive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B108CABB199AD1E70047A473 /* Guitar Note Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guitar Note Atlas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B108CABE199AD1E70047A473 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -223,6 +225,7 @@
 				B108CAC7199AD1E70047A473 /* InfoPlist.strings */,
 				B108CACA199AD1E70047A473 /* main.m */,
 				B108CACC199AD1E70047A473 /* Guitar Scales Interactive-Prefix.pch */,
+				99C837821AAB67C50005EB22 /* notes_lefty.json */,
 				B16E945519A16F8D001F769A /* notes.json */,
 			);
 			name = "Supporting Files";
@@ -417,6 +420,7 @@
 			files = (
 				B108CADA199AD1E70047A473 /* Images.xcassets in Resources */,
 				B16E945619A16F8D001F769A /* notes.json in Resources */,
+				99C837831AAB67C50005EB22 /* notes_lefty.json in Resources */,
 				B15F7B7219AAA38900028D8D /* Proletarsk.ttf in Resources */,
 				B167A1691A0BC84800AFFC07 /* BravuraText.otf in Resources */,
 				B148F34F19D4C54E007BF91F /* JasonSharpie.ttf in Resources */,

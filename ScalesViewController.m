@@ -65,6 +65,8 @@
         }
     }];
     
+    
+    
     [[GuitarStore sharedStore] parseData];
     
     self.view.backgroundColor = [UIColor GuitarCream];
@@ -208,7 +210,6 @@
 
 - (void)setUpStringViews
 {
-    
     self.mainStringView = [[StringView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.mainStringView];
     

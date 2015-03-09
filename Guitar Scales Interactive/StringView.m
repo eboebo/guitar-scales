@@ -53,6 +53,11 @@ const CGFloat maxHeight = 175.0;
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    self.position.baseFret = self.position.baseFret * -1 + 5;       // lefty
+    if (self.stringViewType == StringViewTypeIndex) {               //
+        self.position.baseFret -= 1;                                //
+    }                                                               // adjust for index position
+    
     if (self.position.baseFret || self.position.baseFret == 0) {
         CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
         CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
@@ -90,10 +95,15 @@ const CGFloat maxHeight = 175.0;
         CGContextDrawPath(context, kCGPathStroke);
     }
     
-    NSArray *stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
-    if (self.stringViewType == StringViewTypeIndex) {
-        stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
-    }
+ //   NSArray *stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
+ //   if (self.stringViewType == StringViewTypeIndex) {
+ //       stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
+ //   }
+    
+      NSArray *stringArray = @[@"(4)", @"4", @"3", @"2", @"1", @"(1)"];  // lefty
+      if (self.stringViewType == StringViewTypeIndex) {
+          stringArray = @[@"(4)", @"4", @"3", @"2", @"1"];
+      }
     
     if (self.isMainView) {
         for (int i = 0; i < stringArray.count; i++) {
@@ -117,6 +127,10 @@ const CGFloat maxHeight = 175.0;
                 if (degreePosition.positionID == self.position.identifier) {
                     NSArray *coordinates = degreePosition.coordinates;
                     for (Coordinate *coord in coordinates) {
+                        coord.x = coord.x * -1 + 5;                         // lefty
+                        if (self.stringViewType == StringViewTypeIndex) {      // adjust for index position
+                            coord.x -= 1;                                       //
+                        }                                                       //
                         CGFloat x
                         = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
                         CGFloat y
