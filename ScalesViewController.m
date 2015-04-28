@@ -121,7 +121,7 @@
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
     UIBarButtonItem *rightBarButtonItem
-    = [[UIBarButtonItem alloc] initWithTitle:@"Help"
+    = [[UIBarButtonItem alloc] initWithTitle:@"ETC"
                                        style:UIBarButtonItemStylePlain
                                       target:self
                                       action:@selector(handleRightBarButtonTap:)];
@@ -476,9 +476,12 @@
         self.tutorialController.view.backgroundColor = [UIColor GuitarCream];
     }
     
+    [self.delegate didSelectRightButton];
+
     
-    [self presentViewController:self.tutorialController animated:YES completion:nil];
+    //[self presentViewController:self.tutorialController animated:YES completion:nil];
 }
+
 
 - (void)layoutTutorialViewController
 {

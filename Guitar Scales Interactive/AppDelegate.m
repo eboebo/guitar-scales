@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ScalesViewController.h"
+#import "MainViewController.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
@@ -17,14 +17,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Fabric with:@[CrashlyticsKit]];
-//
-//    // Intialize favorDrawerRootViewController
-    ScalesViewController *scalesViewController = [[ScalesViewController alloc] initWithNibName:@"ScalesViewController" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:scalesViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Set favorDrawerRootViewController as root view controller
-    self.window.rootViewController = navController;
+    self.window.rootViewController = [[MainViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     return YES;

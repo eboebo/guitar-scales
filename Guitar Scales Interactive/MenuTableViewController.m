@@ -171,8 +171,6 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     
     self.selectedLabel = scaleLabel;
     [self.selectedLabel setBackgroundColor: [UIColor GuitarMediumBlue]];
-
-    
     
     if (scaleLabel.tag) {
         NSInteger tag = scaleLabel.tag - SCALE_TAG_OFFSET;
