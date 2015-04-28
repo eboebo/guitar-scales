@@ -12,6 +12,10 @@
 #import "DegreeButtonView.h"
 #import "DoubleDegreeButtonView.h"
 
+typedef NS_ENUM(NSInteger, ClearButtonState) {
+    NYTAdRequestStateLoading
+};
+
 @interface DegreeView ()
 <DegreeButtonViewDelegate,
  DoubleDegreeButtonDelegate>
@@ -77,7 +81,7 @@
                            action:@selector(showAllTap:)
                  forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.showAllButton];
-
+    
 }
 
 - (void)drawRect:(CGRect)rect
@@ -199,15 +203,26 @@
 
 - (void)clearAllTap:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
-        [self.delegate selectedDegreesModified:[NSMutableArray new]];
+    if (!self.tempDegrees) {
+        self.tempDegrees = self.selectedDegrees;
+        [self.clearAllButton setTitle:@"Undo" forState:UIControlStateNormal];
+        self.selectedDegrees = [NSMutableArray new];
+    } else {
+        [self.clearAllButton setTitle:@"Clear" forState:UIControlStateNormal];
+        self.selectedDegrees = self.tempDegrees;
+        self.tempDegrees = nil;
     }
-    self.selectedDegrees = [NSMutableArray new];
+    
+    [self.delegate selectedDegreesModified:self.selectedDegrees];
+    
     [self setNeedsDisplay];
 }
 
 - (void)showAllTap:(id)sender
 {
+    
+    [self resetClearButton];
+    
     NSArray *degrees = [[[GuitarStore sharedStore] chromaticScale] selectedDegrees];
     NSMutableArray *degreeArray = [degrees mutableCopy];
     
@@ -233,6 +248,8 @@
 
 - (void)degreeTapped:(id)sender
 {
+    [self resetClearButton];
+    
     DegreeButtonView *degreeButton = (DegreeButtonView *)sender;
     if (degreeButton.selected) {
         NSNumber *number = [NSNumber numberWithInteger:degreeButton.tag];
@@ -253,6 +270,8 @@
 
 - (void)doubleDegreeButtonTapped:(id)sender
 {
+    [self resetClearButton];
+
     DoubleDegreeButtonView *degreeButton = (DoubleDegreeButtonView *)sender;
 
     NSInteger insertIdentifier = -1;
@@ -283,6 +302,16 @@
 
     if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
         [self.delegate selectedDegreesModified:self.selectedDegrees];
+    }
+}
+
+#pragma mark helpers
+- (void)resetClearButton
+{
+    // Reset clear button
+    if (self.tempDegrees) {
+        self.tempDegrees = nil;
+        [self.clearAllButton setTitle:@"Clear" forState:UIControlStateNormal];
     }
 }
 

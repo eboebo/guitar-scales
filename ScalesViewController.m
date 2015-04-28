@@ -556,9 +556,6 @@
     if (bounds.size.width > 700.0) {
         titleSize = 40.0f;
     }
-
-    
-
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleText];
     [title addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor GuitarCream], NSForegroundColorAttributeName,[UIFont blackoutFontWithSize:titleSize], NSFontAttributeName, nil] range:NSMakeRange(0, title.length)];
@@ -581,6 +578,7 @@
 {
     self.degreeView.selectedDegrees = self.selectedDegrees;
     self.degreeView.delegate = self;
+    [self.degreeView resetClearButton];
     [self.degreeView setNeedsDisplay];
 }
 
@@ -660,6 +658,8 @@
             break;
     }
 }
+
+#pragma mark DegreeViewDelegate
 
 - (void)selectedDegreesModified:(NSMutableArray *)degrees
 {
