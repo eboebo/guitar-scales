@@ -11,6 +11,11 @@
 #import "Scale.h"
 #import "Position.h"
 
+@interface GuitarStore ()
+
+
+@end
+
 @implementation GuitarStore
 
 #pragma mark - Initialization
@@ -109,6 +114,17 @@
 - (void)setDisplayedTutorial
 {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"displayedTutorial"];
+}
+
+- (void)setLeftHand:(BOOL)leftHand
+{
+    [[NSUserDefaults standardUserDefaults] setBool:leftHand forKey:@"isLeftHand"];
+}
+
+- (BOOL)isLeftHand
+{
+    BOOL isLeftHand = [[NSUserDefaults standardUserDefaults] boolForKey:@"isLeftHand"];
+    return isLeftHand;
 }
 
 

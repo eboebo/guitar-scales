@@ -7,8 +7,18 @@
 //
 
 #import "OptionsViewController.h"
+#import "GuitarStore.h"
 #import "UIColor+Guitar.h"
 #import "UIFont+Guitar.h"
+
+typedef NS_ENUM(NSInteger, OptionsRow) {
+    OptionsRowTutorial,
+    OptionsRowLeftHand,
+    OptionsRowRate,
+    OptionsRowFeedback,
+    OptionsRowNumRows
+    
+};
 
 @interface OptionsViewController ()
 
@@ -32,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return OptionsRowNumRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -45,17 +55,24 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor GuitarBlue];
+    cell.tintColor = [UIColor GuitarCream];
     cell.textLabel.textColor = [UIColor GuitarCream];
     
     NSString *text;
     switch (indexPath.row) {
-        case 0:
-            text = @"Help";
+        case OptionsRowTutorial:
+            text = @"View Tutorial";
             break;
-        case 1:
+        case OptionsRowLeftHand: {
+            text = @"Enable Left Hand";
+            BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+            cell.accessoryType = isLeftHand ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        }
+            break;
+        case OptionsRowRate:
             text = @"Rate Us";
             break;
-        case 2:
+        case OptionsRowFeedback:
             text = @"Give Us Feedback";
             break;
         default:
@@ -70,16 +87,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
-        case 0:
-            NSLog(@"Display tutorial");
+        case OptionsRowTutorial:
+            [self.delegate didSelectOptionRow:OptionsRowTutorial];
             break;
-        case 1: {
+        case OptionsRowLeftHand: {
+            BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+            [[GuitarStore sharedStore] setLeftHand:!isLeftHand];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
+        }
+            break;
+        case OptionsRowRate: {
             NSString *iTunesLink = @"https://itunes.apple.com/us/app/apple-store/id971847390?mt=8";
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
         }
             break;
-        case 2: {
-            NSString *email = @"mailto:elenaeboyd@gmail.com?subject=Feedback!";
+        case OptionsRowFeedback: {
+            NSString *email = @"mailto:guitarnoteatlas@gmail.com?subject=Feedback!";
             email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
         }

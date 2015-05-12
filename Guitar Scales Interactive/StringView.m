@@ -26,7 +26,8 @@ const CGFloat maxHeight = 175.0;
 {
     // Drawing code
     [super drawRect:rect];
-    
+    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+
     CGFloat horizontalSpacing = self.bounds.size.width / 6.42;
     CGFloat verticalSpacing   = self.bounds.size.height / 6.6;
     CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.0; // to be used to calculate radius
@@ -55,6 +56,9 @@ const CGFloat maxHeight = 175.0;
     
     if (self.position.baseFret || self.position.baseFret == 0) {
         CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
+        }
         CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
         CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
         CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
@@ -95,9 +99,15 @@ const CGFloat maxHeight = 175.0;
         stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
     }
     
+    
     if (self.isMainView) {
         for (int i = 0; i < stringArray.count; i++) {
             CGFloat x      = horizontalOffset + (i * horizontalSpacing);
+            
+            if (isLeftHand) {
+                x = width - x - horizontalSpacing;
+            }
+            
             CGFloat y      = 5.4 * verticalSpacing + verticalOffset;
             NSString *text = stringArray[i];
             CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
@@ -119,6 +129,11 @@ const CGFloat maxHeight = 175.0;
                     for (Coordinate *coord in coordinates) {
                         CGFloat x
                         = coord.x * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
+                        
+                        if (isLeftHand) {
+                            x = width - x;
+                        }
+                        
                         CGFloat y
                         = coord.y * verticalSpacing + verticalOffset;
                         CGContextAddArc(context, x, y, radius - strokeWidth, 0.0, M_PI*2, YES);
@@ -158,7 +173,7 @@ const CGFloat maxHeight = 175.0;
                             if (degreeString.length == 1) {
                                 rect = CGRectMake(x - width / 2.2, y - width / 2, width, width);
                             } else {
-                                 rect = CGRectMake(x - width / 2.2, y - width / 1.7, width, width);
+                                rect = CGRectMake(x - width / 2.2, y - width / 1.7, width, width);
 
                             }
                             CGSize size      = [degreeString size];

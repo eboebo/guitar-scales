@@ -7,6 +7,7 @@
 //
 
 #import "TutorialViewController.h"
+#import "GuitarStore.h"
 
 @interface TutorialViewController ()
 
@@ -57,7 +58,12 @@
 
 - (void)layoutImageWithAnimation:(BOOL)animation
 {
-    NSString *imageString = [NSString stringWithFormat:@"tutorial_%ld", (long)self.currentImageIndex];
+    NSString *baseString = @"tutorial_";
+    if ([[GuitarStore sharedStore] isLeftHand]) {
+        baseString = @"tutorial_"; // Change once we have the image files
+    }
+    
+    NSString *imageString = [NSString stringWithFormat:@"%@%ld", baseString, (long)self.currentImageIndex];
     
     if (!animation) {
         [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
@@ -69,8 +75,6 @@
                             [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
                         } completion:nil];
     }
-    
-
 }
 
 -(void)imageViewTapped:(id)sender

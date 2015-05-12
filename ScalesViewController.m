@@ -24,9 +24,7 @@
 @property (nonatomic, assign) Position   *currentPosition;
 
 @property (nonatomic, strong) MenuTableViewController *menuController;
-@property (nonatomic, strong) TutorialViewController  *tutorialController;
 
-@property (nonatomic) BOOL fadeTutorial;
 
 @property (strong, nonatomic) DegreeView *degreeView;
 @property (strong, nonatomic) StringView *mainStringView;
@@ -74,10 +72,11 @@
     [self setUpNavigationBar];
     [self setUpLabels];
     [self setUpStringViews];
-    [self setUpTutorial];
     
     self.degreeView = [[DegreeView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.degreeView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeDisplay:) name:@"DisplayChange" object:nil];
 }
 
 - (void)setUpNavigationBar
@@ -255,16 +254,6 @@
     [self.bottomRightStringView addGestureRecognizer:bottomRightViewTapped];
     self.bottomRightStringView.stringViewType = StringViewTypePinky;
     [self.view addSubview:self.bottomRightStringView];
-}
-
-- (void)setUpTutorial
-{
-    if (![[GuitarStore sharedStore] displayedTutorial]) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome!" message:@"Would you like to see the tutorial to get started?" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"OK", nil];
-        
-        [alert show];
-    }
 }
 
 - (void)viewWillLayoutSubviews
@@ -467,35 +456,7 @@
 
 - (void)handleRightBarButtonTap:(id)sender
 {
-    if (!self.tutorialController) {
-
-        self.tutorialController = [[TutorialViewController alloc] init];
-        // Initialize the view controller and set any properties
-
-        //self.tutorialController.view.frame = scalesViewControllerViewFrame;
-        self.tutorialController.view.backgroundColor = [UIColor GuitarCream];
-    }
-    
     [self.delegate didSelectRightButton];
-
-    
-    //[self presentViewController:self.tutorialController animated:YES completion:nil];
-}
-
-
-- (void)layoutTutorialViewController
-{
-    // View layout setup
-    CGRect viewBounds = self.view.bounds;
-    
-    // playslistViewController view layout
-    CGRect tutorialViewControllerViewFrame;
-    CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
-    tutorialViewControllerViewFrame.size   = CGSizeMake(viewBounds.size.width, (viewBounds.size.height - navBarHeight));
-    tutorialViewControllerViewFrame.origin = CGPointMake(0.0, navBarHeight);
-    
-    // Set playslistViewControllerView frame
-    self.tutorialController.view.frame = tutorialViewControllerViewFrame;
 }
 
 - (void)refreshData
@@ -746,17 +707,11 @@
     [self.positionLabel setAttributedText:attributedString];
 }
 
-#pragma mark UIAlertView delegate
+#pragma mark Notifications
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+- (void)didChangeDisplay:(id)sender
 {
-    if (buttonIndex == 0) {
-        [[GuitarStore sharedStore] setDisplayedTutorial];
-    } else if (buttonIndex == 1) {
-        self.fadeTutorial = YES;
-        [self handleRightBarButtonTap:nil];
-        [[GuitarStore sharedStore] setDisplayedTutorial];
-    }
+    [self refreshData];
 }
 
 @end

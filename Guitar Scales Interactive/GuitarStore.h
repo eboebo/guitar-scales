@@ -27,6 +27,8 @@ typedef void (^UpdateCallback)(BOOL success);
 - (void)parseData;
 - (void)setDisplayedTutorial;
 - (BOOL)displayedTutorial;
+- (void)setLeftHand:(BOOL)leftHand;
+- (BOOL)isLeftHand;
 
 
 
