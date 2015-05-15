@@ -120,14 +120,11 @@
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
     UIBarButtonItem *rightBarButtonItem
-    = [[UIBarButtonItem alloc] initWithTitle:@"ETC"
+    = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"dots"]
                                        style:UIBarButtonItemStylePlain
                                       target:self
                                       action:@selector(handleRightBarButtonTap:)];
-    [rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                [UIFont blackoutFontWithSize:fontSize], NSFontAttributeName,
-                                                nil]
-                                      forState:UIControlStateNormal];
+
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 

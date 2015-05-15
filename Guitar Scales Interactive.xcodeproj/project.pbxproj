@@ -27,6 +27,7 @@
 		B108CB11199B028E0047A473 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB10199B028E0047A473 /* Position.m */; };
 		B108CB14199B02990047A473 /* Degree.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB13199B02990047A473 /* Degree.m */; };
 		B108CB18199B04710047A473 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B108CB17199B04710047A473 /* Model.m */; };
+		B12A028F1B055B0B00B6AFB6 /* UITableViewCell+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B12A028E1B055B0B00B6AFB6 /* UITableViewCell+Guitar.m */; };
 		B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B13799FA19AD1BE0002314D7 /* DegreeButtonView.m */; };
 		B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */; };
 		B148F34D19D4C188007BF91F /* OpusTextStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = B148F34C19D4C188007BF91F /* OpusTextStd.otf */; };
@@ -98,6 +99,8 @@
 		B108CB13199B02990047A473 /* Degree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Degree.m; sourceTree = "<group>"; };
 		B108CB16199B04710047A473 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		B108CB17199B04710047A473 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		B12A028D1B055B0B00B6AFB6 /* UITableViewCell+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Guitar.h"; sourceTree = "<group>"; };
+		B12A028E1B055B0B00B6AFB6 /* UITableViewCell+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Guitar.m"; sourceTree = "<group>"; };
 		B13799F919AD1BE0002314D7 /* DegreeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeButtonView.h; sourceTree = "<group>"; };
 		B13799FA19AD1BE0002314D7 /* DegreeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeButtonView.m; sourceTree = "<group>"; };
 		B148F34919D4B2B0007BF91F /* DoubleDegreeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleDegreeButtonView.h; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				B15F7B7819AAB13800028D8D /* UIColor+Guitar.m */,
 				B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */,
 				B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */,
+				B12A028D1B055B0B00B6AFB6 /* UITableViewCell+Guitar.h */,
+				B12A028E1B055B0B00B6AFB6 /* UITableViewCell+Guitar.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -393,7 +398,7 @@
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					B108CABA199AD1E70047A473 = {
-						DevelopmentTeam = CH924BJNEY;
+						DevelopmentTeam = XS87R2WV3V;
 					};
 					B108CADE199AD1E80047A473 = {
 						DevelopmentTeam = XS87R2WV3V;
@@ -520,6 +525,7 @@
 				B108CACB199AD1E70047A473 /* main.m in Sources */,
 				B108CB14199B02990047A473 /* Degree.m in Sources */,
 				B16E945419A05A8E001F769A /* DegreeView.m in Sources */,
+				B12A028F1B055B0B00B6AFB6 /* UITableViewCell+Guitar.m in Sources */,
 				B16E945119A05169001F769A /* GuitarStore.m in Sources */,
 				B15F7B7F19ABFED400028D8D /* MenuTableViewController.m in Sources */,
 				B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */,
@@ -647,8 +653,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher McQueen (XS87R2WV3V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher McQueen (XS87R2WV3V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -658,7 +664,7 @@
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Guitar Note Atlas";
-				PROVISIONING_PROFILE = "1f0e23c3-b096-4f27-875b-52aae2735deb";
+				PROVISIONING_PROFILE = "85eeaa32-9fe3-41e2-b70b-24b3cc3de104";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -670,8 +676,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher McQueen (XS87R2WV3V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher McQueen (XS87R2WV3V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -681,7 +687,7 @@
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Guitar Note Atlas";
-				PROVISIONING_PROFILE = "1f0e23c3-b096-4f27-875b-52aae2735deb";
+				PROVISIONING_PROFILE = "85eeaa32-9fe3-41e2-b70b-24b3cc3de104";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

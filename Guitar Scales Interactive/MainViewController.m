@@ -31,7 +31,11 @@ OptionsViewDelegate>
     
     if (![[GuitarStore sharedStore] displayedTutorial]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome!" message:@"Would you like to see the tutorial to get started?" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"OK", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome!"
+                                                        message:@"Would you like to see the tutorial to get started?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"No Thanks"
+                                              otherButtonTitles:@"OK", nil];
         
         [alert show];
     }

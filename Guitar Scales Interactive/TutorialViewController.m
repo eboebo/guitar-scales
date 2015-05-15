@@ -60,7 +60,7 @@
 {
     NSString *baseString = @"tutorial_";
     if ([[GuitarStore sharedStore] isLeftHand]) {
-        baseString = @"tutorial_"; // Change once we have the image files
+        baseString = @"tutorial_left_";
     }
     
     NSString *imageString = [NSString stringWithFormat:@"%@%ld", baseString, (long)self.currentImageIndex];

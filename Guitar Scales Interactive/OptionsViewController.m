@@ -10,6 +10,7 @@
 #import "GuitarStore.h"
 #import "UIColor+Guitar.h"
 #import "UIFont+Guitar.h"
+#import "UITableViewCell+Guitar.h"
 
 typedef NS_ENUM(NSInteger, OptionsRow) {
     OptionsRowTutorial,
@@ -69,8 +70,10 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
             cell.accessoryType = isLeftHand ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         }
             break;
-        case OptionsRowRate:
+        case OptionsRowRate: {
             text = @"Rate Us";
+            [cell addStars];
+        }
             break;
         case OptionsRowFeedback:
             text = @"Give Us Feedback";
@@ -83,6 +86,7 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
     [cell.textLabel setFont:[UIFont ProletarskFontWithSize:16.0f]];
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
