@@ -42,9 +42,9 @@ const CGFloat maxHeight = 175.0;
     CGFloat fontSize         = radius * 1.5;
 
     
-    if (self.stringViewType == StringViewTypeIndex) {
-        horizontalOffset += (horizontalSpacing / 2.0);
-    }
+//    if (self.stringViewType == StringViewTypeIndex) {
+//        horizontalOffset += (horizontalSpacing / 2.0);
+//    }
 
     if (self.isMainView) {
         verticalSpacing = floorf(height / 5.44);
@@ -61,7 +61,9 @@ const CGFloat maxHeight = 175.0;
         }
         CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
         CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
-        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
+        UIColor *color = [self colorForPosition:self.position.identifier];
+
+        CGContextSetFillColorWithColor(context, color.CGColor);
         CGContextFillRect(context, fretFrame);
     }
     
@@ -70,6 +72,7 @@ const CGFloat maxHeight = 175.0;
     
     // draw vertical lines
     NSInteger numLines = self.stringViewType == StringViewTypeIndex ? 6 : 7;
+    numLines = 7;
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
         CGFloat y = 5 * verticalSpacing + verticalOffset;
@@ -82,10 +85,10 @@ const CGFloat maxHeight = 175.0;
     // adjust depending on string view type
     CGFloat horizontalLineWidth = width;
     CGFloat horizontalLineX     = 0.0;
-    if (self.stringViewType == StringViewTypeIndex) {
-        horizontalLineWidth -= horizontalSpacing / 2.0;
-        horizontalLineX     += horizontalSpacing / 2.0;
-    }
+//    if (self.stringViewType == StringViewTypeIndex) {
+//        horizontalLineWidth -= horizontalSpacing / 2.0;
+//        horizontalLineX     += horizontalSpacing / 2.0;
+//    }
     
     for (int i = 0; i < 6; i++) {
         CGFloat y = i * verticalSpacing + verticalOffset;
@@ -95,28 +98,27 @@ const CGFloat maxHeight = 175.0;
     }
     
     NSArray *stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
-    if (self.stringViewType == StringViewTypeIndex) {
-        stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
-    }
+//    if (self.stringViewType == StringViewTypeIndex) {
+//        stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
+//    }
     
     
-    if (self.isMainView) {
-        for (int i = 0; i < stringArray.count; i++) {
-            CGFloat x      = horizontalOffset + (i * horizontalSpacing);
-            
-            if (isLeftHand) {
-                x = width - x - horizontalSpacing;
-            }
-            
-            CGFloat y      = 5.4 * verticalSpacing + verticalOffset;
-            NSString *text = stringArray[i];
-            CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
-            NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-            paragrapStyle.alignment                = NSTextAlignmentCenter;
-            [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:fontSize], NSParagraphStyleAttributeName:paragrapStyle}];
-
+    for (int i = 0; i < stringArray.count; i++) {
+        CGFloat x      = horizontalOffset + (i * horizontalSpacing);
+        
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
         }
+        
+        CGFloat y      = 5.4 * verticalSpacing + verticalOffset;
+        NSString *text = stringArray[i];
+        CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
+        NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+        paragrapStyle.alignment                = NSTextAlignmentCenter;
+        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:fontSize], NSParagraphStyleAttributeName:paragrapStyle}];
+
     }
+    
     
     
     NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
@@ -208,6 +210,28 @@ const CGFloat maxHeight = 175.0;
                 }
             }
         }
+    }
+}
+
+- (UIColor *)colorForPosition:(NSInteger)identifier {
+    switch (identifier) {
+        case 0:
+            return [UIColor GuitarRockBlue];
+        case 1:
+            return [UIColor GuitarRose];
+        case 2:
+            return [UIColor GuitarRockBlue];
+        case 3:
+            return [UIColor GuitarRose];
+        case 4:
+            return [UIColor GuitarRockBlue];
+        case 5:
+            return [UIColor GuitarRose];
+        case 6:
+            return [UIColor GuitarYellow];
+            
+        default:
+            return 0;
     }
 }
 

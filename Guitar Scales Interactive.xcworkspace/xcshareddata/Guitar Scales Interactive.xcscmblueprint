@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1E80CE9161746E7D8AF8E6C3CDAB0B2F651BEFBB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1E80CE9161746E7D8AF8E6C3CDAB0B2F651BEFBB" : 0,
+    "AD5D5CD8-285E-40A9-A0F8-4F22F39364A8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B40EA787-5B90-4458-9AAE-F8E6771FB431",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1E80CE9161746E7D8AF8E6C3CDAB0B2F651BEFBB" : "GNA\/",
+    "AD5D5CD8-285E-40A9-A0F8-4F22F39364A8" : "Guitar Scales Interactive"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Guitar Scales Interactive",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Guitar Scales Interactive.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:eboebo\/guitar-scales.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1E80CE9161746E7D8AF8E6C3CDAB0B2F651BEFBB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/github.com\/eboebo\/guitar-scales.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AD5D5CD8-285E-40A9-A0F8-4F22F39364A8"
+    }
+  ]
+}

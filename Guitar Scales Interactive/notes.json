@@ -1739,24 +1739,10 @@
                   "finger": "pinky"
                   },
                   {
-                  "position_id": 1,
-                  "base_fret": 4,
-                  "title": "5TH STRING // PINKY",
-                  "string": 5,
-                  "finger": "pinky"
-                  },
-                  {
                   "position_id": 2,
                   "base_fret": 2,
                   "title": "6TH STRING // MIDDLE",
                   "string": 6,
-                  "finger": "middle"
-                  },
-                  {
-                  "position_id": 3,
-                  "base_fret": 2,
-                  "title": "5TH STRING // MIDDLE",
-                  "string": 5,
                   "finger": "middle"
                   },
                   {
@@ -1765,6 +1751,27 @@
                   "title": "6TH STRING // INDEX",
                   "string": 6,
                   "finger": "index"
+                  },
+                  {
+                  "position_id": 6,
+                  "base_fret": 0,
+                  "title": "4TH STRING // INDEX",
+                  "string": 4,
+                  "finger": "index"
+                  },
+                  {
+                  "position_id": 1,
+                  "base_fret": 4,
+                  "title": "5TH STRING // PINKY",
+                  "string": 5,
+                  "finger": "pinky"
+                  },
+                  {
+                  "position_id": 3,
+                  "base_fret": 2,
+                  "title": "5TH STRING // MIDDLE",
+                  "string": 5,
+                  "finger": "middle"
                   },
                   {
                   "position_id": 5,

@@ -46,4 +46,19 @@
     return [UIColor colorWithRed:0.882 green:0.878 blue:0.878 alpha:1];
 }
 
++ (UIColor *)GuitarRockBlue
+{
+    return [UIColor colorWithRed:0.58 green:0.68 blue:0.84 alpha:1.00];
+}
+
++ (UIColor *)GuitarRose
+{
+    return [UIColor colorWithRed:0.85 green:0.64 blue:0.59 alpha:1.00];
+}
+
++ (UIColor *)GuitarYellow
+{
+    return [UIColor colorWithRed:0.93 green:0.87 blue:0.55 alpha:1.00];
+}
+
 @end

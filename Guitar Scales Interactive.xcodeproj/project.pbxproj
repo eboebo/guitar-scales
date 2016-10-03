@@ -42,6 +42,7 @@
 		B167A1671A0BC5AF00AFFC07 /* jr!hand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B167A1661A0BC5AF00AFFC07 /* jr!hand.ttf */; };
 		B167A1691A0BC84800AFFC07 /* BravuraText.otf in Resources */ = {isa = PBXBuildFile; fileRef = B167A1681A0BC84800AFFC07 /* BravuraText.otf */; };
 		B167A16B1A0BC8BE00AFFC07 /* Bravura.otf in Resources */ = {isa = PBXBuildFile; fileRef = B167A16A1A0BC8BE00AFFC07 /* Bravura.otf */; };
+		B16B17B11D998ABE00A52785 /* FullStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16B17B01D998ABE00A52785 /* FullStringView.m */; };
 		B16E944E199FDB5A001F769A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E944D199FDB5A001F769A /* CoreText.framework */; };
 		B16E945119A05169001F769A /* GuitarStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945019A05169001F769A /* GuitarStore.m */; };
 		B16E945419A05A8E001F769A /* DegreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945319A05A8E001F769A /* DegreeView.m */; };
@@ -50,6 +51,7 @@
 		B16E945D19A176FA001F769A /* DegreePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B16E945C19A176FA001F769A /* DegreePosition.m */; };
 		B181A0F41AEFCB900067E79D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B181A0F31AEFCB900067E79D /* MainViewController.m */; };
 		B181A0F71AEFCFF20067E79D /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B181A0F61AEFCFF20067E79D /* OptionsViewController.m */; };
+		B192A1691D99955800B2B2F3 /* ArrowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B192A1681D99955800B2B2F3 /* ArrowButton.m */; };
 		B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */; };
 		B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */; };
 		B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */; };
@@ -120,6 +122,8 @@
 		B167A1661A0BC5AF00AFFC07 /* jr!hand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "jr!hand.ttf"; sourceTree = "<group>"; };
 		B167A1681A0BC84800AFFC07 /* BravuraText.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BravuraText.otf; sourceTree = "<group>"; };
 		B167A16A1A0BC8BE00AFFC07 /* Bravura.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bravura.otf; sourceTree = "<group>"; };
+		B16B17AF1D998ABE00A52785 /* FullStringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullStringView.h; sourceTree = "<group>"; };
+		B16B17B01D998ABE00A52785 /* FullStringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullStringView.m; sourceTree = "<group>"; };
 		B16E944D199FDB5A001F769A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B16E944F19A05169001F769A /* GuitarStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuitarStore.h; sourceTree = "<group>"; };
 		B16E945019A05169001F769A /* GuitarStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuitarStore.m; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 		B181A0F31AEFCB900067E79D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B181A0F51AEFCFF20067E79D /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
 		B181A0F61AEFCFF20067E79D /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
+		B192A1671D99955800B2B2F3 /* ArrowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowButton.h; sourceTree = "<group>"; };
+		B192A1681D99955800B2B2F3 /* ArrowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowButton.m; sourceTree = "<group>"; };
 		B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Guitar.h"; sourceTree = "<group>"; };
 		B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Guitar.m"; sourceTree = "<group>"; };
 		B1EC83ED19F40A7800A3D30F /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 			children = (
 				B108CB06199ADB570047A473 /* StringView.h */,
 				B108CB07199ADB570047A473 /* StringView.m */,
+				B16B17AF1D998ABE00A52785 /* FullStringView.h */,
+				B16B17B01D998ABE00A52785 /* FullStringView.m */,
 				B16E945219A05A8E001F769A /* DegreeView.h */,
 				B16E945319A05A8E001F769A /* DegreeView.m */,
 				B13799F919AD1BE0002314D7 /* DegreeButtonView.h */,
@@ -286,6 +294,8 @@
 				B148F34A19D4B2B0007BF91F /* DoubleDegreeButtonView.m */,
 				B1EC83F019F4141700A3D30F /* MenuTableViewCell.h */,
 				B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */,
+				B192A1671D99955800B2B2F3 /* ArrowButton.h */,
+				B192A1681D99955800B2B2F3 /* ArrowButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -397,9 +407,6 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
-					B108CABA199AD1E70047A473 = {
-						DevelopmentTeam = XS87R2WV3V;
-					};
 					B108CADE199AD1E80047A473 = {
 						DevelopmentTeam = XS87R2WV3V;
 						TestTargetID = B108CABA199AD1E70047A473;
@@ -507,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B192A1691D99955800B2B2F3 /* ArrowButton.m in Sources */,
 				B108CB0E199B01F30047A473 /* Scale.m in Sources */,
 				B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */,
 				B108CB11199B028E0047A473 /* Position.m in Sources */,
@@ -515,6 +523,7 @@
 				B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */,
 				B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */,
 				B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */,
+				B16B17B11D998ABE00A52785 /* FullStringView.m in Sources */,
 				B16E945D19A176FA001F769A /* DegreePosition.m in Sources */,
 				B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */,
 				B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */,
@@ -653,8 +662,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher McQueen (XS87R2WV3V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher McQueen (XS87R2WV3V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (PG63BLB2JP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -664,8 +673,8 @@
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Guitar Note Atlas";
-				PROVISIONING_PROFILE = "85eeaa32-9fe3-41e2-b70b-24b3cc3de104";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -676,8 +685,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher McQueen (XS87R2WV3V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher McQueen (XS87R2WV3V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -687,8 +696,8 @@
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Guitar Note Atlas";
-				PROVISIONING_PROFILE = "85eeaa32-9fe3-41e2-b70b-24b3cc3de104";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
