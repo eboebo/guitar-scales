@@ -59,7 +59,8 @@ const CGFloat maxHeight = 175.0;
         if (isLeftHand) {
             x = width - x - horizontalSpacing;
         }
-        CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
+        NSInteger height = [self heightForPosition:self.position.identifier];
+        CGFloat y = height * verticalSpacing + (verticalOffset * 2.0);
         CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
         UIColor *color = [self colorForPosition:self.position.identifier];
 
@@ -229,6 +230,28 @@ const CGFloat maxHeight = 175.0;
             return [UIColor GuitarRose];
         case 6:
             return [UIColor GuitarYellow];
+            
+        default:
+            return 0;
+    }
+}
+
+- (NSInteger)heightForPosition:(NSInteger)identifier {
+    switch (identifier) {
+        case 0:
+            return 5;
+        case 1:
+            return 4;
+        case 2:
+            return 5;
+        case 3:
+            return 4;
+        case 4:
+            return 5;
+        case 5:
+            return 4;
+        case 6:
+            return 3;
             
         default:
             return 0;
