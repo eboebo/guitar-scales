@@ -447,24 +447,50 @@
 
 - (void)handlePositionLeft:(id)sender
 {
-    if (self.currentPosition > 0) {
-        self.currentPosition--;
+    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];  // check for left-handed
+    
+    if (isLeftHand) {                                          // lefty
+        if (self.currentPosition < 6) {
+            self.currentPosition++;
+        }
+        else {
+            self.currentPosition = 0;
+        }
     }
-    else {
-        self.currentPosition = 6;
+    
+    else {                                                      // righty
+        if (self.currentPosition > 0) {
+            self.currentPosition--;
+        }
+        else {
+            self.currentPosition = 6;
+        }
     }
-    [self updateStringViewPositions];
+    [self updateStringViewPositions];                           // update
 }
 
 - (void)handlePositionRight:(id)sender
 {
-    if (self.currentPosition < self.positions.count - 1) {
-        self.currentPosition++;
+    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];   // check for left-handed
+    
+    if (isLeftHand) {                                           // lefty
+        if (self.currentPosition > 0) {
+            self.currentPosition--;
+        }
+        else {
+            self.currentPosition = 6;
+        }
     }
-    else {
-        self.currentPosition = 0;
+    
+    else {                                                      // righty
+        if (self.currentPosition < 6) {
+            self.currentPosition++;
+        }
+        else {
+            self.currentPosition = 0;
+        }
     }
-    [self updateStringViewPositions];
+    [self updateStringViewPositions];                           // update
 }
 
 - (void)updateStringViewPositions
