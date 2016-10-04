@@ -40,11 +40,16 @@ const CGFloat maxHeight = 175.0;
     CGFloat lineWidth        = radius / 5.1;
     CGFloat strokeWidth      = radius / 4.0;
     CGFloat fontSize         = radius * 1.5;
-
     
-//    if (self.stringViewType == StringViewTypeIndex) {
-//        horizontalOffset += (horizontalSpacing / 2.0);
-//    }
+    BOOL useShortScale = false;
+    if ((self.position.identifier == 4) || (self.position.identifier == 5) || (self.position.identifier == 6))
+    {
+        useShortScale = true;            // only do 5 frets for some positions
+    }
+    
+    if (useShortScale == true) {
+        horizontalOffset += (horizontalSpacing / 2.0);
+    }
 
     if (self.isMainView) {
         verticalSpacing = floorf(height / 5.44);
@@ -72,8 +77,10 @@ const CGFloat maxHeight = 175.0;
     CGContextSetLineWidth(context, lineWidth);
     
     // draw vertical lines
-    NSInteger numLines = self.stringViewType == StringViewTypeIndex ? 6 : 7;
-    numLines = 7;
+    NSInteger numLines = 7;
+    if (useShortScale == true) {
+        numLines = 6;
+    }
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
         CGFloat y = 5 * verticalSpacing + verticalOffset;
@@ -86,10 +93,10 @@ const CGFloat maxHeight = 175.0;
     // adjust depending on string view type
     CGFloat horizontalLineWidth = width;
     CGFloat horizontalLineX     = 0.0;
-//    if (self.stringViewType == StringViewTypeIndex) {
-//        horizontalLineWidth -= horizontalSpacing / 2.0;
-//        horizontalLineX     += horizontalSpacing / 2.0;
-//    }
+    if (useShortScale == true) {
+        horizontalLineWidth -= horizontalSpacing / 2.0;
+        horizontalLineX     += horizontalSpacing / 2.0;
+   }
     
     for (int i = 0; i < 6; i++) {
         CGFloat y = i * verticalSpacing + verticalOffset;
@@ -99,9 +106,9 @@ const CGFloat maxHeight = 175.0;
     }
     
     NSArray *stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
-//    if (self.stringViewType == StringViewTypeIndex) {
-//        stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
-//    }
+    if (useShortScale == true) {
+        stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
+    }
     
     
     for (int i = 0; i < stringArray.count; i++) {

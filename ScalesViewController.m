@@ -371,7 +371,7 @@
     self.mainStringView.isMainView = YES;
    
     // TODO // HANDLE THIS
-//    self.mainStringView.stringViewType = self.selectedStringView.stringViewType;
+ //   self.mainStringView.stringViewType = self.selectedStringView.stringViewType;
     self.mainStringView.selectedDegrees = self.selectedDegrees;
     self.fullStringView.selectedDegrees = self.selectedDegrees;
     

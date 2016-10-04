@@ -45,18 +45,24 @@
     
     // draw background
     NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
-    for (int i = 0; i < 6; i++) {
-        NSInteger selectedIndex = i + selectedOffset;
-        CGFloat x = horizontalOffset + (selectedIndex * horizontalSpacing);
-        
-        if (isLeftHand) {
-            x = width - x - horizontalSpacing;
+    
+    NSInteger fretCounter = 6;
+    if ((self.position.identifier == 4) || (self.position.identifier == 5) || (self.position.identifier == 6))
+    {
+        fretCounter = 5;            // only do 5 frets for some positions
+    }
+        for (int i = 0; i < fretCounter; i++) {
+            NSInteger selectedIndex = i + selectedOffset;
+            CGFloat x = horizontalOffset + (selectedIndex * horizontalSpacing);
             
-        }
-        CGFloat y = 5 * verticalSpacing;
-        CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, y);
-        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
-        CGContextFillRect(context, fretFrame);
+            if (isLeftHand) {
+                x = width - x - horizontalSpacing;
+                
+            }
+            CGFloat y = 5 * verticalSpacing;
+            CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, y);
+            CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
+            CGContextFillRect(context, fretFrame);
     }
     
     // Draw 6th string base fret - blue
