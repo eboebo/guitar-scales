@@ -104,7 +104,7 @@
         fontSize = 16.0;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 19.0;
+        fontSize = 22.0; // original 19.0
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         fontSize = 16.0;
@@ -174,7 +174,7 @@
 //    CGFloat y                = height * 0.85;
 //    CGFloat degreeViewHeight = height - y;
     
-    CGFloat y                = height * 0.92;
+    CGFloat y                = height * 0.895;  // original 0.92
     CGFloat degreeViewHeight = height - y;
     self.degreeView.frame    = CGRectMake(0, y, self.view.frame.size.width, degreeViewHeight);
 
@@ -191,7 +191,7 @@
     CGFloat stringViewHeight  = height * 0.45;
 
     CGFloat x                 = (width - stringViewWidth ) / 2.0;
-    CGFloat y                 = 58.0;
+    CGFloat y                 = 96.0;  // original 58.0
     
 //    if (bounds.size.width > 667.0) {
 //        stringViewHeight += 4.0;                           // iPhone 6 Plus
@@ -213,16 +213,16 @@
 //         x -= 7; y -= 38; stringViewWidth += 20;                             // iPhone 6
 //    }
     
-    self.positionLabel.frame = CGRectMake(x, 10.0, stringViewWidth, 38);
+    self.positionLabel.frame = CGRectMake(x, 30.0, stringViewWidth, 38);
     
     
-    CGFloat buttonHeight = stringViewHeight * (2.0/3.0);
-    CGFloat buttonWidth  = width * 0.1;
+    CGFloat buttonHeight = stringViewHeight * 0.6;  // original (2.0/3.0)
+    CGFloat buttonWidth  = width * 0.09;  // original 0.1
     
     CGFloat oneEight = width * (1.0 / 8.0);
     CGFloat buttonOffset = oneEight - (buttonWidth / 2.0);
     
-    CGFloat buttonY = y + stringViewHeight * (1.0/8.0);
+    CGFloat buttonY = y + stringViewHeight * 0.09;   // original (1.0/8.0)
     self.leftArrowButton.frame = CGRectMake(buttonOffset, buttonY, buttonWidth, buttonHeight);
     
     CGFloat rightButtonX = x + stringViewWidth + buttonOffset;
@@ -238,12 +238,12 @@
     CGFloat width             = self.view.frame.size.width;
     CGFloat height            = self.view.frame.size.height;
     
-    CGFloat stringViewWidth   = width * 0.75;
+    CGFloat stringViewWidth   = width * 0.875; // original .75
     CGFloat stringViewHeight  = height * 0.3;
     
-    CGFloat x                 = width * (1.0/8.0);
+    CGFloat x                 = width * (1.0/16.0); // original 1.0/8.0
     CGFloat y                 = height * .25;
-    y = 90.0 + self.mainStringView.frame.size.height;
+    y = 78.0 + self.mainStringView.frame.size.height;  // original 90.0
     
     CGRect frame              = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     self.fullStringView.frame = frame;
@@ -390,10 +390,10 @@
         titleText = @"";
     }
     
-    CGFloat titleSize = 30.0f;
+    CGFloat titleSize = 30.0f; // original 30.0f
     CGRect bounds = [[UIScreen mainScreen] bounds];
     if (bounds.size.width > 700.0) {
-        titleSize = 40.0f;
+        titleSize = 44.0f;  // original 40.0f
     }
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleText];
@@ -449,16 +449,22 @@
 {
     if (self.currentPosition > 0) {
         self.currentPosition--;
-        [self updateStringViewPositions];
     }
+    else {
+        self.currentPosition = 6;
+    }
+    [self updateStringViewPositions];
 }
 
 - (void)handlePositionRight:(id)sender
 {
     if (self.currentPosition < self.positions.count - 1) {
         self.currentPosition++;
-        [self updateStringViewPositions];
     }
+    else {
+        self.currentPosition = 0;
+    }
+    [self updateStringViewPositions];
 }
 
 - (void)updateStringViewPositions
@@ -473,6 +479,11 @@
     }
     [self.mainStringView setNeedsDisplay];
     [self.fullStringView setNeedsDisplay];
+}
+
+- (void)updateArrowColor
+{
+    
 }
 
 #pragma mark DegreeViewDelegate
@@ -510,16 +521,16 @@
 - (void)setSubHeaderText:(NSString *)text
 {
     
-    CGFloat fontSize = 26.0f;                                                   // iPhone 6
+    CGFloat fontSize = 32.0f;   // original 26.0f                                // iPhone 6
     CGRect bounds = [[UIScreen mainScreen] bounds];
     if (bounds.size.width < 568.0) {                                            // iPhone 4
-        fontSize = 20.0f;
+        fontSize = 25.0f;   // original 20.0f
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 27.0f;
+        fontSize = 33.0f; // original 27.0f
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
-        fontSize = 21.0f;
+        fontSize = 26.0f;  // original 21.0f
     }
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:text];
@@ -533,7 +544,7 @@
         }
         if (bounds.size.width > 667.0) {                                        // iPhone 6 Plus
             [attributedString addAttribute:NSKernAttributeName
-                                     value:@6.7
+                                     value:@9.0 // original 6.7
                                      range:NSMakeRange(0, text.length)];
         }
 

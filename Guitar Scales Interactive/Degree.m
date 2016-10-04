@@ -45,8 +45,8 @@
         specialFontSize = 27.0;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        regFontSize = 40.0;
-        specialFontSize = 38.0;
+        regFontSize = 56.0;  // original 40.0
+        specialFontSize = 52.0;  // original 38.0
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         regFontSize = 31.0;
@@ -85,7 +85,7 @@
         fontSize = 24.0f;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 32.0f;
+        fontSize = 40.0f;  // original 32.0
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         fontSize = 26.0f;

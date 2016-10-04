@@ -27,21 +27,18 @@
     [super drawRect:rect];
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
     
-    CGFloat horizontalSpacing = self.bounds.size.width / 17;
+    CGFloat horizontalSpacing = self.bounds.size.width / 16.5;  // original 17
     CGFloat verticalSpacing   = self.bounds.size.height / 6;
     CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.0; // to be used to calculate radius
-    CGFloat horizontalOffset = horizontalSpacing / 4.8;
-    horizontalOffset = 0;
+    CGFloat horizontalOffset = horizontalSpacing / 3.8;
     CGFloat verticalOffset   = verticalSpacing / 2.0;
-    CGFloat radius = radiusVerticalSpacing / 2.4;
+    CGFloat radius = radiusVerticalSpacing / 2.1;
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height - verticalSpacing;
     
     CGFloat lineWidth        = radius / 5.1;
     CGFloat strokeWidth      = radius / 4.0;
-    CGFloat fontSize         = radius * 1.5;
-    
-    horizontalOffset += (horizontalSpacing / 2.0);
+    CGFloat fontSize         = radius * 1.42;
 
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -56,8 +53,8 @@
             x = width - x - horizontalSpacing;
             
         }
-        CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
-        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
+        CGFloat y = 5 * verticalSpacing;
+        CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, y);
         CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
         CGContextFillRect(context, fretFrame);
     }

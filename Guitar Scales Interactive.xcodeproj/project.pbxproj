@@ -405,8 +405,11 @@
 		B108CAB3199AD1E70047A473 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				TargetAttributes = {
+					B108CABA199AD1E70047A473 = {
+						DevelopmentTeam = XS87R2WV3V;
+					};
 					B108CADE199AD1E80047A473 = {
 						DevelopmentTeam = XS87R2WV3V;
 						TestTargetID = B108CABA199AD1E70047A473;
@@ -599,6 +602,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (52SJZ94WDL)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -663,7 +667,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (PG63BLB2JP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -672,6 +676,7 @@
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chrismcqueen.GuitarNoteAtlas;
 				PRODUCT_NAME = "Guitar Note Atlas";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -686,7 +691,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -695,6 +700,7 @@
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chrismcqueen.GuitarNoteAtlas;
 				PRODUCT_NAME = "Guitar Note Atlas";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -720,6 +726,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elenaboyd.GuitarScalesAtlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -741,6 +748,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales InteractiveTests/Guitar Scales InteractiveTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elenaboyd.GuitarScalesAtlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";

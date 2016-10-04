@@ -151,6 +151,21 @@
                                                      "color": "white"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 3,
+                                                     "color": "white"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 1,
+                                                     "color": "white"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -264,6 +279,21 @@
                                                      "color": "black"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -369,6 +399,26 @@
                                                      {
                                                      "x": 2,
                                                      "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 0,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 3,
                                                      "color": "black"
                                                      }
                                                      ]
@@ -488,6 +538,26 @@
                                                      "color": "black"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 1,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -593,6 +663,26 @@
                                                      {
                                                      "x": 4,
                                                      "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 2,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 3,
                                                      "color": "black"
                                                      }
                                                      ]
@@ -704,6 +794,26 @@
                                                      "color": "black"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -810,6 +920,26 @@
                                                      "x": 4,
                                                      "y": 1,
                                                      "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 5,
+                                                     "color": "gray"
                                                      }
                                                      ]
                                      }
@@ -923,6 +1053,21 @@
                                                      "x": 0,
                                                      "y": 5,
                                                      "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 4,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 2,
+                                                     "color": "black"
                                                      }
                                                      ]
                                      }
@@ -1043,6 +1188,21 @@
                                                      "color": "gray"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 4,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -1153,6 +1313,21 @@
                                                      {
                                                      "x": 2,
                                                      "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 4,
                                                      "color": "gray"
                                                      }
                                                      ]
@@ -1274,6 +1449,21 @@
                                                      "color": "gray"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 4,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -1384,6 +1574,21 @@
                                                      {
                                                      "x": 4,
                                                      "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 2,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 4,
                                                      "color": "gray"
                                                      }
                                                      ]
@@ -1500,6 +1705,26 @@
                                                      "color": "black"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 1,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -1606,6 +1831,26 @@
                                                      "x": 4,
                                                      "y": 1,
                                                      "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 5,
+                                                     "color": "gray"
                                                      }
                                                      ]
                                      }
@@ -1724,6 +1969,21 @@
                                                      "x": 1,
                                                      "y": 5,
                                                      "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 4,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 2,
+                                                     "color": "black"
                                                      }
                                                      ]
                                      }

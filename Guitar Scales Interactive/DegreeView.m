@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
         fontSize = 18.0f;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 23.0f;
+        fontSize = 32.0f;  // original 23.0
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         fontSize = 20.0f;
@@ -87,13 +87,13 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 - (void)drawRect:(CGRect)rect
 {
     //draw the bottom border
-    float borderSize = 6.5f;                                                    // iPhone 6
+    float borderSize = 7.0f; // original 6.5                                                   // iPhone 6
     CGRect bounds = [[UIScreen mainScreen] bounds];
     if (bounds.size.width < 568.0) {                                            // iPhone 4
         borderSize = 6.2;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        borderSize= 6.5;
+        borderSize= 7.0; // original 6.5
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         borderSize = 6.2;
@@ -111,12 +111,12 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
     [super layoutSubviews];
     CGRect bounds           = self.bounds;
     
-    CGFloat textButtonWidth = 100.0f;                                            // iPhone 6
+    CGFloat textButtonWidth = 138.0f;   // original 100.0                       // iPhone 6
     if (bounds.size.width < 568.0) {                                            // iPhone 4
         textButtonWidth = 60.0;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        textButtonWidth = 100.0;
+        textButtonWidth = 138.0;  // original 100.0
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         textButtonWidth = 80.0;

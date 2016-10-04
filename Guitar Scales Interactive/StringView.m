@@ -29,11 +29,11 @@ const CGFloat maxHeight = 175.0;
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
 
     CGFloat horizontalSpacing = self.bounds.size.width / 6.42;
-    CGFloat verticalSpacing   = self.bounds.size.height / 6.6;
-    CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.0; // to be used to calculate radius
+    CGFloat verticalSpacing   = self.bounds.size.height / 3.5;  // original 6.6
+    CGFloat radiusVerticalSpacing = self.bounds.size.height / 7.0; // original 6.0 to be used to calculate radius
     CGFloat horizontalOffset = horizontalSpacing / 4.8;
-    CGFloat verticalOffset   = verticalSpacing / 2.0;
-    CGFloat radius = radiusVerticalSpacing / 2.4;
+    CGFloat verticalOffset   = verticalSpacing / 4.4; // original 2.0
+    CGFloat radius = radiusVerticalSpacing / 2.4;  // original 2.4
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height - verticalSpacing;
 
