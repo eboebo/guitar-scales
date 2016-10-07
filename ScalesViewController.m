@@ -187,11 +187,11 @@
     CGFloat width             = self.view.frame.size.width;
     CGFloat height            = self.view.frame.size.height;
 
-    CGFloat stringViewWidth   = width * 0.5;
+    CGFloat stringViewWidth   = width * 0.59;  // original 0.5
     CGFloat stringViewHeight  = height * 0.45;
 
     CGFloat x                 = (width - stringViewWidth ) / 2.0;
-    CGFloat y                 = 96.0;  // original 58.0
+    CGFloat y                 = 108.0;  // original 58.0 then 96.0
     
 //    if (bounds.size.width > 667.0) {
 //        stringViewHeight += 4.0;                           // iPhone 6 Plus
@@ -213,16 +213,15 @@
 //         x -= 7; y -= 38; stringViewWidth += 20;                             // iPhone 6
 //    }
     
-    self.positionLabel.frame = CGRectMake(x, 30.0, stringViewWidth, 38);
+    self.positionLabel.frame = CGRectMake(x, 55.0, stringViewWidth, 38);   // original 30 (first y value)
     
     
-    CGFloat buttonHeight = stringViewHeight * 0.6;  // original (2.0/3.0)
-    CGFloat buttonWidth  = width * 0.09;  // original 0.1
+    CGFloat buttonHeight = stringViewHeight * 0.5;  // original (2.0/3.0) then 0.6
+    CGFloat buttonWidth  = width * 0.08;  // original 0.1 then 0.09
     
-    CGFloat oneEight = width * (1.0 / 8.0);
-    CGFloat buttonOffset = oneEight - (buttonWidth / 2.0);
+    CGFloat buttonOffset = (width / 9.9) - (buttonWidth / 2.0); // original width/8 higher number moves arrows left
     
-    CGFloat buttonY = y + stringViewHeight * 0.09;   // original (1.0/8.0)
+    CGFloat buttonY = y + stringViewHeight * 0.173;   // original (1.0/8.0)
     self.leftArrowButton.frame = CGRectMake(buttonOffset, buttonY, buttonWidth, buttonHeight);
     
     CGFloat rightButtonX = x + stringViewWidth + buttonOffset;
@@ -238,12 +237,12 @@
     CGFloat width             = self.view.frame.size.width;
     CGFloat height            = self.view.frame.size.height;
     
-    CGFloat stringViewWidth   = width * 0.875; // original .75
+    CGFloat stringViewWidth   = width; // original .75 then 0.875
     CGFloat stringViewHeight  = height * 0.3;
     
-    CGFloat x                 = width * (1.0/16.0); // original 1.0/8.0
+    CGFloat x                 = 0; // original width * 1.0/8.0 then 1/16
     CGFloat y                 = height * .25;
-    y = 78.0 + self.mainStringView.frame.size.height;  // original 90.0
+    y = 116.0 + self.mainStringView.frame.size.height;  // original 90.0 then 78.0
     
     CGRect frame              = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     self.fullStringView.frame = frame;
@@ -393,7 +392,7 @@
     CGFloat titleSize = 30.0f; // original 30.0f
     CGRect bounds = [[UIScreen mainScreen] bounds];
     if (bounds.size.width > 700.0) {
-        titleSize = 44.0f;  // original 40.0f
+        titleSize = 75.0f;  // original 40.0f
     }
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleText];
@@ -553,7 +552,7 @@
         fontSize = 25.0f;   // original 20.0f
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 33.0f; // original 27.0f
+        fontSize = 38.0f; // original 27.0f
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         fontSize = 26.0f;  // original 21.0f
@@ -570,7 +569,7 @@
         }
         if (bounds.size.width > 667.0) {                                        // iPhone 6 Plus
             [attributedString addAttribute:NSKernAttributeName
-                                     value:@9.0 // original 6.7
+                                     value:@11.0 // original 6.7
                                      range:NSMakeRange(0, text.length)];
         }
 

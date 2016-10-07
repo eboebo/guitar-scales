@@ -14,6 +14,7 @@
 
 typedef NS_ENUM(NSInteger, OptionsRow) {
     OptionsRowTutorial,
+    OptionsRowShowDegrees,
     OptionsRowLeftHand,
     OptionsRowRate,
     OptionsRowFeedback,
@@ -64,6 +65,12 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
         case OptionsRowTutorial:
             text = @"View Tutorial";
             break;
+        case OptionsRowShowDegrees: {
+            text = @"Show Scale Degrees";
+            BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
+            cell.accessoryType = showDegrees ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+        }
+            break;
         case OptionsRowLeftHand: {
             text = @"Enable Left Hand";
             BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
@@ -93,6 +100,13 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
     switch (indexPath.row) {
         case OptionsRowTutorial:
             [self.delegate didSelectOptionRow:OptionsRowTutorial];
+            break;
+        case OptionsRowShowDegrees: {
+            BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
+            [[GuitarStore sharedStore] setShowDegrees:!showDegrees];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
+        }
             break;
         case OptionsRowLeftHand: {
             BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];

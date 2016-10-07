@@ -27,12 +27,13 @@ const CGFloat maxHeight = 175.0;
     // Drawing code
     [super drawRect:rect];
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+    BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
 
-    CGFloat horizontalSpacing = self.bounds.size.width / 6.42;
-    CGFloat verticalSpacing   = self.bounds.size.height / 3.5;  // original 6.6
-    CGFloat radiusVerticalSpacing = self.bounds.size.height / 7.0; // original 6.0 to be used to calculate radius
-    CGFloat horizontalOffset = horizontalSpacing / 4.8;
-    CGFloat verticalOffset   = verticalSpacing / 4.4; // original 2.0
+    CGFloat horizontalSpacing = self.bounds.size.width / 6.42;  // original 6.42 trying 6.0
+    CGFloat verticalSpacing   = self.bounds.size.height / 4.5;  // original 6.6 then 3.5
+    CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.6; // original 6.0 then 7.0 to be used to calculate radius
+    CGFloat horizontalOffset = horizontalSpacing / 4.8;  // original 4.8 trying 3.4
+    CGFloat verticalOffset   = verticalSpacing / 3.2; // original 2.0 then 4.4
     CGFloat radius = radiusVerticalSpacing / 2.4;  // original 2.4
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height - verticalSpacing;
@@ -175,6 +176,10 @@ const CGFloat maxHeight = 175.0;
                         CGContextDrawPath(context, kCGPathFillStroke);
 
                         // If the view is the center view, add degree text on top of notes
+                        // if showDegrees is set on
+                if (showDegrees == false)
+                {
+                
                         if (self.isMainView) {
                             NSMutableAttributedString *degreeString
                             = [[degree toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
@@ -214,6 +219,8 @@ const CGFloat maxHeight = 175.0;
                             [degreeString drawInRect:rect];
                             
                         }
+                }
+                        
                     }
                 }
             }

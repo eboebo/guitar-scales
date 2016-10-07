@@ -21,5 +21,13 @@
 + (UIColor *)GuitarRockBlue;
 + (UIColor *)GuitarYellow;
 
+// new transparent colors
+
++ (UIColor *)blackColorAlpha;
++ (UIColor *)GuitarDarkGrayAlpha;
++ (UIColor *)GuitarRockBlueAlpha;
++ (UIColor *)GuitarRoseAlpha;
++ (UIColor *)GuitarYellowAlpha;
+
 
 @end

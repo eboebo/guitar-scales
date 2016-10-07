@@ -39,14 +39,14 @@
         CGContextAddLineToPoint(context, size.width, size.height / 2.0);
         CGContextAddLineToPoint(context, 0.0, 0.0);
         
-        CGContextSetFillColorWithColor(context, [UIColor GuitarRockBlue].CGColor);
+        CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
     } else {
         CGContextMoveToPoint(context, size.width, 0);
         CGContextAddLineToPoint(context, size.width, size.height);
         CGContextAddLineToPoint(context, 0, size.height / 2.0);
         CGContextAddLineToPoint(context, size.width, 0.0);
         
-        CGContextSetFillColorWithColor(context, [UIColor GuitarRose].CGColor);
+        CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
         
     }
     
