@@ -19,6 +19,8 @@
 @property (nonatomic, weak) id<DegreeViewDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *selectedDegrees;
 @property (strong, nonatomic) NSMutableArray *tempDegrees;
+@property (strong, nonatomic) NSMutableArray *tempShowDegrees;
 - (void)resetClearButton;
+- (void)resetShowAllButton;
 
 @end

@@ -41,6 +41,7 @@
         
         [self.contentView addSubview:self.leftTitle];
         [self.contentView addSubview:self.rightTitle];
+        
     }
     return self;
 }

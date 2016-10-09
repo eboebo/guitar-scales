@@ -67,7 +67,7 @@
     
     self.view.backgroundColor = [UIColor GuitarCream];
     
-    self.currentPosition = 0;
+    self.currentPosition = 2;
     
     [self setUpNavigationBar];
     [self setUpLabels];
@@ -417,6 +417,7 @@
     self.degreeView.selectedDegrees = self.selectedDegrees;
     self.degreeView.delegate = self;
     [self.degreeView resetClearButton];
+    [self.degreeView resetShowAllButton];
     [self.degreeView setNeedsDisplay];
 }
 
