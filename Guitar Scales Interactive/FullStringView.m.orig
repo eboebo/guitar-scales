@@ -43,6 +43,7 @@
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+<<<<<<< HEAD
     // draw background
 //    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
 //    for (int i = 0; i < 6; i++) {
@@ -58,6 +59,37 @@
 //        CGContextFillRect(context, fretFrame);
 //    }
 //    
+=======
+    
+    // ** NEW ** draw gray over entire fretboard
+    NSInteger fretboardHeight = verticalSpacing * 5;
+    CGRect entireFretboardFrame = CGRectMake(0, verticalOffset, width, fretboardHeight);
+    CGContextSetFillColorWithColor(context, [UIColor GuitarDarkGrayAlpha].CGColor);
+    CGContextFillRect(context, entireFretboardFrame);
+    
+    // draw background cream rectangle
+    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier] + 1;  // original no + 1
+    
+    NSInteger fretCounter = 6;
+    if ((self.position.identifier == 4) || (self.position.identifier == 5) || (self.position.identifier == 6))
+    {
+        fretCounter = 5;            // only do 5 frets for some positions
+    }
+        for (int i = 0; i < fretCounter; i++) {
+            NSInteger selectedIndex = i + selectedOffset;
+            CGFloat x = horizontalOffset + (selectedIndex * horizontalSpacing);
+            
+            if (isLeftHand) {
+                x = width - x - horizontalSpacing;
+                
+            }
+            CGFloat y = 5 * verticalSpacing;
+            CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, y);
+            CGContextSetFillColorWithColor(context, [UIColor GuitarCream].CGColor);
+            CGContextFillRect(context, fretFrame);
+    }
+    
+>>>>>>> 7465058fea7d90b2c287cdeb74abe49b52c55ba7
     // Draw 6th string base fret - blue
     
     CGFloat x = horizontalOffset + (5 * horizontalSpacing); // original 4
@@ -91,11 +123,15 @@
     CGContextSetFillColorWithColor(context, [UIColor GuitarRoseAlpha].CGColor);
     CGContextFillRect(context, fretFrame);
     
+<<<<<<< HEAD
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+=======
     
 
 
     
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColorAlpha] CGColor]);
+>>>>>>> 7465058fea7d90b2c287cdeb74abe49b52c55ba7
     CGContextSetLineWidth(context, lineWidth);
     
     // draw vertical lines
@@ -214,6 +250,7 @@
                     [degreeString drawInRect:rect];
                         
             }
+                    
                     
                 }
                 

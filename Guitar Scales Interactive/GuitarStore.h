@@ -27,6 +27,8 @@ typedef void (^UpdateCallback)(BOOL success);
 - (void)parseData;
 - (void)setDisplayedTutorial;
 - (BOOL)displayedTutorial;
+- (void)setShowDegrees:(BOOL)sDegrees;
+- (BOOL)showDegrees;
 - (void)setLeftHand:(BOOL)leftHand;
 - (BOOL)isLeftHand;
 

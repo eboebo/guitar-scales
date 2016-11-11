@@ -116,6 +116,17 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"displayedTutorial"];
 }
 
+- (void)setShowDegrees:(BOOL)sDegrees
+{
+    [[NSUserDefaults standardUserDefaults] setBool:sDegrees forKey:@"showDegrees"];
+}
+
+- (BOOL)showDegrees
+{
+    BOOL showDegrees = [[NSUserDefaults standardUserDefaults] boolForKey:@"showDegrees"];
+    return showDegrees;
+}
+
 - (void)setLeftHand:(BOOL)leftHand
 {
     [[NSUserDefaults standardUserDefaults] setBool:leftHand forKey:@"isLeftHand"];

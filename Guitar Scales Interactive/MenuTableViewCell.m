@@ -20,10 +20,10 @@
         self.backgroundColor = [UIColor GuitarBlue];
         
         self.leftTitle = [UILabel new];
-        self.leftTitle.font = [UIFont ProletarskFontWithSize:17.0f];
+        self.leftTitle.font = [UIFont ProletarskFontWithSize:22.0f];  // original 17.0f
         self.leftTitle.textColor = [UIColor GuitarCream];
         self.leftTitle.backgroundColor = [UIColor GuitarBlue];
-        [self.leftTitle setTextAlignment:NSTextAlignmentLeft];
+        [self.leftTitle setTextAlignment:NSTextAlignmentCenter];
         [self.leftTitle setUserInteractionEnabled:YES];
         
         UITapGestureRecognizer *leftTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftTitleTap:)];
@@ -33,14 +33,15 @@
         self.rightTitle.textColor = [UIColor GuitarCream];
         self.rightTitle.backgroundColor = [UIColor GuitarBlue];
         [self.rightTitle setUserInteractionEnabled:YES];
-        self.rightTitle.font = [UIFont ProletarskFontWithSize:17.0f];
-        [self.rightTitle setTextAlignment:NSTextAlignmentRight];
+        self.rightTitle.font = [UIFont ProletarskFontWithSize:22.0f];  // original 17.0f
+        [self.rightTitle setTextAlignment:NSTextAlignmentCenter];
         
         UITapGestureRecognizer *rightTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightTitleTap:)];
         [self.rightTitle addGestureRecognizer:rightTap];
         
         [self.contentView addSubview:self.leftTitle];
         [self.contentView addSubview:self.rightTitle];
+        
     }
     return self;
 }

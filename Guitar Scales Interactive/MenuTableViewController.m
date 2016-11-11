@@ -62,6 +62,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     
     NSString *MenuCellIdentifier = @"MenuCellIdentifier";
     MenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MenuCellIdentifier];
+    
     if (cell == nil) {
         cell
         = [[MenuTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MenuCellIdentifier];
@@ -71,7 +72,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     Scale *selectedScale = [[GuitarStore sharedStore] selectedScale];
   
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:leftScale.menuTitle];
-    [attributedString addAttribute:NSKernAttributeName value:@(.3) range:NSMakeRange(0, leftScale.menuTitle.length)];
+    [attributedString addAttribute:NSKernAttributeName value:@(1.0) range:NSMakeRange(0, leftScale.menuTitle.length)]; // original .3
     
     
     cell.leftTitle.attributedText = attributedString;
@@ -98,7 +99,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
         Scale *rightScale = sectionScales[scaleIndex];
         
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:rightScale.menuTitle];
-        [attributedString addAttribute:NSKernAttributeName value:@(.3) range:NSMakeRange(0, rightScale.menuTitle.length)];
+        [attributedString addAttribute:NSKernAttributeName value:@(1.0) range:NSMakeRange(0, rightScale.menuTitle.length)]; // original .3
 
         cell.rightTitle.attributedText = attributedString;
         tag = ([indexPath section] * 1000 + (scaleIndex)) + SCALE_TAG_OFFSET;
@@ -119,7 +120,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 28.0f;
+    return 31.0f;  // original 28.0
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -130,7 +131,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
     UILabel *titleLabel        = [UILabel new];
     titleLabel.backgroundColor = [UIColor GuitarLightBlue];
-    [titleLabel setFont:[UIFont ProletarskFontWithSize:16.0f]];
+    [titleLabel setFont:[UIFont ProletarskFontWithSize:20.0f]];  // original 16.0
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     
     NSString *titleText = @"SCALES";
@@ -141,7 +142,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
     CGFloat inset      = 10.0;
     CGFloat labelWidth = self.view.bounds.size.width - inset * 2.0;
-    CGRect labelFrame  = CGRectMake(inset, 0, labelWidth , headerView.frame.size.height);
+    CGRect labelFrame  = CGRectMake(inset, 4, labelWidth , headerView.frame.size.height);  // original 0
     titleLabel.frame   = labelFrame;
     
     [headerView addSubview:titleLabel];
@@ -150,7 +151,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 24.0f;
+    return 32.0f;  // original 24.0
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section

@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
         fontSize = 18.0f;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 23.0f;
+        fontSize = 32.0f;  // original 23.0
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         fontSize = 20.0f;
@@ -87,13 +87,13 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 - (void)drawRect:(CGRect)rect
 {
     //draw the bottom border
-    float borderSize = 6.5f;                                                    // iPhone 6
+    float borderSize = 10.0f; // original 6.5                                                   // iPhone 6
     CGRect bounds = [[UIScreen mainScreen] bounds];
     if (bounds.size.width < 568.0) {                                            // iPhone 4
         borderSize = 6.2;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        borderSize= 6.5;
+        borderSize= 10.0; // original 6.5
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         borderSize = 6.2;
@@ -111,12 +111,12 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
     [super layoutSubviews];
     CGRect bounds           = self.bounds;
     
-    CGFloat textButtonWidth = 100.0f;                                            // iPhone 6
+    CGFloat textButtonWidth = 138.0f;   // original 100.0                       // iPhone 6
     if (bounds.size.width < 568.0) {                                            // iPhone 4
         textButtonWidth = 60.0;
     }
     else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        textButtonWidth = 100.0;
+        textButtonWidth = 138.0;  // original 100.0
     }
     else if (bounds.size.width < 667.0) {                                       // iPhone 5
         textButtonWidth = 80.0;
@@ -203,6 +203,8 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 
 - (void)clearAllTap:(id)sender
 {
+    [self resetShowAllButton];
+    
     if (!self.tempDegrees) {
         self.tempDegrees = self.selectedDegrees;
         [self.clearAllButton setTitle:@"Undo" forState:UIControlStateNormal];
@@ -214,23 +216,34 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
     }
     
     [self.delegate selectedDegreesModified:self.selectedDegrees];
-    
     [self setNeedsDisplay];
 }
 
 - (void)showAllTap:(id)sender
 {
-    
     [self resetClearButton];
     
-    NSArray *degrees = [[[GuitarStore sharedStore] chromaticScale] selectedDegrees];
-    NSMutableArray *degreeArray = [degrees mutableCopy];
+    if (!self.tempShowDegrees) { // if "ALL" is currently showing
+        
+        self.tempShowDegrees = self.selectedDegrees; // store current scale
+        [self.showAllButton setTitle:@"Undo" forState:UIControlStateNormal]; // change to "UNDO"
     
-    if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
-        [self.delegate selectedDegreesModified:degreeArray];
-    }
+        NSArray *degrees = [[[GuitarStore sharedStore] chromaticScale] selectedDegrees]; // make current scale Chromatic
+        NSMutableArray *degreeArray = [degrees mutableCopy];
     
-    self.selectedDegrees = degreeArray;
+            if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
+                [self.delegate selectedDegreesModified:degreeArray];
+            }
+    
+            self.selectedDegrees = degreeArray;
+        }
+        else { // if "UNDO" is currently showing
+            [self.showAllButton setTitle:@"All" forState:UIControlStateNormal];   // change to "ALL"
+            self.selectedDegrees = self.tempShowDegrees;   // make current scale the stored scale
+            self.tempShowDegrees = nil; // empty the stored scale
+        }
+    
+    [self.delegate selectedDegreesModified:self.selectedDegrees]; // needed?
     [self setNeedsDisplay];
 }
 
@@ -249,6 +262,7 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 - (void)degreeTapped:(id)sender
 {
     [self resetClearButton];
+    [self resetShowAllButton];
     
     DegreeButtonView *degreeButton = (DegreeButtonView *)sender;
     if (degreeButton.selected) {
@@ -271,6 +285,7 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 - (void)doubleDegreeButtonTapped:(id)sender
 {
     [self resetClearButton];
+    [self resetShowAllButton];
 
     DoubleDegreeButtonView *degreeButton = (DoubleDegreeButtonView *)sender;
 
@@ -312,6 +327,15 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
     if (self.tempDegrees) {
         self.tempDegrees = nil;
         [self.clearAllButton setTitle:@"Clear" forState:UIControlStateNormal];
+    }
+}
+
+- (void)resetShowAllButton
+{
+    // Reset Show All button
+    if (self.tempShowDegrees) {
+        self.tempShowDegrees = nil;
+        [self.showAllButton setTitle:@"All" forState:UIControlStateNormal];
     }
 }
 
