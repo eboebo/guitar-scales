@@ -53,6 +53,8 @@
 		B181A0F71AEFCFF20067E79D /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B181A0F61AEFCFF20067E79D /* OptionsViewController.m */; };
 		B192A1691D99955800B2B2F3 /* ArrowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B192A1681D99955800B2B2F3 /* ArrowButton.m */; };
 		B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */ = {isa = PBXBuildFile; fileRef = B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */; };
+		B1D962CF1DD6203700DDEF6A /* FullStringContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D962CE1DD6203700DDEF6A /* FullStringContainerView.m */; };
+		B1D962D21DD6219900DDEF6A /* FretView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D962D11DD6219900DDEF6A /* FretView.m */; };
 		B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */; };
 		B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */; };
 		B1F9C7361A701A1A00B0D777 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9C7341A701A1A00B0D777 /* Crashlytics.framework */; };
@@ -142,6 +144,10 @@
 		B192A1681D99955800B2B2F3 /* ArrowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowButton.m; sourceTree = "<group>"; };
 		B1AFCD8D19AE23DF00714B2D /* NSMutableArray+Guitar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Guitar.h"; sourceTree = "<group>"; };
 		B1AFCD8E19AE23DF00714B2D /* NSMutableArray+Guitar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Guitar.m"; sourceTree = "<group>"; };
+		B1D962CD1DD6203700DDEF6A /* FullStringContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullStringContainerView.h; sourceTree = "<group>"; };
+		B1D962CE1DD6203700DDEF6A /* FullStringContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullStringContainerView.m; sourceTree = "<group>"; };
+		B1D962D01DD6219900DDEF6A /* FretView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FretView.h; sourceTree = "<group>"; };
+		B1D962D11DD6219900DDEF6A /* FretView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FretView.m; sourceTree = "<group>"; };
 		B1EC83ED19F40A7800A3D30F /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		B1EC83F019F4141700A3D30F /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
@@ -284,8 +290,6 @@
 			children = (
 				B108CB06199ADB570047A473 /* StringView.h */,
 				B108CB07199ADB570047A473 /* StringView.m */,
-				B16B17AF1D998ABE00A52785 /* FullStringView.h */,
-				B16B17B01D998ABE00A52785 /* FullStringView.m */,
 				B16E945219A05A8E001F769A /* DegreeView.h */,
 				B16E945319A05A8E001F769A /* DegreeView.m */,
 				B13799F919AD1BE0002314D7 /* DegreeButtonView.h */,
@@ -296,6 +300,12 @@
 				B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */,
 				B192A1671D99955800B2B2F3 /* ArrowButton.h */,
 				B192A1681D99955800B2B2F3 /* ArrowButton.m */,
+				B1D962CD1DD6203700DDEF6A /* FullStringContainerView.h */,
+				B1D962CE1DD6203700DDEF6A /* FullStringContainerView.m */,
+				B16B17AF1D998ABE00A52785 /* FullStringView.h */,
+				B16B17B01D998ABE00A52785 /* FullStringView.m */,
+				B1D962D01DD6219900DDEF6A /* FretView.h */,
+				B1D962D11DD6219900DDEF6A /* FretView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -521,6 +531,7 @@
 				B108CB18199B04710047A473 /* Model.m in Sources */,
 				B181A0F41AEFCB900067E79D /* MainViewController.m in Sources */,
 				B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */,
+				B1D962D21DD6219900DDEF6A /* FretView.m in Sources */,
 				B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */,
 				B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */,
 				B16B17B11D998ABE00A52785 /* FullStringView.m in Sources */,
@@ -528,6 +539,7 @@
 				B108CACF199AD1E70047A473 /* AppDelegate.m in Sources */,
 				B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */,
 				B108CB08199ADB570047A473 /* StringView.m in Sources */,
+				B1D962CF1DD6203700DDEF6A /* FullStringContainerView.m in Sources */,
 				B16E945A19A173D8001F769A /* Coordinate.m in Sources */,
 				B15F7B7919AAB13800028D8D /* UIColor+Guitar.m in Sources */,
 				B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */,

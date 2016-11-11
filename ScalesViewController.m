@@ -8,6 +8,8 @@
 
 #import "ScalesViewController.h"
 #import "StringView.h"
+#import "FullStringContainerView.h"
+
 #import "FullStringView.h"
 #import "Scale.h"
 #import "DegreeView.h"
@@ -19,7 +21,8 @@
 @interface ScalesViewController ()
 <DegreeViewDelegate,
  MenuDelegate,
- UIAlertViewDelegate
+ UIAlertViewDelegate,
+ FullStringContainerViewDelegate
 >
 
 @property (nonatomic, strong) StringView *selectedStringView;
@@ -35,7 +38,7 @@
 @property (strong, nonatomic) ArrowButton *rightArrowButton;
 
 
-@property (strong, nonatomic) FullStringView *fullStringView;
+@property (strong, nonatomic) FullStringContainerView *fullStringView;
 
 
 
@@ -153,8 +156,19 @@
     self.mainStringView = [[StringView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.mainStringView];
     
-    self.fullStringView = [[FullStringView alloc] initWithFrame:CGRectZero];
+    self.fullStringView = [[FullStringContainerView alloc] initWithFrame:CGRectZero];
+    self.fullStringView.delegate = self;
     [self.view addSubview:self.fullStringView];
+    
+    if( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
+        self.mainStringView.hidden = true;
+        self.mainStringView.alpha = 0;
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleViews:)];
+        [self.mainStringView addGestureRecognizer:singleTap];
+        
+        UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleViews:)];
+        [self.fullStringView addGestureRecognizer:singleTap2];
+    }
 
 }
 
@@ -165,69 +179,85 @@
     [self layoutDegreeView];
     [self layoutMainStringView];
     [self layoutFullStringView];
+    
+    self.positionLabel.frame = CGRectMake(0, 10.0, self.view.frame.size.width, 38);
 
 }
 
 - (void)layoutDegreeView
 {
     CGFloat height           = self.view.frame.size.height;
-//    CGFloat y                = height * 0.85;
-//    CGFloat degreeViewHeight = height - y;
     
-    CGFloat y                = height * 0.92;
-    CGFloat degreeViewHeight = height - y;
+    
+    CGFloat y;
+    CGFloat degreeViewHeight;
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        y                = height * 0.92;
+        degreeViewHeight = height - y;
+    } else {
+        y                = height * 0.85;
+        degreeViewHeight = height - y;
+    }
+    
     self.degreeView.frame    = CGRectMake(0, y, self.view.frame.size.width, degreeViewHeight);
 
 }
 
+
 - (void)layoutMainStringView
 {
-    CGRect bounds = [[UIScreen mainScreen] bounds];
     
     CGFloat width             = self.view.frame.size.width;
     CGFloat height            = self.view.frame.size.height;
-
-    CGFloat stringViewWidth   = width * 0.5;
-    CGFloat stringViewHeight  = height * 0.45;
-
-    CGFloat x                 = (width - stringViewWidth ) / 2.0;
-    CGFloat y                 = 58.0;
     
-//    if (bounds.size.width > 667.0) {
-//        stringViewHeight += 4.0;                           // iPhone 6 Plus
-//        
-//    }
+    CGFloat stringViewWidth;
+    CGFloat containerWidth;
+    CGFloat stringViewHeight;
+    CGFloat buttonOffset;
+    
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        stringViewWidth   = width * 0.5;
+        containerWidth = stringViewWidth;
+        stringViewHeight  = height * 0.45;
+        CGFloat buttonOffset = 40.0;
+
 //
+//        CGFloat buttonHeight = stringViewHeight * (2.0/3.0);
+//        CGFloat buttonWidth  = width * 0.1;
+//        CGFloat buttonOffset = 40.0;
+//        
+//        CGFloat leftButtonX = x - buttonWidth - buttonOffset;
+//        CGFloat buttonY = y + ((stringViewHeight - buttonHeight ) / 2.0);
+//        self.leftArrowButton.frame = CGRectMake(leftButtonX, buttonY, buttonWidth, buttonHeight);
+//        
+//        CGFloat rightButtonX = x + stringViewWidth + buttonOffset;
+//        self.rightArrowButton.frame = CGRectMake(rightButtonX, buttonY, buttonWidth, buttonHeight);
+        
+    } else {
+
+        stringViewWidth   = width * 0.6;
+        containerWidth = width * 0.8;
+        stringViewHeight  = height * 0.6;
+        buttonOffset = 20.0;
+    }
+    
+    CGFloat x = (width - stringViewWidth ) / 2.0;
+    CGFloat y = 58.0;
+    
     CGRect frame              = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     self.mainStringView.frame = frame;
-//
-//    if (bounds.size.width > 667.0) {
-//         x -= 7; y -= 40; stringViewWidth += 20;                           // iPhone 6 Plus
-//
-//    }
-//    else if (bounds.size.width < 667.0) {                                    // iPhone 5, 4
-//        x -= 7; y -= 35; stringViewWidth += 20;
-//    }
-//    
-//    else {
-//         x -= 7; y -= 38; stringViewWidth += 20;                             // iPhone 6
-//    }
-    
-    self.positionLabel.frame = CGRectMake(x, 10.0, stringViewWidth, 38);
     
     
-    CGFloat buttonHeight = stringViewHeight * (2.0/3.0);
-    CGFloat buttonWidth  = width * 0.1;
+    CGFloat buttonHeight = stringViewHeight * (1.0/3.0);
+    CGFloat buttonWidth  = width * 0.05;
     
-    CGFloat oneEight = width * (1.0 / 8.0);
-    CGFloat buttonOffset = oneEight - (buttonWidth / 2.0);
+    CGFloat containerX =  (width - containerWidth ) / 2.0;
+    CGFloat leftButtonX = containerX - buttonWidth - buttonOffset;
+    CGFloat buttonY = y + ((stringViewHeight - buttonHeight ) / 2.0);
+    self.leftArrowButton.frame = CGRectMake(leftButtonX, buttonY, buttonWidth, buttonHeight);
     
-    CGFloat buttonY = y + stringViewHeight * (1.0/8.0);
-    self.leftArrowButton.frame = CGRectMake(buttonOffset, buttonY, buttonWidth, buttonHeight);
-    
-    CGFloat rightButtonX = x + stringViewWidth + buttonOffset;
+    CGFloat rightButtonX = containerX + containerWidth + buttonOffset;
     self.rightArrowButton.frame = CGRectMake(rightButtonX, buttonY, buttonWidth, buttonHeight);
-
     
 
 }
@@ -238,15 +268,28 @@
     CGFloat width             = self.view.frame.size.width;
     CGFloat height            = self.view.frame.size.height;
     
-    CGFloat stringViewWidth   = width * 0.75;
-    CGFloat stringViewHeight  = height * 0.3;
-    
-    CGFloat x                 = width * (1.0/8.0);
-    CGFloat y                 = height * .25;
-    y = 90.0 + self.mainStringView.frame.size.height;
-    
-    CGRect frame              = CGRectMake(x, y, stringViewWidth, stringViewHeight);
-    self.fullStringView.frame = frame;
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        CGFloat stringViewWidth   = width * 0.75;
+        CGFloat stringViewHeight  = height * 0.3;
+        
+        CGFloat x                 = width * (1.0/8.0);
+        CGFloat y                 = height * .25;
+        y = 90.0 + self.mainStringView.frame.size.height;
+        
+        CGRect frame              = CGRectMake(x, y, stringViewWidth, stringViewHeight);
+        self.fullStringView.frame = frame;
+    } else {
+        
+        CGFloat stringViewWidth   = width * 0.8;
+        CGFloat stringViewHeight  = height * 0.6;
+        
+        CGFloat x                 = (width - stringViewWidth ) / 2.0;
+        CGFloat y                 = 58.0;
+        
+        CGRect frame              = CGRectMake(x, y, stringViewWidth, stringViewHeight);
+        self.fullStringView.frame = frame;
+        
+    }
 }
 
 
@@ -345,38 +388,16 @@
     }
 
     self.positions = [[GuitarStore sharedStore] positions];
-//    for (Position *pos in positions) {
-//        
-//        NSInteger positionID = pos.identifier;
-////        StringView *stringView = [self stringViewForPositionID:positionID];
-////        UILabel *positionabel = [self positionLabelForPositionID:positionID];
-////        stringView.position = pos;
-////        stringView.selectedDegrees = self.selectedDegrees;
-//        if (!self.selectedStringView && stringView.position.identifier == 4) {
-//            self.selectedStringView = stringView;
-//            stringView.alpha = .8;
-//            positionabel.alpha = .8;
-//        } else if (stringView == self.selectedStringView) {
-//            stringView.alpha = .8;
-//            positionabel.alpha = .8;
-//        }else {
-//            stringView.alpha = 0.3;
-//            positionabel.alpha = 0.3;
-//        }
-//        [positionabel setNeedsDisplay];
-//        [stringView setNeedsDisplay];
-//    }
-//    
 
     self.mainStringView.isMainView = YES;
    
     // TODO // HANDLE THIS
 //    self.mainStringView.stringViewType = self.selectedStringView.stringViewType;
     self.mainStringView.selectedDegrees = self.selectedDegrees;
+    
     self.fullStringView.selectedDegrees = self.selectedDegrees;
     
     [self updateStringViewPositions];
-    
 
 }
 
@@ -468,11 +489,33 @@
         self.fullStringView.position = self.positions[self.currentPosition];
         
         [self setSubHeaderText:self.mainStringView.position.title];
-
-        
     }
     [self.mainStringView setNeedsDisplay];
-    [self.fullStringView setNeedsDisplay];
+    [self.fullStringView updateStringViewPosition];
+}
+
+- (void)toggleViews:(id)sender {
+    if ([self.mainStringView isHidden]) {
+
+        [UIView animateWithDuration:0.3 animations:^{
+            self.mainStringView.hidden = false;
+            self.mainStringView.alpha = 1;
+            self.fullStringView.alpha = 0;
+        } completion: ^(BOOL finished) {
+            self.fullStringView.hidden = true;
+        }];
+        
+    } else {
+
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.fullStringView.hidden = false;
+            self.fullStringView.alpha = 1;
+            self.mainStringView.alpha = 0;
+        } completion: ^(BOOL finished) {
+            self.mainStringView.hidden = true;
+        }];
+    }
 }
 
 #pragma mark DegreeViewDelegate
@@ -546,7 +589,7 @@
     
     
     NSShadow *shadowDic=[[NSShadow alloc] init];
-  [shadowDic setShadowColor: [UIColor blackColor]];
+    [shadowDic setShadowColor: [UIColor blackColor]];
     [shadowDic setShadowOffset:CGSizeMake(.4, .5)];
     [attributedString addAttribute:NSShadowAttributeName
                          value:shadowDic
@@ -567,6 +610,19 @@
 - (void)didChangeDisplay:(id)sender
 {
     [self refreshData];
+}
+
+#pragma mark FullStringContainerViewDelegate
+
+- (void)toggleView {
+    [self toggleViews:self];
+}
+
+- (void)increasePosition {
+    [self handlePositionRight:self];
+}
+- (void)decreasePosition {
+    [self handlePositionLeft:self];
 }
 
 @end

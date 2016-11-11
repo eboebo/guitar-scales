@@ -16,7 +16,7 @@
             startingLineNumber = "166"
             endingLineNumber = "166"
             landmarkName = "-layoutSubviews"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,7 +32,7 @@
             startingLineNumber = "181"
             endingLineNumber = "181"
             landmarkName = "-layoutSubviews"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,7 +64,7 @@
             startingLineNumber = "239"
             endingLineNumber = "239"
             landmarkName = "-containsId:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,7 +170,7 @@
             startingLineNumber = "244"
             endingLineNumber = "244"
             landmarkName = "-containsId:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -244,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "496610615.911546"
+            timestampString = "500579159.656716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "-refreshData"
             landmarkType = "7">
          </BreakpointContent>
@@ -260,12 +260,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScalesViewController.m"
-            timestampString = "496610615.911546"
+            timestampString = "500579159.656716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "-refreshData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Guitar Scales Interactive/FullStringView.m"
+            timestampString = "500573186.645528"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

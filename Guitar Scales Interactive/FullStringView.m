@@ -43,32 +43,29 @@
     
     horizontalOffset += (horizontalSpacing / 2.0);
 
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // draw background
-    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
-    for (int i = 0; i < 6; i++) {
-        NSInteger selectedIndex = i + selectedOffset;
-        CGFloat x = horizontalOffset + (selectedIndex * horizontalSpacing);
-        
-        if (isLeftHand) {
-            x = width - x - horizontalSpacing;
-            
-        }
-        CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
-        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
-        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
-        CGContextFillRect(context, fretFrame);
-    }
-    
+//    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
+//    for (int i = 0; i < 6; i++) {
+//        NSInteger selectedIndex = i + selectedOffset;
+//        CGFloat x = horizontalOffset + (selectedIndex * horizontalSpacing);
+//        
+//        if (isLeftHand) {
+//            x = width - x - horizontalSpacing;
+//        }
+//        CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
+//        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
+//        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
+//        CGContextFillRect(context, fretFrame);
+//    }
+//    
     // Draw 6th string base fret - blue
     
     CGFloat x = horizontalOffset + (4 * horizontalSpacing);;
     
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
-        
     }
     CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
     CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
@@ -96,10 +93,6 @@
     CGContextSetFillColorWithColor(context, [UIColor GuitarRose].CGColor);
     CGContextFillRect(context, fretFrame);
     
-    
-
-
-    
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     CGContextSetLineWidth(context, lineWidth);
     
@@ -126,8 +119,6 @@
         CGContextAddLineToPoint(context, horizontalLineWidth, y);
         CGContextDrawPath(context, kCGPathStroke);
     }
-    
-    
     
     NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
     for (Degree *degree in degrees) {
