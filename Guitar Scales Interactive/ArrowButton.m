@@ -33,29 +33,37 @@
     
     CGSize size = self.frame.size;
     
+    CGFloat originY = 0.0;
+    CGFloat height = size.height;
+    CGFloat halfHeight = height / 2.0;
+    CGFloat width = size.width;
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) // iPhone fullstring view
+    {
+        originY = size.height * 0.2;
+        height = size.height * 0.8;
+        width = size.width * 0.3;
+    }
+    CGFloat leftSide = size.width - width;
+    
     if (self.type == ArrowButtonTypeRight) {
-        CGContextMoveToPoint(context, 0, 0);
-        CGContextAddLineToPoint(context, 0, size.height);
-        CGContextAddLineToPoint(context, size.width, size.height / 2.0);
-        CGContextAddLineToPoint(context, 0.0, 0.0);
+        CGContextMoveToPoint(context, 0, originY);
+        CGContextAddLineToPoint(context, 0, height);
+        CGContextAddLineToPoint(context, width, halfHeight);
+        CGContextAddLineToPoint(context, 0.0, originY);
         
-        CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
-    } else {
-        CGContextMoveToPoint(context, size.width, 0);
-        CGContextAddLineToPoint(context, size.width, size.height);
-        CGContextAddLineToPoint(context, 0, size.height / 2.0);
-        CGContextAddLineToPoint(context, size.width, 0.0);
+        CGContextSetFillColorWithColor(context, [UIColor GuitarMain].CGColor);
+    } else if (self.type == ArrowButtonTypeLeft){
+        CGContextMoveToPoint(context, size.width, originY);
+        CGContextAddLineToPoint(context, size.width, height);
+        CGContextAddLineToPoint(context, leftSide, halfHeight);
+        CGContextAddLineToPoint(context, size.width, originY);
         
-        CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
+        CGContextSetFillColorWithColor(context, [UIColor GuitarMain].CGColor);
         
     }
     
-    
-
-
     CGContextClosePath(context);
-    
-    
     CGContextFillPath(context);
 }
 

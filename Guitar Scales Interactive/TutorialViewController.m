@@ -32,10 +32,14 @@
     self.backgroundImageView.userInteractionEnabled = YES;
     [self.view addSubview:self.backgroundImageView];
     
+    CGFloat width = self.view.bounds.size.width;
+    CGFloat skipSize = 16;
+    if (width > 667) skipSize = 20; // iPhone 6 & 7 Plus, iPad ?
+    
     self.skipButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.skipButton setTitle:@"SKIP" forState:UIControlStateNormal];
-    [self.skipButton setTitleColor:[UIColor GuitarMediumBlue] forState:UIControlStateNormal];
-    [self.skipButton.titleLabel setFont:[UIFont blackoutFontWithSize:16.0]];
+    [self.skipButton setTitle:@"EXIT" forState:UIControlStateNormal];
+    [self.skipButton setTitleColor:[UIColor GuitarMainAlpha] forState:UIControlStateNormal];
+    [self.skipButton.titleLabel setFont:[UIFont blackoutFontWithSize:skipSize]];
     [self.skipButton addTarget:self action:@selector(skip:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.skipButton];
     
@@ -51,8 +55,13 @@
 
 - (void)viewWillLayoutSubviews
 {
-    self.backgroundImageView.frame = self.view.bounds;
-    self.skipButton.frame = CGRectMake(self.view.bounds.size.width - 75, 1, 80, 30);
+    CGRect bounds = self.view.bounds;
+    self.backgroundImageView.frame = bounds;
+    CGFloat x = bounds.size.width * 0.9;
+    CGFloat y = 0;
+    CGFloat skipWidth = bounds.size.width * 0.1;
+    CGFloat skipHeight = bounds.size.height * 0.1;
+    self.skipButton.frame = CGRectMake(x, y, skipWidth, skipHeight);
 
 }
 
@@ -69,7 +78,7 @@
         [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
     } else {
         [UIView transitionWithView:self.backgroundImageView
-                          duration:0.3f // animation duration
+                          duration:0.1f // animation duration
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
                             [self.backgroundImageView setImage:[UIImage imageNamed:imageString]];
@@ -79,10 +88,10 @@
 
 -(void)imageViewTapped:(id)sender
 {
-    if (self.currentImageIndex < 20) {
+    if (self.currentImageIndex < 23) {
         self.currentImageIndex++;
         
-        if (self.currentImageIndex > 18) {
+        if (self.currentImageIndex > 22) {
             self.skipButton.hidden = YES;
         }
         

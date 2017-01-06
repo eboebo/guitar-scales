@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */; };
+		99080A411E0312A00037EC84 /* ArrowButtonZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 99080A401E0312A00037EC84 /* ArrowButtonZoom.m */; };
+		99E9B1081E032D8E00908375 /* GradientLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9B1071E032D8E00908375 /* GradientLineView.m */; };
 		B108CABF199AD1E70047A473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CABE199AD1E70047A473 /* Foundation.framework */; };
 		B108CAC1199AD1E70047A473 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC0199AD1E70047A473 /* CoreGraphics.framework */; };
 		B108CAC3199AD1E70047A473 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC2199AD1E70047A473 /* UIKit.framework */; };
@@ -57,8 +59,8 @@
 		B1D962D21DD6219900DDEF6A /* FretView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D962D11DD6219900DDEF6A /* FretView.m */; };
 		B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83EE19F40A7800A3D30F /* TutorialViewController.m */; };
 		B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */; };
-		B1F9C7361A701A1A00B0D777 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9C7341A701A1A00B0D777 /* Crashlytics.framework */; };
-		B1F9C7371A701A1A00B0D777 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9C7351A701A1A00B0D777 /* Fabric.framework */; };
+		B1F9C7361A701A1A00B0D777 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9C7341A701A1A00B0D777 /* Crashlytics.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		B1F9C7371A701A1A00B0D777 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9C7351A701A1A00B0D777 /* Fabric.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,11 @@
 
 /* Begin PBXFileReference section */
 		494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Scales Interactive.xcconfig"; path = "Pods/Pods-Guitar Scales Interactive.xcconfig"; sourceTree = "<group>"; };
+		99080A3F1E03124C0037EC84 /* ArrowButtonZoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrowButtonZoom.h; sourceTree = "<group>"; };
+		99080A401E0312A00037EC84 /* ArrowButtonZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowButtonZoom.m; sourceTree = "<group>"; };
+		99701E591E0DCF5000568F3C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		99E9B1061E032D7C00908375 /* GradientLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientLineView.h; sourceTree = "<group>"; };
+		99E9B1071E032D8E00908375 /* GradientLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientLineView.m; sourceTree = "<group>"; };
 		9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitar Scales Interactive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B108CABB199AD1E70047A473 /* Guitar Note Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guitar Note Atlas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B108CABE199AD1E70047A473 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -207,6 +214,7 @@
 		B108CABD199AD1E70047A473 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99701E591E0DCF5000568F3C /* AudioToolbox.framework */,
 				B1F9C7341A701A1A00B0D777 /* Crashlytics.framework */,
 				B1F9C7351A701A1A00B0D777 /* Fabric.framework */,
 				B16E944D199FDB5A001F769A /* CoreText.framework */,
@@ -290,6 +298,8 @@
 			children = (
 				B108CB06199ADB570047A473 /* StringView.h */,
 				B108CB07199ADB570047A473 /* StringView.m */,
+				99E9B1061E032D7C00908375 /* GradientLineView.h */,
+				99E9B1071E032D8E00908375 /* GradientLineView.m */,
 				B16E945219A05A8E001F769A /* DegreeView.h */,
 				B16E945319A05A8E001F769A /* DegreeView.m */,
 				B13799F919AD1BE0002314D7 /* DegreeButtonView.h */,
@@ -300,6 +310,8 @@
 				B1EC83F119F4141700A3D30F /* MenuTableViewCell.m */,
 				B192A1671D99955800B2B2F3 /* ArrowButton.h */,
 				B192A1681D99955800B2B2F3 /* ArrowButton.m */,
+				99080A3F1E03124C0037EC84 /* ArrowButtonZoom.h */,
+				99080A401E0312A00037EC84 /* ArrowButtonZoom.m */,
 				B1D962CD1DD6203700DDEF6A /* FullStringContainerView.h */,
 				B1D962CE1DD6203700DDEF6A /* FullStringContainerView.m */,
 				B16B17AF1D998ABE00A52785 /* FullStringView.h */,
@@ -313,7 +325,6 @@
 		B108CB0B199B01D20047A473 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B16E945719A173C3001F769A /* New Group */,
 				B108CB16199B04710047A473 /* Model.h */,
 				B108CB17199B04710047A473 /* Model.m */,
 				B108CB0C199B01F30047A473 /* Scale.h */,
@@ -343,13 +354,6 @@
 				B12A028E1B055B0B00B6AFB6 /* UITableViewCell+Guitar.m */,
 			);
 			name = Categories;
-			sourceTree = "<group>";
-		};
-		B16E945719A173C3001F769A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		B1B0A6D919AA655100F32D77 /* Fonts */ = {
@@ -415,7 +419,7 @@
 		B108CAB3199AD1E70047A473 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				TargetAttributes = {
 					B108CABA199AD1E70047A473 = {
 						DevelopmentTeam = XS87R2WV3V;
@@ -530,6 +534,7 @@
 				B192A1691D99955800B2B2F3 /* ArrowButton.m in Sources */,
 				B108CB0E199B01F30047A473 /* Scale.m in Sources */,
 				B108CB00199AD77A0047A473 /* ScalesViewController.m in Sources */,
+				99080A411E0312A00037EC84 /* ArrowButtonZoom.m in Sources */,
 				B108CB11199B028E0047A473 /* Position.m in Sources */,
 				B108CB18199B04710047A473 /* Model.m in Sources */,
 				B181A0F41AEFCB900067E79D /* MainViewController.m in Sources */,
@@ -554,6 +559,7 @@
 				B15F7B7F19ABFED400028D8D /* MenuTableViewController.m in Sources */,
 				B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */,
 				B181A0F71AEFCFF20067E79D /* OptionsViewController.m in Sources */,
+				99E9B1081E032D8E00908375 /* GradientLineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,15 +614,20 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Boyd (52SJZ94WDL)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -629,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "1f0e23c3-b096-4f27-875b-52aae2735deb";
 				SDKROOT = iphoneos;
@@ -650,21 +661,26 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Boyd (M9G2K98LH5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PROVISIONING_PROFILE = "1f0e23c3-b096-4f27-875b-52aae2735deb";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -677,9 +693,11 @@
 			baseConfigurationReference = 494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = XS87R2WV3V;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -687,7 +705,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrismcqueen.GuitarNoteAtlas;
 				PRODUCT_NAME = "Guitar Note Atlas";
 				PROVISIONING_PROFILE = "";
@@ -701,9 +719,11 @@
 			baseConfigurationReference = 494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = XS87R2WV3V;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -711,7 +731,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Guitar Scales Interactive/Guitar Scales Interactive-Prefix.pch";
 				INFOPLIST_FILE = "Guitar Scales Interactive/Guitar Scales Interactive-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrismcqueen.GuitarNoteAtlas;
 				PRODUCT_NAME = "Guitar Note Atlas";
 				PROVISIONING_PROFILE = "";

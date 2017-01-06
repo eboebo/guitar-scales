@@ -36,7 +36,7 @@
         self.titleLabel.frame = self.bounds;
         self.titleLabel.textColor = [UIColor GuitarCream];
         self.titleLabel.attributedText = self.firstDegree.toAttributedString;
-        self.backgroundColor = [UIColor GuitarBlue];
+        self.backgroundColor = [UIColor GuitarMain];
 
     } else if (self.currentState == DoubleDegreeButtonStateBottom) {
         self.secondTitleLabel.hidden = NO;
@@ -44,7 +44,7 @@
         self.secondTitleLabel.frame = self.bounds;
         self.secondTitleLabel.textColor = [UIColor GuitarCream];
         self.secondTitleLabel.attributedText = self.secondDegree.toAttributedString;
-        self.backgroundColor = [UIColor GuitarBlue];
+        self.backgroundColor = [UIColor GuitarMain];
 
     } else {
         self.secondTitleLabel.hidden = NO;
@@ -60,12 +60,12 @@
         
         
         self.titleLabel.attributedText = self.firstDegree.toAttributedStringEnharmonic;
-        self.titleLabel.textColor = [UIColor GuitarMediumBlue];
+        self.titleLabel.textColor = [UIColor GuitarMainAlpha];
         
         
         self.secondTitleLabel.attributedText = self.secondDegree.toAttributedStringEnharmonic;
 
-        self.secondTitleLabel.textColor = [UIColor GuitarMediumBlue];
+        self.secondTitleLabel.textColor = [UIColor GuitarMainAlpha];
         
         self.backgroundColor = [UIColor GuitarCream];
     }

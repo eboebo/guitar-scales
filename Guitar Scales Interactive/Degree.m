@@ -37,21 +37,9 @@
         leftChar = @"#";
     }
     
-    CGFloat regFontSize = 36.0f;
-    CGFloat specialFontSize = 34.0f;                                            // iPhone 6
     CGRect bounds = [[UIScreen mainScreen] bounds];
-    if (bounds.size.width < 568.0) {                                            // iPhone 4
-        regFontSize = 28.0;
-        specialFontSize = 27.0;
-    }
-    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        regFontSize = 56.0;  // original 40.0
-        specialFontSize = 52.0;  // original 38.0
-    }
-    else if (bounds.size.width < 667.0) {                                       // iPhone 5
-        regFontSize = 31.0;
-        specialFontSize = 29.0;
-    }
+    CGFloat regFontSize = bounds.size.width / 18.53;
+    CGFloat specialFontSize = bounds.size.width / 19.62;
     
     NSString *degreeString = [NSString stringWithFormat:@"%@%ld", leftChar, (long)self.number];
     NSMutableAttributedString *degreeAttributedString = [[NSMutableAttributedString alloc] initWithString:degreeString];
@@ -79,17 +67,8 @@
         leftChar = @"#";
     }
     
-    CGFloat fontSize = 30.0f;                                                   // iPhone 6
     CGRect bounds = [[UIScreen mainScreen] bounds];
-    if (bounds.size.width < 568.0) {                                            // iPhone 4
-        fontSize = 24.0f;
-    }
-    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 40.0f;  // original 32.0
-    }
-    else if (bounds.size.width < 667.0) {                                       // iPhone 5
-        fontSize = 26.0f;
-    }
+    CGFloat fontSize = bounds.size.width / 22.23;
 
     
     NSString *degreeString = [NSString stringWithFormat:@"%@%ld", leftChar, (long)self.number];

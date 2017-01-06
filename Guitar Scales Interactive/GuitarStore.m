@@ -138,5 +138,16 @@
     return isLeftHand;
 }
 
+- (void)setFlipped:(BOOL)flipped
+{
+    [[NSUserDefaults standardUserDefaults] setBool:flipped forKey:@"isFlipped"];
+}
+
+- (BOOL)isFlipped
+{
+    BOOL isFlipped = [[NSUserDefaults standardUserDefaults] boolForKey:@"isFlipped"];
+    return isFlipped;
+}
+
 
 @end

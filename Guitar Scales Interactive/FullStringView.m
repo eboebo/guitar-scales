@@ -21,85 +21,159 @@
     self.backgroundColor = [UIColor clearColor];
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)drawRect:(CGRect)rect               // iPad & iPhone, full string version
 {
     // Drawing code
     [super drawRect:rect];
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+    BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
     BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
     
-    CGFloat horizontalSpacing = self.bounds.size.width / 18.5;  // original 17 then 16.5
-    CGFloat verticalSpacing   = self.bounds.size.height / 7.4; // original 6
-    CGFloat radiusVerticalSpacing = self.bounds.size.height / 7.6; // to be used to calculate radius original 6.0
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    
+    CGFloat horizontalSpacing = self.bounds.size.width / 18.5;
+    CGFloat verticalSpacing   = self.bounds.size.height / 7.4;
+    CGFloat radiusVerticalSpacing = self.bounds.size.height / 7.6;
     CGFloat horizontalOffset = horizontalSpacing / 3.8;
     CGFloat verticalOffset   = verticalSpacing / 2.0;
     CGFloat radius = radiusVerticalSpacing / 2.1;
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height - verticalSpacing;
-    
     CGFloat lineWidth        = radius / 5.1;
     CGFloat strokeWidth      = radius / 4.0;
     CGFloat fontSize         = radius * 1.42;
+    
+    if (!isiPad) {                                              // iPhone
+        horizontalSpacing = self.bounds.size.width / 16.5;
+        verticalSpacing   = self.bounds.size.height / 7.4;
+        radiusVerticalSpacing = self.bounds.size.height / 7.6;
+        horizontalOffset = horizontalSpacing / 3.8;
+        verticalOffset   = verticalSpacing / 2.0;
+        radius = radiusVerticalSpacing / 2.3;
+        width = self.bounds.size.width;
+        height = self.bounds.size.height - verticalSpacing;
+        lineWidth        = radius / 5.2;
+        strokeWidth      = radius / 4.0;
+        fontSize         = radius * 1.42;
+    }
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    // draw background
-//    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
-//    for (int i = 0; i < 6; i++) {
-//        NSInteger selectedIndex = i + selectedOffset;
-//        CGFloat x = horizontalOffset + (selectedIndex * horizontalSpacing);
-//        
-//        if (isLeftHand) {
-//            x = width - x - horizontalSpacing;
-//        }
-//        CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
-//        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
-//        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
-//        CGContextFillRect(context, fretFrame);
-//    }
-//    
+    
+  //   draw gray background
+    // throughout this section int diff is used to differientate the layouts between iPhone and iPad
+    
+    int diff = horizontalSpacing;
+        CGFloat y = 5 * verticalSpacing;
+        CGRect fretFrame = CGRectMake(0, verticalOffset, width, y);
+    if (isiPad) {
+        CGContextSetFillColorWithColor(context, [UIColor GuitarLightGray].CGColor);
+    }
+    else {
+        CGContextSetFillColorWithColor(context, [UIColor GuitarCream].CGColor);
+        diff = 0;
+    }
+        CGContextFillRect(context, fretFrame);
+    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
+    int positionCheck = 6;
+    if ((self.position.identifier == 4) || (self.position.identifier == 5) || (self.position.identifier == 6))
+    {
+        positionCheck = 5;
+    }
+    for (int i = 0; i < positionCheck; i++) {
+        NSInteger selectedIndex = i + selectedOffset;
+        CGFloat x = diff + horizontalOffset + (selectedIndex * horizontalSpacing);
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
+        }
+        CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, y);
+        if (isiPad) {
+            CGContextSetFillColorWithColor(context, [UIColor GuitarCream].CGColor);
+        }
+        else {
+            if ((self.position.identifier == 0) || (self.position.identifier == 4) || (self.position.identifier == 2))
+            {
+                CGContextSetFillColorWithColor(context, [UIColor Guitar6thStringAlpha].CGColor);
+            }
+            else if (self.position.identifier == 6)
+            {
+                CGContextSetFillColorWithColor(context, [UIColor Guitar4thStringAlpha].CGColor);
+            }
+            else
+            {
+                CGContextSetFillColorWithColor(context, [UIColor Guitar5thStringAlpha].CGColor);
+            }
+        }
+        CGContextFillRect(context, fretFrame);
+    }
+    
     // Draw 6th string base fret - blue
-    
-    CGFloat x = horizontalOffset + (5 * horizontalSpacing); // original 4
-    
+    diff = 4; if (isiPad) diff = 5;
+    CGFloat x = horizontalOffset + (diff * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
     }
-    CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
-    CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
-    CGContextSetFillColorWithColor(context, [UIColor GuitarRockBlueAlpha].CGColor);
+    y = 5 * verticalSpacing + (verticalOffset * 2.0);
+    fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
+    if (isiPad) {
+        CGContextSetFillColorWithColor(context, [UIColor Guitar6thStringAlpha].CGColor);
+    }
+    else {
+        CGContextSetFillColorWithColor(context, [UIColor Guitar6thString].CGColor);
+    }
     CGContextFillRect(context, fretFrame);
     
     // Draw 4th string base fret - yellow
+    diff = 6; if (isiPad) diff = 7;
+    CGFloat originY = 0;
+    if (isFlipped) {
+        originY = (verticalSpacing * 2.0);
+    }
     y = 3 * verticalSpacing + (verticalOffset * 2.0);
-    x = horizontalOffset + (7 * horizontalSpacing); // original 6
+    x = horizontalOffset + (diff * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
     }
-    fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
-    CGContextSetFillColorWithColor(context, [UIColor GuitarYellowAlpha].CGColor);
+    fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
+    if (isiPad) {
+        CGContextSetFillColorWithColor(context, [UIColor Guitar4thStringAlpha].CGColor);
+    }
+    else {
+        CGContextSetFillColorWithColor(context, [UIColor Guitar4thString].CGColor);
+    }
     CGContextFillRect(context, fretFrame);
     
     // Draw 5th string base from - red
+    diff = 11; if (isiPad) diff = 12;
+    originY = 0;
+    if (isFlipped) {
+        originY = verticalSpacing;
+    }
     y = 4 * verticalSpacing + (verticalOffset * 2.0);
-
-    x = horizontalOffset + (12 * horizontalSpacing); // original 11
+    x = horizontalOffset + (diff * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
     }
-    fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
-    CGContextSetFillColorWithColor(context, [UIColor GuitarRoseAlpha].CGColor);
+    fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
+    if (isiPad) {
+        CGContextSetFillColorWithColor(context, [UIColor Guitar5thStringAlpha].CGColor);
+    }
+    else {
+        CGContextSetFillColorWithColor(context, [UIColor Guitar5thString].CGColor);
+    }
     CGContextFillRect(context, fretFrame);
     
-    
-
-
-    
-    CGContextSetStrokeColorWithColor(context, [[UIColor blackColorAlpha] CGColor]);
+    if (isiPad) {
+        CGContextSetStrokeColorWithColor(context, [[UIColor blackColorAlpha] CGColor]);
+    }
+    else {
+        CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+    }
     CGContextSetLineWidth(context, lineWidth);
     
     // draw vertical lines
-    NSInteger numLines = 19; // original 17
+    diff = 17; if (isiPad) diff = 19;
+    NSInteger numLines = diff;
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
         CGFloat y = 5 * verticalSpacing + verticalOffset;
@@ -122,6 +196,7 @@
         CGContextDrawPath(context, kCGPathStroke);
     }
     
+    diff = 0; if (isiPad) diff = 1;
     NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
     for (Degree *degree in degrees) {
         if ([self containsId:degree.identifier]) {
@@ -129,7 +204,7 @@
             for (DegreePosition *degreePosition in degreePositions) {
                 NSArray *coordinates = degreePosition.coordinates;
                 for (Coordinate *coord in coordinates) {
-                    NSInteger xOffset = [self offsetForPosition:degreePosition.positionID] + 1; // original no + 1
+                    NSInteger xOffset = [self offsetForPosition:degreePosition.positionID] + diff;
                     NSInteger xCoordinate = coord.x + xOffset;
                     CGFloat x
                     = xCoordinate * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
@@ -140,6 +215,9 @@
                     
                     CGFloat y
                     = coord.y * verticalSpacing + verticalOffset;
+                    if (isFlipped) {
+                        y = height - y - (verticalOffset * 0.8);
+                    }
                     CGContextAddArc(context, x, y, radius - strokeWidth, 0.0, M_PI*2, YES);
                     UIColor *textColor;
                     UIColor *fillColor;
@@ -147,21 +225,36 @@
                     CGFloat newStrokeWidth;
                     if ([coord.color isEqual:@"black"]) {
                         textColor   = [UIColor GuitarCream];
-                        fillColor   = [UIColor blackColorAlpha];
-                        strokeColor = [UIColor blackColorAlpha];
+                        if (isiPad) {
+                            fillColor   = [UIColor blackColorAlpha];
+                            strokeColor = [UIColor blackColorAlpha];
+                        }
+                        else {
+                            fillColor   = [UIColor blackColor];
+                            strokeColor = [UIColor blackColor];
+                        }
                         newStrokeWidth = strokeWidth;
                     } else if ([coord.color isEqualToString:@"white"]) {
-                        textColor   = [UIColor blackColorAlpha];
                         fillColor   = [UIColor GuitarCream];
-                        strokeColor = [UIColor blackColorAlpha];
+                        if (isiPad) {
+                            textColor   = [UIColor blackColorAlpha];
+                            strokeColor = [UIColor blackColorAlpha];
+                        }
+                        else {
+                            textColor   = [UIColor blackColor];
+                            strokeColor = [UIColor blackColor];
+                        }
                         newStrokeWidth = strokeWidth;
                     } else if ([coord.color isEqualToString:@"gray"]) {
-//                        textColor   = [UIColor GuitarDarkGray];
-//                        fillColor   = [UIColor GuitarLightGray];
-//                        strokeColor = [UIColor lightGrayColor];
                         textColor   = [UIColor GuitarCream];
-                        fillColor   = [UIColor blackColorAlpha];
-                        strokeColor = [UIColor blackColorAlpha];
+                        if (isiPad) {
+                            fillColor   = [UIColor blackColorAlpha];
+                            strokeColor = [UIColor blackColorAlpha];
+                        }
+                        else {
+                            fillColor   = [UIColor blackColor];
+                            strokeColor = [UIColor blackColor];
+                        }
                         newStrokeWidth = strokeWidth - 1;
                     }
                     CGContextSetLineWidth(context, newStrokeWidth);

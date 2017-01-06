@@ -20,35 +20,32 @@
 }
 
 
-- (void)layoutFretView {
-    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
-    
-    CGFloat horizontalSpacing = self.bounds.size.width / 17;
-    CGFloat verticalSpacing   = self.bounds.size.height / 6;
-    CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.0; // to be used to calculate radius
-    CGFloat horizontalOffset = horizontalSpacing / 4.8;
-    horizontalOffset = 0;
-    CGFloat verticalOffset   = verticalSpacing / 2.0;
-    CGFloat width = self.bounds.size.width;
-    
-    horizontalOffset += (horizontalSpacing / 2.0);
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    // draw background
-    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
-    for (int i = 0; i < 6; i++) {
-        NSInteger selectedIndex = i + selectedOffset;
-        CGFloat x = horizontalOffset + (selectedIndex * horizontalSpacing);
-        
-        if (isLeftHand) {
-            x = width - x - horizontalSpacing;
-        }
-        CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
-        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
-        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
-        CGContextFillRect(context, fretFrame);
-    }
+- (void)layoutFretView {                                        // only iPhone (?)
+//    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+//    
+//    CGFloat horizontalSpacing = self.bounds.size.width / 18.5;   // copied new numbers from FullStringView.m
+//    CGFloat verticalSpacing   = self.bounds.size.height / 7.4;
+//    CGFloat horizontalOffset = horizontalSpacing / 3.8;
+//    CGFloat verticalOffset   = verticalSpacing / 2.0;
+//    CGFloat width = self.bounds.size.width;
+//    horizontalOffset += (horizontalSpacing / 2.0);
+//    
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+//    // draw background
+//    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
+//    for (int i = 0; i < 3; i++) {
+//        NSInteger selectedIndex = i + selectedOffset;
+//        CGFloat x = horizontalSpacing + horizontalOffset + (selectedIndex * horizontalSpacing);
+//        
+//        if (isLeftHand) {
+//            x = width - x - horizontalSpacing;
+//        }
+//        CGFloat y = 5 * verticalSpacing;
+//        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
+//        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
+//        CGContextFillRect(context, fretFrame);
+//    }
 }
 
 - (NSInteger)offsetForPosition:(NSInteger)identifier {

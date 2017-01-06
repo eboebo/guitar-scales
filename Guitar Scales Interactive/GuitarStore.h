@@ -31,6 +31,8 @@ typedef void (^UpdateCallback)(BOOL success);
 - (BOOL)showDegrees;
 - (void)setLeftHand:(BOOL)leftHand;
 - (BOOL)isLeftHand;
+- (void)setFlipped:(BOOL)flipped;
+- (BOOL)isFlipped;
 
 
 

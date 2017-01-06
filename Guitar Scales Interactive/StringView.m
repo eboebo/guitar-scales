@@ -22,25 +22,32 @@ const CGFloat maxHeight = 175.0;
     self.backgroundColor = [UIColor clearColor];
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)drawRect:(CGRect)rect               // zoomed in view (iPad, also iPhone?)
 {
     // Drawing code
     [super drawRect:rect];
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+    BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
     BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
-
-    CGFloat horizontalSpacing = self.bounds.size.width / 6.42;  // original 6.42 trying 6.0
-    CGFloat verticalSpacing   = self.bounds.size.height / 4.5;  // original 6.6 then 3.5
-    CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.6; // original 6.0 then 7.0 to be used to calculate radius
-    CGFloat horizontalOffset = horizontalSpacing / 4.8;  // original 4.8 trying 3.4
-    CGFloat verticalOffset   = verticalSpacing / 3.2; // original 2.0 then 4.4
-    CGFloat radius = radiusVerticalSpacing / 2.4;  // original 2.4
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    
+    // iPad
+    CGFloat horizontalSpacing = self.bounds.size.width / 6.42;
+    CGFloat verticalSpacing   = self.bounds.size.height / 4.5;
+    CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.6;
+    CGFloat horizontalOffset = horizontalSpacing / 4.8;
+    CGFloat verticalOffset   = verticalSpacing / 3.2;
+    CGFloat radius = radiusVerticalSpacing / 2.4;
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height - verticalSpacing;
-
     CGFloat lineWidth        = radius / 5.1;
     CGFloat strokeWidth      = radius / 4.0;
     CGFloat fontSize         = radius * 1.5;
+    
+    // iPhone
+    if (!isiPad) {
+        lineWidth        = radius / 4.8;
+    }
     
     BOOL useShortScale = false;
     if ((self.position.identifier == 4) || (self.position.identifier == 5) || (self.position.identifier == 6))
@@ -60,14 +67,25 @@ const CGFloat maxHeight = 175.0;
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    // draw color boxes
+    
     if (self.position.baseFret || self.position.baseFret == 0) {
         CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
         if (isLeftHand) {
             x = width - x - horizontalSpacing;
         }
         NSInteger height = [self heightForPosition:self.position.identifier];
+        CGFloat originY = 0;
+        if (isFlipped) {
+            if (height == 3) {
+                originY = (verticalSpacing * 2.0);
+            }
+            else if (height == 4) {
+                originY = verticalSpacing;
+            }
+        }
         CGFloat y = height * verticalSpacing + (verticalOffset * 2.0);
-        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
+        CGRect fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
         UIColor *color = [self colorForPosition:self.position.identifier];
 
         CGContextSetFillColorWithColor(context, color.CGColor);
@@ -128,8 +146,6 @@ const CGFloat maxHeight = 175.0;
 
     }
     
-    
-    
     NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
     for (Degree *degree in degrees) {
         if ([self containsId:degree.identifier]) {
@@ -147,6 +163,9 @@ const CGFloat maxHeight = 175.0;
                         
                         CGFloat y
                         = coord.y * verticalSpacing + verticalOffset;
+                        if (isFlipped) {
+                            y = height - y - verticalOffset + (verticalSpacing * 1.96);
+                        }
                         CGContextAddArc(context, x, y, radius - strokeWidth, 0.0, M_PI*2, YES);
                         UIColor *textColor;
                         UIColor *fillColor;
@@ -231,19 +250,19 @@ const CGFloat maxHeight = 175.0;
 - (UIColor *)colorForPosition:(NSInteger)identifier {
     switch (identifier) {
         case 0:
-            return [UIColor GuitarRockBlue];
+            return [UIColor Guitar6thString];
         case 1:
-            return [UIColor GuitarRose];
+            return [UIColor Guitar5thString];
         case 2:
-            return [UIColor GuitarRockBlue];
+            return [UIColor Guitar6thString];
         case 3:
-            return [UIColor GuitarRose];
+            return [UIColor Guitar5thString];
         case 4:
-            return [UIColor GuitarRockBlue];
+            return [UIColor Guitar6thString];
         case 5:
-            return [UIColor GuitarRose];
+            return [UIColor Guitar5thString];
         case 6:
-            return [UIColor GuitarYellow];
+            return [UIColor Guitar4thString];
             
         default:
             return 0;

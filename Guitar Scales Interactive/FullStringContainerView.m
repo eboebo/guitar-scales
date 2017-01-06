@@ -36,6 +36,7 @@
     self.fullStringView.selectedDegrees = self.selectedDegrees;
     self.fullStringView.position = self.position;
     
+    // the very first time you click full string view
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedView:)];
     [self addGestureRecognizer:singleTap];
     
@@ -49,30 +50,46 @@
 }
 
 - (void)layoutFretView {
+    // effects the touching on either side of the box
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
     
-    CGFloat horizontalSpacing = self.bounds.size.width / 17;
-    CGFloat verticalSpacing   = self.bounds.size.height / 6;
-    CGFloat horizontalOffset = horizontalSpacing / 4.8;
-    horizontalOffset = 0;
+    CGFloat horizontalSpacing = self.bounds.size.width / 18.5;   // copied new numbers from FullStringView.m
+    CGFloat verticalSpacing   = self.bounds.size.height / 7.4;
+    CGFloat horizontalOffset = horizontalSpacing / 3.8;
     CGFloat verticalOffset   = verticalSpacing / 2.0;
     CGFloat width = self.bounds.size.width;
+    CGFloat iPadExtraSpace = horizontalSpacing;
     
-    horizontalOffset += (horizontalSpacing / 2.0);
-    
-    // draw background
-    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
-    CGFloat fretWidth = horizontalSpacing * 6.0;
-    
-    CGFloat x = horizontalOffset + (selectedOffset * horizontalSpacing);
-
-    if (isLeftHand) {
-        x = width - x - horizontalSpacing;
+    if (!isiPad) {                                              // iPhone
+        horizontalSpacing = self.bounds.size.width / 16.5;
+        iPadExtraSpace = 0.0;
     }
     
-    CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
-    self.fretView.backgroundColor = [UIColor GuitarGray];
-    self.fretView.frame = CGRectMake(x, 0, fretWidth, y);
+    BOOL useShortScale = false;
+    if ((self.position.identifier == 4) || (self.position.identifier == 5) || (self.position.identifier == 6))
+    {
+        useShortScale = true;            // only do 5 frets for some positions
+    }
+    
+//     draw background
+    NSInteger selectedOffset = [self offsetForPosition:self.position.identifier];
+    CGFloat fretWidth;
+    fretWidth = horizontalSpacing * 6.0;
+//    if (useShortScale) {
+//        fretWidth = horizontalSpacing * 5.0;
+//    }
+    
+    CGFloat x = iPadExtraSpace + horizontalOffset + (selectedOffset * horizontalSpacing);
+            // scoot the box over overhang, then add more depending on position
+
+    if (isLeftHand) {
+        x = width - x - fretWidth - iPadExtraSpace;
+    }
+    
+    CGFloat y = 5 * verticalSpacing;
+    
+    self.fretView.frame = CGRectMake(x, verticalOffset, fretWidth, y);
 }
 
 - (NSInteger)offsetForPosition:(NSInteger)identifier {
@@ -110,7 +127,7 @@
     self.fullStringView.position = position;
     _position = position;
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
         [self layoutFretView];
     }];
 }
@@ -122,13 +139,18 @@
     BOOL isRight = touchPoint.x > (self.fretView.frame.origin.x + self.fretView.frame.size.width);
     BOOL isPointInsideView = !isLeft && !isRight;
     
-    if (isPointInsideView) {
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    if (isPointInsideView && !isiPad) {
         [self.delegate toggleView];
     } else if (isLeft) {
         [self.delegate decreasePosition];
     } else if (isRight){
         [self.delegate increasePosition];
     }
+    
+//    if (!isiPad) {
+//        [self.delegate toggleView];
+//    }
 }
 
 - (void)handleLeftSwipeFrom:(UISwipeGestureRecognizer *)recognizer {

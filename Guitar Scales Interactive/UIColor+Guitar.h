@@ -10,24 +10,24 @@
 
 @interface UIColor (Guitar)
 
-+ (UIColor *)GuitarBlue;
-+ (UIColor *)GuitarMediumBlue;
-+ (UIColor *)GuitarLightBlue;
 + (UIColor *)GuitarCream;
++ (UIColor *)GuitarMain;
++ (UIColor *)GuitarMainAlpha;
+
++ (UIColor *)GuitarMenuHeader;
++ (UIColor *)GuitarMenuSelection;
++ (UIColor *)GuitarMenuSelectionText;
+
++ (UIColor *)Guitar6thString;
++ (UIColor *)Guitar4thString;
++ (UIColor *)Guitar5thString;
++ (UIColor *)Guitar6thStringAlpha;
++ (UIColor *)Guitar4thStringAlpha;
++ (UIColor *)Guitar5thStringAlpha;
+
 + (UIColor *)GuitarDarkGray;
-+ (UIColor *)GuitarGray;
 + (UIColor *)GuitarLightGray;
-+ (UIColor *)GuitarRose;
-+ (UIColor *)GuitarRockBlue;
-+ (UIColor *)GuitarYellow;
-
-// new transparent colors
-
 + (UIColor *)blackColorAlpha;
-+ (UIColor *)GuitarDarkGrayAlpha;
-+ (UIColor *)GuitarRockBlueAlpha;
-+ (UIColor *)GuitarRoseAlpha;
-+ (UIColor *)GuitarYellowAlpha;
 
 
 @end
