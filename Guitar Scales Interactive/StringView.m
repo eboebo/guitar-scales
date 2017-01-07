@@ -32,6 +32,9 @@ const CGFloat maxHeight = 175.0;
     BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
     BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
     
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = bounds.size.width;
+    
     // iPad
     CGFloat horizontalSpacing = self.bounds.size.width / 6.42;
     CGFloat verticalSpacing   = self.bounds.size.height / 4.5;
@@ -65,10 +68,16 @@ const CGFloat maxHeight = 175.0;
         height -= verticalSpacing;
         radius = radiusVerticalSpacing / 2.3;
     }
+    CGFloat numStrings = 5;
+    if (isBassMode) {
+        verticalSpacing = verticalSpacing * 1.3;
+        verticalOffset = verticalOffset * 2.1;
+        numStrings = 3;
+    }
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    // draw color boxes
+    // draw color boxes (used to be called rose)
     
     if (self.position.baseFret || self.position.baseFret == 0) {
         CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
@@ -86,6 +95,11 @@ const CGFloat maxHeight = 175.0;
             }
         }
         CGFloat y = height * verticalSpacing + (verticalOffset * 2.0);
+        if (isBassMode) {
+            height -= 2;
+            originY += (verticalSpacing * .43);
+            y = height * verticalSpacing + (verticalOffset * .95);
+        }
         CGRect fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
         UIColor *color = [self colorForPosition:self.position.identifier];
 
@@ -103,7 +117,7 @@ const CGFloat maxHeight = 175.0;
     }
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
-        CGFloat y = 5 * verticalSpacing + verticalOffset;
+        CGFloat y = numStrings * verticalSpacing + verticalOffset;
         CGContextMoveToPoint(context, x, verticalOffset);
         CGContextAddLineToPoint(context, x, y);
         CGContextDrawPath(context, kCGPathStroke);
@@ -120,8 +134,6 @@ const CGFloat maxHeight = 175.0;
     numLines = 6;
     if (isBassMode) {
         numLines = 4;
-        verticalSpacing = verticalSpacing * 1.3;
-        verticalOffset = verticalOffset * 2.0;
     }
     for (int i = 0; i < numLines; i++) {
         CGFloat y = i * verticalSpacing + verticalOffset;
@@ -131,6 +143,7 @@ const CGFloat maxHeight = 175.0;
     }
     
     NSArray *stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
+    NSArray *stringArray2 = @[@"(1)", @"1", @"2", @"3", @"4"];
     if (useShortScale == true) {
         stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
     }
@@ -143,12 +156,26 @@ const CGFloat maxHeight = 175.0;
             x = width - x - horizontalSpacing;
         }
         
-        CGFloat y      = 5.4 * verticalSpacing + verticalOffset;
+        CGFloat fingerNumOffset = 5.4;
+        if (isBassMode) {
+            fingerNumOffset = 3.4;
+        }
+        
+        CGFloat y      = fingerNumOffset * verticalSpacing + verticalOffset;
         NSString *text = stringArray[i];
         CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
-        NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-        paragrapStyle.alignment                = NSTextAlignmentCenter;
-        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:fontSize], NSParagraphStyleAttributeName:paragrapStyle}];
+        NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+        paragraphStyle.alignment                = NSTextAlignmentCenter;
+        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:fontSize], NSParagraphStyleAttributeName:paragraphStyle}];
+        
+        if (isBassMode && useShortScale) {
+            NSString *text2 = stringArray2[i];
+            y += (verticalSpacing * 0.45);
+            CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
+            NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+            paragraphStyle.alignment                = NSTextAlignmentCenter;
+            [text2 drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:fontSize], NSParagraphStyleAttributeName:paragraphStyle}];
+        }
 
     }
     
@@ -169,21 +196,33 @@ const CGFloat maxHeight = 175.0;
                         
                         CGFloat bassChanger = 0;
                         if (isBassMode) {
-                            if (coord.y > 1) {
+                            if (coord.y > 1) {      // in bass mode, move notes up 2 strings
                                 bassChanger = 2;
+                            }
+                            if (coord.y == 6) {        // special case for special bass notes
+                                bassChanger = 6;
                             }
                         }
                         CGFloat y
                         = (coord.y - bassChanger) * verticalSpacing + verticalOffset;
                         
                         if (isFlipped) {
-                            y = height - y - verticalOffset + (verticalSpacing * 1.96);
+                            CGFloat flipOffset = 1.96;
+                            if (isBassMode) {
+                                flipOffset = 1.9;
+                            }
+                            if (screenWidth == 667) {
+                                flipOffset += .05;
+                            }
+                            y = height - y - verticalOffset + (verticalSpacing * flipOffset);
                         }
+                        
                         CGContextAddArc(context, x, y, radius - strokeWidth, 0.0, M_PI*2, YES);
                         UIColor *textColor;
                         UIColor *fillColor;
                         UIColor *strokeColor;
-                        CGFloat newStrokeWidth;
+                        CGFloat newStrokeWidth = strokeWidth;
+                        
                         if ([coord.color isEqual:@"black"]) {
                             textColor   = [UIColor GuitarCream];
                             fillColor   = [UIColor blackColor];
@@ -200,13 +239,24 @@ const CGFloat maxHeight = 175.0;
                             strokeColor = [UIColor lightGrayColor];
                             newStrokeWidth = strokeWidth - 1;
                         }
-                        if (isBassMode) {
+                        
+                        if (isBassMode) {               // hides 1st 2 strings in bass mode
                             if (coord.y < 2) {
                                 textColor   = [UIColor clearColor];
                                 fillColor   = [UIColor clearColor];
                                 strokeColor = [UIColor clearColor];
+                                newStrokeWidth = strokeWidth;
                             }
                         }
+                        else {
+                            if (coord.y == 6) {
+                                textColor   = [UIColor clearColor];
+                                fillColor   = [UIColor clearColor];
+                                strokeColor = [UIColor clearColor];
+                                newStrokeWidth = strokeWidth;
+                            }
+                        }
+        
                         CGContextSetLineWidth(context, newStrokeWidth);
 
                         CGContextSetFillColorWithColor(context, [fillColor CGColor]);

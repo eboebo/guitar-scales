@@ -29,6 +29,7 @@
 - (void)drawRect:(CGRect)rect               // Gradient Lines
 {
     BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
     
     if (!isiPad) {
         [super drawRect:rect];
@@ -70,9 +71,15 @@
                 numLines = 3;
                 horizontalOffset = horizontalSpacing * 0.32;
             }
+            CGFloat numStrings = 5;
+            if (isBassMode) {
+                verticalSpacing = verticalSpacing * 1.3;
+                verticalOffset = verticalOffset * 2.1;
+                numStrings = 3;
+            }
             for (int i = 0; i < numLines; i++) {
                 CGFloat x = horizontalOffset + (i * horizontalSpacing);
-                CGFloat y = 5 * verticalSpacing + verticalOffset;
+                CGFloat y = numStrings * verticalSpacing + verticalOffset;
                 CGContextMoveToPoint(context, x, verticalOffset);
                 CGContextAddLineToPoint(context, x, y);
                 CGContextDrawPath(context, kCGPathStroke);
@@ -85,7 +92,12 @@
                 horizontalLineWidth -= (horizontalSpacing * 0.46);
             }
             
-            for (int i = 0; i < 6; i++) {
+            numLines = 6;
+            if (isBassMode) {
+                numLines = 4;
+            }
+            
+            for (int i = 0; i < numLines; i++) {
                 CGFloat y = i * verticalSpacing + verticalOffset;
                 CGContextMoveToPoint(context, horizontalLineX, y);
                 CGContextAddLineToPoint(context, horizontalLineWidth, y);
@@ -102,11 +114,17 @@
                 numLines = 3;
                 originX = 0;
             }
+            CGFloat numStrings = 5;
+            if (isBassMode) {
+                verticalSpacing = verticalSpacing * 1.3;
+                verticalOffset = verticalOffset * 2.1;
+                numStrings = 3;
+            }
             horizontalOffset = originX + (horizontalSpacing * 0.8);
             CGFloat x = originX;
             for (int i = 0; i < numLines; i++) {
                 x = horizontalOffset + (i * horizontalSpacing);
-                CGFloat y = 5 * verticalSpacing + verticalOffset;
+                CGFloat y = numStrings * verticalSpacing + verticalOffset;
                 CGContextMoveToPoint(context, x, verticalOffset);
                 CGContextAddLineToPoint(context, x, y);
                 CGContextDrawPath(context, kCGPathStroke);
@@ -115,8 +133,13 @@
             // draw horizontal lines
             CGFloat horizontalLineWidth = width;
             CGFloat horizontalLineX     = originX;
+            
+            numLines = 6;
+            if (isBassMode) {
+                numLines = 4;
+            }
 
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < numLines; i++) {
                 CGFloat y = i * verticalSpacing + verticalOffset;
                 CGContextMoveToPoint(context, horizontalLineX, y);
                 CGContextAddLineToPoint(context, horizontalLineWidth, y);

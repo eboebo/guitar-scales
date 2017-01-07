@@ -593,13 +593,19 @@
 
 - (void)updateStringViewPositions
 {
+    BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
     if (self.positions.count > 0) {
         self.mainStringView.position = self.positions[self.currentPosition];
         self.leftGradientLines.position = self.positions[self.currentPosition];
         self.rightGradientLines.position = self.positions[self.currentPosition];
         self.fullStringView.position = self.positions[self.currentPosition];
         
-        [self setSubHeaderText:self.mainStringView.position.title];
+        if (isBassMode) {
+            [self setSubHeaderText:self.mainStringView.position.altTitle];
+        }
+        else {
+            [self setSubHeaderText:self.mainStringView.position.title];
+        }
     }
     [self.mainStringView setNeedsDisplay];
     [self.leftGradientLines setNeedsDisplay];

@@ -17,6 +17,7 @@
 
 @property (nonatomic, assign) NSInteger identifier;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *altTitle;
 @property (nonatomic, strong) NSString *string;
 @property (nonatomic, strong) NSString *finger;
 @property (nonatomic, assign) NSInteger baseFret;

@@ -14,8 +14,8 @@
 
 typedef NS_ENUM(NSInteger, OptionsRow) {
     OptionsRowTutorial,
-    OptionsRowBassMode,
     OptionsRowShowDegrees,
+    OptionsRowBassMode,
     OptionsRowLeftHand,
     OptionsRowFlip,
     OptionsRowRate,
@@ -67,16 +67,16 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
         case OptionsRowTutorial:
             text = @"View Tutorial";
             break;
-        case OptionsRowBassMode: {
-            text = @"Enable Bass Mode";
-            BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
-            cell.accessoryType = isBassMode ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-        }
-            break;
         case OptionsRowShowDegrees: {
             text = @"Show Scale Degrees";
             BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
             cell.accessoryType = showDegrees ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+        }
+            break;
+        case OptionsRowBassMode: {
+            text = @"Enable Bass Mode";
+            BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
+            cell.accessoryType = isBassMode ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         }
             break;
         case OptionsRowLeftHand: {
@@ -115,16 +115,16 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
         case OptionsRowTutorial:
             [self.delegate didSelectOptionRow:OptionsRowTutorial];
             break;
-        case OptionsRowBassMode: {
-            BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
-            [[GuitarStore sharedStore] setBassMode:!isBassMode];
+        case OptionsRowShowDegrees: {
+            BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
+            [[GuitarStore sharedStore] setShowDegrees:!showDegrees];
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
         }
             break;
-        case OptionsRowShowDegrees: {
-            BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
-            [[GuitarStore sharedStore] setShowDegrees:!showDegrees];
+        case OptionsRowBassMode: {
+            BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
+            [[GuitarStore sharedStore] setBassMode:!isBassMode];
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
         }

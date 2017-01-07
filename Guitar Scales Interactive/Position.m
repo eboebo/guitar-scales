@@ -17,7 +17,8 @@
                                                        @"string"   : @"string",
                                                        @"finger"   : @"finger",
                                                        @"base_fret": @"baseFret",
-                                                       @"title"    : @"title"}];
+                                                       @"title"    : @"title",
+                                                       @"altTitle" : @"altTitle"}];
 }
 
 @end

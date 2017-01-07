@@ -21,11 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.education</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 Chris McQueen. All Rights Reserved</string>
+	<string>2</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -40,8 +36,12 @@
 			</dict>
 		</array>
 	</dict>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.music</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2017 Chris McQueen. All Rights Reserved.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>JasonSharpie.ttf</string>

@@ -26,6 +26,7 @@
     // Drawing code
     [super drawRect:rect];
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+    BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
     BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
     BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
     
@@ -56,6 +57,13 @@
         strokeWidth      = radius / 4.0;
         fontSize         = radius * 1.42;
     }
+    
+    CGFloat numStrings = 5;
+    if (isBassMode) {
+        numStrings = 3;
+        verticalSpacing = verticalSpacing * 1.3;
+        verticalOffset = verticalOffset * 2.1;
+    }
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -64,7 +72,8 @@
     // throughout this section int diff is used to differientate the layouts between iPhone and iPad
     
     int diff = horizontalSpacing;
-        CGFloat y = 5 * verticalSpacing;
+
+        CGFloat y = numStrings * verticalSpacing;
         CGRect fretFrame = CGRectMake(0, verticalOffset, width, y);
     if (isiPad) {
         CGContextSetFillColorWithColor(context, [UIColor GuitarLightGray].CGColor);
@@ -106,15 +115,22 @@
         }
         CGContextFillRect(context, fretFrame);
     }
-    
+  
     // Draw 6th string base fret - blue
+    CGFloat originY = 0.0;
     diff = 4; if (isiPad) diff = 5;
     CGFloat x = horizontalOffset + (diff * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
     }
-    y = 5 * verticalSpacing + (verticalOffset * 2.0);
-    fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
+    numStrings = 5;
+    y = numStrings * verticalSpacing + (verticalOffset * 2.0);
+    if (isBassMode) {
+        numStrings = 3;
+        originY += (verticalSpacing * .43);
+        y = numStrings * verticalSpacing + (verticalOffset * .95);
+    }
+    fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
     if (isiPad) {
         CGContextSetFillColorWithColor(context, [UIColor Guitar6thStringAlpha].CGColor);
     }
@@ -125,14 +141,20 @@
     
     // Draw 4th string base fret - yellow
     diff = 6; if (isiPad) diff = 7;
-    CGFloat originY = 0;
+    originY = 0;
     if (isFlipped) {
         originY = (verticalSpacing * 2.0);
     }
-    y = 3 * verticalSpacing + (verticalOffset * 2.0);
     x = horizontalOffset + (diff * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
+    }
+    numStrings = 3;
+    y = numStrings * verticalSpacing + (verticalOffset * 2.0);
+    if (isBassMode) {
+        numStrings = 1;
+        originY += (verticalSpacing * .43);
+        y = numStrings * verticalSpacing + (verticalOffset * .95);
     }
     fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
     if (isiPad) {
@@ -149,10 +171,16 @@
     if (isFlipped) {
         originY = verticalSpacing;
     }
-    y = 4 * verticalSpacing + (verticalOffset * 2.0);
     x = horizontalOffset + (diff * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
+    }
+    numStrings = 4;
+    y = numStrings * verticalSpacing + (verticalOffset * 2.0);
+    if (isBassMode) {
+        numStrings = 2;
+        originY += (verticalSpacing * .43);
+        y = numStrings * verticalSpacing + (verticalOffset * .95);
     }
     fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
     if (isiPad) {
@@ -174,9 +202,13 @@
     // draw vertical lines
     diff = 17; if (isiPad) diff = 19;
     NSInteger numLines = diff;
+    numStrings = 5;
+    if (isBassMode) {
+        numStrings = 3;
+    }
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
-        CGFloat y = 5 * verticalSpacing + verticalOffset;
+        CGFloat y = numStrings * verticalSpacing + verticalOffset;
         CGContextMoveToPoint(context, x, verticalOffset);
         CGContextAddLineToPoint(context, x, y);
         CGContextDrawPath(context, kCGPathStroke);
@@ -188,8 +220,13 @@
     CGFloat horizontalLineX     = 0.0;
     horizontalLineX     += horizontalSpacing / 2.0;
     horizontalLineX = 0;
+    
+    numLines = 6;
+    if (isBassMode) {
+        numLines = 4;
+    }
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < numLines; i++) {
         CGFloat y = i * verticalSpacing + verticalOffset;
         CGContextMoveToPoint(context, 0, y);
         CGContextAddLineToPoint(context, horizontalLineWidth, y);
@@ -213,11 +250,26 @@
                         x = width - x;
                     }
                     
-                    CGFloat y
-                    = coord.y * verticalSpacing + verticalOffset;
-                    if (isFlipped) {
-                        y = height - y - (verticalOffset * 0.8);
+                    CGFloat bassChanger = 0;
+                    if (isBassMode) {
+                        if (coord.y > 1) {      // in bass mode, move notes up 2 strings
+                            bassChanger = 2;
+                        }
+                        if (coord.y == 6) {        // special case for special bass notes
+                            bassChanger = 6;
+                        }
                     }
+                    CGFloat y
+                    = (coord.y - bassChanger) * verticalSpacing + verticalOffset;
+                    
+                    if (isFlipped) {
+                        CGFloat flipOffset = 0.8;
+                        if (isBassMode) {
+                            flipOffset = 0.4;
+                        }
+                        y = height - y - (verticalOffset * flipOffset);
+                    }
+                    
                     CGContextAddArc(context, x, y, radius - strokeWidth, 0.0, M_PI*2, YES);
                     UIColor *textColor;
                     UIColor *fillColor;
@@ -257,6 +309,22 @@
                         }
                         newStrokeWidth = strokeWidth - 1;
                     }
+                    
+                    if (isBassMode) {               // hides 1st 2 strings in bass mode
+                        if (coord.y < 2) {
+                            textColor   = [UIColor clearColor];
+                            fillColor   = [UIColor clearColor];
+                            strokeColor = [UIColor clearColor];
+                        }
+                    }
+
+                    
+                    if (coord.y == 6) {         // hide special bass notes
+                        textColor   = [UIColor clearColor];
+                        fillColor   = [UIColor clearColor];
+                        strokeColor = [UIColor clearColor];
+                    }
+
                     CGContextSetLineWidth(context, newStrokeWidth);
                     
                     CGContextSetFillColorWithColor(context, [fillColor CGColor]);
