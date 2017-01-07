@@ -22,6 +22,10 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.education</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2017 Chris McQueen. All Rights Reserved</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>

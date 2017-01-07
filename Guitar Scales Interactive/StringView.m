@@ -26,6 +26,7 @@ const CGFloat maxHeight = 175.0;
 {
     // Drawing code
     [super drawRect:rect];
+    BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
     BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
     BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
@@ -116,8 +117,13 @@ const CGFloat maxHeight = 175.0;
         horizontalLineWidth -= horizontalSpacing / 2.0;
         horizontalLineX     += horizontalSpacing / 2.0;
    }
-    
-    for (int i = 0; i < 6; i++) {
+    numLines = 6;
+    if (isBassMode) {
+        numLines = 4;
+        verticalSpacing = verticalSpacing * 1.3;
+        verticalOffset = verticalOffset * 2.0;
+    }
+    for (int i = 0; i < numLines; i++) {
         CGFloat y = i * verticalSpacing + verticalOffset;
         CGContextMoveToPoint(context, horizontalLineX, y);
         CGContextAddLineToPoint(context, horizontalLineWidth, y);
@@ -161,8 +167,15 @@ const CGFloat maxHeight = 175.0;
                             x = width - x;
                         }
                         
+                        CGFloat bassChanger = 0;
+                        if (isBassMode) {
+                            if (coord.y > 1) {
+                                bassChanger = 2;
+                            }
+                        }
                         CGFloat y
-                        = coord.y * verticalSpacing + verticalOffset;
+                        = (coord.y - bassChanger) * verticalSpacing + verticalOffset;
+                        
                         if (isFlipped) {
                             y = height - y - verticalOffset + (verticalSpacing * 1.96);
                         }
@@ -187,12 +200,21 @@ const CGFloat maxHeight = 175.0;
                             strokeColor = [UIColor lightGrayColor];
                             newStrokeWidth = strokeWidth - 1;
                         }
+                        if (isBassMode) {
+                            if (coord.y < 2) {
+                                textColor   = [UIColor clearColor];
+                                fillColor   = [UIColor clearColor];
+                                strokeColor = [UIColor clearColor];
+                            }
+                        }
                         CGContextSetLineWidth(context, newStrokeWidth);
 
                         CGContextSetFillColorWithColor(context, [fillColor CGColor]);
                         CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
-  
+                        
+                        
                         CGContextDrawPath(context, kCGPathFillStroke);
+                        
 
                         // If the view is the center view, add degree text on top of notes
                         // if showDegrees is set on

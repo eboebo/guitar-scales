@@ -116,6 +116,17 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"displayedTutorial"];
 }
 
+- (void)setBassMode:(BOOL)bassMode
+{
+    [[NSUserDefaults standardUserDefaults] setBool:bassMode forKey:@"isBassMode"];
+}
+
+- (BOOL)isBassMode
+{
+    BOOL isBassMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"isBassMode"];
+    return isBassMode;
+}
+
 - (void)setShowDegrees:(BOOL)sDegrees
 {
     [[NSUserDefaults standardUserDefaults] setBool:sDegrees forKey:@"showDegrees"];

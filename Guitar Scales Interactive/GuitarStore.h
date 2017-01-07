@@ -27,6 +27,8 @@ typedef void (^UpdateCallback)(BOOL success);
 - (void)parseData;
 - (void)setDisplayedTutorial;
 - (BOOL)displayedTutorial;
+- (void)setBassMode:(BOOL)bassMode;
+- (BOOL)isBassMode;
 - (void)setShowDegrees:(BOOL)sDegrees;
 - (BOOL)showDegrees;
 - (void)setLeftHand:(BOOL)leftHand;
