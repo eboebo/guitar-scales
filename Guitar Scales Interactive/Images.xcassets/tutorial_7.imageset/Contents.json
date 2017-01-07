@@ -1,19 +1,29 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "tutorial_07.png"
+      "idiom" : "iphone",
+      "filename" : "iPhone_right_07_1x.jpg",
+      "scale" : "1x"
     },
     {
-      "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "7tutorial@2x.png"
+      "idiom" : "iphone",
+      "filename" : "iPhone_right_07_2x.jpg",
+      "scale" : "2x"
     },
     {
-      "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "07.png"
+      "idiom" : "iphone",
+      "filename" : "iPhone_right_07_3x.png",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "iPad_right_07_1x.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "iPad_right_07_2x.png",
+      "scale" : "2x"
     }
   ],
   "info" : {

@@ -12,6 +12,8 @@
 #import "OptionsViewController.h"
 #import "TutorialViewController.h"
 
+#import "QuartzCore/QuartzCore.h"
+
 @interface MainViewController ()
 <ScalesViewDelegate,
 OptionsViewDelegate>
@@ -31,17 +33,29 @@ OptionsViewDelegate>
     
     if (![[GuitarStore sharedStore] displayedTutorial]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome!"
-                                                        message:@"Would you like to see the tutorial to get started?"
+        UIAlertView *alert;
+       
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        alert = [[UIAlertView alloc] initWithTitle:@"Welcome to Guitar Note Atlas"
+                                                        message:@"Tap the diagram to zoom out and view the entire fretboard. Would you like to see the tutorial for more info?"
                                                        delegate:self
                                               cancelButtonTitle:@"No Thanks"
                                               otherButtonTitles:@"OK", nil];
+        }
+        else {
+            alert = [[UIAlertView alloc] initWithTitle:@"Welcome to Guitar Note Atlas"
+                                                            message:@"Would you like to see the tutorial to get started?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"No Thanks"
+                                                  otherButtonTitles:@"OK", nil];
+        }
         
         [alert show];
     }
     
     // layout scales
     [self layoutScalesViewController];
+    [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
 }
 
 - (void)layoutScalesViewController
@@ -71,6 +85,8 @@ OptionsViewDelegate>
         self.optionsViewController.view.frame = optionsViewControllerFrame;
         
         [self.optionsViewContainer addSubview:self.optionsViewController.view];
+        
+        // this tapGesture doesn't appear to do anything
         
         self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
         self.tapGesture.cancelsTouchesInView = NO;

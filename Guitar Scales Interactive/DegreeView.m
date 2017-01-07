@@ -49,23 +49,13 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 
 - (void)initSubviews
 {
-    CGFloat fontSize = 22.0f;                                                   // iPhone 6
     CGRect bounds = [[UIScreen mainScreen] bounds];
-    if (bounds.size.width < 568.0) {                                            // iPhone 4
-        fontSize = 18.0f;
-    }
-    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        fontSize = 23.0f;
-    }
-    else if (bounds.size.width < 667.0) {                                       // iPhone 5
-        fontSize = 20.0f;
-    }
-
+    CGFloat fontSize = bounds.size.width / 33.0;       // CLEAR and ALL button size
     
     self.backgroundColor = [UIColor clearColor];
     self.clearAllButton  = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.clearAllButton setTitle:@"CLEAR" forState:UIControlStateNormal];
-    [self.clearAllButton setTintColor:[UIColor GuitarMediumBlue]];
+    [self.clearAllButton setTintColor:[UIColor GuitarMainAlpha]];
     self.clearAllButton.titleLabel.font = [UIFont blackoutFontWithSize:fontSize];
     [self.clearAllButton addTarget:self
                             action:@selector(clearAllTap:)
@@ -74,7 +64,7 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
     
     self.showAllButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.showAllButton setTitle:@"ALL" forState:UIControlStateNormal];
-    [self.showAllButton setTintColor:[UIColor GuitarMediumBlue]];
+    [self.showAllButton setTintColor:[UIColor GuitarMainAlpha]];
     self.showAllButton.titleLabel.font = [UIFont blackoutFontWithSize:fontSize];
 
     [self.showAllButton addTarget:self
@@ -86,21 +76,11 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 
 - (void)drawRect:(CGRect)rect
 {
-    //draw the bottom border
-    float borderSize = 6.5f;                                                    // iPhone 6
     CGRect bounds = [[UIScreen mainScreen] bounds];
-    if (bounds.size.width < 568.0) {                                            // iPhone 4
-        borderSize = 6.2;
-    }
-    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        borderSize= 6.5;
-    }
-    else if (bounds.size.width < 667.0) {                                       // iPhone 5
-        borderSize = 6.2;
-    }
+    CGFloat borderSize = bounds.size.width / 80;       // size of the bottom bar (sides, under CLEAR and ALL buttons)
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor GuitarMain].CGColor);
     CGRect rectFrame
     = CGRectMake(0.0f, self.frame.size.height - borderSize, self.frame.size.width, borderSize);
     CGContextFillRect(context, rectFrame);
@@ -110,31 +90,20 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 {
     [super layoutSubviews];
     CGRect bounds           = self.bounds;
+    CGFloat width = bounds.size.width;
+    CGFloat height = bounds.size.height;
+    CGFloat textButtonWidth = width / 7.3;      // sets the size of the CLEAR and ALL rect, effects spacing of bottom bar
     
-    CGFloat textButtonWidth = 100.0f;                                            // iPhone 6
-    if (bounds.size.width < 568.0) {                                            // iPhone 4
-        textButtonWidth = 60.0;
-    }
-    else if (bounds.size.width > 667.0) {                                       // iPhone 6 Plus
-        textButtonWidth = 100.0;
-    }
-    else if (bounds.size.width < 667.0) {                                       // iPhone 5
-        textButtonWidth = 80.0;
-    }
-    
-    CGRect clearFrame         = CGRectMake(0, 0, textButtonWidth, bounds.size.height);
+    CGRect clearFrame         = CGRectMake(0, 0, textButtonWidth, height);
     self.clearAllButton.frame = clearFrame;
     
-    CGRect showFrame
-    = CGRectMake(bounds.size.width - textButtonWidth, 0, textButtonWidth, bounds.size.height);
-    self.showAllButton.frame = showFrame;
-    
-
+    CGRect showFrame          = CGRectMake(width - textButtonWidth, 0, textButtonWidth, height);
+    self.showAllButton.frame  = showFrame;
     
     NSArray *degreeButtonArray = [[GuitarStore sharedStore] degreeButtonArray];
     NSArray *degrees           = [[GuitarStore sharedStore] degrees];
     
-    CGFloat buttonBoardWidth = bounds.size.width - textButtonWidth * 2.0;
+    CGFloat buttonBoardWidth = width - textButtonWidth * 2.0;
     CGFloat smallButtonWidth = buttonBoardWidth / degreeButtonArray.count;
 
     for (int i = 0; i < degreeButtonArray.count; i++) {
@@ -142,7 +111,7 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
         NSArray *degreeArray = degreeButtonArray[i];
 
         CGFloat x          = textButtonWidth + (i * smallButtonWidth);
-        CGRect buttonFrame = CGRectMake(x, 0, smallButtonWidth, bounds.size.height);
+        CGRect buttonFrame = CGRectMake(x, 0, smallButtonWidth, height);
         
         if (degreeArray.count == 1) {
             DegreeButtonView *degreeButton = [[DegreeButtonView alloc] initWithFrame:CGRectZero];
@@ -203,6 +172,8 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 
 - (void)clearAllTap:(id)sender
 {
+    [self resetShowAllButton];
+    
     if (!self.tempDegrees) {
         self.tempDegrees = self.selectedDegrees;
         [self.clearAllButton setTitle:@"Undo" forState:UIControlStateNormal];
@@ -214,23 +185,34 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
     }
     
     [self.delegate selectedDegreesModified:self.selectedDegrees];
-    
     [self setNeedsDisplay];
 }
 
 - (void)showAllTap:(id)sender
 {
-    
     [self resetClearButton];
     
-    NSArray *degrees = [[[GuitarStore sharedStore] chromaticScale] selectedDegrees];
-    NSMutableArray *degreeArray = [degrees mutableCopy];
+    if (!self.tempShowDegrees) { // if "ALL" is currently showing
+        
+        self.tempShowDegrees = self.selectedDegrees; // store current scale
+        [self.showAllButton setTitle:@"Undo" forState:UIControlStateNormal]; // change to "UNDO"
     
-    if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
-        [self.delegate selectedDegreesModified:degreeArray];
-    }
+        NSArray *degrees = [[[GuitarStore sharedStore] chromaticScale] selectedDegrees]; // make current scale Chromatic
+        NSMutableArray *degreeArray = [degrees mutableCopy];
     
-    self.selectedDegrees = degreeArray;
+            if ([self.delegate respondsToSelector:@selector(selectedDegreesModified:)]) {
+                [self.delegate selectedDegreesModified:degreeArray];
+            }
+    
+            self.selectedDegrees = degreeArray;
+        }
+        else { // if "UNDO" is currently showing
+            [self.showAllButton setTitle:@"All" forState:UIControlStateNormal];   // change to "ALL"
+            self.selectedDegrees = self.tempShowDegrees;   // make current scale the stored scale
+            self.tempShowDegrees = nil; // empty the stored scale
+        }
+    
+    [self.delegate selectedDegreesModified:self.selectedDegrees]; // needed?
     [self setNeedsDisplay];
 }
 
@@ -249,6 +231,7 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 - (void)degreeTapped:(id)sender
 {
     [self resetClearButton];
+    [self resetShowAllButton];
     
     DegreeButtonView *degreeButton = (DegreeButtonView *)sender;
     if (degreeButton.selected) {
@@ -271,6 +254,7 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
 - (void)doubleDegreeButtonTapped:(id)sender
 {
     [self resetClearButton];
+    [self resetShowAllButton];
 
     DoubleDegreeButtonView *degreeButton = (DoubleDegreeButtonView *)sender;
 
@@ -312,6 +296,15 @@ typedef NS_ENUM(NSInteger, ClearButtonState) {
     if (self.tempDegrees) {
         self.tempDegrees = nil;
         [self.clearAllButton setTitle:@"Clear" forState:UIControlStateNormal];
+    }
+}
+
+- (void)resetShowAllButton
+{
+    // Reset Show All button
+    if (self.tempShowDegrees) {
+        self.tempShowDegrees = nil;
+        [self.showAllButton setTitle:@"All" forState:UIControlStateNormal];
     }
 }
 

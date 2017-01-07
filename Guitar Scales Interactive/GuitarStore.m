@@ -116,6 +116,17 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"displayedTutorial"];
 }
 
+- (void)setShowDegrees:(BOOL)sDegrees
+{
+    [[NSUserDefaults standardUserDefaults] setBool:sDegrees forKey:@"showDegrees"];
+}
+
+- (BOOL)showDegrees
+{
+    BOOL showDegrees = [[NSUserDefaults standardUserDefaults] boolForKey:@"showDegrees"];
+    return showDegrees;
+}
+
 - (void)setLeftHand:(BOOL)leftHand
 {
     [[NSUserDefaults standardUserDefaults] setBool:leftHand forKey:@"isLeftHand"];
@@ -125,6 +136,17 @@
 {
     BOOL isLeftHand = [[NSUserDefaults standardUserDefaults] boolForKey:@"isLeftHand"];
     return isLeftHand;
+}
+
+- (void)setFlipped:(BOOL)flipped
+{
+    [[NSUserDefaults standardUserDefaults] setBool:flipped forKey:@"isFlipped"];
+}
+
+- (BOOL)isFlipped
+{
+    BOOL isFlipped = [[NSUserDefaults standardUserDefaults] boolForKey:@"isFlipped"];
+    return isFlipped;
 }
 
 

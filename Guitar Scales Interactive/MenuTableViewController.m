@@ -62,6 +62,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     
     NSString *MenuCellIdentifier = @"MenuCellIdentifier";
     MenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MenuCellIdentifier];
+    
     if (cell == nil) {
         cell
         = [[MenuTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MenuCellIdentifier];
@@ -71,7 +72,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     Scale *selectedScale = [[GuitarStore sharedStore] selectedScale];
   
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:leftScale.menuTitle];
-    [attributedString addAttribute:NSKernAttributeName value:@(.3) range:NSMakeRange(0, leftScale.menuTitle.length)];
+    [attributedString addAttribute:NSKernAttributeName value:@(1.0) range:NSMakeRange(0, leftScale.menuTitle.length)]; // original .3
     
     
     cell.leftTitle.attributedText = attributedString;
@@ -79,13 +80,14 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     cell.leftTitle.tag  = tag;
     cell.delegate       = self;
     
-
+    // seems to have to do with unselecting old selection
     if ([leftScale.title isEqualToString:selectedScale.title] ) {
-        cell.leftTitle.backgroundColor = [UIColor GuitarMediumBlue]; //
+        cell.leftTitle.backgroundColor = [UIColor GuitarMenuSelection]; //
+        cell.leftTitle.textColor = [UIColor GuitarMenuSelectionText];
         self.selectedLabel = cell.leftTitle;
     } else {
         cell.leftTitle.textColor = [UIColor GuitarCream];
-        cell.leftTitle.backgroundColor = [UIColor GuitarBlue]; //
+        cell.leftTitle.backgroundColor = [UIColor GuitarMain]; //
         
     }
     
@@ -98,19 +100,27 @@ NSInteger const SCALE_TAG_OFFSET = 111;
         Scale *rightScale = sectionScales[scaleIndex];
         
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:rightScale.menuTitle];
-        [attributedString addAttribute:NSKernAttributeName value:@(.3) range:NSMakeRange(0, rightScale.menuTitle.length)];
+        [attributedString addAttribute:NSKernAttributeName value:@(1.0) range:NSMakeRange(0, rightScale.menuTitle.length)]; // original .3
 
         cell.rightTitle.attributedText = attributedString;
         tag = ([indexPath section] * 1000 + (scaleIndex)) + SCALE_TAG_OFFSET;
         cell.rightTitle.tag = tag;
         if ([rightScale.title isEqualToString:selectedScale.title]) {
-            cell.rightTitle.backgroundColor = [UIColor GuitarMediumBlue]; //
+            cell.rightTitle.backgroundColor = [UIColor GuitarMenuSelection]; //
+            cell.rightTitle.textColor = [UIColor GuitarMenuSelectionText];
             self.selectedLabel = cell.rightTitle;
-        } else {
-            cell.rightTitle.textColor = [UIColor GuitarCream];
-            cell.rightTitle.backgroundColor = [UIColor GuitarBlue]; //
         }
-    } else {
+        else {
+            cell.rightTitle.textColor = [UIColor GuitarCream];
+            cell.rightTitle.backgroundColor = [UIColor GuitarMain]; //
+        }
+//        if ([rightScale.title isEqualToString:@"clear"]) {    // trying to disable activity on empty cells, but
+//            cell.rightTitle.backgroundColor = [UIColor GuitarMain];          // something with the reusing of cells is making other cells inactive too
+//        cell.userInteractionEnabled = NO;
+        //        }
+        
+    }
+    else {  // doesn't seem to ever go to this code
         cell.rightTitle.text = @"";
     }
 
@@ -119,18 +129,26 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 28.0f;
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    CGFloat cellHeight = bounds.size.width / 22.0;
+    if (bounds.size.width > 667) {
+        cellHeight = bounds.size.width / 27.0;
+    }
+    return cellHeight;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    CGRect bounds = [[UIScreen mainScreen] bounds];
     UIView *headerView         = [UIView new];
-    headerView.frame           = CGRectMake(0, 0, self.view.bounds.size.width, 24.0f);
-    headerView.backgroundColor = [UIColor GuitarLightBlue];
+    CGFloat headerHeight       = bounds.size.width / 22.0;
+    headerView.frame           = CGRectMake(0, 0, self.view.bounds.size.width, headerHeight);
+    headerView.backgroundColor = [UIColor GuitarMenuHeader];        
 
     UILabel *titleLabel        = [UILabel new];
-    titleLabel.backgroundColor = [UIColor GuitarLightBlue];
-    [titleLabel setFont:[UIFont ProletarskFontWithSize:16.0f]];
+    CGFloat headerFontSize     = bounds.size.width / 36.0;
+    titleLabel.backgroundColor = [UIColor GuitarMenuHeader];
+    [titleLabel setFont:[UIFont ProletarskFontWithSize:headerFontSize]];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     
     NSString *titleText = @"SCALES";
@@ -139,9 +157,7 @@ NSInteger const SCALE_TAG_OFFSET = 111;
     }
     [titleLabel setText:titleText];
 
-    CGFloat inset      = 10.0;
-    CGFloat labelWidth = self.view.bounds.size.width - inset * 2.0;
-    CGRect labelFrame  = CGRectMake(inset, 0, labelWidth , headerView.frame.size.height);
+    CGRect labelFrame  = CGRectMake(0, 0, self.view.bounds.size.width , headerView.frame.size.height);
     titleLabel.frame   = labelFrame;
     
     [headerView addSubview:titleLabel];
@@ -150,7 +166,8 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 24.0f;
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    return bounds.size.width / 20.84;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -160,17 +177,21 @@ NSInteger const SCALE_TAG_OFFSET = 111;
 
 - (void)scaleTapped:(UILabel *)scaleLabel
 {
+    // unselect last selection
     if (self.selectedLabel) {
         [self.selectedLabel setTextColor:[UIColor GuitarCream]];
-        [self.selectedLabel setBackgroundColor: [UIColor GuitarBlue]];
+        [self.selectedLabel setBackgroundColor: [UIColor GuitarMain]];
         self.selectedLabel = scaleLabel;
         self.selectedLabel.textColor = [UIColor GuitarCream];
-        self.selectedLabel.backgroundColor = [UIColor GuitarBlue];
-        [self.selectedLabel setBackgroundColor: [UIColor GuitarMediumBlue]];
+        self.selectedLabel.backgroundColor = [UIColor GuitarMain];
+        [self.selectedLabel setBackgroundColor: [UIColor GuitarMenuSelection]];
+        [self.selectedLabel setTextColor: [UIColor GuitarMenuSelectionText]]; //
     }
     
+    // has to do with keeping selection while scrolling
     self.selectedLabel = scaleLabel;
-    [self.selectedLabel setBackgroundColor: [UIColor GuitarMediumBlue]];
+    [self.selectedLabel setBackgroundColor: [UIColor GuitarMenuSelection]];
+    [self.selectedLabel setTextColor: [UIColor GuitarMenuSelectionText]]; //
     
     if (scaleLabel.tag) {
         NSInteger tag = scaleLabel.tag - SCALE_TAG_OFFSET;
@@ -183,9 +204,11 @@ NSInteger const SCALE_TAG_OFFSET = 111;
             [self.delegate didSelectScale:scale];
         }
     }
-
-
-
+    
+//    if ([self.selectedLabel  isEqual: @"clear"]) {
+//        
+//    }
+    
 }
 
 @end

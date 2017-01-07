@@ -13,6 +13,7 @@
 @interface Scale : JSONModel
 
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *longTitle;
 @property (nonatomic, strong) NSString *menuTitle;
 //@property (nonatomic, assign) double *kern;
 @property (nonatomic, strong) NSArray *selectedDegrees;

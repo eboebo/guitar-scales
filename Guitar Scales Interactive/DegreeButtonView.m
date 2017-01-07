@@ -35,10 +35,16 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    //draw the bottom border
-    float borderSize = 7.0f;
+    // size of bottom border (middle, under degree buttons)
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    CGFloat borderSize = bounds.size.width / 74.0;   // for iPhone
+    if (isiPad) {
+        borderSize = bounds.size.width / 77.5;       // for iPad
+    }
+
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [UIColor GuitarBlue].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor GuitarMain].CGColor);
     CGContextFillRect(context, CGRectMake(0.0f, self.frame.size.height - borderSize, self.frame.size.width, borderSize));
 }
 
@@ -58,9 +64,9 @@
     [UIView animateWithDuration:0.8 animations:^{
         if (_selected) {
             self.titleLabel.textColor = [UIColor GuitarCream];
-            self.backgroundColor = [UIColor GuitarBlue];
+            self.backgroundColor = [UIColor GuitarMain];
         } else {
-            self.titleLabel.textColor = [UIColor GuitarMediumBlue];
+            self.titleLabel.textColor = [UIColor GuitarMainAlpha];
             self.backgroundColor = [UIColor GuitarCream];
             
         }

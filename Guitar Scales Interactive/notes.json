@@ -151,6 +151,21 @@
                                                      "color": "white"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 3,
+                                                     "color": "white"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 1,
+                                                     "color": "white"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -264,6 +279,21 @@
                                                      "color": "black"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -369,6 +399,26 @@
                                                      {
                                                      "x": 2,
                                                      "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 0,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 3,
                                                      "color": "black"
                                                      }
                                                      ]
@@ -488,6 +538,26 @@
                                                      "color": "black"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 1,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -593,6 +663,26 @@
                                                      {
                                                      "x": 4,
                                                      "y": 4,
+                                                     "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 2,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 3,
                                                      "color": "black"
                                                      }
                                                      ]
@@ -704,6 +794,26 @@
                                                      "color": "black"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -810,6 +920,26 @@
                                                      "x": 4,
                                                      "y": 1,
                                                      "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 5,
+                                                     "color": "gray"
                                                      }
                                                      ]
                                      }
@@ -923,6 +1053,21 @@
                                                      "x": 0,
                                                      "y": 5,
                                                      "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 4,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 2,
+                                                     "color": "black"
                                                      }
                                                      ]
                                      }
@@ -1043,6 +1188,21 @@
                                                      "color": "gray"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 4,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -1153,6 +1313,21 @@
                                                      {
                                                      "x": 2,
                                                      "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 0,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 2,
+                                                     "y": 4,
                                                      "color": "gray"
                                                      }
                                                      ]
@@ -1274,6 +1449,21 @@
                                                      "color": "gray"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 4,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -1384,6 +1574,21 @@
                                                      {
                                                      "x": 4,
                                                      "y": 5,
+                                                     "color": "gray"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 2,
+                                                     "y": 1,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 4,
                                                      "color": "gray"
                                                      }
                                                      ]
@@ -1500,6 +1705,26 @@
                                                      "color": "black"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 1,
+                                                     "y": 5,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 3,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 },
@@ -1606,6 +1831,26 @@
                                                      "x": 4,
                                                      "y": 1,
                                                      "color": "black"
+                                                     }
+                                                     ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 0,
+                                                     "color": "black"
+                                                     },
+                                                     {
+                                                     "x": 4,
+                                                     "y": 5,
+                                                     "color": "gray"
                                                      }
                                                      ]
                                      }
@@ -1726,6 +1971,21 @@
                                                      "color": "gray"
                                                      }
                                                      ]
+                                     },
+                                     {
+                                     "position_id": 6,
+                                     "coordinates": [
+                                                     {
+                                                     "x": 1,
+                                                     "y": 4,
+                                                     "color": "gray"
+                                                     },
+                                                     {
+                                                     "x": 3,
+                                                     "y": 2,
+                                                     "color": "black"
+                                                     }
+                                                     ]
                                      }
                                      ]
                 }
@@ -1739,24 +1999,10 @@
                   "finger": "pinky"
                   },
                   {
-                  "position_id": 1,
-                  "base_fret": 4,
-                  "title": "5TH STRING // PINKY",
-                  "string": 5,
-                  "finger": "pinky"
-                  },
-                  {
                   "position_id": 2,
                   "base_fret": 2,
                   "title": "6TH STRING // MIDDLE",
                   "string": 6,
-                  "finger": "middle"
-                  },
-                  {
-                  "position_id": 3,
-                  "base_fret": 2,
-                  "title": "5TH STRING // MIDDLE",
-                  "string": 5,
                   "finger": "middle"
                   },
                   {
@@ -1765,6 +2011,27 @@
                   "title": "6TH STRING // INDEX",
                   "string": 6,
                   "finger": "index"
+                  },
+                  {
+                  "position_id": 6,
+                  "base_fret": 0,
+                  "title": "4TH STRING // INDEX",
+                  "string": 4,
+                  "finger": "index"
+                  },
+                  {
+                  "position_id": 1,
+                  "base_fret": 4,
+                  "title": "5TH STRING // PINKY",
+                  "string": 5,
+                  "finger": "pinky"
+                  },
+                  {
+                  "position_id": 3,
+                  "base_fret": 2,
+                  "title": "5TH STRING // MIDDLE",
+                  "string": 5,
+                  "finger": "middle"
                   },
                   {
                   "position_id": 5,
@@ -1778,6 +2045,7 @@
                [
                 {
                 "title": "Major Scale",
+                "long_title": "Major Scale",
                 "menu_title": "Major Scale",
                 "degrees": [
                             0,
@@ -1791,6 +2059,7 @@
                 },
                 {
                 "title": "Natural Minor",
+                "long_title": "Natural Minor",
                 "menu_title": "Natural Minor",
                 "degrees": [
                             0,
@@ -1804,6 +2073,7 @@
                 },
                 {
                 "title": "Melodic Minor",
+                "long_title": "Melodic Minor",
                 "menu_title": "Melodic Minor",
                 "degrees": [
                             0,
@@ -1817,6 +2087,7 @@
                 },
                 {
                 "title": "Harmonic Minor",
+                "long_title": "Harmonic Minor",
                 "menu_title": "Harmonic Minor",
                 "degrees": [
                             0,
@@ -1830,6 +2101,7 @@
                 },
                 {
                 "title": "Harmonic Major",
+                "long_title": "Harmonic Major",
                 "menu_title": "Harmonic Major",
                 "degrees": [
                             0,
@@ -1843,6 +2115,7 @@
                 },
                 {
                 "title": "Chromatic Scale",
+                "long_title": "Chromatic Scale",
                 "menu_title": "Chromatic Scale",
                 "degrees": [
                             0,
@@ -1862,6 +2135,7 @@
                 },
                 {
                 "title": "Major Pentatonic",
+                "long_title": "Major Pentatonic",
                 "menu_title": "Major Pentatonic",
                 "degrees": [
                             0,
@@ -1873,6 +2147,7 @@
                 },
                 {
                 "title": "Minor Pentatonic",
+                "long_title": "Minor Pentatonic",
                 "menu_title": "Minor Pentatonic",
                 "degrees": [
                             0,
@@ -1884,6 +2159,7 @@
                 },
                 {
                 "title": "Whole-Tone Scale",
+                "long_title": "Whole-Tone Scale",
                 "menu_title": "Whole-Tone Scale",
                 "degrees": [
                             0,
@@ -1895,7 +2171,8 @@
                             ]
                 },
                 {
-                "title": "Whole-Half Diminished",
+                "title": "Whole-Half Dim",
+                "long_title": "Whole-Half Diminished",
                 "menu_title": "Whole-Half Diminished",
                 "degrees": [
                             0,
@@ -1909,7 +2186,8 @@
                             ]
                 },
                 {
-                "title": "Half-Whole Diminished",
+                "title": "Half-Whole Dim",
+                "long_title": "Half-Whole Diminished",
                 "menu_title": "Half-Whole Diminished",
                 "degrees": [
                             0,
@@ -1924,6 +2202,7 @@
                 },
                 {
                 "title": "Augmented Scale",
+                "long_title": "Augmented Scale",
                 "menu_title": "Augmented Scale",
                 "degrees": [
                             0,
@@ -1935,7 +2214,8 @@
                             ]
                 },
                 {
-                "title": "Double Harm Minor",
+                "title": "Double Harm Min",
+                "long_title": "Double Harm Minor",
                 "menu_title": "Double Harmonic Minor",
                 "degrees": [
                             0,
@@ -1948,7 +2228,8 @@
                             ]
                 },
                 {
-                "title": "Double Harm Major",
+                "title": "Double Harm Maj",
+                "long_title": "Double Harm Major",
                 "menu_title": "Double Harmonic Major",
                 "degrees": [
                             0,
@@ -1964,6 +2245,7 @@
                [
                 {
                 "title": "Major Arpeggio",
+                "long_title": "Major Arpeggio",
                 "menu_title": "Major Arpeggio",
                 "degrees": [
                             0,
@@ -1973,6 +2255,7 @@
                 },
                 {
                 "title": "Minor Arpeggio",
+                "long_title": "Minor Arpeggio",
                 "menu_title": "Minor Arpeggio",
                 "degrees": [
                             0,
@@ -1981,7 +2264,8 @@
                             ]
                 },
                 {
-                "title": "Diminished Arpeggio",
+                "title": "Diminished Arp",
+                "long_title": "Diminished Arpeggio",
                 "menu_title": "Diminished Arpeggio",
                 "degrees": [
                             0,
@@ -1990,7 +2274,8 @@
                             ]
                 },
                 {
-                "title": "Augmented Arpeggio",
+                "title": "Augmented Arp",
+                "long_title": "Augmented Arpeggio",
                 "menu_title": "Augmented Arpeggio",
                 "degrees": [
                             0,
@@ -2000,6 +2285,7 @@
                 },
                 {
                 "title": "Major 7 Arpeggio",
+                "long_title": "Major 7 Arpeggio",
                 "menu_title": "Major 7 Arpeggio",
                 "degrees": [
                             0,
@@ -2009,7 +2295,8 @@
                             ]
                 },
                 {
-                "title": "Dominant 7 Arpeggio",
+                "title": "Dominant 7 Arp",
+                "long_title": "Dominant 7 Arpeggio",
                 "menu_title": "Dominant 7 Arpeggio",
                 "degrees": [
                             0,
@@ -2020,6 +2307,7 @@
                 },
                 {
                 "title": "Minor 7 Arpeggio",
+                "long_title": "Minor 7 Arpeggio",
                 "menu_title": "Minor 7 Arpeggio",
                 "degrees": [
                             0,
@@ -2029,7 +2317,8 @@
                             ]
                 },
                 {
-                "title": "Minor-Major 7 Arp",
+                "title": "Minor-Maj 7 Arp",
+                "long_title": "Minor Major 7 Arp",
                 "menu_title": "Minor-Major 7",
                 "degrees": [
                             0,
@@ -2039,7 +2328,8 @@
                             ]
                 },
                 {
-                "title": "Half-Diminished 7 Arp",
+                "title": "Half-Dim 7 Arp",
+                "long_title": "Half-Diminished 7 Arp",
                 "menu_title": "Half-Diminished 7",
                 "degrees": [
                             0,
@@ -2049,7 +2339,8 @@
                             ]
                 },
                 {
-                "title": "Fully-Diminished 7 Arp",
+                "title": "Fully-Dim 7 Arp",
+                "long_title": "Fully Diminished 7 Arp",
                 "menu_title": "Fully-Diminished 7",
                 "degrees": [
                             0,
@@ -2062,6 +2353,7 @@
                [
                 {
                 "title": "Minor 2nd",
+                "long_title": "Minor 2nd",
                 "menu_title": "Minor 2nd",
                 "degrees": [
                             0,
@@ -2070,6 +2362,7 @@
                 },
                 {
                 "title": "Major 2nd",
+                "long_title": "Major 2nd",
                 "menu_title": "Major 2nd",
                 "degrees": [
                             0,
@@ -2078,6 +2371,7 @@
                 },
                 {
                 "title": "Minor 3rd",
+                "long_title": "Minor 3rd",
                 "menu_title": "Minor 3rd",
                 "degrees": [
                             0,
@@ -2086,6 +2380,7 @@
                 },
                 {
                 "title": "Major 3rd",
+                "long_title": "Major 3rd",
                 "menu_title": "Major 3rd",
                 "degrees": [
                             0,
@@ -2094,6 +2389,7 @@
                 },
                 {
                 "title": "Perfect 4th",
+                "long_title": "Perfect 4th",
                 "menu_title": "Perfect 4th",
                 "degrees": [
                             0,
@@ -2102,6 +2398,7 @@
                 },
                 {
                 "title": "Tritone",
+                "long_title": "Tritone",
                 "menu_title": "Tritone",
                 "degrees": [
                             0,
@@ -2110,6 +2407,7 @@
                 },
                 {
                 "title": "Perfect 5th",
+                "long_title": "Perfect 5th",
                 "menu_title": "Perfect 5th",
                 "degrees": [
                             0,
@@ -2118,6 +2416,7 @@
                 },
                 {
                 "title": "Minor 6th",
+                "long_title": "Minor 6th",
                 "menu_title": "Minor 6th",
                 "degrees": [
                             0,
@@ -2126,6 +2425,7 @@
                 },
                 {
                 "title": "Major 6th",
+                "long_title": "Major 6th",
                 "menu_title": "Major 6th",
                 "degrees": [
                             0,
@@ -2134,6 +2434,7 @@
                 },
                 {
                 "title": "Minor 7th",
+                "long_title": "Minor 7th",
                 "menu_title": "Minor 7th",
                 "degrees": [
                             0,
@@ -2142,16 +2443,26 @@
                 },
                 {
                 "title": "Major 7th",
+                "long_title": "Major 7th",
                 "menu_title": "Major 7th",
                 "degrees": [
                             0,
                             11
+                            ]
+                },
+                {
+                "title": "",
+                "long_title": "",
+                "menu_title": "",
+                "degrees": [
+                            20
                             ]
                 }
                 ],
                [
                 {
                 "title": "Major Scale",
+                "long_title": "Major Scale",
                 "menu_title": "I. Ionian",
                 "degrees": [
                             0,
@@ -2165,6 +2476,7 @@
                 },
                 {
                 "title": "Dorian",
+                "long_title": "Dorian",
                 "menu_title": "ii. Dorian",
                 "degrees": [
                             0,
@@ -2178,6 +2490,7 @@
                 },
                 {
                 "title": "Phrygian",
+                "long_title": "Phrygian",
                 "menu_title": "iii. Phrygian",
                 "degrees": [
                             0,
@@ -2191,6 +2504,7 @@
                 },
                 {
                 "title": "Lydian",
+                "long_title": "Lydian",
                 "menu_title": "IV. Lydian",
                 "degrees": [
                             0,
@@ -2204,6 +2518,7 @@
                 },
                 {
                 "title": "Mixolydian",
+                "long_title": "Mixolydian",
                 "menu_title": "V. Mixolydian",
                 "degrees": [
                             0,
@@ -2217,6 +2532,7 @@
                 },
                 {
                 "title": "Natural Minor",
+                "long_title": "Natural Minor",
                 "menu_title": "vi. Aeolian",
                 "degrees": [
                             0,
@@ -2230,6 +2546,7 @@
                 },
                 {
                 "title": "Locrian",
+                "long_title": "Locrian",
                 "menu_title": "vii°. Locrian",
                 "degrees": [
                             0,
@@ -2240,11 +2557,20 @@
                             14,
                             10
                             ]
+                },
+                {
+                "title": "",
+                "long_title": "",
+                "menu_title": "",
+                "degrees": [
+                            20
+                            ]
                 }
                 ],
                [
                 {
                 "title": "Melodic Minor",
+                "long_title": "Melodic Minor",
                 "menu_title": "i. Melodic Minor",
                 "degrees": [
                             0,
@@ -2258,6 +2584,7 @@
                 },
                 {
                 "title": "Dorian -2",
+                "long_title": "Dorian -2",
                 "menu_title": "ii. Dorian b2",
                 "degrees": [
                             0,
@@ -2271,6 +2598,7 @@
                 },
                 {
                 "title": "Lydian Augmented",
+                "long_title": "Lydian Augmented",
                 "menu_title": "bIII+. Lydian Augmented",
                 "degrees": [
                             0,
@@ -2284,6 +2612,7 @@
                 },
                 {
                 "title": "Lydian Dominant",
+                "long_title": "Lydian Dominant",
                 "menu_title": "IV. Lydian Dominant",
                 "degrees": [
                             0,
@@ -2297,6 +2626,7 @@
                 },
                 {
                 "title": "Mixolydian -6",
+                "long_title": "Mixolydian -6",
                 "menu_title": "V. Mixolydian b6",
                 "degrees": [
                             0,
@@ -2310,6 +2640,7 @@
                 },
                 {
                 "title": "Locrian +2",
+                "long_title": "Locrian +2",
                 "menu_title": "vi°. Locrian #2",
                 "degrees": [
                             0,
@@ -2323,6 +2654,7 @@
                 },
                 {
                 "title": "Super Locrian",
+                "long_title": "Super Locrian",
                 "menu_title": "vii°. Super Locrian",
                 "degrees": [
                             0,
@@ -2333,11 +2665,20 @@
                             14,
                             10
                             ]
+                },
+                {
+                "title": "",
+                "long_title": "",
+                "menu_title": "",
+                "degrees": [
+                            20
+                            ]
                 }
                 ],
                [
                 {
                 "title": "Harmonic Minor",
+                "long_title": "Harmonic Minor",
                 "menu_title": "i. Harmonic Minor",
                 "degrees": [
                             0,
@@ -2351,6 +2692,7 @@
                 },
                 {
                 "title": "Locrian +6",
+                "long_title": "Locrian +6",
                 "menu_title": "ii. Locrian #6",
                 "degrees": [
                             0,
@@ -2364,6 +2706,7 @@
                 },
                 {
                 "title": "Ionian +5",
+                "long_title": "Ionian +5",
                 "menu_title": "bIII+. Ionian #5",
                 "degrees": [
                             0,
@@ -2377,6 +2720,7 @@
                 },
                 {
                 "title": "Dorian +4",
+                "long_title": "Dorian +4",
                 "menu_title": "iv. Dorian #4",
                 "degrees": [
                             0,
@@ -2389,7 +2733,8 @@
                             ]
                 },
                 {
-                "title": "Mixolydian -2, -6",
+                "title": "Mixolydian -2 -6",
+                "long_title": "Mixolydian -2 -6",
                 "menu_title": "V. Mixolydian b2, b6",
                 "degrees": [
                             0,
@@ -2403,6 +2748,7 @@
                 },
                 {
                 "title": "Lydian +2",
+                "long_title": "Lydian +2",
                 "menu_title": "bVI. Lydian #2",
                 "degrees": [
                             0,
@@ -2416,6 +2762,7 @@
                 },
                 {
                 "title": "Super Locrian dim7",
+                "long_title": "Super Locrian dim7",
                 "menu_title": "vii°. Super Locrian °7",
                 "degrees": [
                             0,
@@ -2426,11 +2773,20 @@
                             8,
                             9
                             ]
+                },
+                {
+                "title": "",
+                "long_title": "",
+                "menu_title": "",
+                "degrees": [
+                            20
+                            ]
                 }
                 ],
                [
                 {
                 "title": "Harmonic Major",
+                "long_title": "Harmonic Major",
                 "menu_title": "I. Harmonic Major",
                 "degrees": [
                             0,
@@ -2443,7 +2799,8 @@
                             ]
                 },
                 {
-                "title": "Locrian +2, +6",
+                "title": "Locrian +2 +6",
+                "long_title": "Locrian +2 +6",
                 "menu_title": "ii°. Locrian #2, #6",
                 "degrees": [
                             0,
@@ -2457,6 +2814,7 @@
                 },
                 {
                 "title": "Phrygian -4",
+                "long_title": "Phrygian -4",
                 "menu_title": "iii. Phrygian b4",
                 "degrees": [
                             0,
@@ -2470,6 +2828,7 @@
                 },
                 {
                 "title": "Melodic Minor +4",
+                "long_title": "Melodic Minor +4",
                 "menu_title": "iv. Melodic Minor #4",
                 "degrees": [
                             0,
@@ -2483,6 +2842,7 @@
                 },
                 {
                 "title": "Mixolydian -2",
+                "long_title": "Mixolydian -2",
                 "menu_title": "V. Mixolydian b2",
                 "degrees": [
                             0,
@@ -2495,7 +2855,8 @@
                             ]
                 },
                 {
-                "title": "Lydian +2, +5",
+                "title": "Lydian +2 +5",
+                "long_title": "Lydian +2 +5",
                 "menu_title": "bVI+. Lydian #2, #5",
                 "degrees": [
                             0,
@@ -2509,6 +2870,7 @@
                 },
                 {
                 "title": "Locrian dim7",
+                "long_title": "Locrian dim7",
                 "menu_title": "vii°. Locrian °7",
                 "degrees": [
                             0,
@@ -2518,6 +2880,14 @@
                             13,
                             14,
                             9
+                            ]
+                },
+                {
+                "title": "",
+                "long_title": "",
+                "menu_title": "",
+                "degrees": [
+                            20
                             ]
                 }
                 ]

@@ -22,27 +22,40 @@ const CGFloat maxHeight = 175.0;
     self.backgroundColor = [UIColor clearColor];
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)drawRect:(CGRect)rect               // zoomed in view (iPad, also iPhone?)
 {
     // Drawing code
     [super drawRect:rect];
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
-
+    BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
+    BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    
+    // iPad
     CGFloat horizontalSpacing = self.bounds.size.width / 6.42;
-    CGFloat verticalSpacing   = self.bounds.size.height / 6.6;
-    CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.0; // to be used to calculate radius
+    CGFloat verticalSpacing   = self.bounds.size.height / 4.5;
+    CGFloat radiusVerticalSpacing = self.bounds.size.height / 6.6;
     CGFloat horizontalOffset = horizontalSpacing / 4.8;
-    CGFloat verticalOffset   = verticalSpacing / 2.0;
+    CGFloat verticalOffset   = verticalSpacing / 3.2;
     CGFloat radius = radiusVerticalSpacing / 2.4;
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height - verticalSpacing;
-
     CGFloat lineWidth        = radius / 5.1;
     CGFloat strokeWidth      = radius / 4.0;
     CGFloat fontSize         = radius * 1.5;
-
     
-    if (self.stringViewType == StringViewTypeIndex) {
+    // iPhone
+    if (!isiPad) {
+        lineWidth        = radius / 4.8;
+    }
+    
+    BOOL useShortScale = false;
+    if ((self.position.identifier == 4) || (self.position.identifier == 5) || (self.position.identifier == 6))
+    {
+        useShortScale = true;            // only do 5 frets for some positions
+    }
+    
+    if (useShortScale == true) {
         horizontalOffset += (horizontalSpacing / 2.0);
     }
 
@@ -54,14 +67,28 @@ const CGFloat maxHeight = 175.0;
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    // draw color boxes
+    
     if (self.position.baseFret || self.position.baseFret == 0) {
         CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
         if (isLeftHand) {
             x = width - x - horizontalSpacing;
         }
-        CGFloat y = 5 * verticalSpacing + (verticalOffset * 2.0);
-        CGRect fretFrame = CGRectMake(x, 0, horizontalSpacing, y);
-        CGContextSetFillColorWithColor(context, [UIColor GuitarGray].CGColor);
+        NSInteger height = [self heightForPosition:self.position.identifier];
+        CGFloat originY = 0;
+        if (isFlipped) {
+            if (height == 3) {
+                originY = (verticalSpacing * 2.0);
+            }
+            else if (height == 4) {
+                originY = verticalSpacing;
+            }
+        }
+        CGFloat y = height * verticalSpacing + (verticalOffset * 2.0);
+        CGRect fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
+        UIColor *color = [self colorForPosition:self.position.identifier];
+
+        CGContextSetFillColorWithColor(context, color.CGColor);
         CGContextFillRect(context, fretFrame);
     }
     
@@ -69,7 +96,10 @@ const CGFloat maxHeight = 175.0;
     CGContextSetLineWidth(context, lineWidth);
     
     // draw vertical lines
-    NSInteger numLines = self.stringViewType == StringViewTypeIndex ? 6 : 7;
+    NSInteger numLines = 7;
+    if (useShortScale == true) {
+        numLines = 6;
+    }
     for (int i = 0; i < numLines; i++) {
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
         CGFloat y = 5 * verticalSpacing + verticalOffset;
@@ -82,10 +112,10 @@ const CGFloat maxHeight = 175.0;
     // adjust depending on string view type
     CGFloat horizontalLineWidth = width;
     CGFloat horizontalLineX     = 0.0;
-    if (self.stringViewType == StringViewTypeIndex) {
+    if (useShortScale == true) {
         horizontalLineWidth -= horizontalSpacing / 2.0;
         horizontalLineX     += horizontalSpacing / 2.0;
-    }
+   }
     
     for (int i = 0; i < 6; i++) {
         CGFloat y = i * verticalSpacing + verticalOffset;
@@ -95,29 +125,26 @@ const CGFloat maxHeight = 175.0;
     }
     
     NSArray *stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
-    if (self.stringViewType == StringViewTypeIndex) {
+    if (useShortScale == true) {
         stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
     }
     
     
-    if (self.isMainView) {
-        for (int i = 0; i < stringArray.count; i++) {
-            CGFloat x      = horizontalOffset + (i * horizontalSpacing);
-            
-            if (isLeftHand) {
-                x = width - x - horizontalSpacing;
-            }
-            
-            CGFloat y      = 5.4 * verticalSpacing + verticalOffset;
-            NSString *text = stringArray[i];
-            CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
-            NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-            paragrapStyle.alignment                = NSTextAlignmentCenter;
-            [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:fontSize], NSParagraphStyleAttributeName:paragrapStyle}];
-
+    for (int i = 0; i < stringArray.count; i++) {
+        CGFloat x      = horizontalOffset + (i * horizontalSpacing);
+        
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
         }
+        
+        CGFloat y      = 5.4 * verticalSpacing + verticalOffset;
+        NSString *text = stringArray[i];
+        CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
+        NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+        paragrapStyle.alignment                = NSTextAlignmentCenter;
+        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont jrHandFontWithSize:fontSize], NSParagraphStyleAttributeName:paragrapStyle}];
+
     }
-    
     
     NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
     for (Degree *degree in degrees) {
@@ -136,19 +163,22 @@ const CGFloat maxHeight = 175.0;
                         
                         CGFloat y
                         = coord.y * verticalSpacing + verticalOffset;
+                        if (isFlipped) {
+                            y = height - y - verticalOffset + (verticalSpacing * 1.96);
+                        }
                         CGContextAddArc(context, x, y, radius - strokeWidth, 0.0, M_PI*2, YES);
                         UIColor *textColor;
                         UIColor *fillColor;
                         UIColor *strokeColor;
                         CGFloat newStrokeWidth;
                         if ([coord.color isEqual:@"black"]) {
-                            textColor   = [UIColor GuitarCream];
+                            textColor   = [UIColor whiteColor];
                             fillColor   = [UIColor blackColor];
                             strokeColor = [UIColor blackColor];
                             newStrokeWidth = strokeWidth;
                         } else if ([coord.color isEqualToString:@"white"]) {
                             textColor   = [UIColor blackColor];
-                            fillColor   = [UIColor GuitarCream];
+                            fillColor   = [UIColor whiteColor];
                             strokeColor = [UIColor blackColor];
                             newStrokeWidth = strokeWidth;
                         } else if ([coord.color isEqualToString:@"gray"]) {
@@ -165,6 +195,10 @@ const CGFloat maxHeight = 175.0;
                         CGContextDrawPath(context, kCGPathFillStroke);
 
                         // If the view is the center view, add degree text on top of notes
+                        // if showDegrees is set on
+                if (showDegrees == false)
+                {
+                
                         if (self.isMainView) {
                             NSMutableAttributedString *degreeString
                             = [[degree toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
@@ -204,10 +238,56 @@ const CGFloat maxHeight = 175.0;
                             [degreeString drawInRect:rect];
                             
                         }
+                }
+                        
                     }
                 }
             }
         }
+    }
+}
+
+- (UIColor *)colorForPosition:(NSInteger)identifier {
+    switch (identifier) {
+        case 0:
+            return [UIColor Guitar6thString];
+        case 1:
+            return [UIColor Guitar5thString];
+        case 2:
+            return [UIColor Guitar6thString];
+        case 3:
+            return [UIColor Guitar5thString];
+        case 4:
+            return [UIColor Guitar6thString];
+        case 5:
+            return [UIColor Guitar5thString];
+        case 6:
+            return [UIColor Guitar4thString];
+            
+        default:
+            return 0;
+    }
+}
+
+- (NSInteger)heightForPosition:(NSInteger)identifier {
+    switch (identifier) {
+        case 0:
+            return 5;
+        case 1:
+            return 4;
+        case 2:
+            return 5;
+        case 3:
+            return 4;
+        case 4:
+            return 5;
+        case 5:
+            return 4;
+        case 6:
+            return 3;
+            
+        default:
+            return 0;
     }
 }
 

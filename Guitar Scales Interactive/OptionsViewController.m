@@ -14,7 +14,9 @@
 
 typedef NS_ENUM(NSInteger, OptionsRow) {
     OptionsRowTutorial,
+    OptionsRowShowDegrees,
     OptionsRowLeftHand,
+    OptionsRowFlip,
     OptionsRowRate,
     OptionsRowFeedback,
     OptionsRowNumRows
@@ -30,7 +32,7 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = [UIColor GuitarBlue];
+    self.tableView.backgroundColor = [UIColor GuitarMain];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -55,7 +57,7 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor GuitarBlue];
+    cell.backgroundColor = [UIColor GuitarMain];
     cell.tintColor = [UIColor GuitarCream];
     cell.textLabel.textColor = [UIColor GuitarCream];
     
@@ -64,10 +66,22 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
         case OptionsRowTutorial:
             text = @"View Tutorial";
             break;
+        case OptionsRowShowDegrees: {
+            text = @"Show Scale Degrees";
+            BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
+            cell.accessoryType = showDegrees ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+        }
+            break;
         case OptionsRowLeftHand: {
             text = @"Enable Left Hand";
             BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
             cell.accessoryType = isLeftHand ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        }
+            break;
+        case OptionsRowFlip: {
+            text = @"Flip Upside Down";
+            BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
+            cell.accessoryType = isFlipped ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         }
             break;
         case OptionsRowRate: {
@@ -94,9 +108,23 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
         case OptionsRowTutorial:
             [self.delegate didSelectOptionRow:OptionsRowTutorial];
             break;
+        case OptionsRowShowDegrees: {
+            BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
+            [[GuitarStore sharedStore] setShowDegrees:!showDegrees];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
+        }
+            break;
         case OptionsRowLeftHand: {
             BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
             [[GuitarStore sharedStore] setLeftHand:!isLeftHand];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
+        }
+            break;
+        case OptionsRowFlip: {
+            BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
+            [[GuitarStore sharedStore] setFlipped:!isFlipped];
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
         }
