@@ -224,6 +224,7 @@
                     UIColor *strokeColor;
                     CGFloat newStrokeWidth;
                     if ([coord.color isEqual:@"black"]) {
+<<<<<<< Updated upstream
                         textColor   = [UIColor GuitarCream];
                         if (isiPad) {
                             fillColor   = [UIColor blackColorAlpha];
@@ -244,6 +245,16 @@
                             textColor   = [UIColor blackColor];
                             strokeColor = [UIColor blackColor];
                         }
+=======
+                        textColor   = [UIColor whiteColor];
+                        fillColor   = [UIColor blackColorAlpha];
+                        strokeColor = [UIColor blackColorAlpha];
+                        newStrokeWidth = strokeWidth;
+                    } else if ([coord.color isEqualToString:@"white"]) {
+                        textColor   = [UIColor blackColorAlpha];
+                        fillColor   = [UIColor whiteColor];
+                        strokeColor = [UIColor blackColorAlpha];
+>>>>>>> Stashed changes
                         newStrokeWidth = strokeWidth;
                     } else if ([coord.color isEqualToString:@"gray"]) {
                         textColor   = [UIColor GuitarCream];

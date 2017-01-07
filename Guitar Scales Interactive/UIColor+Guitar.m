@@ -53,17 +53,29 @@
 
 + (UIColor *)Guitar4thString
 {
+<<<<<<< Updated upstream
     return [UIColor colorWithRed:(227 / 255.0) green:(200 / 255.0) blue:(124 / 255.0) alpha:1.00];
+=======
+    return [UIColor colorWithRed:0.58 green:0.68 blue:0.84 alpha:1.00]; // 148, 173, 214
+>>>>>>> Stashed changes
 }
 
 + (UIColor *)Guitar5thString
 {
+<<<<<<< Updated upstream
     return [UIColor colorWithRed:(151 / 255.0) green:(137 / 255.0) blue:(186 / 255.0) alpha:1.00];
+=======
+    return [UIColor colorWithRed:0.85 green:0.64 blue:0.59 alpha:1.00]; // 217, 163, 150
+>>>>>>> Stashed changes
 }
 
 + (UIColor *)Guitar6thStringAlpha
 {
+<<<<<<< Updated upstream
      return [UIColor colorWithRed:(193 / 255.0) green:(217 / 255.0) blue:(188 / 255.0) alpha:1.00];
+=======
+    return [UIColor colorWithRed:0.93 green:0.87 blue:0.55 alpha:1.00]; // 237, 222, 140
+>>>>>>> Stashed changes
 }
 
 + (UIColor *)Guitar4thStringAlpha
