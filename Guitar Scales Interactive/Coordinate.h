@@ -7,6 +7,7 @@
 //
 
 #import "JSONModel.h"
+
 @protocol Coordinate
 @end
 

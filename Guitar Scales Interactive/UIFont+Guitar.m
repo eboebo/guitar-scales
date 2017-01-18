@@ -30,6 +30,11 @@
     return [UIFont fontWithName:@"OpusTextStd" size:size];
 }
 
++ (UIFont *)newOpusFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:@"OpusChordsSansStd" size:size];
+}
+
 + (UIFont *)jrHandFontWithSize:(CGFloat)size
 {
     return [UIFont fontWithName:@"Jrhand" size:size];

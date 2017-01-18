@@ -29,6 +29,7 @@
 
 - (void)updateStringViewPosition;
 - (void)setPosition:(Position *)position;
+- (void)setKey:(Key *)key;
 - (void)setSelectedDegrees:(NSArray *)selectedDegrees;
 
 

@@ -116,7 +116,7 @@
         CGContextFillRect(context, fretFrame);
     }
   
-    // Draw 6th string base fret - blue
+    // Draw 6th string base fret - green
     CGFloat originY = 0.0;
     diff = 4; if (isiPad) diff = 5;
     CGFloat x = horizontalOffset + (diff * horizontalSpacing);
@@ -165,7 +165,7 @@
     }
     CGContextFillRect(context, fretFrame);
     
-    // Draw 5th string base from - red
+    // Draw 5th string base from - purple
     diff = 11; if (isiPad) diff = 12;
     originY = 0;
     if (isFlipped) {
@@ -228,11 +228,12 @@
 
     for (int i = 0; i < numLines; i++) {
         CGFloat y = i * verticalSpacing + verticalOffset;
-        CGContextMoveToPoint(context, 0, y);
+        CGContextMoveToPoint(context, horizontalOffset, y);
         CGContextAddLineToPoint(context, horizontalLineWidth, y);
         CGContextDrawPath(context, kCGPathStroke);
     }
     
+    // notes
     diff = 0; if (isiPad) diff = 1;
     NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
     for (Degree *degree in degrees) {

@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) NSMutableArray *selectedDegrees;
 @property (nonatomic, strong) NSMutableArray *positions;
+@property (nonatomic, strong) NSMutableArray *keys;
 
 @property (nonatomic, strong) id<ScalesViewDelegate> delegate;
 

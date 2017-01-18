@@ -10,6 +10,7 @@
 #import "Degree.h"
 #import "Scale.h"
 #import "Position.h"
+#import "Key.h"
 
 @interface GuitarStore ()
 
@@ -72,6 +73,14 @@
     [(NSArray *)positions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Position *pos = [[Position alloc] initWithDictionary:obj error:nil];
         [self.positions addObject:pos];
+    }];
+    
+    self.keys = [NSMutableArray array];
+    
+    NSArray *keys = [json objectForKey:@"keys"];
+    [(NSArray *)keys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Key *ke = [[Key alloc] initWithDictionary:obj error:nil];
+        [self.keys addObject:ke];
     }];
     
     NSArray* scalesArrays = [json objectForKey:@"scales"];

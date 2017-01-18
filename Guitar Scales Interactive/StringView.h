@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Position.h"
+#import "Key.h"
 
 typedef enum {
     StringViewTypeIndex = 0,
@@ -19,6 +20,7 @@ typedef enum {
 
 @property (nonatomic, assign) BOOL           isMainView;
 @property (nonatomic, strong) Position       *position;
+@property (nonatomic, strong) Key            *key;
 @property (nonatomic, strong) NSArray        *selectedDegrees;
 @property (nonatomic, assign) StringViewType stringViewType;
 

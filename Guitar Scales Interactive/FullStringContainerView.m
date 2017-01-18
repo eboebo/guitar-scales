@@ -12,6 +12,7 @@
 
 @interface FullStringContainerView()
 @property (nonatomic, strong) Position       *position;
+@property (nonatomic, strong) Key            *key;
 @property (nonatomic, strong) NSArray        *selectedDegrees;
 
 @property (assign,nonatomic) BOOL didStartInFretView;
@@ -126,6 +127,15 @@
 - (void)setPosition:(Position *)position {
     self.fullStringView.position = position;
     _position = position;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [self layoutFretView];
+    }];
+}
+
+- (void)setKey:(Key *)key {
+    self.fullStringView.key = key;
+    _key = key;
     
     [UIView animateWithDuration:0.2 animations:^{
         [self layoutFretView];

@@ -16,6 +16,7 @@ typedef void (^UpdateCallback)(BOOL success);
 @property (nonatomic, strong) NSArray *degreeButtonArray;
 @property (nonatomic, strong) NSMutableArray *scales2DArray;
 @property (nonatomic, strong) NSMutableArray *positions;
+@property (nonatomic, strong) NSMutableArray *keys;
 @property (nonatomic, strong) NSMutableArray *degrees;
 @property (nonatomic, copy) UpdateCallback callback;
 @property (nonatomic, strong) Scale *selectedScale;

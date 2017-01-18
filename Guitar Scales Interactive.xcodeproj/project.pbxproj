@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */; };
 		99080A411E0312A00037EC84 /* ArrowButtonZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 99080A401E0312A00037EC84 /* ArrowButtonZoom.m */; };
+		99B4F8F41E2BD88F00A67EEE /* Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4F8F31E2BD88F00A67EEE /* Key.m */; };
+		99D2E5C61E30178F00855788 /* OpusChordsSansStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99D2E5C51E30178F00855788 /* OpusChordsSansStd.otf */; };
 		99E9B1081E032D8E00908375 /* GradientLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9B1071E032D8E00908375 /* GradientLineView.m */; };
 		B108CABF199AD1E70047A473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CABE199AD1E70047A473 /* Foundation.framework */; };
 		B108CAC1199AD1E70047A473 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B108CAC0199AD1E70047A473 /* CoreGraphics.framework */; };
@@ -78,6 +80,9 @@
 		99080A3F1E03124C0037EC84 /* ArrowButtonZoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrowButtonZoom.h; sourceTree = "<group>"; };
 		99080A401E0312A00037EC84 /* ArrowButtonZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowButtonZoom.m; sourceTree = "<group>"; };
 		99701E591E0DCF5000568F3C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		99B4F8EF1E2BD70700A67EEE /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
+		99B4F8F31E2BD88F00A67EEE /* Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Key.m; sourceTree = "<group>"; };
+		99D2E5C51E30178F00855788 /* OpusChordsSansStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OpusChordsSansStd.otf; sourceTree = "<group>"; };
 		99E9B1061E032D7C00908375 /* GradientLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientLineView.h; sourceTree = "<group>"; };
 		99E9B1071E032D8E00908375 /* GradientLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientLineView.m; sourceTree = "<group>"; };
 		9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitar Scales Interactive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,6 +336,8 @@
 				B108CB0D199B01F30047A473 /* Scale.m */,
 				B108CB0F199B028E0047A473 /* Position.h */,
 				B108CB10199B028E0047A473 /* Position.m */,
+				99B4F8EF1E2BD70700A67EEE /* Key.h */,
+				99B4F8F31E2BD88F00A67EEE /* Key.m */,
 				B108CB12199B02990047A473 /* Degree.h */,
 				B108CB13199B02990047A473 /* Degree.m */,
 				B16E945819A173D8001F769A /* Coordinate.h */,
@@ -359,6 +366,7 @@
 		B1B0A6D919AA655100F32D77 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				99D2E5C51E30178F00855788 /* OpusChordsSansStd.otf */,
 				B167A1601A0BC24400AFFC07 /* SVBasicManual-Bold.ttf */,
 				B167A16A1A0BC8BE00AFFC07 /* Bravura.otf */,
 				B167A1661A0BC5AF00AFFC07 /* jr!hand.ttf */,
@@ -454,6 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D2E5C61E30178F00855788 /* OpusChordsSansStd.otf in Resources */,
 				B108CADA199AD1E70047A473 /* Images.xcassets in Resources */,
 				B16E945619A16F8D001F769A /* notes.json in Resources */,
 				B15F7B7219AAA38900028D8D /* Proletarsk.ttf in Resources */,
@@ -540,6 +549,7 @@
 				B181A0F41AEFCB900067E79D /* MainViewController.m in Sources */,
 				B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */,
 				B1D962D21DD6219900DDEF6A /* FretView.m in Sources */,
+				99B4F8F41E2BD88F00A67EEE /* Key.m in Sources */,
 				B15F7B7619AAA83900028D8D /* UIFont+Guitar.m in Sources */,
 				B13799FB19AD1BE0002314D7 /* DegreeButtonView.m in Sources */,
 				B16B17B11D998ABE00A52785 /* FullStringView.m in Sources */,

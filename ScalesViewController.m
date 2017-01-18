@@ -32,6 +32,7 @@
 
 @property (nonatomic, strong) StringView *selectedStringView;
 @property (nonatomic, assign) NSInteger currentPosition;
+@property (nonatomic, assign) NSInteger currentKey;
 //@property (nonatomic, assign) BOOL metIsOn;
 
 @property (nonatomic, strong) MenuTableViewController *menuController;
@@ -52,6 +53,7 @@
 @property (strong, nonatomic) FullStringContainerView *fullStringView;
 
 @property (strong, nonatomic ) UILabel    *positionLabel;
+@property (strong, nonatomic ) UILabel    *keyLabel;
 
 @end
 
@@ -74,6 +76,7 @@
     self.view.backgroundColor = [UIColor GuitarCream];
     
     self.currentPosition = 2;
+    self.currentKey = 0;
 //    self.metIsOn = false;
     
     [self setUpNavigationBar];
@@ -130,17 +133,21 @@
     [self.positionLabel setText:@"POSITION"];
     [self.view addSubview:self.positionLabel];
     
+    self.keyLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.keyLabel setText:@"KEY OF"];
+    [self.view addSubview:self.keyLabel];
+    
 }
 
 - (void)setUpStringViews        // only runs once
 {
     
     self.rightArrowButton = [[ArrowButton alloc] initWithFrame:CGRectZero andType:ArrowButtonTypeRight];
-    [self.rightArrowButton addTarget:self action:@selector(handlePositionRight:) forControlEvents:UIControlEventTouchUpInside];
+    [self.rightArrowButton addTarget:self action:@selector(handlePositionRightKey:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.rightArrowButton];
     
     self.leftArrowButton = [[ArrowButton alloc] initWithFrame:CGRectZero andType:ArrowButtonTypeLeft];
-    [self.leftArrowButton addTarget:self action:@selector(handlePositionLeft:) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftArrowButton addTarget:self action:@selector(handlePositionLeftKey:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.leftArrowButton];
     
     self.rightArrowButtonZoom = [[ArrowButtonZoom alloc] initWithFrame:CGRectZero andType:ArrowButtonTypeRightZoom];
@@ -181,6 +188,8 @@
         self.leftArrowButton.alpha = 0;
         self.rightArrowButton.hidden = true;
         self.rightArrowButton.alpha = 0;
+        self.keyLabel.hidden = true;
+        self.keyLabel.alpha = 0;
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleViews:)]; // this adds the tap gesture to the zoomed in view
         [self.mainStringView addGestureRecognizer:singleTap];
 //        
@@ -200,12 +209,15 @@
     
     CGRect bounds = [[UIScreen mainScreen] bounds];
     CGFloat positionLabelHeight = bounds.size.height / 23.0; // sets the height of the Position Label
+    CGFloat keyLabelHeight = bounds.size.height / 23.0; // sets the height of the Key Label
     
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad
         positionLabelHeight = bounds.size.height / 19.0;
+        keyLabelHeight = bounds.size.height / 19.0;
     }
 
     self.positionLabel.frame = CGRectMake(0, positionLabelHeight, self.view.frame.size.width, 48);
+    self.keyLabel.frame = CGRectMake(0, keyLabelHeight, self.view.frame.size.width, 48);
 
 }
 
@@ -443,6 +455,7 @@
     }
 
     self.positions = [[GuitarStore sharedStore] positions];
+    self.keys = [[GuitarStore sharedStore] keys];
 
     self.mainStringView.isMainView = YES;
    
@@ -591,6 +604,60 @@
     }
 }
 
+//
+
+- (void)handlePositionLeftKey:(id)sender            // arrow button function
+{
+    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];               // conditional statements to flip arrow direction in LeftHand mode
+    if (isLeftHand){
+        if (self.currentKey < self.keys.count - 1) {
+            self.currentKey++;
+            [self updateStringViewPositions];
+        }
+        else if (self.currentKey == self.keys.count - 1) {
+            self.currentKey = 0;
+            [self updateStringViewPositions];
+        }
+    }
+    else {
+        if (self.currentKey > 0) {
+            self.currentKey--;
+            [self updateStringViewPositions];
+        }
+        else if (self.currentKey == 0) {
+            self.currentKey = self.keys.count - 1;
+            [self updateStringViewPositions];
+        }
+    }
+}
+
+- (void)handlePositionRightKey:(id)sender
+{
+    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
+    if (isLeftHand){
+        if (self.currentKey > 0) {
+            self.currentKey--;
+            [self updateStringViewPositions];
+        }
+        else if (self.currentKey == 0) {
+            self.currentKey = self.keys.count - 1;
+            [self updateStringViewPositions];
+        }
+    }
+    else {
+        if (self.currentKey < self.keys.count - 1) {
+            self.currentKey++;
+            [self updateStringViewPositions];
+        }
+        else if (self.currentKey == self.keys.count - 1) {
+            self.currentKey = 0;
+            [self updateStringViewPositions];
+        }
+    }
+}
+
+//
+
 - (void)updateStringViewPositions
 {
     BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
@@ -607,6 +674,11 @@
             [self setSubHeaderText:self.mainStringView.position.title];
         }
     }
+    
+    self.mainStringView.key = self.keys[self.currentKey];
+    
+    [self setSubHeaderKeyText:self.mainStringView.key.title];
+    
     [self.mainStringView setNeedsDisplay];
     [self.leftGradientLines setNeedsDisplay];
     [self.rightGradientLines setNeedsDisplay];
@@ -665,6 +737,24 @@
             self.rightArrowButtonZoom.hidden = true;
         }];
     }
+    if ([self.keyLabel isHidden]) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.keyLabel.hidden = false;
+            self.keyLabel.alpha = 1;
+            self.positionLabel.alpha = 0;
+        } completion: ^(BOOL finished) {
+            self.positionLabel.hidden = true;
+        }];
+    } else {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.positionLabel.hidden = false;
+            self.positionLabel.alpha = 1;
+            self.keyLabel.alpha = 0;
+        } completion: ^(BOOL finished) {
+            self.keyLabel.hidden = true;
+        }];
+    }
+
 
 }
 
@@ -738,7 +828,6 @@
     paragraphStyle.alignment                = NSTextAlignmentCenter;
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
     
-    
     NSShadow *shadowDic=[[NSShadow alloc] init];
     [shadowDic setShadowColor: [UIColor blackColor]];
     [shadowDic setShadowOffset:CGSizeMake(.4, .5)];
@@ -754,6 +843,62 @@
                              range:NSMakeRange(0, attributedString.length)];
     
     [self.positionLabel setAttributedText:attributedString];
+}
+
+- (void)setSubHeaderKeyText:(NSString *)text
+{
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    CGFloat fontSize = bounds.size.width / 25.6538;
+    
+    NSMutableAttributedString *attributedString;
+    attributedString = [[NSMutableAttributedString alloc] initWithString:text];     // iPhone 6 & 7
+    
+//    [attributedString addAttribute:NSKernAttributeName
+//                             value:@5.3
+//                             range:NSMakeRange(0, text.length)];
+//    if (bounds.size.width < 667) {                                        // iPhone 5
+//        [attributedString addAttribute:NSKernAttributeName
+//                                 value:@4.8
+//                                 range:NSMakeRange(0, text.length)];
+//    }
+//    if (bounds.size.width < 568.0) {                                        // iPhone 4
+//        [attributedString addAttribute:NSKernAttributeName
+//                                 value:@3.81
+//                                 range:NSMakeRange(0, text.length)];
+//    }
+//    if (bounds.size.width > 667) {                                        // iPhone 6 & 7 Plus
+//        [attributedString addAttribute:NSKernAttributeName
+//                                 value:@6.3    //7.63
+//                                 range:NSMakeRange(0, text.length)];
+//    }
+//    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad
+//        [attributedString addAttribute:NSKernAttributeName
+//                                 value:@7.0
+//                                 range:NSMakeRange(0, text.length)];
+//    }
+//    
+    [attributedString addAttribute:NSFontAttributeName
+                             value:[UIFont newOpusFontWithSize:fontSize]
+                             range:NSMakeRange(0, text.length)];
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    paragraphStyle.alignment                = NSTextAlignmentCenter;
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+    
+    NSShadow *shadowDic=[[NSShadow alloc] init];
+    [shadowDic setShadowColor: [UIColor blackColor]];
+    [shadowDic setShadowOffset:CGSizeMake(.4, .5)];
+    [attributedString addAttribute:NSShadowAttributeName
+                             value:shadowDic
+                             range:NSMakeRange(0, attributedString.length)];
+    
+    NSShadow *shadowDic2=[[NSShadow alloc] init];
+    [shadowDic2 setShadowColor: [UIColor darkGrayColor]];
+    [shadowDic2 setShadowOffset:CGSizeMake(.6, .6)];
+    [attributedString addAttribute:NSShadowAttributeName
+                             value:shadowDic2
+                             range:NSMakeRange(0, attributedString.length)];
+    
+    [self.keyLabel setAttributedText:attributedString];
 }
 
 #pragma mark Notifications

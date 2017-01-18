@@ -14,6 +14,7 @@
 + (UIFont *)blackoutFontWithSize:(CGFloat)size;
 + (UIFont *)svBasicManualFontWithSize:(CGFloat)size;
 + (UIFont *)bravuraFontWithSize:(CGFloat)size;
++ (UIFont *)newOpusFontWithSize:(CGFloat)size;
 + (UIFont *)jrHandFontWithSize:(CGFloat)size;
 
 
