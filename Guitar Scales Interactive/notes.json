@@ -2091,51 +2091,51 @@
     "keys": [
              {
              "key_id": 0,
-             "title": "KEY CENTER: C"
+             "title": "KEY CENTER - A"
              },
              {
              "key_id": 1,
-             "title": "KEY CENTER: C#/Db"
+             "title": "KEY CENTER - A#/Bb"
              },
              {
              "key_id": 2,
-             "title": "KEY CENTER: D"
+             "title": "KEY CENTER - B"
              },
              {
              "key_id": 3,
-             "title": "KEY CENTER: D#/Eb"
+             "title": "KEY CENTER - C"
              },
              {
              "key_id": 4,
-             "title": "KEY CENTER: E"
+             "title": "KEY CENTER - C#/Db"
              },
              {
              "key_id": 5,
-             "title": "KEY CENTER: F"
+             "title": "KEY CENTER - D"
              },
              {
              "key_id": 6,
-             "title": "KEY CENTER: F#/Gb"
+             "title": "KEY CENTER - D#/Eb"
              },
              {
              "key_id": 7,
-             "title": "KEY CENTER: G"
+             "title": "KEY CENTER - E"
              },
              {
              "key_id": 8,
-             "title": "KEY CENTER: G#/Ab"
+             "title": "KEY CENTER - F"
              },
              {
              "key_id": 9,
-             "title": "KEY CENTER: A"
+             "title": "KEY CENTER - F#/Gb"
              },
              {
              "key_id": 10,
-             "title": "KEY CENTER: A#/Bb"
+             "title": "KEY CENTER - G"
              },
              {
              "key_id": 11,
-             "title": "KEY CENTER: B"
+             "title": "KEY CENTER - G#/Ab"
              }
              ],
     "scales": [

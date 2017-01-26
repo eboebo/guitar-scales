@@ -629,6 +629,9 @@
             [self updateStringViewPositions];
         }
     }
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
+    
 }
 
 - (void)handlePositionRightKey:(id)sender
@@ -654,6 +657,9 @@
             [self updateStringViewPositions];
         }
     }
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
+    
 }
 
 //
@@ -675,14 +681,19 @@
         }
     }
     
-    self.mainStringView.key = self.keys[self.currentKey];
+    if (self.keys.count > 0) {
+        self.mainStringView.key = self.keys[self.currentKey];
+        self.fullStringView.key = self.keys[self.currentKey];
     
-    [self setSubHeaderKeyText:self.mainStringView.key.title];
+        [self setSubHeaderKeyText:self.mainStringView.key.title];
+    }
     
     [self.mainStringView setNeedsDisplay];
     [self.leftGradientLines setNeedsDisplay];
     [self.rightGradientLines setNeedsDisplay];
     [self.fullStringView updateStringViewPosition];
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
 }
 
 - (void)toggleViews:(id)sender {                      // toggle views for iPhone
@@ -754,8 +765,6 @@
             self.keyLabel.hidden = true;
         }];
     }
-
-
 }
 
 #pragma mark DegreeViewDelegate
@@ -852,34 +861,55 @@
     
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:text];     // iPhone 6 & 7
+    NSInteger divider = 12;
+    NSInteger keyLength = text.length - divider;
     
-//    [attributedString addAttribute:NSKernAttributeName
-//                             value:@5.3
-//                             range:NSMakeRange(0, text.length)];
-//    if (bounds.size.width < 667) {                                        // iPhone 5
-//        [attributedString addAttribute:NSKernAttributeName
-//                                 value:@4.8
-//                                 range:NSMakeRange(0, text.length)];
-//    }
-//    if (bounds.size.width < 568.0) {                                        // iPhone 4
-//        [attributedString addAttribute:NSKernAttributeName
-//                                 value:@3.81
-//                                 range:NSMakeRange(0, text.length)];
-//    }
-//    if (bounds.size.width > 667) {                                        // iPhone 6 & 7 Plus
-//        [attributedString addAttribute:NSKernAttributeName
-//                                 value:@6.3    //7.63
-//                                 range:NSMakeRange(0, text.length)];
-//    }
-//    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad
-//        [attributedString addAttribute:NSKernAttributeName
-//                                 value:@7.0
-//                                 range:NSMakeRange(0, text.length)];
-//    }
-//    
+    [attributedString addAttribute:NSKernAttributeName
+                             value:@5.3
+                             range:NSMakeRange(0, divider)];
+    [attributedString addAttribute:NSKernAttributeName
+                             value:@2.6
+                             range:NSMakeRange(divider, keyLength)];
+    if (bounds.size.width < 667) {                                        // iPhone 5
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@4.8
+                                 range:NSMakeRange(0, divider)];
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@2.3
+                                 range:NSMakeRange(divider, keyLength)];
+    }
+    if (bounds.size.width < 568.0) {                                        // iPhone 4
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@3.81
+                                 range:NSMakeRange(0, divider)];
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@1.5
+                                 range:NSMakeRange(divider, keyLength)];
+    }
+    if (bounds.size.width > 667) {                                        // iPhone 6 & 7 Plus
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@6.3    //7.63
+                                 range:NSMakeRange(0, divider)];
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@3.0
+                                 range:NSMakeRange(divider, keyLength)];
+    }
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@7.0
+                                 range:NSMakeRange(0, divider)];
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@3.4
+                                 range:NSMakeRange(divider, keyLength)];
+    }
+    
+    [attributedString addAttribute:NSFontAttributeName
+                             value:[UIFont ProletarskFontWithSize:fontSize]
+                             range:NSMakeRange(0, divider)];
+    
     [attributedString addAttribute:NSFontAttributeName
                              value:[UIFont newOpusFontWithSize:fontSize]
-                             range:NSMakeRange(0, text.length)];
+                             range:NSMakeRange(divider, keyLength)];
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
@@ -914,11 +944,22 @@
     [self toggleViews:self];
 }
 
+- (void) updateMainStringView:(NSInteger)newPosition {
+    self.currentPosition = newPosition;
+    [self updateStringViewPositions];
+}
+
 - (void)increasePosition {
     [self handlePositionRight:self];
 }
 - (void)decreasePosition {
     [self handlePositionLeft:self];
+}
+- (void)increaseKey {              // don't know if these are needed
+    [self handlePositionRightKey:self];
+}
+- (void)decreaseKey {
+    [self handlePositionLeftKey:self];
 }
 
 @end

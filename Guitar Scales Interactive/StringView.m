@@ -142,7 +142,49 @@ const CGFloat maxHeight = 175.0;
         CGContextDrawPath(context, kCGPathStroke);
     }
     
-    NSArray *stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
+    // fret marker dots
+    
+    NSInteger dotMarkerOffset = 0;
+    if (self.position.identifier == 2) dotMarkerOffset = 2;
+    else if (self.position.identifier == 4) dotMarkerOffset = 4;
+    else if (self.position.identifier == 6) dotMarkerOffset = 6;
+    else if (self.position.identifier == 1) dotMarkerOffset = 7;
+    else if (self.position.identifier == 3) dotMarkerOffset = 9;
+    else if (self.position.identifier == 5) dotMarkerOffset = 11;
+    
+    dotMarkerOffset += self.key.identifier;
+    
+    NSArray *stringArray = @[@" ", @" ", @"•", @" ", @"•", @" ", @"•", @" ", @"•", @" ", @" ", @"••", @" ", @" ", @"•"];
+    
+    for (int i = 0; i < stringArray.count; i++) {
+        CGFloat x      = horizontalOffset + ((i - dotMarkerOffset) * horizontalSpacing);
+        
+        UIColor *dotColor = [UIColor blackColor];
+        if (useShortScale && (i - dotMarkerOffset) > 4) {
+            dotColor = [UIColor GuitarDarkGray];
+        }
+        
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
+        }
+        
+        CGFloat fingerNumOffset = 5.05;
+        if (isBassMode) {
+            fingerNumOffset = 3.05;
+        }
+        
+        CGFloat fretMarkerFontSize         = radius * 2.0;
+        
+        CGFloat y      = (fingerNumOffset * verticalSpacing) + verticalOffset;
+        NSString *text = stringArray[i];
+        CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
+        NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+        paragraphStyle.alignment                = NSTextAlignmentCenter;
+        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont bravuraFontWithSize:fretMarkerFontSize], NSForegroundColorAttributeName:dotColor, NSParagraphStyleAttributeName:paragraphStyle}];
+    }
+
+    
+    stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
     NSArray *stringArray2 = @[@"(1)", @"1", @"2", @"3", @"4"];
     if (useShortScale == true) {
         stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
@@ -156,9 +198,9 @@ const CGFloat maxHeight = 175.0;
             x = width - x - horizontalSpacing;
         }
         
-        CGFloat fingerNumOffset = 5.4;
+        CGFloat fingerNumOffset = 5.7;
         if (isBassMode) {
-            fingerNumOffset = 3.4;
+            fingerNumOffset = 3.6;
         }
         
         CGFloat y      = fingerNumOffset * verticalSpacing + verticalOffset;

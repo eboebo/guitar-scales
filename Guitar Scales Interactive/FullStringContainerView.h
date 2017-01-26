@@ -13,8 +13,11 @@
 @protocol FullStringContainerViewDelegate <NSObject>
 
 - (void)toggleView;
+- (void)updateMainStringView:(NSInteger)newPosition;
 - (void)increasePosition;
 - (void)decreasePosition;
+- (void)increaseKey;
+- (void)decreaseKey;
 
 
 @end
@@ -25,6 +28,7 @@
 @property (nonatomic, weak) id<FullStringContainerViewDelegate> delegate;
 @property (strong, nonatomic) FullStringView *fullStringView;
 @property (strong, nonatomic) UIView *fretView;
+@property (nonatomic, strong) NSMutableArray *positions;
 
 
 - (void)updateStringViewPosition;

@@ -8,12 +8,15 @@
 
 #import "FullStringContainerView.h"
 #import "GuitarStore.h"
+#import "StringView.h"
 
 
 @interface FullStringContainerView()
 @property (nonatomic, strong) Position       *position;
 @property (nonatomic, strong) Key            *key;
 @property (nonatomic, strong) NSArray        *selectedDegrees;
+@property (nonatomic, assign) NSInteger       currentPosition;
+@property (strong, nonatomic) StringView     *mainStringView;
 
 @property (assign,nonatomic) BOOL didStartInFretView;
 @end
@@ -41,13 +44,13 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedView:)];
     [self addGestureRecognizer:singleTap];
     
-    UISwipeGestureRecognizer *right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipeFrom:)];
-    [right setDirection:(UISwipeGestureRecognizerDirectionRight )];
-    [self addGestureRecognizer:right];
-    
-    UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipeFrom:)];
-    [left setDirection:(UISwipeGestureRecognizerDirectionLeft)];
-    [self addGestureRecognizer:left];
+//    UISwipeGestureRecognizer *right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipeFrom:)];
+//    [right setDirection:(UISwipeGestureRecognizerDirectionRight )];
+//    [self addGestureRecognizer:right];
+//    
+//    UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipeFrom:)];
+//    [left setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+//    [self addGestureRecognizer:left];
 }
 
 - (void)layoutFretView {
@@ -142,42 +145,55 @@
     }];
 }
 
-- (void)tappedView:(id)sender {
+- (void)tappedView:(id)sender {//////////////////////////////////////////////////////////////////
     CGPoint touchPoint = [sender locationInView:self];
     
-    BOOL isLeft = touchPoint.x < self.fretView.frame.origin.x;
-    BOOL isRight = touchPoint.x > (self.fretView.frame.origin.x + self.fretView.frame.size.width);
-    BOOL isPointInsideView = !isLeft && !isRight;
-    
+    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
     BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
-    if (isPointInsideView && !isiPad) {
-        [self.delegate toggleView];
-    } else if (isLeft) {
-        [self.delegate decreasePosition];
-    } else if (isRight){
-        [self.delegate increasePosition];
-    }
     
-//    if (!isiPad) {
-//        [self.delegate toggleView];
+    CGFloat horizontalSpacing = self.bounds.size.width / 16.5;   // copied new numbers from FullStringView.m
+    CGFloat horizontalOffset = horizontalSpacing / 3.8;
+    
+    CGFloat x = touchPoint.x - horizontalOffset;
+    NSInteger newPosition = 0;
+    NSInteger keyOffset = self.key.identifier / 2;
+    
+    if (x < horizontalSpacing * 3) newPosition = 0;
+    else if (x < horizontalSpacing * 5) newPosition = 1;
+    else if (x < horizontalSpacing * 7) newPosition = 2;
+    else if (x < horizontalSpacing * 9) newPosition = 3;
+    else if (x < horizontalSpacing * 11) newPosition = 4;
+    else if (x < horizontalSpacing * 13) newPosition = 5;
+    else newPosition = 6;
+    
+    newPosition = newPosition - keyOffset; // adjust for key changes
+    if (newPosition < 0) newPosition += 7;
+    
+    if (isLeftHand) newPosition = 6 - newPosition;
+
+        if (!isiPad) {
+            
+            [self.delegate updateMainStringView:newPosition];
+            [self.delegate toggleView];
+        }
+}
+
+// COMMENTING OUT THIS SECTION FOR NEW KEY-BASED VERSION
+- (void)handleLeftSwipeFrom:(UISwipeGestureRecognizer *)recognizer {
+//    CGPoint point = [recognizer locationInView:[recognizer view]];
+//
+//    if (point.x < (self.fretView.frame.origin.x + self.fretView.frame.size.width)) {
+//        [self.delegate decreasePosition];
 //    }
 }
 
-- (void)handleLeftSwipeFrom:(UISwipeGestureRecognizer *)recognizer {
-    CGPoint point = [recognizer locationInView:[recognizer view]];
-
-    if (point.x < (self.fretView.frame.origin.x + self.fretView.frame.size.width)) {
-        [self.delegate decreasePosition];
-    }
-}
-
 - (void)handleRightSwipeFrom:(UISwipeGestureRecognizer *)recognizer {
-    CGPoint point = [recognizer locationInView:[recognizer view]];
-    
-    if (point.x > self.fretView.frame.origin.x) {
-        [self.delegate increasePosition];
-
-    }
+//    CGPoint point = [recognizer locationInView:[recognizer view]];
+//    
+//    if (point.x > self.fretView.frame.origin.x) {
+//        [self.delegate increasePosition];
+//
+//    }
 }
 
 @end

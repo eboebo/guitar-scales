@@ -12,7 +12,6 @@
 #import "Coordinate.h"
 #import "GuitarStore.h"
 
-
 @implementation FullStringView
 
 - (void)layoutSubviews
@@ -71,10 +70,12 @@
   //   draw gray background
     // throughout this section int diff is used to differientate the layouts between iPhone and iPad
     
-    int diff = horizontalSpacing;
+    NSInteger diff = horizontalSpacing;
 
         CGFloat y = numStrings * verticalSpacing;
         CGRect fretFrame = CGRectMake(0, verticalOffset, width, y);
+    
+   
     if (isiPad) {
         CGContextSetFillColorWithColor(context, [UIColor GuitarLightGray].CGColor);
     }
@@ -96,30 +97,33 @@
             x = width - x - horizontalSpacing;
         }
         CGRect fretFrame = CGRectMake(x, verticalOffset, horizontalSpacing, y);
-        if (isiPad) {
+//        if (isiPad) { // COMMENTING OUT FOR NEW KEY VERSION
             CGContextSetFillColorWithColor(context, [UIColor GuitarCream].CGColor);
-        }
-        else {
-            if ((self.position.identifier == 0) || (self.position.identifier == 4) || (self.position.identifier == 2))
-            {
-                CGContextSetFillColorWithColor(context, [UIColor Guitar6thStringAlpha].CGColor);
-            }
-            else if (self.position.identifier == 6)
-            {
-                CGContextSetFillColorWithColor(context, [UIColor Guitar4thStringAlpha].CGColor);
-            }
-            else
-            {
-                CGContextSetFillColorWithColor(context, [UIColor Guitar5thStringAlpha].CGColor);
-            }
-        }
+//        }
+//        else {
+//            if ((self.position.identifier == 0) || (self.position.identifier == 4) || (self.position.identifier == 2))
+//            {
+//                CGContextSetFillColorWithColor(context, [UIColor Guitar6thStringAlpha].CGColor);
+//            }
+//            else if (self.position.identifier == 6)
+//            {
+//                CGContextSetFillColorWithColor(context, [UIColor Guitar4thStringAlpha].CGColor);
+//            }
+//            else
+//            {
+//                CGContextSetFillColorWithColor(context, [UIColor Guitar5thStringAlpha].CGColor);
+//            }
+//        }
         CGContextFillRect(context, fretFrame);
     }
+    
+    NSInteger keyOffset = self.key.identifier;
   
     // Draw 6th string base fret - green
     CGFloat originY = 0.0;
     diff = 4; if (isiPad) diff = 5;
-    CGFloat x = horizontalOffset + (diff * horizontalSpacing);
+    NSInteger greenOffset = diff + keyOffset;
+    CGFloat x = horizontalOffset + (greenOffset * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
     }
@@ -139,13 +143,42 @@
     }
     CGContextFillRect(context, fretFrame);
     
+    if (keyOffset > 7) {        // second green
+        greenOffset -= 12;
+        CGFloat originY = 0.0;
+        CGFloat x = horizontalOffset + (greenOffset * horizontalSpacing);
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
+        }
+        numStrings = 5;
+        y = numStrings * verticalSpacing + (verticalOffset * 2.0);
+        if (isBassMode) {
+            numStrings = 3;
+            originY += (verticalSpacing * .43);
+            y = numStrings * verticalSpacing + (verticalOffset * .95);
+        }
+        fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
+        if (isiPad) {
+            CGContextSetFillColorWithColor(context, [UIColor Guitar6thStringAlpha].CGColor);
+        }
+        else {
+            CGContextSetFillColorWithColor(context, [UIColor Guitar6thString].CGColor);
+        }
+        CGContextFillRect(context, fretFrame);
+
+    }
+    
     // Draw 4th string base fret - yellow
     diff = 6; if (isiPad) diff = 7;
+    NSInteger yellowOffset = diff + keyOffset;
+    if (yellowOffset > 15) {
+        yellowOffset -= 12;
+    }
     originY = 0;
     if (isFlipped) {
         originY = (verticalSpacing * 2.0);
     }
-    x = horizontalOffset + (diff * horizontalSpacing);
+    x = horizontalOffset + (yellowOffset * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
     }
@@ -165,13 +198,45 @@
     }
     CGContextFillRect(context, fretFrame);
     
+    if (keyOffset > 5 && keyOffset < 10) {      // second yellow
+        yellowOffset -= 12;
+        originY = 0;
+        if (isFlipped) {
+            originY = (verticalSpacing * 2.0);
+        }
+        x = horizontalOffset + (yellowOffset * horizontalSpacing);
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
+        }
+        numStrings = 3;
+        y = numStrings * verticalSpacing + (verticalOffset * 2.0);
+        if (isBassMode) {
+            numStrings = 1;
+            originY += (verticalSpacing * .43);
+            y = numStrings * verticalSpacing + (verticalOffset * .95);
+        }
+        fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
+        if (isiPad) {
+            CGContextSetFillColorWithColor(context, [UIColor Guitar4thStringAlpha].CGColor);
+        }
+        else {
+            CGContextSetFillColorWithColor(context, [UIColor Guitar4thString].CGColor);
+        }
+        CGContextFillRect(context, fretFrame);
+
+    }
+    
     // Draw 5th string base from - purple
     diff = 11; if (isiPad) diff = 12;
+    NSInteger purpleOffset = diff + keyOffset;
+    if (purpleOffset > 15) {
+        purpleOffset -= 12;
+    }
     originY = 0;
     if (isFlipped) {
         originY = verticalSpacing;
     }
-    x = horizontalOffset + (diff * horizontalSpacing);
+    x = horizontalOffset + (purpleOffset * horizontalSpacing);
     if (isLeftHand) {
         x = width - x - horizontalSpacing;
     }
@@ -198,6 +263,41 @@
         CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     }
     CGContextSetLineWidth(context, lineWidth);
+    
+    if (keyOffset > 0 && keyOffset < 5) {       // second purple
+        purpleOffset -= 12;
+        originY = 0;
+        if (isFlipped) {
+            originY = verticalSpacing;
+        }
+        x = horizontalOffset + (purpleOffset * horizontalSpacing);
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
+        }
+        numStrings = 4;
+        y = numStrings * verticalSpacing + (verticalOffset * 2.0);
+        if (isBassMode) {
+            numStrings = 2;
+            originY += (verticalSpacing * .43);
+            y = numStrings * verticalSpacing + (verticalOffset * .95);
+        }
+        fretFrame = CGRectMake(x, originY, horizontalSpacing, y);
+        if (isiPad) {
+            CGContextSetFillColorWithColor(context, [UIColor Guitar5thStringAlpha].CGColor);
+        }
+        else {
+            CGContextSetFillColorWithColor(context, [UIColor Guitar5thString].CGColor);
+        }
+        CGContextFillRect(context, fretFrame);
+        
+        if (isiPad) {
+            CGContextSetStrokeColorWithColor(context, [[UIColor blackColorAlpha] CGColor]);
+        }
+        else {
+            CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+        }
+        CGContextSetLineWidth(context, lineWidth);
+    }
     
     // draw vertical lines
     diff = 17; if (isiPad) diff = 19;
@@ -233,6 +333,32 @@
         CGContextDrawPath(context, kCGPathStroke);
     }
     
+    // fret marker dots
+    
+    NSArray *stringArray = @[@" ", @" ", @"•", @" ", @"•", @" ", @"•", @" ", @"•", @" ", @" ", @"••", @" ", @" ", @"•"];
+    
+    for (int i = 0; i < stringArray.count; i++) {
+        CGFloat x      = horizontalOffset + (i * horizontalSpacing);
+        
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing;
+        }
+        
+        CGFloat fingerNumOffset = 5.4;
+        if (isBassMode) {
+            fingerNumOffset = 3.25;
+        }
+        
+        CGFloat fretMarkerFontSize         = radius * 2.0;
+        
+        CGFloat y      = (fingerNumOffset * verticalSpacing) + verticalOffset;
+        NSString *text = stringArray[i];
+        CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
+        NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+        paragraphStyle.alignment                = NSTextAlignmentCenter;
+        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont bravuraFontWithSize:fretMarkerFontSize], NSForegroundColorAttributeName:[UIColor blackColor], NSParagraphStyleAttributeName:paragraphStyle}];
+    }
+    
     // notes
     diff = 0; if (isiPad) diff = 1;
     NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
@@ -243,12 +369,13 @@
                 NSArray *coordinates = degreePosition.coordinates;
                 for (Coordinate *coord in coordinates) {
                     NSInteger xOffset = [self offsetForPosition:degreePosition.positionID] + diff;
-                    NSInteger xCoordinate = coord.x + xOffset;
+                    NSInteger xCoordinate = coord.x + xOffset + keyOffset;
                     CGFloat x
                     = xCoordinate * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
+                    CGFloat xx = x;
                     
                     if (isLeftHand) {
-                        x = width - x;
+                        xx = width - x;
                     }
                     
                     CGFloat bassChanger = 0;
@@ -271,7 +398,7 @@
                         y = height - y - (verticalOffset * flipOffset);
                     }
                     
-                    CGContextAddArc(context, x, y, radius - strokeWidth, 0.0, M_PI*2, YES);
+                    CGContextAddArc(context, xx, y, radius - strokeWidth, 0.0, M_PI*2, YES);
                     UIColor *textColor;
                     UIColor *fillColor;
                     UIColor *strokeColor;
@@ -332,6 +459,7 @@
                     CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
                     
                     CGContextDrawPath(context, kCGPathFillStroke);
+
                     
                     // If the view is the center view, add degree text on top of notes
                     // if showDegrees is set on
@@ -343,9 +471,9 @@
                     CGFloat width    = (radius - lineWidth) * 2;
                     CGRect rect;
                     if (degreeString.length == 1) {
-                        rect = CGRectMake(x - width / 2.2, y - width / 2, width, width);
+                        rect = CGRectMake(xx - width / 2.2, y - width / 2, width, width);
                     } else {
-                        rect = CGRectMake(x - width / 2.2, y - width / 1.7, width, width);
+                        rect = CGRectMake(xx - width / 2.2, y - width / 1.7, width, width);
                         
                     }
                     CGSize size      = [degreeString size];
@@ -376,6 +504,60 @@
                     [degreeString drawInRect:rect];
                         
             }
+                    
+                    // draw 2nd dot
+                        // special if statement to ignore dots too far to the left
+                        
+    if (x - (horizontalSpacing * 12) > 0) {
+        if (isLeftHand) { xx += (horizontalSpacing * 12);}
+        else            { xx -= (horizontalSpacing * 12);}
+                    CGContextAddArc(context, xx, y, radius - strokeWidth, 0.0, M_PI*2, YES);
+                    CGContextDrawPath(context, kCGPathFillStroke);
+                    
+                    // draw 2nd scale degree num
+            if (showDegrees == false)
+            {
+                
+                NSMutableAttributedString *degreeString
+                = [[degree toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
+                CGFloat width    = (radius - lineWidth) * 2;
+                CGRect rect;
+                if (degreeString.length == 1) {
+                    rect = CGRectMake(xx - width / 2.2, y - width / 2, width, width);
+                } else {
+                    rect = CGRectMake(xx - width / 2.2, y - width / 1.7, width, width);
+                    
+                }
+                CGSize size      = [degreeString size];
+                CGFloat offset   = (width - size.height) / 2;
+                rect.size.height -= offset * 2.0;
+                rect.origin.y    += offset;
+                
+                NSNumber *offNum = [NSNumber numberWithFloat:offset];
+                
+                NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+                paragrapStyle.alignment                = NSTextAlignmentCenter;
+                
+                [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
+                [degreeString addAttributes:@{NSForegroundColorAttributeName:textColor,
+                                              NSParagraphStyleAttributeName:paragrapStyle,
+                                              NSBaselineOffsetAttributeName:offNum}
+                                      range:NSMakeRange(0, degreeString.length)];
+                
+                NSShadow *shadowDic=[[NSShadow alloc] init];
+                [shadowDic setShadowColor:textColor];
+                [shadowDic setShadowOffset:CGSizeMake(0, 0.7)];
+                [degreeString addAttribute:NSShadowAttributeName
+                                     value:shadowDic
+                                     range:NSMakeRange(0, degreeString.length)];
+                
+                
+                
+                [degreeString drawInRect:rect];
+                
+            }
+    }
+
                     
                 }
                 
