@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */; };
 		99080A411E0312A00037EC84 /* ArrowButtonZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 99080A401E0312A00037EC84 /* ArrowButtonZoom.m */; };
+		996DE4D21E41B70600E2D403 /* SubHeaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 996DE4D11E41B70600E2D403 /* SubHeaderButton.m */; };
 		99B4F8F41E2BD88F00A67EEE /* Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4F8F31E2BD88F00A67EEE /* Key.m */; };
 		99D2E5C61E30178F00855788 /* OpusChordsSansStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99D2E5C51E30178F00855788 /* OpusChordsSansStd.otf */; };
 		99E9B1081E032D8E00908375 /* GradientLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9B1071E032D8E00908375 /* GradientLineView.m */; };
@@ -79,6 +80,8 @@
 		494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Scales Interactive.xcconfig"; path = "Pods/Pods-Guitar Scales Interactive.xcconfig"; sourceTree = "<group>"; };
 		99080A3F1E03124C0037EC84 /* ArrowButtonZoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrowButtonZoom.h; sourceTree = "<group>"; };
 		99080A401E0312A00037EC84 /* ArrowButtonZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowButtonZoom.m; sourceTree = "<group>"; };
+		996DE4D01E41B6B300E2D403 /* SubHeaderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubHeaderButton.h; sourceTree = "<group>"; };
+		996DE4D11E41B70600E2D403 /* SubHeaderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubHeaderButton.m; sourceTree = "<group>"; };
 		99701E591E0DCF5000568F3C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		99B4F8EF1E2BD70700A67EEE /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
 		99B4F8F31E2BD88F00A67EEE /* Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Key.m; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 				B192A1681D99955800B2B2F3 /* ArrowButton.m */,
 				99080A3F1E03124C0037EC84 /* ArrowButtonZoom.h */,
 				99080A401E0312A00037EC84 /* ArrowButtonZoom.m */,
+				996DE4D01E41B6B300E2D403 /* SubHeaderButton.h */,
+				996DE4D11E41B70600E2D403 /* SubHeaderButton.m */,
 				B1D962CD1DD6203700DDEF6A /* FullStringContainerView.h */,
 				B1D962CE1DD6203700DDEF6A /* FullStringContainerView.m */,
 				B16B17AF1D998ABE00A52785 /* FullStringView.h */,
@@ -569,6 +574,7 @@
 				B15F7B7F19ABFED400028D8D /* MenuTableViewController.m in Sources */,
 				B1AFCD8F19AE23DF00714B2D /* NSMutableArray+Guitar.m in Sources */,
 				B181A0F71AEFCFF20067E79D /* OptionsViewController.m in Sources */,
+				996DE4D21E41B70600E2D403 /* SubHeaderButton.m in Sources */,
 				99E9B1081E032D8E00908375 /* GradientLineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

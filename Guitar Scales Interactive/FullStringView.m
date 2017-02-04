@@ -34,7 +34,7 @@
     CGFloat horizontalSpacing = self.bounds.size.width / 18.5;
     CGFloat verticalSpacing   = self.bounds.size.height / 7.4;
     CGFloat radiusVerticalSpacing = self.bounds.size.height / 7.6;
-    CGFloat horizontalOffset = horizontalSpacing / 3.8;
+    CGFloat horizontalOffset = horizontalSpacing * 0.7; //horizontalSpacing / 3.8;
     CGFloat verticalOffset   = verticalSpacing / 2.0;
     CGFloat radius = radiusVerticalSpacing / 2.1;
     CGFloat width = self.bounds.size.width;
@@ -44,10 +44,10 @@
     CGFloat fontSize         = radius * 1.42;
     
     if (!isiPad) {                                              // iPhone
-        horizontalSpacing = self.bounds.size.width / 16.5;
+        horizontalSpacing = self.bounds.size.width / 17.25; // / 16.5;
         verticalSpacing   = self.bounds.size.height / 7.4;
         radiusVerticalSpacing = self.bounds.size.height / 7.6;
-        horizontalOffset = horizontalSpacing / 3.8;
+        horizontalOffset = horizontalSpacing * 0.7;
         verticalOffset   = verticalSpacing / 2.0;
         radius = radiusVerticalSpacing / 2.3;
         width = self.bounds.size.width;
@@ -67,7 +67,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     
-  //   draw gray background
+/////   draw gray background
     // throughout this section int diff is used to differientate the layouts between iPhone and iPad
     
     NSInteger diff = horizontalSpacing;
@@ -307,7 +307,17 @@
         numStrings = 3;
     }
     for (int i = 0; i < numLines; i++) {
+        if (i == 0) {
+            CGFloat nutLineWidth = lineWidth * 2.0;
+            CGContextSetLineWidth(context, nutLineWidth);
+        }
+        else {
+            CGContextSetLineWidth(context, lineWidth);
+        }
         CGFloat x = horizontalOffset + (i * horizontalSpacing);
+        if (isLeftHand) {
+            x = width - x;
+        }
         CGFloat y = numStrings * verticalSpacing + verticalOffset;
         CGContextMoveToPoint(context, x, verticalOffset);
         CGContextAddLineToPoint(context, x, y);
@@ -316,10 +326,12 @@
     
     // draw horizontal lines
     // adjust depending on string view type
-    CGFloat horizontalLineWidth = width;
-    CGFloat horizontalLineX     = 0.0;
-    horizontalLineX     += horizontalSpacing / 2.0;
-    horizontalLineX = 0;
+    CGFloat horizontalLineWidth = width * 0.98;
+    CGFloat horizontalLineX     = horizontalOffset * 0.915;
+    if (isLeftHand) {
+        horizontalLineX = horizontalOffset * 0.5;
+        horizontalLineWidth = width * 0.9628;
+    }
     
     numLines = 6;
     if (isBassMode) {
@@ -328,7 +340,7 @@
 
     for (int i = 0; i < numLines; i++) {
         CGFloat y = i * verticalSpacing + verticalOffset;
-        CGContextMoveToPoint(context, horizontalOffset, y);
+        CGContextMoveToPoint(context, horizontalLineX, y);
         CGContextAddLineToPoint(context, horizontalLineWidth, y);
         CGContextDrawPath(context, kCGPathStroke);
     }
@@ -370,9 +382,15 @@
                 for (Coordinate *coord in coordinates) {
                     NSInteger xOffset = [self offsetForPosition:degreePosition.positionID] + diff;
                     NSInteger xCoordinate = coord.x + xOffset + keyOffset;
+//                    CGFloat noteShift = horizontalSpacing * 0.2;
+//                    // need something to shift open notes to the right
                     CGFloat x
                     = xCoordinate * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
                     CGFloat xx = x;
+                    
+//                    if (xCoordinate == 0) {      // slide over open strings
+//                        x += (horizontalSpacing * 0.4);
+//                    }
                     
                     if (isLeftHand) {
                         xx = width - x;
@@ -452,6 +470,18 @@
                         fillColor   = [UIColor clearColor];
                         strokeColor = [UIColor clearColor];
                     }
+                    
+//                    if (coord.x == 2) {      // trying to hide notes too far to the right
+//                        textColor   = [UIColor clearColor];
+//                        fillColor   = [UIColor clearColor];
+//                        strokeColor = [UIColor clearColor];
+//                    }
+                    
+//                    if (xCoordinate == 0) {      // change the look of open notes
+//                        textColor   = [UIColor blackColor];
+//                        fillColor   = [UIColor clearColor];
+//                        strokeColor = [UIColor clearColor];
+//                    }
 
                     CGContextSetLineWidth(context, newStrokeWidth);
                     
@@ -459,6 +489,7 @@
                     CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
                     
                     CGContextDrawPath(context, kCGPathFillStroke);
+
 
                     
                     // If the view is the center view, add degree text on top of notes

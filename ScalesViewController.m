@@ -18,6 +18,7 @@
 #import "MenuTableViewController.h"
 #import "ArrowButton.h"
 #import "ArrowButtonZoom.h"
+#import "SubHeaderButton.h"
 //#import "MetButton.h"
 #import "TutorialViewController.h"
 
@@ -47,6 +48,8 @@
 
 @property (strong, nonatomic) ArrowButtonZoom *leftArrowButtonZoom;
 @property (strong, nonatomic) ArrowButtonZoom *rightArrowButtonZoom;
+
+@property (strong, nonatomic) SubHeaderButton *subHeaderButton;
 
 //@property (strong, nonatomic) MetButton *metButton;
 
@@ -128,7 +131,6 @@
 
 - (void)setUpLabels
 {
-    
     self.positionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.positionLabel setText:@"POSITION"];
     [self.view addSubview:self.positionLabel];
@@ -136,7 +138,6 @@
     self.keyLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.keyLabel setText:@"KEY OF"];
     [self.view addSubview:self.keyLabel];
-    
 }
 
 - (void)setUpStringViews        // only runs once
@@ -159,6 +160,9 @@
     [self.leftArrowButtonZoom addTarget:self action:@selector(handlePositionLeft:) forControlEvents:UIControlEventTouchUpInside];
     self.leftArrowButtonZoom.layer.zPosition = 0;
     [self.view addSubview:self.leftArrowButtonZoom];
+    
+    self.subHeaderButton = [[SubHeaderButton alloc] initWithFrame:CGRectZero];
+    [self.subHeaderButton addTarget:self action:@selector(toggleViews:) forControlEvents:UIControlEventTouchUpInside];
     
 //    self.metButton = [[MetButton alloc] initWithFrame:CGRectZero];
 //    [self.metButton addTarget:self action:@selector(toggleMet:) forControlEvents:UIControlEventTouchUpInside];
@@ -329,6 +333,9 @@
         
         rightButtonX = width - buttonOffset - buttonWidth;
         self.rightArrowButtonZoom.frame = CGRectMake(rightButtonX, buttonY, buttonWidth, buttonHeight);
+        
+        // position/key label button
+        ////////////////////
 
     }
 }
@@ -349,9 +356,9 @@
         y                       = height * .59;                              // lower number raises
     }
     else {
-        stringViewWidth         = width * 0.97;                      // iPhone zoom out
+        stringViewWidth         = width;                      // iPhone zoom out
         stringViewHeight        = height * 0.625;
-        x                       = (width - stringViewWidth ) / 2.0;
+        x                       = 0;
         y                       = height * 0.215;
     }
     
@@ -702,16 +709,24 @@
             self.mainStringView.hidden = false;
             self.mainStringView.alpha = 1;
             self.fullStringView.alpha = 0;
+            self.leftGradientLines.alpha = 1;
+            self.rightGradientLines.alpha = 1;
         } completion: ^(BOOL finished) {
             self.fullStringView.hidden = true;
+            self.leftGradientLines.hidden = false;
+            self.rightGradientLines.hidden = false;
         }];
             } else {
         [UIView animateWithDuration:0.2 animations:^{
             self.fullStringView.hidden = false;
             self.fullStringView.alpha = 1;
             self.mainStringView.alpha = 0;
+            self.leftGradientLines.alpha = 0;
+            self.rightGradientLines.alpha = 0;
         } completion: ^(BOOL finished) {
             self.mainStringView.hidden = true;
+            self.leftGradientLines.hidden = true;
+            self.rightGradientLines.hidden = true;
         }];
     }
     if ([self.leftArrowButtonZoom isHidden]) {

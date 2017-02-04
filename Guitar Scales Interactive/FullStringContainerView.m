@@ -60,7 +60,7 @@
     
     CGFloat horizontalSpacing = self.bounds.size.width / 18.5;   // copied new numbers from FullStringView.m
     CGFloat verticalSpacing   = self.bounds.size.height / 7.4;
-    CGFloat horizontalOffset = horizontalSpacing / 3.8;
+    CGFloat horizontalOffset = 0; // horizontalSpacing / 3.8;
     CGFloat verticalOffset   = verticalSpacing / 2.0;
     CGFloat width = self.bounds.size.width;
     CGFloat iPadExtraSpace = horizontalSpacing;
