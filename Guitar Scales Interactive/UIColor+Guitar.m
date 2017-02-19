@@ -77,21 +77,24 @@
 }
 
 
-
++ (UIColor *)GuitarLightGray
+{
+    return [UIColor colorWithRed:(200 / 255.0) green:(204 / 255.0) blue:(207 / 255.0) alpha:1.00];
+}
 
 + (UIColor *)GuitarDarkGray
 {
     return [UIColor colorWithRed:(152.0 / 255.0) green:(152.0 / 255.0) blue:(152.0 / 255.0) alpha:1];
 }
 
-+ (UIColor *)GuitarLightGray
-{
-    return [UIColor colorWithRed:(200 / 255.0) green:(204 / 255.0) blue:(207 / 255.0) alpha:1.00];
-}
-
 + (UIColor *)blackColorAlpha
 {
     return [UIColor colorWithRed:(125 / 255.0) green:(126 / 255.0) blue:(129 / 255.0) alpha:1.0];
+}
+
++ (UIColor *)GuitarDarkerGray
+{
+    return [UIColor colorWithRed:(80.0 / 255.0) green:(81.0 / 255.0) blue:(84.0 / 255.0) alpha:1];
 }
 
 

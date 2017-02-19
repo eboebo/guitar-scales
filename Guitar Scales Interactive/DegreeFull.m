@@ -24,7 +24,8 @@
                                                        @"sharp": @"sharp",
                                                        @"alt_degree_number"   : @"altNumber",
                                                        @"alt_flat"   : @"altFlat",
-                                                       @"alt_sharp": @"altSharp"}];
+                                                       @"alt_sharp": @"altSharp",
+                                                       @"coordinates": @"coordinates"}];
 }
 
 - (NSAttributedString *)toAttributedString

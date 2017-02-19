@@ -25,9 +25,10 @@
 + (UIColor *)Guitar4thStringAlpha;
 + (UIColor *)Guitar5thStringAlpha;
 
-+ (UIColor *)GuitarDarkGray;
 + (UIColor *)GuitarLightGray;
++ (UIColor *)GuitarDarkGray;
 + (UIColor *)blackColorAlpha;
++ (UIColor *)GuitarDarkerGray;
 
 
 @end

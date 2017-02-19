@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
     OptionsRowBassMode,
     OptionsRowLeftHand,
     OptionsRowFlip,
+    OptionsRowHideColors,
     OptionsRowRate,
     OptionsRowFeedback,
     OptionsRowNumRows
@@ -91,6 +92,12 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
             cell.accessoryType = isFlipped ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         }
             break;
+        case OptionsRowHideColors: {
+            text = @"Hide Colors";
+            BOOL isHideColors = [[GuitarStore sharedStore] isHideColors];
+            cell.accessoryType = isHideColors ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        }
+            break;
         case OptionsRowRate: {
             text = @"Rate Us";
             [cell addStars];
@@ -139,6 +146,13 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
         case OptionsRowFlip: {
             BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
             [[GuitarStore sharedStore] setFlipped:!isFlipped];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
+        }
+            break;
+        case OptionsRowHideColors: {
+            BOOL isHideColors = [[GuitarStore sharedStore] isHideColors];
+            [[GuitarStore sharedStore] setHideColors:!isHideColors];
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
         }

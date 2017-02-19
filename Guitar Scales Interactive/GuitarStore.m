@@ -8,6 +8,7 @@
 
 #import "GuitarStore.h"
 #import "Degree.h"
+#import "DegreeFull.h"
 #import "Scale.h"
 #import "Position.h"
 #import "Key.h"
@@ -66,6 +67,18 @@
         Degree *degree = [[Degree alloc] initWithDictionary:obj error:nil];
         [self.degrees addObject:degree];
     }];
+    
+    // trying to make DegreeFull work
+    NSArray* degreesFull = [json objectForKey:@"degreesFull"];
+    self.degreesFull = [NSMutableArray array];
+    
+    [(NSArray *)degreesFull enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        DegreeFull *degreeFull = [[DegreeFull alloc] initWithDictionary:obj error:nil];
+        [self.degreesFull addObject:degreeFull];
+    }];
+
+    
+    ///////////// should work -- I need to add coordinates to the new json file (open in Chrome) and then add a parsing data thing to recognize the coordinates, and then draw them with FullStringView.m using the first For statement, but not using the next For statement, since we won't be using positions
     
     self.positions = [NSMutableArray array];
     
@@ -168,6 +181,17 @@
 {
     BOOL isFlipped = [[NSUserDefaults standardUserDefaults] boolForKey:@"isFlipped"];
     return isFlipped;
+}
+
+- (void)setHideColors:(BOOL)hideColors
+{
+    [[NSUserDefaults standardUserDefaults] setBool:hideColors forKey:@"isHideColors"];
+}
+
+- (BOOL)isHideColors
+{
+    BOOL isHideColors = [[NSUserDefaults standardUserDefaults] boolForKey:@"isHideColors"];
+    return isHideColors;
 }
 
 

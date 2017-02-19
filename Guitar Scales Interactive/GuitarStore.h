@@ -18,6 +18,7 @@ typedef void (^UpdateCallback)(BOOL success);
 @property (nonatomic, strong) NSMutableArray *positions;
 @property (nonatomic, strong) NSMutableArray *keys;
 @property (nonatomic, strong) NSMutableArray *degrees;
+@property (nonatomic, strong) NSMutableArray *degreesFull;
 @property (nonatomic, copy) UpdateCallback callback;
 @property (nonatomic, strong) Scale *selectedScale;
 @property (nonatomic, strong) Scale *chromaticScale;
@@ -36,6 +37,8 @@ typedef void (^UpdateCallback)(BOOL success);
 - (BOOL)isLeftHand;
 - (void)setFlipped:(BOOL)flipped;
 - (BOOL)isFlipped;
+- (void)setHideColors:(BOOL)hideColors;
+- (BOOL)isHideColors;
 
 
 

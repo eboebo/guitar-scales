@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */; };
 		99080A411E0312A00037EC84 /* ArrowButtonZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 99080A401E0312A00037EC84 /* ArrowButtonZoom.m */; };
+		991FE5B71E4687E4008E1BC0 /* DegreeFull.m in Sources */ = {isa = PBXBuildFile; fileRef = 991FE5B61E4687E4008E1BC0 /* DegreeFull.m */; };
+		9941BA811E588C7C0085DA10 /* SVBasicManual.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9941BA801E588C7C0085DA10 /* SVBasicManual.ttf */; };
 		996DE4D21E41B70600E2D403 /* SubHeaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 996DE4D11E41B70600E2D403 /* SubHeaderButton.m */; };
 		99B4F8F41E2BD88F00A67EEE /* Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4F8F31E2BD88F00A67EEE /* Key.m */; };
 		99D2E5C61E30178F00855788 /* OpusChordsSansStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99D2E5C51E30178F00855788 /* OpusChordsSansStd.otf */; };
@@ -80,6 +82,9 @@
 		494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Scales Interactive.xcconfig"; path = "Pods/Pods-Guitar Scales Interactive.xcconfig"; sourceTree = "<group>"; };
 		99080A3F1E03124C0037EC84 /* ArrowButtonZoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrowButtonZoom.h; sourceTree = "<group>"; };
 		99080A401E0312A00037EC84 /* ArrowButtonZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowButtonZoom.m; sourceTree = "<group>"; };
+		991FE5B51E46877F008E1BC0 /* DegreeFull.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DegreeFull.h; sourceTree = "<group>"; };
+		991FE5B61E4687E4008E1BC0 /* DegreeFull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeFull.m; sourceTree = "<group>"; };
+		9941BA801E588C7C0085DA10 /* SVBasicManual.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SVBasicManual.ttf; sourceTree = "<group>"; };
 		996DE4D01E41B6B300E2D403 /* SubHeaderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubHeaderButton.h; sourceTree = "<group>"; };
 		996DE4D11E41B70600E2D403 /* SubHeaderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubHeaderButton.m; sourceTree = "<group>"; };
 		99701E591E0DCF5000568F3C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -345,6 +350,8 @@
 				99B4F8F31E2BD88F00A67EEE /* Key.m */,
 				B108CB12199B02990047A473 /* Degree.h */,
 				B108CB13199B02990047A473 /* Degree.m */,
+				991FE5B51E46877F008E1BC0 /* DegreeFull.h */,
+				991FE5B61E4687E4008E1BC0 /* DegreeFull.m */,
 				B16E945819A173D8001F769A /* Coordinate.h */,
 				B16E945919A173D8001F769A /* Coordinate.m */,
 				B16E945B19A176FA001F769A /* DegreePosition.h */,
@@ -371,6 +378,7 @@
 		B1B0A6D919AA655100F32D77 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9941BA801E588C7C0085DA10 /* SVBasicManual.ttf */,
 				99D2E5C51E30178F00855788 /* OpusChordsSansStd.otf */,
 				B167A1601A0BC24400AFFC07 /* SVBasicManual-Bold.ttf */,
 				B167A16A1A0BC8BE00AFFC07 /* Bravura.otf */,
@@ -471,6 +479,7 @@
 				B108CADA199AD1E70047A473 /* Images.xcassets in Resources */,
 				B16E945619A16F8D001F769A /* notes.json in Resources */,
 				B15F7B7219AAA38900028D8D /* Proletarsk.ttf in Resources */,
+				9941BA811E588C7C0085DA10 /* SVBasicManual.ttf in Resources */,
 				B167A1691A0BC84800AFFC07 /* BravuraText.otf in Resources */,
 				B148F34F19D4C54E007BF91F /* JasonSharpie.ttf in Resources */,
 				B15F7B7019AAA35900028D8D /* OratorStd.otf in Resources */,
@@ -551,6 +560,7 @@
 				99080A411E0312A00037EC84 /* ArrowButtonZoom.m in Sources */,
 				B108CB11199B028E0047A473 /* Position.m in Sources */,
 				B108CB18199B04710047A473 /* Model.m in Sources */,
+				991FE5B71E4687E4008E1BC0 /* DegreeFull.m in Sources */,
 				B181A0F41AEFCB900067E79D /* MainViewController.m in Sources */,
 				B148F34B19D4B2B0007BF91F /* DoubleDegreeButtonView.m in Sources */,
 				B1D962D21DD6219900DDEF6A /* FretView.m in Sources */,

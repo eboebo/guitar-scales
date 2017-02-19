@@ -79,7 +79,7 @@
     self.view.backgroundColor = [UIColor GuitarCream];
     
     self.currentPosition = 2;
-    self.currentKey = 0;
+    self.currentKey = 3;
 //    self.metIsOn = false;
     
     [self setUpNavigationBar];

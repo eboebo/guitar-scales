@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JSONModel.h"
+#import "Coordinate.h"
 
 @protocol DegreeFull
 @end
@@ -24,6 +25,8 @@
 @property (nonatomic, assign) NSInteger altNumber;
 @property (nonatomic, assign) BOOL altFlat;
 @property (nonatomic, assign) BOOL altSharp;
+
+@property (nonatomic, strong) NSArray<Coordinate> *coordinates;
 
 - (NSAttributedString *)toAttributedString;
 - (NSAttributedString *)toAttributedStringCircleWithFontSize:(CGFloat)fontSize;

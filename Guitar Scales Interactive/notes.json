@@ -2030,6 +2030,581 @@
                                      ]
                 }
                 ],
+    "degreesFull": [
+                    {
+                    "degree_id": 0,
+                    "degree_number": 1,
+                    "flat": false,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 5,
+                                    "y": 0,
+                                    "color": "white"
+                                    },
+                                    {
+                                    "x": 10,
+                                    "y": 1,
+                                    "color": "white"
+                                    },
+                                    {
+                                    "x": 2,
+                                    "y": 2,
+                                    "color": "white"
+                                    },
+                                    {
+                                    "x": 5,
+                                    "y": 5,
+                                    "color": "white"
+                                    },
+                                    {
+                                    "x": 7,
+                                    "y": 3,
+                                    "color": "white"
+                                    },
+                                    {
+                                    "x": 0,
+                                    "y": 4,
+                                    "color": "white"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 1,
+                    "degree_number": 2,
+                    "flat": true,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 6,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 11,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 3,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 6,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 8,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 1,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 2,
+                    "degree_number": 2,
+                    "flat": false,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 7,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 0,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 4,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 7,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 9,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 2,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 3,
+                    "degree_number": 2,
+                    "flat": false,
+                    "sharp": true,
+                    "alt_degree_number": 3,
+                    "alt_flat": true,
+                    "alt_sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 8,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 1,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 5,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 8,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 10,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 3,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 4,
+                    "degree_number": 3,
+                    "flat": false,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 9,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 2,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 6,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 9,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 11,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 4,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 5,
+                    "degree_number": 4,
+                    "flat": false,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 10,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 3,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 7,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 10,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 0,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 5,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 6,
+                    "degree_number": 4,
+                    "flat": false,
+                    "sharp": true,
+                    "coordinates": [
+                                    {
+                                    "x": 11,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 4,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 8,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 11,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 1,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 6,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 7,
+                    "degree_number": 5,
+                    "flat": false,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 0,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 5,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 9,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 0,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 2,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 7,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 8,
+                    "degree_number": 5,
+                    "flat": false,
+                    "sharp": true,
+                    "coordinates": [
+                                    {
+                                    "x": 1,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 6,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 10,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 1,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 3,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 8,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 9,
+                    "degree_number": 6,
+                    "flat": false,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 2,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 7,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 11,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 2,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 4,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 9,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 10,
+                    "degree_number": 7,
+                    "flat": true,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 3,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 8,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 0,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 3,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 5,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 10,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 11,
+                    "degree_number": 7,
+                    "flat": false,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 4,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 9,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 1,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 4,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 6,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 11,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 12,
+                    "degree_number": 3,
+                    "flat": true,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 8,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 1,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 5,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 8,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 10,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 3,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 13,
+                    "degree_number": 5,
+                    "flat": true,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 11,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 4,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 8,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 11,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 1,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 6,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    },
+                    {
+                    "degree_id": 14,
+                    "degree_number": 6,
+                    "flat": true,
+                    "sharp": false,
+                    "coordinates": [
+                                    {
+                                    "x": 1,
+                                    "y": 0,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 6,
+                                    "y": 1,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 10,
+                                    "y": 2,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 1,
+                                    "y": 5,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 3,
+                                    "y": 3,
+                                    "color": "black"
+                                    },
+                                    {
+                                    "x": 8,
+                                    "y": 4,
+                                    "color": "black"
+                                    }
+                                    ]
+                    }
+                    ],
     "positions": [
                   {
                   "position_id": 0,
@@ -2218,7 +2793,6 @@
                             0,
                             1,
                             2,
-                            3,
                             12,
                             4,
                             5,

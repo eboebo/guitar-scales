@@ -31,6 +31,7 @@ const CGFloat maxHeight = 175.0;
     BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
     BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
     BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    BOOL hideColors = [[GuitarStore sharedStore] isHideColors];
     
     CGRect bounds = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = bounds.size.width;
@@ -79,6 +80,8 @@ const CGFloat maxHeight = 175.0;
     
     // draw color boxes (used to be called rose)
     
+    if (!hideColors) {
+    
     if (self.position.baseFret || self.position.baseFret == 0) {
         CGFloat x = horizontalOffset + (self.position.baseFret * horizontalSpacing);
         if (isLeftHand) {
@@ -105,6 +108,7 @@ const CGFloat maxHeight = 175.0;
 
         CGContextSetFillColorWithColor(context, color.CGColor);
         CGContextFillRect(context, fretFrame);
+    }
     }
     
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
@@ -144,47 +148,47 @@ const CGFloat maxHeight = 175.0;
     
     // fret marker dots
     
-    NSInteger dotMarkerOffset = 0;
-    if (self.position.identifier == 2) dotMarkerOffset = 2;
-    else if (self.position.identifier == 4) dotMarkerOffset = 4;
-    else if (self.position.identifier == 6) dotMarkerOffset = 6;
-    else if (self.position.identifier == 1) dotMarkerOffset = 7;
-    else if (self.position.identifier == 3) dotMarkerOffset = 9;
-    else if (self.position.identifier == 5) dotMarkerOffset = 11;
-    
-    dotMarkerOffset += self.key.identifier;
-    
-    NSArray *stringArray = @[@" ", @" ", @"•", @" ", @"•", @" ", @"•", @" ", @"•", @" ", @" ", @"••", @" ", @" ", @"•"];
-    
-    for (int i = 0; i < stringArray.count; i++) {
-        CGFloat x      = horizontalOffset + ((i - dotMarkerOffset) * horizontalSpacing);
-        
-        UIColor *dotColor = [UIColor blackColor];
-        if (useShortScale && (i - dotMarkerOffset) > 4) {
-            dotColor = [UIColor GuitarDarkGray];
-        }
-        
-        if (isLeftHand) {
-            x = width - x - horizontalSpacing;
-        }
-        
-        CGFloat fingerNumOffset = 5.05;
-        if (isBassMode) {
-            fingerNumOffset = 3.05;
-        }
-        
-        CGFloat fretMarkerFontSize         = radius * 2.0;
-        
-        CGFloat y      = (fingerNumOffset * verticalSpacing) + verticalOffset;
-        NSString *text = stringArray[i];
-        CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
-        NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
-        paragraphStyle.alignment                = NSTextAlignmentCenter;
-        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont bravuraFontWithSize:fretMarkerFontSize], NSForegroundColorAttributeName:dotColor, NSParagraphStyleAttributeName:paragraphStyle}];
-    }
+//    NSInteger dotMarkerOffset = 0;
+//    if (self.position.identifier == 2) dotMarkerOffset = 2;
+//    else if (self.position.identifier == 4) dotMarkerOffset = 4;
+//    else if (self.position.identifier == 6) dotMarkerOffset = 6;
+//    else if (self.position.identifier == 1) dotMarkerOffset = 7;
+//    else if (self.position.identifier == 3) dotMarkerOffset = 9;
+//    else if (self.position.identifier == 5) dotMarkerOffset = 11;
+//    
+//    dotMarkerOffset += self.key.identifier;
+//    
+//    NSArray *stringArray = @[@" ", @" ", @"•", @" ", @"•", @" ", @"•", @" ", @"•", @" ", @" ", @"••", @" ", @" ", @"•"];
+//    
+//    for (int i = 0; i < stringArray.count; i++) {
+//        CGFloat x      = horizontalOffset + ((i - dotMarkerOffset) * horizontalSpacing);
+//        
+//        UIColor *dotColor = [UIColor blackColor];
+//        if (useShortScale && (i - dotMarkerOffset) > 4) {
+//            dotColor = [UIColor GuitarDarkGray];
+//        }
+//        
+//        if (isLeftHand) {
+//            x = width - x - horizontalSpacing;
+//        }
+//        
+//        CGFloat fingerNumOffset = 5.05;
+//        if (isBassMode) {
+//            fingerNumOffset = 3.05;
+//        }
+//        
+//        CGFloat fretMarkerFontSize         = radius * 2.0;
+//        
+//        CGFloat y      = (fingerNumOffset * verticalSpacing) + verticalOffset;
+//        NSString *text = stringArray[i];
+//        CGRect rect    = CGRectMake(x, y, horizontalSpacing, verticalSpacing);
+//        NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+//        paragraphStyle.alignment                = NSTextAlignmentCenter;
+//        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont bravuraFontWithSize:fretMarkerFontSize], NSForegroundColorAttributeName:dotColor, NSParagraphStyleAttributeName:paragraphStyle}];
+//    }
 
     
-    stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
+    NSArray *stringArray = @[@"(1)", @"1", @"2", @"3", @"4", @"(4)"];
     NSArray *stringArray2 = @[@"(1)", @"1", @"2", @"3", @"4"];
     if (useShortScale == true) {
         stringArray = @[@"1", @"2", @"3", @"4", @"(4)"];
@@ -198,9 +202,9 @@ const CGFloat maxHeight = 175.0;
             x = width - x - horizontalSpacing;
         }
         
-        CGFloat fingerNumOffset = 5.7;
+        CGFloat fingerNumOffset = 5.45;
         if (isBassMode) {
-            fingerNumOffset = 3.6;
+            fingerNumOffset = 3.35;
         }
         
         CGFloat y      = fingerNumOffset * verticalSpacing + verticalOffset;

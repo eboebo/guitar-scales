@@ -7,7 +7,7 @@
 //
 
 #import "FullStringView.h"
-#import "Degree.h"
+#import "DegreeFull.h"
 #import <CoreText/CoreText.h>
 #import "Coordinate.h"
 #import "GuitarStore.h"
@@ -28,6 +28,7 @@
     BOOL isBassMode = [[GuitarStore sharedStore] isBassMode];
     BOOL isFlipped = [[GuitarStore sharedStore] isFlipped];
     BOOL showDegrees = [[GuitarStore sharedStore] showDegrees];
+    BOOL hideColors = [[GuitarStore sharedStore] isHideColors];
     
     BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
     
@@ -67,7 +68,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     
-/////   draw gray background
+    // draw gray background
     // throughout this section int diff is used to differientate the layouts between iPhone and iPad
     
     NSInteger diff = horizontalSpacing;
@@ -118,6 +119,8 @@
     }
     
     NSInteger keyOffset = self.key.identifier;
+    
+    if (!hideColors) {
   
     // Draw 6th string base fret - green
     CGFloat originY = 0.0;
@@ -298,6 +301,8 @@
         }
         CGContextSetLineWidth(context, lineWidth);
     }
+    }
+    
     
     // draw vertical lines
     diff = 17; if (isiPad) diff = 19;
@@ -371,227 +376,224 @@
         [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont bravuraFontWithSize:fretMarkerFontSize], NSForegroundColorAttributeName:[UIColor blackColor], NSParagraphStyleAttributeName:paragraphStyle}];
     }
     
-    // notes
+    // NEW NOTES for DegreeFull
+    
     diff = 0; if (isiPad) diff = 1;
-    NSMutableArray *degrees = [[GuitarStore sharedStore] degrees];
-    for (Degree *degree in degrees) {
-        if ([self containsId:degree.identifier]) {
-            NSArray *degreePositions = degree.degreePositions;
-            for (DegreePosition *degreePosition in degreePositions) {
-                NSArray *coordinates = degreePosition.coordinates;
-                for (Coordinate *coord in coordinates) {
-                    NSInteger xOffset = [self offsetForPosition:degreePosition.positionID] + diff;
-                    NSInteger xCoordinate = coord.x + xOffset + keyOffset;
-//                    CGFloat noteShift = horizontalSpacing * 0.2;
-//                    // need something to shift open notes to the right
-                    CGFloat x
-                    = xCoordinate * horizontalSpacing + (horizontalSpacing / 2.0) + horizontalOffset;
-                    CGFloat xx = x;
-                    
-//                    if (xCoordinate == 0) {      // slide over open strings
-//                        x += (horizontalSpacing * 0.4);
-//                    }
-                    
-                    if (isLeftHand) {
-                        xx = width - x;
-                    }
-                    
-                    CGFloat bassChanger = 0;
-                    if (isBassMode) {
-                        if (coord.y > 1) {      // in bass mode, move notes up 2 strings
-                            bassChanger = 2;
+        NSMutableArray *degreesFull = [[GuitarStore sharedStore] degreesFull];
+        for (DegreeFull *degreeFull in degreesFull) {
+            if ([self containsId:degreeFull.identifier]) {
+                NSArray *coordinates = degreeFull.coordinates;
+                    for (Coordinate *coord in coordinates) {
+//                        NSInteger xOffset = diff;
+                        NSInteger xCoordinate = coord.x + keyOffset; // + xOffset
+                        if (xCoordinate > 11) {
+                            xCoordinate -= 12;
                         }
-                        if (coord.y == 6) {        // special case for special bass notes
-                            bassChanger = 6;
+                        // slide over open notes
+                        CGFloat noteShift = 0.0;
+                        if (xCoordinate == 0) {
+                            noteShift =  horizontalSpacing * 0.14;
                         }
-                    }
-                    CGFloat y
-                    = (coord.y - bassChanger) * verticalSpacing + verticalOffset;
-                    
-                    if (isFlipped) {
-                        CGFloat flipOffset = 0.8;
+                        CGFloat x  = xCoordinate * horizontalSpacing + (horizontalSpacing * 0.2) + noteShift;
+                        CGFloat xx = x;
+    
+                        if (isLeftHand) {
+                            xx = width - x;
+                        }
+    
+                        CGFloat bassChanger = 0;
                         if (isBassMode) {
-                            flipOffset = 0.4;
+                            if (coord.y > 1) {      // in bass mode, move notes up 2 strings
+                                bassChanger = 2;
+                            }
+                            if (coord.y == 6) {        // special case for special bass notes
+                                bassChanger = 6;
+                            }
                         }
-                        y = height - y - (verticalOffset * flipOffset);
-                    }
-                    
-                    CGContextAddArc(context, xx, y, radius - strokeWidth, 0.0, M_PI*2, YES);
-                    UIColor *textColor;
-                    UIColor *fillColor;
-                    UIColor *strokeColor;
-                    CGFloat newStrokeWidth;
-                    if ([coord.color isEqual:@"black"]) {
-                        textColor   = [UIColor GuitarCream];
-                        if (isiPad) {
-                            fillColor   = [UIColor blackColorAlpha];
-                            strokeColor = [UIColor blackColorAlpha];
+                        CGFloat y
+                        = (coord.y - bassChanger) * verticalSpacing + verticalOffset;
+    
+                        if (isFlipped) {
+                            CGFloat flipOffset = 0.8;
+                            if (isBassMode) {
+                                flipOffset = 0.4;
+                            }
+                            y = height - y - (verticalOffset * flipOffset);
                         }
-                        else {
-                            fillColor   = [UIColor blackColor];
-                            strokeColor = [UIColor blackColor];
+    
+                        CGContextAddArc(context, xx, y, radius - strokeWidth, 0.0, M_PI*2, YES);
+                        UIColor *textColor;
+                        UIColor *fillColor;
+                        UIColor *strokeColor;
+                        UIColor *textColorUse;
+                        UIColor *fillColorUse;
+                        UIColor *strokeColorUse;
+                        if ([coord.color isEqual:@"black"]) {
+                            textColor   = [UIColor GuitarCream];
+                            if (isiPad) {
+                                fillColor   = [UIColor blackColorAlpha];
+                                strokeColor = [UIColor blackColorAlpha];
+                            }
+                            else {
+                                fillColor   = [UIColor blackColor];
+                                strokeColor = [UIColor blackColor];
+                            }
+                        } else if ([coord.color isEqualToString:@"white"]) {
+                            fillColor   = [UIColor GuitarCream];
+                            if (isiPad) {
+                                textColor   = [UIColor blackColorAlpha];
+                                strokeColor = [UIColor blackColorAlpha];
+                            }
+                            else {
+                                textColor   = [UIColor blackColor];
+                                strokeColor = [UIColor blackColor];
+                            }
                         }
-                        newStrokeWidth = strokeWidth;
-                    } else if ([coord.color isEqualToString:@"white"]) {
-                        fillColor   = [UIColor GuitarCream];
-                        if (isiPad) {
-                            textColor   = [UIColor blackColorAlpha];
-                            strokeColor = [UIColor blackColorAlpha];
-                        }
-                        else {
-                            textColor   = [UIColor blackColor];
-                            strokeColor = [UIColor blackColor];
-                        }
-                        newStrokeWidth = strokeWidth;
-                    } else if ([coord.color isEqualToString:@"gray"]) {
-                        textColor   = [UIColor GuitarCream];
-                        if (isiPad) {
-                            fillColor   = [UIColor blackColorAlpha];
-                            strokeColor = [UIColor blackColorAlpha];
-                        }
-                        else {
-                            fillColor   = [UIColor blackColor];
-                            strokeColor = [UIColor blackColor];
-                        }
-                        newStrokeWidth = strokeWidth - 1;
-                    }
-                    
-                    if (isBassMode) {               // hides 1st 2 strings in bass mode
-                        if (coord.y < 2) {
+    
+                        if (coord.y == 6) {         // hide special bass notes
                             textColor   = [UIColor clearColor];
                             fillColor   = [UIColor clearColor];
                             strokeColor = [UIColor clearColor];
                         }
-                    }
-
-                    
-                    if (coord.y == 6) {         // hide special bass notes
-                        textColor   = [UIColor clearColor];
-                        fillColor   = [UIColor clearColor];
-                        strokeColor = [UIColor clearColor];
-                    }
-                    
-//                    if (coord.x == 2) {      // trying to hide notes too far to the right
-//                        textColor   = [UIColor clearColor];
-//                        fillColor   = [UIColor clearColor];
-//                        strokeColor = [UIColor clearColor];
-//                    }
-                    
-//                    if (xCoordinate == 0) {      // change the look of open notes
-//                        textColor   = [UIColor blackColor];
-//                        fillColor   = [UIColor clearColor];
-//                        strokeColor = [UIColor clearColor];
-//                    }
-
-                    CGContextSetLineWidth(context, newStrokeWidth);
-                    
-                    CGContextSetFillColorWithColor(context, [fillColor CGColor]);
-                    CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
-                    
-                    CGContextDrawPath(context, kCGPathFillStroke);
-
-
-                    
-                    // If the view is the center view, add degree text on top of notes
-                    // if showDegrees is set on
-            if (showDegrees == false)
-            {
-                    
-                    NSMutableAttributedString *degreeString
-                    = [[degree toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
-                    CGFloat width    = (radius - lineWidth) * 2;
-                    CGRect rect;
-                    if (degreeString.length == 1) {
-                        rect = CGRectMake(xx - width / 2.2, y - width / 2, width, width);
-                    } else {
-                        rect = CGRectMake(xx - width / 2.2, y - width / 1.7, width, width);
                         
+                        textColorUse   = textColor;
+                        fillColorUse   = fillColor;
+                        strokeColorUse = strokeColor;
+                        strokeWidth      = radius / 4.0;
+                        
+                        if (xCoordinate == 0) {      //////// OPEN NOTES
+                            textColorUse   = [UIColor GuitarDarkerGray];
+                            strokeColorUse = [UIColor GuitarDarkerGray];
+                            fillColorUse   = [UIColor clearColor];
+                            strokeWidth      = radius / 12.0;
+                        }
+                        
+                        if (isBassMode) {               // hides 1st 2 strings in bass mode
+                            if (coord.y < 2) {
+                                textColorUse   = [UIColor clearColor];
+                                fillColorUse   = [UIColor clearColor];
+                                strokeColorUse = [UIColor clearColor];
+                            }
+                        }
+                        
+                        CGContextSetLineWidth(context, strokeWidth);
+                        CGContextSetFillColorWithColor(context, [fillColorUse CGColor]);
+                        CGContextSetStrokeColorWithColor(context, [strokeColorUse CGColor]);
+                        CGContextDrawPath(context, kCGPathFillStroke);
+    
+                        // If the view is the center view, add degree text on top of notes
+                        // if showDegrees is set on
+                if (showDegrees == false)
+                {
+    
+                        NSMutableAttributedString *degreeString
+                        = [[degreeFull toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
+                        CGFloat width    = (radius - lineWidth) * 2;
+                        CGRect rect;
+                        if (degreeString.length == 1) {
+                            rect = CGRectMake(xx - width / 2.2, y - width / 2, width, width);
+                        } else {
+                            rect = CGRectMake(xx - width / 2.2, y - width / 1.7, width, width);
+    
+                        }
+                        CGSize size      = [degreeString size];
+                        CGFloat offset   = (width - size.height) / 2;
+                        rect.size.height -= offset * 2.0;
+                        rect.origin.y    += offset;
+    
+                        NSNumber *offNum = [NSNumber numberWithFloat:offset];
+    
+                        NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+                        paragrapStyle.alignment                = NSTextAlignmentCenter;
+    
+                        [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
+                        [degreeString addAttributes:@{NSForegroundColorAttributeName:textColorUse,
+                                                      NSParagraphStyleAttributeName:paragrapStyle,
+                                                      NSBaselineOffsetAttributeName:offNum}
+                                              range:NSMakeRange(0, degreeString.length)];
+    
+                        NSShadow *shadowDic=[[NSShadow alloc] init];
+                        [shadowDic setShadowColor:textColorUse];
+                        [shadowDic setShadowOffset:CGSizeMake(0, 0.7)];
+                        [degreeString addAttribute:NSShadowAttributeName
+                                             value:shadowDic
+                                             range:NSMakeRange(0, degreeString.length)];
+                   
+                        [degreeString drawInRect:rect];
+                            
+                }
+                        
+                // draw 2nd dot, for the first 5 dots
+                        
+                if (xCoordinate < 5) {
+               
+                    if (isLeftHand) {
+                        xx = xx - (horizontalSpacing * 12) + noteShift;
                     }
-                    CGSize size      = [degreeString size];
-                    CGFloat offset   = (width - size.height) / 2;
-                    rect.size.height -= offset * 2.0;
-                    rect.origin.y    += offset;
-                    
-                    NSNumber *offNum = [NSNumber numberWithFloat:offset];
-                    
-                    NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-                    paragrapStyle.alignment                = NSTextAlignmentCenter;
-                    
-                    [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
-                    [degreeString addAttributes:@{NSForegroundColorAttributeName:textColor,
-                                                  NSParagraphStyleAttributeName:paragrapStyle,
-                                                  NSBaselineOffsetAttributeName:offNum}
-                                          range:NSMakeRange(0, degreeString.length)];
-                    
-                    NSShadow *shadowDic=[[NSShadow alloc] init];
-                    [shadowDic setShadowColor:textColor];
-                    [shadowDic setShadowOffset:CGSizeMake(0, 0.7)];
-                    [degreeString addAttribute:NSShadowAttributeName
-                                         value:shadowDic
-                                         range:NSMakeRange(0, degreeString.length)];
-                    
-                    
-                    
-                    [degreeString drawInRect:rect];
-                        
-            }
-                    
-                    // draw 2nd dot
-                        // special if statement to ignore dots too far to the left
-                        
-    if (x - (horizontalSpacing * 12) > 0) {
-        if (isLeftHand) { xx += (horizontalSpacing * 12);}
-        else            { xx -= (horizontalSpacing * 12);}
+                    else {
+                        xx = xx + (horizontalSpacing * 12) - noteShift;
+                    }
+                
+                    strokeWidth      = radius / 4.0;   
                     CGContextAddArc(context, xx, y, radius - strokeWidth, 0.0, M_PI*2, YES);
-                    CGContextDrawPath(context, kCGPathFillStroke);
+                                
+                    textColorUse   = textColor;
+                    fillColorUse   = fillColor;
+                    strokeColorUse = strokeColor;
                     
-                    // draw 2nd scale degree num
-            if (showDegrees == false)
-            {
-                
-                NSMutableAttributedString *degreeString
-                = [[degree toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
-                CGFloat width    = (radius - lineWidth) * 2;
-                CGRect rect;
-                if (degreeString.length == 1) {
-                    rect = CGRectMake(xx - width / 2.2, y - width / 2, width, width);
-                } else {
-                    rect = CGRectMake(xx - width / 2.2, y - width / 1.7, width, width);
+                    if (isBassMode) {               // hides 1st 2 strings in bass mode
+                        if (coord.y < 2) {
+                            textColorUse   = [UIColor clearColor];
+                            fillColorUse   = [UIColor clearColor];
+                            strokeColorUse = [UIColor clearColor];
+                        }
+                    }
                     
-                }
-                CGSize size      = [degreeString size];
-                CGFloat offset   = (width - size.height) / 2;
-                rect.size.height -= offset * 2.0;
-                rect.origin.y    += offset;
-                
-                NSNumber *offNum = [NSNumber numberWithFloat:offset];
-                
-                NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-                paragrapStyle.alignment                = NSTextAlignmentCenter;
-                
-                [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
-                [degreeString addAttributes:@{NSForegroundColorAttributeName:textColor,
-                                              NSParagraphStyleAttributeName:paragrapStyle,
-                                              NSBaselineOffsetAttributeName:offNum}
-                                      range:NSMakeRange(0, degreeString.length)];
-                
-                NSShadow *shadowDic=[[NSShadow alloc] init];
-                [shadowDic setShadowColor:textColor];
-                [shadowDic setShadowOffset:CGSizeMake(0, 0.7)];
-                [degreeString addAttribute:NSShadowAttributeName
-                                     value:shadowDic
-                                     range:NSMakeRange(0, degreeString.length)];
-                
-                
-                
-                [degreeString drawInRect:rect];
-                
-            }
-    }
+                    CGContextSetLineWidth(context, strokeWidth);
+                    CGContextSetFillColorWithColor(context, [fillColorUse CGColor]);
+                    CGContextSetStrokeColorWithColor(context, [strokeColorUse CGColor]);
 
-                    
+                    CGContextDrawPath(context, kCGPathFillStroke);
+
+                    // draw 2nd scale degree num
+                    if (showDegrees == false)
+                    {
+
+                        NSMutableAttributedString *degreeString
+                        = [[degreeFull toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
+                        CGFloat width    = (radius - lineWidth) * 2;
+                        CGRect rect;
+                        if (degreeString.length == 1) {
+                            rect = CGRectMake(xx - width / 2.2, y - width / 2, width, width);
+                        } else {
+                            rect = CGRectMake(xx - width / 2.2, y - width / 1.7, width, width);
+                        }
+                        CGSize size      = [degreeString size];
+                        CGFloat offset   = (width - size.height) / 2;
+                        rect.size.height -= offset * 2.0;
+                        rect.origin.y    += offset;
+
+                        NSNumber *offNum = [NSNumber numberWithFloat:offset];
+
+                        NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+                        paragrapStyle.alignment                = NSTextAlignmentCenter;
+
+                        [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
+                        [degreeString addAttributes:@{NSForegroundColorAttributeName:textColorUse,
+                                                      NSParagraphStyleAttributeName:paragrapStyle,
+                                                      NSBaselineOffsetAttributeName:offNum}
+                                              range:NSMakeRange(0, degreeString.length)];
+                        
+                        NSShadow *shadowDic=[[NSShadow alloc] init];
+                        [shadowDic setShadowColor:textColorUse];
+                        [shadowDic setShadowOffset:CGSizeMake(0, 0.7)];
+                        [degreeString addAttribute:NSShadowAttributeName
+                                             value:shadowDic
+                                             range:NSMakeRange(0, degreeString.length)];
+                        
+                        [degreeString drawInRect:rect];
+                    }
                 }
-                
             }
         }
     }
@@ -617,8 +619,6 @@
             return 0;
     }
 }
-
-
 
 - (BOOL)containsId:(NSInteger)identifier
 {

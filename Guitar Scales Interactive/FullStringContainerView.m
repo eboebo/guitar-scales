@@ -145,37 +145,156 @@
     }];
 }
 
-- (void)tappedView:(id)sender {//////////////////////////////////////////////////////////////////
+- (void)tappedView:(id)sender {
     CGPoint touchPoint = [sender locationInView:self];
     
     BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
     BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
     
-    CGFloat horizontalSpacing = self.bounds.size.width / 16.5;   // copied new numbers from FullStringView.m
-    CGFloat horizontalOffset = horizontalSpacing / 3.8;
-    
-    CGFloat x = touchPoint.x - horizontalOffset;
-    NSInteger newPosition = 0;
-    NSInteger keyOffset = self.key.identifier / 2;
-    
-    if (x < horizontalSpacing * 3) newPosition = 0;
-    else if (x < horizontalSpacing * 5) newPosition = 1;
-    else if (x < horizontalSpacing * 7) newPosition = 2;
-    else if (x < horizontalSpacing * 9) newPosition = 3;
-    else if (x < horizontalSpacing * 11) newPosition = 4;
-    else if (x < horizontalSpacing * 13) newPosition = 5;
-    else newPosition = 6;
-    
-    newPosition = newPosition - keyOffset; // adjust for key changes
-    if (newPosition < 0) newPosition += 7;
-    
-    if (isLeftHand) newPosition = 6 - newPosition;
-
-        if (!isiPad) {
-            
-            [self.delegate updateMainStringView:newPosition];
-            [self.delegate toggleView];
+    if (!isiPad) {
+        CGFloat horizontalSpacing = self.bounds.size.width / 17.25; // / 16.5;
+        CGFloat horizontalOffset = horizontalSpacing * 0.7;
+        
+        CGFloat x = touchPoint.x - horizontalOffset;
+        NSInteger newPosition = 0;
+        NSInteger keyOffset = self.key.identifier - 3; // starting in the key of C
+        
+        CGFloat width = self.bounds.size.width;
+        if (isLeftHand) {
+            x = width - x - horizontalSpacing - (horizontalOffset * 0.5);
         }
+        if (keyOffset == 0) {
+            if      (x < horizontalSpacing * 1)  newPosition = 4;
+            else if (x < horizontalSpacing * 3)  newPosition = 5;
+            else if (x < horizontalSpacing * 5)  newPosition = 6;
+            else if (x < horizontalSpacing * 6)  newPosition = 0;
+            else if (x < horizontalSpacing * 8)  newPosition = 1;
+            else if (x < horizontalSpacing * 9)  newPosition = 2;
+            else if (x < horizontalSpacing * 12) newPosition = 3;
+            else                                 newPosition = 4;
+        }
+        else if (keyOffset == 1) {
+            if (x < horizontalSpacing * 2) newPosition = 4;
+            else if (x < horizontalSpacing * 4) newPosition = 5;
+            else if (x < horizontalSpacing * 6) newPosition = 6;
+            else if (x < horizontalSpacing * 7) newPosition = 0;
+            else if (x < horizontalSpacing * 9) newPosition = 1;
+            else if (x < horizontalSpacing * 10) newPosition = 2;
+            else if (x < horizontalSpacing * 13) newPosition = 3;
+            else                                 newPosition = 4;
+        }
+        else if (keyOffset == 2) {
+            if (x < horizontalSpacing * 3) newPosition = 4;
+            else if (x < horizontalSpacing * 5) newPosition = 5;
+            else if (x < horizontalSpacing * 7) newPosition = 6;
+            else if (x < horizontalSpacing * 8) newPosition = 0;
+            else if (x < horizontalSpacing * 10) newPosition = 1;
+            else if (x < horizontalSpacing * 11) newPosition = 2;
+            else                                 newPosition = 3;
+        }
+        else if (keyOffset == 3) {
+            if (x < horizontalSpacing * 2) newPosition = 3;
+            else if (x < horizontalSpacing * 4) newPosition = 4;
+            else if (x < horizontalSpacing * 6) newPosition = 5;
+            else if (x < horizontalSpacing * 8) newPosition = 6;
+            else if (x < horizontalSpacing * 9) newPosition = 0;
+            else if (x < horizontalSpacing * 11) newPosition = 1;
+            else if (x < horizontalSpacing * 12) newPosition = 2;
+            else                                 newPosition = 3;
+        }
+        else if (keyOffset == 4) {
+            if (x < horizontalSpacing * 3) newPosition = 3;
+            else if (x < horizontalSpacing * 5) newPosition = 4;
+            else if (x < horizontalSpacing * 7) newPosition = 5;
+            else if (x < horizontalSpacing * 9) newPosition = 6;
+            else if (x < horizontalSpacing * 10) newPosition = 0;
+            else if (x < horizontalSpacing * 12) newPosition = 1;
+            else if (x < horizontalSpacing * 13) newPosition = 2;
+            else                                 newPosition = 3;
+        }
+        else if (keyOffset == 5) {
+            if (x < horizontalSpacing * 2) newPosition = 2;
+            else if (x < horizontalSpacing * 4) newPosition = 3;
+            else if (x < horizontalSpacing * 6) newPosition = 4;
+            else if (x < horizontalSpacing * 8) newPosition = 5;
+            else if (x < horizontalSpacing * 10) newPosition = 6;
+            else if (x < horizontalSpacing * 11) newPosition = 0;
+            else if (x < horizontalSpacing * 13) newPosition = 1;
+            else if (x < horizontalSpacing * 14) newPosition = 2;
+            else                                 newPosition = 3;
+        }
+        else if (keyOffset == 6) {
+            if (x < horizontalSpacing * 2) newPosition = 1;
+            else if (x < horizontalSpacing * 3) newPosition = 2;
+            else if (x < horizontalSpacing * 5) newPosition = 3;
+            else if (x < horizontalSpacing * 7) newPosition = 4;
+            else if (x < horizontalSpacing * 9) newPosition = 5;
+            else if (x < horizontalSpacing * 11) newPosition = 6;
+            else if (x < horizontalSpacing * 12) newPosition = 0;
+            else if (x < horizontalSpacing * 14) newPosition = 1;
+            else if (x < horizontalSpacing * 15) newPosition = 2;
+            else                                 newPosition = 3;
+        }
+        else if (keyOffset == 7) {
+            if (x < horizontalSpacing * 1) newPosition = 0;
+            else if (x < horizontalSpacing * 3) newPosition = 1;
+            else if (x < horizontalSpacing * 4) newPosition = 2;
+            else if (x < horizontalSpacing * 6) newPosition = 3;
+            else if (x < horizontalSpacing * 8) newPosition = 4;
+            else if (x < horizontalSpacing * 10) newPosition = 5;
+            else if (x < horizontalSpacing * 12) newPosition = 6;
+            else if (x < horizontalSpacing * 13) newPosition = 0;
+            else                                 newPosition = 1;
+        }
+        else if (keyOffset == 8) {
+            if (x < horizontalSpacing * 2) newPosition = 0;
+            else if (x < horizontalSpacing * 4) newPosition = 1;
+            else if (x < horizontalSpacing * 5) newPosition = 2;
+            else if (x < horizontalSpacing * 7) newPosition = 3;
+            else if (x < horizontalSpacing * 9) newPosition = 4;
+            else if (x < horizontalSpacing * 11) newPosition = 5;
+            else if (x < horizontalSpacing * 13) newPosition = 6;
+            else                                 newPosition = 0;
+        }
+        else if (keyOffset == 9) {
+            if (x < horizontalSpacing * 3) newPosition = 0;
+            else if (x < horizontalSpacing * 5) newPosition = 1;
+            else if (x < horizontalSpacing * 6) newPosition = 2;
+            else if (x < horizontalSpacing * 8) newPosition = 3;
+            else if (x < horizontalSpacing * 10) newPosition = 4;
+            else if (x < horizontalSpacing * 12) newPosition = 5;
+            else                                 newPosition = 0;
+        }
+        else if (keyOffset == 10) {
+            if (x < horizontalSpacing * 3) newPosition = 6;
+            else if (x < horizontalSpacing * 4) newPosition = 0;
+            else if (x < horizontalSpacing * 6) newPosition = 1;
+            else if (x < horizontalSpacing * 7) newPosition = 2;
+            else if (x < horizontalSpacing * 9) newPosition = 3;
+            else if (x < horizontalSpacing * 11) newPosition = 4;
+            else if (x < horizontalSpacing * 13) newPosition = 5;
+            else                                 newPosition = 6;
+        }
+        else if (keyOffset == 11) {
+            if (x < horizontalSpacing * 2) newPosition = 5;
+            else if (x < horizontalSpacing * 4) newPosition = 6;
+            else if (x < horizontalSpacing * 5) newPosition = 0;
+            else if (x < horizontalSpacing * 7) newPosition = 1;
+            else if (x < horizontalSpacing * 8) newPosition = 2;
+            else if (x < horizontalSpacing * 10) newPosition = 3;
+            else if (x < horizontalSpacing * 12) newPosition = 4;
+            else                                 newPosition = 5;
+        }
+
+//        newPosition = newPosition - keyOffset; // adjust for key changes
+//        if (newPosition < 0) newPosition += 7;
+        
+//        if (isLeftHand) {
+//            newPosition = 6 - newPosition;
+//        }
+        [self.delegate updateMainStringView:newPosition];
+        [self.delegate toggleView];
+    }
 }
 
 // COMMENTING OUT THIS SECTION FOR NEW KEY-BASED VERSION
