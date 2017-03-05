@@ -18,7 +18,6 @@
 #import "MenuTableViewController.h"
 #import "ArrowButton.h"
 #import "ArrowButtonZoom.h"
-#import "SubHeaderButton.h"
 //#import "MetButton.h"
 #import "TutorialViewController.h"
 
@@ -48,8 +47,6 @@
 
 @property (strong, nonatomic) ArrowButtonZoom *leftArrowButtonZoom;
 @property (strong, nonatomic) ArrowButtonZoom *rightArrowButtonZoom;
-
-@property (strong, nonatomic) SubHeaderButton *subHeaderButton;
 
 //@property (strong, nonatomic) MetButton *metButton;
 
@@ -160,9 +157,6 @@
     [self.leftArrowButtonZoom addTarget:self action:@selector(handlePositionLeft:) forControlEvents:UIControlEventTouchUpInside];
     self.leftArrowButtonZoom.layer.zPosition = 0;
     [self.view addSubview:self.leftArrowButtonZoom];
-    
-    self.subHeaderButton = [[SubHeaderButton alloc] initWithFrame:CGRectZero];
-    [self.subHeaderButton addTarget:self action:@selector(toggleViews:) forControlEvents:UIControlEventTouchUpInside];
     
 //    self.metButton = [[MetButton alloc] initWithFrame:CGRectZero];
 //    [self.metButton addTarget:self action:@selector(toggleMet:) forControlEvents:UIControlEventTouchUpInside];
