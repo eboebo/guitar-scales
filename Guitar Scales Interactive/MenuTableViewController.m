@@ -33,6 +33,13 @@ NSInteger const SCALE_TAG_OFFSET = 111;
                          @"modes of MELODIC MINOR", @"modes of HARMONIC MINOR",
                          @"modes of HARMONIC MAJOR"];
     
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    CGFloat rowHeight = bounds.size.width / 22.0;
+    if (bounds.size.width > 667) {
+        rowHeight = bounds.size.width / 27.0;
+    }
+    self.tableView.rowHeight = rowHeight;
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -113,28 +120,13 @@ NSInteger const SCALE_TAG_OFFSET = 111;
         else {
             cell.rightTitle.textColor = [UIColor GuitarCream];
             cell.rightTitle.backgroundColor = [UIColor GuitarMain]; //
-        }
-//        if ([rightScale.title isEqualToString:@"clear"]) {    // trying to disable activity on empty cells, but
-//            cell.rightTitle.backgroundColor = [UIColor GuitarMain];          // something with the reusing of cells is making other cells inactive too
-//        cell.userInteractionEnabled = NO;
-        //        }
-        
+        }        
     }
     else {  // doesn't seem to ever go to this code
         cell.rightTitle.text = @"";
     }
 
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGRect bounds = [[UIScreen mainScreen] bounds];
-    CGFloat cellHeight = bounds.size.width / 22.0;
-    if (bounds.size.width > 667) {
-        cellHeight = bounds.size.width / 27.0;
-    }
-    return cellHeight;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -204,11 +196,6 @@ NSInteger const SCALE_TAG_OFFSET = 111;
             [self.delegate didSelectScale:scale];
         }
     }
-    
-//    if ([self.selectedLabel  isEqual: @"clear"]) {
-//        
-//    }
-    
 }
 
 @end

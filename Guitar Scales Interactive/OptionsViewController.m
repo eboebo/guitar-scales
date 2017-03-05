@@ -34,6 +34,11 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    if (bounds.size.width < 667) {
+        self.tableView.rowHeight = bounds.size.height * 0.11;
+    }
+    
     self.tableView.backgroundColor = [UIColor GuitarMain];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
@@ -52,7 +57,6 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
@@ -93,7 +97,7 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
         }
             break;
         case OptionsRowHideColors: {
-            text = @"Hide Colors";
+            text = @"Hide Anchor Frets";
             BOOL isHideColors = [[GuitarStore sharedStore] isHideColors];
             cell.accessoryType = isHideColors ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         }
@@ -109,11 +113,28 @@ typedef NS_ENUM(NSInteger, OptionsRow) {
         default:
             break;
     }
-    
     [cell.textLabel setText:text];
-    [cell.textLabel setFont:[UIFont ProletarskFontWithSize:16.0f]];
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    if (bounds.size.width < 667) {
+        [cell.textLabel setFont:[UIFont ProletarskFontWithSize:14.0f]];
+    }
+    else {
+        [cell.textLabel setFont:[UIFont ProletarskFontWithSize:16.0f]];
+    }
+
     return cell;
 }
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    CGRect bounds = [[UIScreen mainScreen] bounds];
+//    CGFloat cellHeight = bounds.size.height * 0.11;
+////    if (bounds.size.width > 667) {
+////        cellHeight = bounds.size.width / 27.0;
+////    }
+//    return cellHeight;
+//}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

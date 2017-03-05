@@ -45,7 +45,6 @@
         CGContextAddLineToPoint(context, size.width, 0.0);
         
         CGContextSetFillColorWithColor(context, [UIColor GuitarMain].CGColor);
-        
     }
     
     CGContextClosePath(context);

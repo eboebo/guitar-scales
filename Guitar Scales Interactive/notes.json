@@ -2666,51 +2666,51 @@
     "keys": [
              {
              "key_id": 0,
-             "title": "KEY CENTER - A"
+             "title": "A"
              },
              {
              "key_id": 1,
-             "title": "KEY CENTER - A#/Bb"
+             "title": "A#/Bb"
              },
              {
              "key_id": 2,
-             "title": "KEY CENTER - B"
+             "title": "B"
              },
              {
              "key_id": 3,
-             "title": "KEY CENTER - C"
+             "title": "C"
              },
              {
              "key_id": 4,
-             "title": "KEY CENTER - C#/Db"
+             "title": "C#/Db"
              },
              {
              "key_id": 5,
-             "title": "KEY CENTER - D"
+             "title": "D"
              },
              {
              "key_id": 6,
-             "title": "KEY CENTER - D#/Eb"
+             "title": "D#/Eb"
              },
              {
              "key_id": 7,
-             "title": "KEY CENTER - E"
+             "title": "E"
              },
              {
              "key_id": 8,
-             "title": "KEY CENTER - F"
+             "title": "F"
              },
              {
              "key_id": 9,
-             "title": "KEY CENTER - F#/Gb"
+             "title": "F#/Gb"
              },
              {
              "key_id": 10,
-             "title": "KEY CENTER - G"
+             "title": "G"
              },
              {
              "key_id": 11,
-             "title": "KEY CENTER - G#/Ab"
+             "title": "G#/Ab"
              }
              ],
     "scales": [

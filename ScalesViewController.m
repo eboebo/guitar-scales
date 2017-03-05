@@ -78,7 +78,7 @@
     
     self.view.backgroundColor = [UIColor GuitarCream];
     
-    self.currentPosition = 2;
+    self.currentPosition = 1;
     self.currentKey = 3;
 //    self.metIsOn = false;
     
@@ -214,14 +214,16 @@
     CGRect bounds = [[UIScreen mainScreen] bounds];
     CGFloat positionLabelHeight = bounds.size.height / 23.0; // sets the height of the Position Label
     CGFloat keyLabelHeight = bounds.size.height / 23.0; // sets the height of the Key Label
+    CGFloat keyLabelX = 0;
     
-    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad position & key labels
         positionLabelHeight = bounds.size.height / 19.0;
-        keyLabelHeight = bounds.size.height / 19.0;
+        keyLabelHeight = bounds.size.height * 0.48;
+        keyLabelX = bounds.size.width * 0.075;
     }
 
     self.positionLabel.frame = CGRectMake(0, positionLabelHeight, self.view.frame.size.width, 48);
-    self.keyLabel.frame = CGRectMake(0, keyLabelHeight, self.view.frame.size.width, 48);
+    self.keyLabel.frame = CGRectMake(keyLabelX, keyLabelHeight, self.view.frame.size.width, 48);
 
 }
 
@@ -256,13 +258,14 @@
     CGFloat buttonOffset;
     CGFloat y;
     
-    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {     // top part of iPad
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    
+    if(isiPad) {                                    // top part of iPad
         stringViewWidth     = width * 0.5;
         stringViewHeight    = height * 0.45;
         buttonOffset        = width * 0.1;
         y                   = height * 0.13;
     } else {
-
         stringViewWidth     = width * 0.53;                  // iPhone zoom in
         stringViewHeight    = height * 0.594;
         buttonOffset        = width * 0.155;
@@ -272,17 +275,17 @@
     CGRect frame = CGRectMake(x, y, stringViewWidth, stringViewHeight);
     self.mainStringView.frame = frame;
     
-    CGFloat gradientHeight = stringViewHeight * 0.8;
-    CGFloat horizontalSpacing = stringViewWidth / 6.42;
-    CGFloat gradientWidth = x + (horizontalSpacing / 2.0);
-    frame = CGRectMake(0, y, gradientWidth, gradientHeight);          // Gradient lines
-    self.leftGradientLines.frame = frame;
-    
-    x = width - x - (horizontalSpacing / 2.0);
-    frame = CGRectMake(x, y, gradientWidth, gradientHeight);
-    self.rightGradientLines.frame = frame;
-    
-    CGRect bounds = [[UIScreen mainScreen] bounds];
+    if (!isiPad) {
+        CGFloat gradientHeight = stringViewHeight * 0.8;
+        CGFloat horizontalSpacing = stringViewWidth / 6.42;
+        CGFloat gradientWidth = x + (horizontalSpacing / 2.0);
+        frame = CGRectMake(0, y, gradientWidth, gradientHeight);          // Gradient lines
+        self.leftGradientLines.frame = frame;
+        
+        x = width - x - (horizontalSpacing / 2.0);
+        frame = CGRectMake(x, y, gradientWidth, gradientHeight);
+        self.rightGradientLines.frame = frame;
+    }
     
 //    // METRONOME BUTTON POSITION
 //    width = bounds.size.width;
@@ -294,49 +297,52 @@
 //    self.metButton.frame = CGRectMake(metX, metY, metWidth, metHeight);
     
     // ARROW BUTTON POSITION
-    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
-    
     if (isiPad) {
         CGFloat buttonHeight = stringViewHeight * 0.5;
         CGFloat buttonWidth  = buttonHeight / 2.0;
         
+            // position arrow buttons
         CGFloat leftButtonX = buttonOffset;
         CGFloat buttonY = y + (stringViewHeight * 0.17);
-        self.leftArrowButton.frame = CGRectMake(leftButtonX, buttonY, buttonWidth, buttonHeight);
-        
+        self.leftArrowButtonZoom.frame = CGRectMake(leftButtonX, buttonY, buttonWidth, buttonHeight);
         CGFloat rightButtonX = width - buttonOffset - buttonWidth;
-        self.rightArrowButton.frame = CGRectMake(rightButtonX, buttonY, buttonWidth, buttonHeight);
+        self.rightArrowButtonZoom.frame = CGRectMake(rightButtonX, buttonY, buttonWidth, buttonHeight);
+        
+            // key arrow buttons
+        buttonWidth         = width * 0.025;
+        buttonHeight        = buttonWidth;
+        leftButtonX         = width * 0.037;
+        buttonY = height * 0.502;
+        self.rightArrowButton.frame = CGRectMake(leftButtonX, buttonY, buttonWidth, buttonHeight);
+        buttonY             = height * 0.545;
+        self.leftArrowButton.frame = CGRectMake(leftButtonX, buttonY, buttonWidth, buttonHeight);
     }
     else
-    {                                   // initial setup, program doesn't return here
-        // top arrow buttons
-        width = bounds.size.width;
-        height = bounds.size.height;
-        
+    {          // initial setup, program doesn't return here
+            // top arrow buttons
         CGFloat buttonHeight = height * 0.2;
         CGFloat buttonWidth  = width * 0.16;
-        buttonOffset = width * 0.02;
+        buttonOffset = width * 0.07;
         CGFloat leftButtonX = buttonOffset;
         CGFloat buttonY = height * 0.01;
+        if (width < 667) {
+            buttonY = height * 0.03;
+        }
         self.leftArrowButton.frame = CGRectMake(leftButtonX, buttonY, buttonWidth, buttonHeight);
     
         CGFloat rightButtonX = width - buttonOffset - buttonWidth;
         self.rightArrowButton.frame = CGRectMake(rightButtonX, buttonY, buttonWidth, buttonHeight);
         
-        // zoom arrow buttons
-        buttonOffset = width * 0.08;
-        buttonHeight = height * 0.28;
+            // zoom arrow buttons
+        buttonOffset = width * 0.07;
+        buttonHeight = height * 0.32;
         buttonWidth  = buttonHeight / 2.0;
         leftButtonX = buttonOffset;
-        buttonY = height * 0.28;
+        buttonY = height * 0.31;
         self.leftArrowButtonZoom.frame = CGRectMake(leftButtonX, buttonY, buttonWidth, buttonHeight);
         
         rightButtonX = width - buttonOffset - buttonWidth;
         self.rightArrowButtonZoom.frame = CGRectMake(rightButtonX, buttonY, buttonWidth, buttonHeight);
-        
-        // position/key label button
-        ////////////////////
-
     }
 }
 
@@ -615,15 +621,29 @@
 
 - (void)handlePositionLeftKey:(id)sender            // arrow button function
 {
-    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];               // conditional statements to flip arrow direction in LeftHand mode
-    if (isLeftHand){
-        if (self.currentKey < self.keys.count - 1) {
-            self.currentKey++;
-            [self updateStringViewPositions];
+    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];   // flip arrow direction in LeftHand mode (except iPad)
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    
+    if (!isiPad) {
+        if (isLeftHand){
+            if (self.currentKey < self.keys.count - 1) {
+                self.currentKey++;
+                [self updateStringViewPositions];
+            }
+            else if (self.currentKey == self.keys.count - 1) {
+                self.currentKey = 0;
+                [self updateStringViewPositions];
+            }
         }
-        else if (self.currentKey == self.keys.count - 1) {
-            self.currentKey = 0;
-            [self updateStringViewPositions];
+        else {
+            if (self.currentKey > 0) {
+                self.currentKey--;
+                [self updateStringViewPositions];
+            }
+            else if (self.currentKey == 0) {
+                self.currentKey = self.keys.count - 1;
+                [self updateStringViewPositions];
+            }
         }
     }
     else {
@@ -636,22 +656,33 @@
             [self updateStringViewPositions];
         }
     }
-    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
-    
 }
 
 - (void)handlePositionRightKey:(id)sender
 {
-    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];
-    if (isLeftHand){
-        if (self.currentKey > 0) {
-            self.currentKey--;
-            [self updateStringViewPositions];
+    BOOL isLeftHand = [[GuitarStore sharedStore] isLeftHand];  // flip arrow direction in LeftHand mode (except iPad)
+    BOOL isiPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    
+    if (!isiPad) {
+        if (isLeftHand){
+            if (self.currentKey > 0) {
+                self.currentKey--;
+                [self updateStringViewPositions];
+            }
+            else if (self.currentKey == 0) {
+                self.currentKey = self.keys.count - 1;
+                [self updateStringViewPositions];
+            }
         }
-        else if (self.currentKey == 0) {
-            self.currentKey = self.keys.count - 1;
-            [self updateStringViewPositions];
+        else {
+            if (self.currentKey < self.keys.count - 1) {
+                self.currentKey++;
+                [self updateStringViewPositions];
+            }
+            else if (self.currentKey == self.keys.count - 1) {
+                self.currentKey = 0;
+                [self updateStringViewPositions];
+            }
         }
     }
     else {
@@ -664,9 +695,6 @@
             [self updateStringViewPositions];
         }
     }
-    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"DisplayChange" object:self];
-    
 }
 
 //
@@ -711,10 +739,10 @@
             self.fullStringView.alpha = 0;
             self.leftGradientLines.alpha = 1;
             self.rightGradientLines.alpha = 1;
-        } completion: ^(BOOL finished) {
-            self.fullStringView.hidden = true;
             self.leftGradientLines.hidden = false;
             self.rightGradientLines.hidden = false;
+        } completion: ^(BOOL finished) {
+            self.fullStringView.hidden = true;
         }];
             } else {
         [UIView animateWithDuration:0.2 animations:^{
@@ -820,31 +848,27 @@
     CGFloat fontSize = bounds.size.width / 25.6538;
     
     NSMutableAttributedString *attributedString;
-    attributedString = [[NSMutableAttributedString alloc] initWithString:text];     // iPhone 6 & 7
+    attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    
+    // kerning
+    id kern = @5.3;                    // iPhone 6 & 7
+    if (bounds.size.width < 667) {      // iPhone 5
+        kern = @4.8;
+    }
+    if (bounds.size.width < 568.0) {    // iPhone 4
+        kern = @3.81;
+    }
+    if (bounds.size.width > 667) {      // iPhone 6 & 7 Plus
+        kern = @6.3;
+    }
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad
+        kern = @7.0;
+    }
+    
     [attributedString addAttribute:NSKernAttributeName
-                             value:@5.3
+                             value:kern
                              range:NSMakeRange(0, text.length)];
-        if (bounds.size.width < 667) {                                        // iPhone 5
-            [attributedString addAttribute:NSKernAttributeName
-                                     value:@4.8
-                                     range:NSMakeRange(0, text.length)];
-        }
-        if (bounds.size.width < 568.0) {                                        // iPhone 4
-            [attributedString addAttribute:NSKernAttributeName
-                                     value:@3.81
-                                     range:NSMakeRange(0, text.length)];
-        }
-        if (bounds.size.width > 667) {                                        // iPhone 6 & 7 Plus
-            [attributedString addAttribute:NSKernAttributeName
-                                     value:@6.3    //7.63
-                                     range:NSMakeRange(0, text.length)];
-        }
-        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad
-            [attributedString addAttribute:NSKernAttributeName
-                                     value:@7.0
-                                     range:NSMakeRange(0, text.length)];
-        }
-
+    
     [attributedString addAttribute:NSFontAttributeName
                              value:[UIFont ProletarskFontWithSize:fontSize]
                              range:NSMakeRange(0, text.length)];
@@ -871,73 +895,91 @@
 
 - (void)setSubHeaderKeyText:(NSString *)text
 {
-    CGRect bounds = [[UIScreen mainScreen] bounds];
-    CGFloat fontSize = bounds.size.width / 25.6538;
+    CGRect bounds       = [[UIScreen mainScreen] bounds];
+    CGFloat fontSize    = bounds.size.width / 25.6538;
+    BOOL isiPad         = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
     
     NSMutableAttributedString *attributedString;
-    attributedString = [[NSMutableAttributedString alloc] initWithString:text];     // iPhone 6 & 7
-    NSInteger divider = 12;
-    NSInteger keyLength = text.length - divider;
-    
-    [attributedString addAttribute:NSKernAttributeName
-                             value:@5.3
-                             range:NSMakeRange(0, divider)];
-    [attributedString addAttribute:NSKernAttributeName
-                             value:@2.6
-                             range:NSMakeRange(divider, keyLength)];
-    if (bounds.size.width < 667) {                                        // iPhone 5
-        [attributedString addAttribute:NSKernAttributeName
-                                 value:@4.8
-                                 range:NSMakeRange(0, divider)];
-        [attributedString addAttribute:NSKernAttributeName
-                                 value:@2.3
-                                 range:NSMakeRange(divider, keyLength)];
-    }
-    if (bounds.size.width < 568.0) {                                        // iPhone 4
-        [attributedString addAttribute:NSKernAttributeName
-                                 value:@3.81
-                                 range:NSMakeRange(0, divider)];
-        [attributedString addAttribute:NSKernAttributeName
-                                 value:@1.5
-                                 range:NSMakeRange(divider, keyLength)];
-    }
-    if (bounds.size.width > 667) {                                        // iPhone 6 & 7 Plus
-        [attributedString addAttribute:NSKernAttributeName
-                                 value:@6.3    //7.63
-                                 range:NSMakeRange(0, divider)];
-        [attributedString addAttribute:NSKernAttributeName
-                                 value:@3.0
-                                 range:NSMakeRange(divider, keyLength)];
-    }
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) { // iPad
-        [attributedString addAttribute:NSKernAttributeName
-                                 value:@7.0
-                                 range:NSMakeRange(0, divider)];
-        [attributedString addAttribute:NSKernAttributeName
-                                 value:@3.4
-                                 range:NSMakeRange(divider, keyLength)];
-    }
-    
-    [attributedString addAttribute:NSFontAttributeName
-                             value:[UIFont ProletarskFontWithSize:fontSize]
-                             range:NSMakeRange(0, divider)];
-    
-    [attributedString addAttribute:NSFontAttributeName
-                             value:[UIFont newOpusFontWithSize:fontSize]
-                             range:NSMakeRange(divider, keyLength)];
+    NSAttributedString *keyText             = [[NSAttributedString alloc] initWithString:text];
+    NSString *initText                      = @"KEY CENTER - ";
+    UIFont *useFont                         = [UIFont ProletarskFontWithSize:fontSize];
+    NSInteger divider                       = 12;
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;
-    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+    UIColor *mainColor                      = [UIColor blackColor];
+    UIColor *shadowColor                    = [UIColor darkGrayColor];
+    
+    if (isiPad) {
+        initText                    = @"KEY: ";
+        divider                     = 4;
+        fontSize                    = fontSize * 0.6;
+        useFont                     = [UIFont svBasicManualFontWithSize:fontSize];
+        paragraphStyle.alignment    = NSTextAlignmentLeft;
+        mainColor                   = [UIColor blackColorAlpha];
+        shadowColor                 = [UIColor lightGrayColor];
+    }
+    
+    attributedString = [[NSMutableAttributedString alloc] initWithString:initText];
+    [attributedString appendAttributedString:keyText];
+    NSInteger keyLength = text.length + 1;
+    
+    if (!isiPad) { // kerning for iPhone
+        id kern = @5.3;                    // iPhone 6 & 7
+        if (bounds.size.width < 667) {      // iPhone 5
+            kern = @4.8;
+        }
+        if (bounds.size.width < 568.0) {    // iPhone 4
+            kern = @3.81;
+        }
+        if (bounds.size.width > 667) {      // iPhone 6 & 7 Plus
+            kern = @6.3;
+        }
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:kern
+                                 range:NSMakeRange(0, divider)];
+        [attributedString addAttribute:NSKernAttributeName
+                                 value:@1.0
+                                 range:NSMakeRange(divider, keyLength)];
+    
+        [attributedString addAttribute:NSFontAttributeName             // iPhone assign main font
+                                 value:useFont
+                                 range:NSMakeRange(0, attributedString.length)];
+        [attributedString addAttribute:NSFontAttributeName            // iPhone set key text to Opus
+                                 value:[UIFont newOpusFontWithSize:fontSize]
+                                 range:NSMakeRange(divider, keyLength)];
+
+    }
+    else {
+        [attributedString addAttribute:NSFontAttributeName              // iPad assign main font
+                                 value:useFont
+                                 range:NSMakeRange(0, attributedString.length)];
+        
+        if (keyText.length > 1) {                                       // iPad use Opus for # and b
+            [attributedString addAttribute:NSFontAttributeName
+                                     value:[UIFont newOpusFontWithSize:fontSize]
+                                     range:NSMakeRange(divider + 2, 1)];
+            [attributedString addAttribute:NSFontAttributeName
+                                     value:[UIFont newOpusFontWithSize:fontSize]
+                                     range:NSMakeRange(divider + 5, 1)];
+        }
+    }
+    
+    [attributedString addAttribute:NSParagraphStyleAttributeName            // assign alignment
+                             value:paragraphStyle
+                             range:NSMakeRange(0, attributedString.length)];
+    [attributedString addAttribute:NSForegroundColorAttributeName           // set main color
+                             value:mainColor
+                             range:NSMakeRange(0, attributedString.length)];
     
     NSShadow *shadowDic=[[NSShadow alloc] init];
-    [shadowDic setShadowColor: [UIColor blackColor]];
+    [shadowDic setShadowColor:mainColor];
     [shadowDic setShadowOffset:CGSizeMake(.4, .5)];
     [attributedString addAttribute:NSShadowAttributeName
                              value:shadowDic
                              range:NSMakeRange(0, attributedString.length)];
     
     NSShadow *shadowDic2=[[NSShadow alloc] init];
-    [shadowDic2 setShadowColor: [UIColor darkGrayColor]];
+    [shadowDic2 setShadowColor:shadowColor];
     [shadowDic2 setShadowOffset:CGSizeMake(.6, .6)];
     [attributedString addAttribute:NSShadowAttributeName
                              value:shadowDic2

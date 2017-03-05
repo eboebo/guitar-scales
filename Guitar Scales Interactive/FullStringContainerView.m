@@ -158,6 +158,9 @@
         CGFloat x = touchPoint.x - horizontalOffset;
         NSInteger newPosition = 0;
         NSInteger keyOffset = self.key.identifier - 3; // starting in the key of C
+        if (keyOffset < 0) {
+            keyOffset += 12;
+        }
         
         CGFloat width = self.bounds.size.width;
         if (isLeftHand) {
@@ -263,7 +266,7 @@
             else if (x < horizontalSpacing * 8) newPosition = 3;
             else if (x < horizontalSpacing * 10) newPosition = 4;
             else if (x < horizontalSpacing * 12) newPosition = 5;
-            else                                 newPosition = 0;
+            else                                 newPosition = 6;
         }
         else if (keyOffset == 10) {
             if (x < horizontalSpacing * 3) newPosition = 6;
@@ -286,12 +289,6 @@
             else                                 newPosition = 5;
         }
 
-//        newPosition = newPosition - keyOffset; // adjust for key changes
-//        if (newPosition < 0) newPosition += 7;
-        
-//        if (isLeftHand) {
-//            newPosition = 6 - newPosition;
-//        }
         [self.delegate updateMainStringView:newPosition];
         [self.delegate toggleView];
     }
