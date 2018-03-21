@@ -8,6 +8,7 @@
 
 #import "FullStringView.h"
 #import "DegreeFull.h"
+#import "NoteNameFull.h"
 #import <CoreText/CoreText.h>
 #import "Coordinate.h"
 #import "GuitarStore.h"
@@ -356,12 +357,12 @@
     
     // NEW NOTES for DegreeFull
     
-        NSMutableArray *degreesFull = [[GuitarStore sharedStore] degreesFull];
-        for (DegreeFull *degreeFull in degreesFull) {
-            if ([self containsId:degreeFull.identifier]) {
-                NSArray *coordinates = degreeFull.coordinates;
+        NSMutableArray *noteNamesFull = [[GuitarStore sharedStore] noteNamesFull];
+        for (NoteNameFull *noteNameFull in noteNamesFull) {
+            if ([self containsId:noteNameFull.identifier]) {
+                NSArray *coordinates = noteNameFull.coordinates;
                     for (Coordinate *coord in coordinates) {
-//                        NSInteger xOffset = diff;
+
                         NSInteger xCoordinate = coord.x + keyOffset; // + xOffset
                         if (xCoordinate > 11) {
                             xCoordinate -= 12;
@@ -468,40 +469,41 @@
                 if (showDegrees == false)
                 {
     
-                        NSMutableAttributedString *degreeString
-                        = [[degreeFull toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
-                        CGFloat width    = (radius - lineWidth) * 2;
-                        CGRect rect;
-                        if (degreeString.length == 1) {
-                            rect = CGRectMake(xx - width / 2.2, y - width / 2, width, width);
-                        } else {
-                            rect = CGRectMake(xx - width / 2.2, y - width / 1.7, width, width);
-    
-                        }
-                        CGSize size      = [degreeString size];
-                        CGFloat offset   = (width - size.height) / 2;
-                        rect.size.height -= offset * 2.0;
-                        rect.origin.y    += offset;
-    
-                        NSNumber *offNum = [NSNumber numberWithFloat:offset];
-    
-                        NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-                        paragrapStyle.alignment                = NSTextAlignmentCenter;
-    
-                        [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
-                        [degreeString addAttributes:@{NSForegroundColorAttributeName:textColorUse,
-                                                      NSParagraphStyleAttributeName:paragrapStyle,
-                                                      NSBaselineOffsetAttributeName:offNum}
-                                              range:NSMakeRange(0, degreeString.length)];
-    
-                        NSShadow *shadowDic=[[NSShadow alloc] init];
-                        [shadowDic setShadowColor:textColorUse];
-                        [shadowDic setShadowOffset:CGSizeMake(0, 0.7)];
-                        [degreeString addAttribute:NSShadowAttributeName
-                                             value:shadowDic
-                                             range:NSMakeRange(0, degreeString.length)];
-                   
-                        [degreeString drawInRect:rect];
+                    NSMutableAttributedString *degreeString
+                    = [[noteNameFull toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
+
+                    CGFloat width    = (radius - lineWidth) * 2;
+                    CGRect rect;
+                    if (degreeString.length == 1) {
+                        rect = CGRectMake(xx - width / 2.2, y - width / 2, width, width);
+                    } else {
+                        rect = CGRectMake(xx - width / 2.2, y - width / 1.7, width, width);
+
+                    }
+                    CGSize size      = [degreeString size];
+                    CGFloat offset   = (width - size.height) / 2;
+                    rect.size.height -= offset * 2.0;
+                    rect.origin.y    += offset;
+
+                    NSNumber *offNum = [NSNumber numberWithFloat:offset];
+
+                    NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
+                    paragrapStyle.alignment                = NSTextAlignmentCenter;
+
+                    [paragrapStyle setLineBreakMode:NSLineBreakByWordWrapping];
+                    [degreeString addAttributes:@{NSForegroundColorAttributeName:textColorUse,
+                                                  NSParagraphStyleAttributeName:paragrapStyle,
+                                                  NSBaselineOffsetAttributeName:offNum}
+                                          range:NSMakeRange(0, degreeString.length)];
+
+                    NSShadow *shadowDic=[[NSShadow alloc] init];
+                    [shadowDic setShadowColor:textColorUse];
+                    [shadowDic setShadowOffset:CGSizeMake(0, 0.7)];
+                    [degreeString addAttribute:NSShadowAttributeName
+                                         value:shadowDic
+                                         range:NSMakeRange(0, degreeString.length)];
+               
+                    [degreeString drawInRect:rect];
                             
                 }
                         
@@ -542,7 +544,7 @@
                     {
 
                         NSMutableAttributedString *degreeString
-                        = [[degreeFull toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
+                        = [[noteNameFull toAttributedStringCircleWithFontSize:fontSize] mutableCopy];
                         CGFloat width    = (radius - lineWidth) * 2;
                         CGRect rect;
                         if (degreeString.length == 1) {

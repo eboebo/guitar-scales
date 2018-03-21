@@ -9,6 +9,7 @@
 #import "GuitarStore.h"
 #import "Degree.h"
 #import "DegreeFull.h"
+#import "NoteNameFull.h"
 #import "Scale.h"
 #import "Position.h"
 #import "Key.h"
@@ -68,7 +69,6 @@
         [self.degrees addObject:degree];
     }];
     
-    // trying to make DegreeFull work
     NSArray* degreesFull = [json objectForKey:@"degreesFull"];
     self.degreesFull = [NSMutableArray array];
     
@@ -76,9 +76,16 @@
         DegreeFull *degreeFull = [[DegreeFull alloc] initWithDictionary:obj error:nil];
         [self.degreesFull addObject:degreeFull];
     }];
-
     
-    ///////////// should work -- I need to add coordinates to the new json file (open in Chrome) and then add a parsing data thing to recognize the coordinates, and then draw them with FullStringView.m using the first For statement, but not using the next For statement, since we won't be using positions
+   //////////////////////////// // trying to make noteNamesFull work
+    NSArray* noteNamesFull = [json objectForKey:@"noteNamesFull"];
+    self.noteNamesFull = [NSMutableArray array];
+    
+    [(NSArray *)noteNamesFull enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NoteNameFull *noteNameFull = [[NoteNameFull alloc] initWithDictionary:obj error:nil];
+        [self.noteNamesFull addObject:noteNameFull];
+    }];
+/////////////////////////////
     
     self.positions = [NSMutableArray array];
     

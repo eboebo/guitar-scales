@@ -19,6 +19,7 @@ typedef void (^UpdateCallback)(BOOL success);
 @property (nonatomic, strong) NSMutableArray *keys;
 @property (nonatomic, strong) NSMutableArray *degrees;
 @property (nonatomic, strong) NSMutableArray *degreesFull;
+@property (nonatomic, strong) NSMutableArray *noteNamesFull;
 @property (nonatomic, copy) UpdateCallback callback;
 @property (nonatomic, strong) Scale *selectedScale;
 @property (nonatomic, strong) Scale *chromaticScale;

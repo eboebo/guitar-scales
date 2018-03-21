@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BC3933D1E77E22800814D64 /* NoteNameFull.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC3933C1E77E22800814D64 /* NoteNameFull.m */; };
 		6A2C7D1ADC36448B92530BA5 /* libPods-Guitar Scales Interactive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A017661574384B0EC06AC /* libPods-Guitar Scales Interactive.a */; };
 		99080A411E0312A00037EC84 /* ArrowButtonZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 99080A401E0312A00037EC84 /* ArrowButtonZoom.m */; };
 		991FE5B71E4687E4008E1BC0 /* DegreeFull.m in Sources */ = {isa = PBXBuildFile; fileRef = 991FE5B61E4687E4008E1BC0 /* DegreeFull.m */; };
@@ -78,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BC3933B1E77E21500814D64 /* NoteNameFull.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteNameFull.h; sourceTree = "<group>"; };
+		2BC3933C1E77E22800814D64 /* NoteNameFull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteNameFull.m; sourceTree = "<group>"; };
 		494BA7F9D1874C41B2F0B0BE /* Pods-Guitar Scales Interactive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Scales Interactive.xcconfig"; path = "Pods/Pods-Guitar Scales Interactive.xcconfig"; sourceTree = "<group>"; };
 		99080A3F1E03124C0037EC84 /* ArrowButtonZoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrowButtonZoom.h; sourceTree = "<group>"; };
 		99080A401E0312A00037EC84 /* ArrowButtonZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowButtonZoom.m; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				B108CB13199B02990047A473 /* Degree.m */,
 				991FE5B51E46877F008E1BC0 /* DegreeFull.h */,
 				991FE5B61E4687E4008E1BC0 /* DegreeFull.m */,
+				2BC3933B1E77E21500814D64 /* NoteNameFull.h */,
+				2BC3933C1E77E22800814D64 /* NoteNameFull.m */,
 				B16E945819A173D8001F769A /* Coordinate.h */,
 				B16E945919A173D8001F769A /* Coordinate.m */,
 				B16E945B19A176FA001F769A /* DegreePosition.h */,
@@ -435,7 +440,7 @@
 		B108CAB3199AD1E70047A473 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				TargetAttributes = {
 					B108CABA199AD1E70047A473 = {
 						DevelopmentTeam = XS87R2WV3V;
@@ -568,6 +573,7 @@
 				B1EC83F319F4141700A3D30F /* MenuTableViewCell.m in Sources */,
 				B108CB08199ADB570047A473 /* StringView.m in Sources */,
 				B1D962CF1DD6203700DDEF6A /* FullStringContainerView.m in Sources */,
+				2BC3933D1E77E22800814D64 /* NoteNameFull.m in Sources */,
 				B16E945A19A173D8001F769A /* Coordinate.m in Sources */,
 				B15F7B7919AAB13800028D8D /* UIColor+Guitar.m in Sources */,
 				B1EC83EF19F40A7800A3D30F /* TutorialViewController.m in Sources */,
@@ -629,14 +635,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -676,14 +688,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
