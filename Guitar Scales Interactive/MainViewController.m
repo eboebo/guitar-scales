@@ -31,10 +31,48 @@ OptionsViewDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // trying to use UIAlertController because viewAlert has been deprecated, but so far it's not working
+    
     if (![[GuitarStore sharedStore] displayedTutorial]) {
-        
+
+//        UIAlertController * alert;
+//
+//        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+//
+//            alert = [UIAlertController
+//                                     alertControllerWithTitle:@"Welcome to Guitar Note Atlas"
+//                                     message:@"Tap the diagram to zoom out and view the entire fretboard. Would you like to see the tutorial for more info?"
+//                                     preferredStyle:UIAlertControllerStyleAlert];
+//        }
+//        else {
+//            alert = [UIAlertController
+//                                    alertControllerWithTitle:@"Welcome to Guitar Note Atlas"
+//                                    message:@"Would you like to see the tutorial to get started?"
+//                                    preferredStyle:UIAlertControllerStyleAlert];
+//        }
+//
+//        UIAlertAction* noButton = [UIAlertAction
+//                                    actionWithTitle:@"No Thanks"
+//                                    style:UIAlertActionStyleDefault
+//                                    handler:^(UIAlertAction * action) {
+//                                         [[GuitarStore sharedStore] setDisplayedTutorial];
+//                                    }];
+//
+//        UIAlertAction* yesButton = [UIAlertAction
+//                                   actionWithTitle:@"OK"
+//                                   style:UIAlertActionStyleDefault
+//                                   handler:^(UIAlertAction * action) {
+//                                       [self displayTutorial:YES];
+//                                       [[GuitarStore sharedStore] setDisplayedTutorial];
+//                                   }];
+//
+//        [alert addAction:noButton];
+//        [alert addAction:yesButton];
+//
+//        [self presentViewController:alert animated:YES completion:nil];
+    
         UIAlertView *alert;
-       
+
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
         alert = [[UIAlertView alloc] initWithTitle:@"Welcome to Guitar Note Atlas"
                                                         message:@"Tap the diagram to zoom out and view the entire fretboard. Would you like to see the tutorial for more info?"
@@ -49,7 +87,7 @@ OptionsViewDelegate>
                                                   cancelButtonTitle:@"No Thanks"
                                                   otherButtonTitles:@"OK", nil];
         }
-        
+
         [alert show];
     }
     
@@ -186,6 +224,7 @@ OptionsViewDelegate>
 
 #pragma mark UIAlertView delegate
 
+// alertView has been deprecated, trying to replace with UIAlertController (above)
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
