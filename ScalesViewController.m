@@ -518,12 +518,14 @@
         [title addAttribute:NSKernAttributeName value:@-2.0 range:NSMakeRange(0, title.length)];
     }    // add kerning for iPhone
  
+    // 2018 update -- need to raise title on iPhone and iPad versions
+    
     CGRect titleFrame;
     if (isiPad) {
-        titleFrame = CGRectMake(2.0, 1.0, 0.0, 0.0);
+        titleFrame = CGRectMake(2.0, -8.5, 0.0, 0.0);
     }
     else {
-        titleFrame = CGRectMake(5.0, 1.0, 0.0, 0.0);
+        titleFrame = CGRectMake(3.0, -6.5, 0.0, 0.0);
     }
     
     UIView * customTitleView = [[UIView alloc] initWithFrame:titleFrame];
